@@ -62,7 +62,7 @@ module.exports = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
                     editUrl:
-                        "https://github.com/brown-ccv/honeycomb/edit/documentation/honeycomb/",
+                        "https://github.com/brown-ccv/honeycomb/edit/documentation/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
