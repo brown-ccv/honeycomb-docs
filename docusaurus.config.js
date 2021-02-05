@@ -2,8 +2,8 @@ module.exports = {
     title: "HoneyComb",
     tagline:
         "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use",
-    url: "https://your-docusaurus-test-site.com",
-    baseUrl: "/",
+    url: "https://brown-ccv.github.io",
+    baseUrl: "/honeycomb/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/hexagon-regular.svg",
