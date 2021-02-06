@@ -1,6 +1,6 @@
 ---
 id: online_integration
-title: Integration with online platforms
-sidebar_label: Integration with online platforms
+title: Integrate with online platforms
+sidebar_label: Integrate with online platforms
 slug: /
 ---
