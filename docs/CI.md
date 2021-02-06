@@ -3,6 +3,7 @@ id: CI
 title: Use installers
 ---
 
+
 ## CI/CD: 
 
 Continuous Integration, Continuous Deployment: CI/CD or CICD refers to continuous integration and either continuous delivery or continuous deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions. 
@@ -19,17 +20,17 @@ Trigger the builds by tagging a release. Bundled executables are automatically b
 
 Another way to trigger builds is by pushing to the main branch of your repository. In this case, the bundled executables will be located within the GitHub Actions tab on your GitHub repository. 
 
-### Download your bundled executable to install and run your task 
+## Download your bundled executable to install and run your task 
 
 You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file and allow to run. 
 
-The executable does not require installation of any additional software (including the prerequisites listed in Overview -> Software prerequisites). 
+The executable does not require installation of any additional software (including the prerequisites listed in Overview: Software prerequisites). 
 
-### Uninstall the task
+## Uninstall the task
 
-## Windows 
+#### Windows 
 
-Go to System Settings -> Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall. 
+Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall. 
 
 
 
