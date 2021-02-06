@@ -1,6 +1,6 @@
 ---
 id: event_triggers
-title: Event Triggers
-sidebar_label: Event Triggers
+title: Set up event triggers
+sidebar_label: Set up event triggers
 slug: /
 ---
