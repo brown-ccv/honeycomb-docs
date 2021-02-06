@@ -1,6 +1,6 @@
 ---
 id: CI
-title: Installers via GitHub Actions
-sidebar_label: Installers via GitHub Actions
+title: Use installers via GitHub Actions
+sidebar_label: Use installers 
 slug: /
 ---
