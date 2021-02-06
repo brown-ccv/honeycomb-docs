@@ -15,3 +15,7 @@ Connect the open source event trigger to the computer running the task using a U
 ## Send event code triggers 
 
 Change the eventCodes values listed in the src/config/trigger.js file to the desired values. Import eventCodes from ‘./trigger’, and export as ‘eventCodes’. Whenever you would like to send an event code in a trial, load eventCodes from ‘../config/main/’ and call the pdSpotEncode function with the proper eventCode (e.g. eventCode.Fixation) as input. 
+
+## Run the task with event triggers
+
+Honeycomb automatically checks whether your event marker is connected and running at the start of the task. If it is not connected, the task will present an error and will not be able to run. 
