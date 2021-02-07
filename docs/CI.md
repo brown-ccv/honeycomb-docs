@@ -1,5 +1,5 @@
 ---
-id: CI
+id: ci
 title: Use installers
 ---
 
