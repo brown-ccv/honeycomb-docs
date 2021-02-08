@@ -12,7 +12,7 @@ const features = [
         imageUrl: "img/undraw_Content_creator_re_pt5b.svg",
         description: (
             <>
-                HoneyComb was designed to be modular, composable, easily
+                Honeycomb was designed to be modular, composable, easily
                 configured to deploy to linux, mac, windows, browser, PsiTurk
                 and more
             </>
@@ -23,17 +23,17 @@ const features = [
         imageUrl: "img/undraw_User_flow_re_bvfx.svg",
         description: (
             <>
-                HoneyComb includes GitHub Actions that build the
+                Honeycomb includes GitHub Actions that build the
                 executables/deployments for you.
             </>
         ),
     },
     {
-        title: "Use trusted and mature libraries",
+        title: "Based on trusted and mature libraries",
         imageUrl: "img/undraw_Code_review_re_woeb.svg",
         description: (
             <>
-                HoneyComb relies on mature libraries such as JSPsych, React and
+                Honeycomb relies on mature libraries such as JSPsych, React and
                 Electron
             </>
         ),

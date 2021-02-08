@@ -1,5 +1,5 @@
 module.exports = {
-    title: "HoneyComb",
+    title: "Honeycomb",
     tagline:
         "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use",
     url: "https://brown-ccv.github.io",
@@ -11,9 +11,9 @@ module.exports = {
     projectName: "honeycomb", // Usually your repo name.
     themeConfig: {
         navbar: {
-            title: "HoneyComb",
+            title: "Honeycomb",
             logo: {
-                alt: "HoneyComb Logo",
+                alt: "Honeycomb Logo",
                 src: "img/hexagon-regular.svg",
             },
             items: [
