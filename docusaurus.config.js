@@ -24,7 +24,7 @@ module.exports = {
                     position: "left",
                 },
                 {
-                    href: "https://github.com/brown-ccv/honeycomb-docs",
+                    href: "https://github.com/brown-ccv/honeycomb",
                     label: "GitHub",
                     position: "right",
                 },
@@ -47,7 +47,7 @@ module.exports = {
                     items: [
                         {
                             label: "GitHub",
-                            href: "https://github.com/brown-ccv/honeycomb-docs",
+                            href: "https://github.com/brown-ccv/honeycomb",
                         },
                     ],
                 },
