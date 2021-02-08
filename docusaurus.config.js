@@ -8,7 +8,7 @@ module.exports = {
     onBrokenMarkdownLinks: "warn",
     favicon: "img/hexagon-regular.svg",
     organizationName: "brown-ccv", // Usually your GitHub org/user name.
-    projectName: "honeycomb", // Usually your repo name.
+    projectName: "honeycomb-docs", // Usually your repo name.
     themeConfig: {
         navbar: {
             title: "Honeycomb",
