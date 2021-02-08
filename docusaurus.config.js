@@ -3,7 +3,7 @@ module.exports = {
     tagline:
         "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use",
     url: "https://brown-ccv.github.io",
-    baseUrl: "/honeycomb/",
+    baseUrl: "/honeycomb-docs/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/hexagon-regular.svg",
@@ -24,7 +24,7 @@ module.exports = {
                     position: "left",
                 },
                 {
-                    href: "https://github.com/brown-ccv/honeycomb",
+                    href: "https://github.com/brown-ccv/honeycomb-docs",
                     label: "GitHub",
                     position: "right",
                 },
@@ -47,7 +47,7 @@ module.exports = {
                     items: [
                         {
                             label: "GitHub",
-                            href: "https://github.com/brown-ccv/honeycomb",
+                            href: "https://github.com/brown-ccv/honeycomb-docs",
                         },
                     ],
                 },
@@ -62,7 +62,7 @@ module.exports = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     // Please change this to your repo.
                     editUrl:
-                        "https://github.com/brown-ccv/honeycomb/edit/documentation/",
+                        "https://github.com/brown-ccv/honeycomb-docs/edit/main/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
