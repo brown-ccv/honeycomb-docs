@@ -1,9 +1,9 @@
 ---
-id: getting_started
-title: Getting Started
+id: quick_start
+title: Quick Start
 ---
 
-To start a new task follow these steps:
+To start a new task locally, in development mode follow these steps:
 
 
 ### 1. Start your new task from our template repository
@@ -30,7 +30,11 @@ Update the `package.json` fields to reflect your app name and description, e.g. 
 
 ### 3. Install the dependencies. 
 
-You may first need to install Node.js (https://nodejs.org/en/download/) before being able to use npm commands in the terminal. Then you will be able to install the dependencies for HoneyComb using
+**Electron Dependencies**
+Honeycomb relies on Electron to package the cros-platform desktop applications. Before starting, you will need to install Electron's pre-requisites. You can find instructions [here](https://www.electronjs.org/docs/development) for you specific OS
+
+**Honeycomb npm packages**
+Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for HoneyComb run the following command at the terminal (remember you need `cd your-new-task-name` before)
 
 ```
 npm install

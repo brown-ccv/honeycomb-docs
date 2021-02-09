@@ -1,13 +1,15 @@
 module.exports = {
     someSidebar: {
-        Overview: [
-            "intro",
-            "software_prerecs",
+        Overview: ["intro", "folders"],
+        HowTo: [
+            "quick_start",
+            "version_control",
+            "ci",
             "configuration",
-            "getting_started",
+            "event_triggers",
+            "online_integration",
+            "troubleshooting",
+            "npm_scripts",
         ],
-        HowTo: ["ci", "event_triggers", "online_integration"],
-        Design: ["folders"],
-        Development: ["best_practices", "troubleshooting", "npm_scripts"],
     },
 };

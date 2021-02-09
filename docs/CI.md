@@ -1,6 +1,6 @@
 ---
 id: ci
-title: Building and using installers
+title: Automated Builds
 ---
 
 Honeycomb leverages Continues Integration/Deployment (CI/CD) to build the code and installers for different operating systems on demand or automatically as the code is pushed to the repository. In this section, we provide a short introduction to definitions. We explain the GitHub Actions included with Honeycomb. These workflows should provide a foundation but can easily be modified or extended to meet more needs.
@@ -23,14 +23,10 @@ Honeycomb includes workflows to build and create installers for Windows. Mac and
 
 
 More specifically, the following workflows are included:
-* `build-clinic-win.yaml`: Every time an Pull Request is open, or a push is made to the `main` branch, the software is built and tests are run (clinic version). This workflow does not build and upload desktop installers
-* `build-home-win.yaml`: Every time an Pull Request is open, or a push is made to the `main` branch, the software is built and tests are run (home version). his workflow does not build and upload desktop installers
-* `package-home-win.yaml`: Create home-installers for windows on demand <sup>1</sup>. The installer is uploaded as an artifact and it is available for download from the GitHub Actions tab
-* `package-home-all.yml`: Create home-installers for all platforms on demand <sup>1</sup>. This workflow also builds the PsiTurk version. The installers are uploaded as an artifact and they are available for download from the GitHub Actions tab.
-* `package-clinic-all.yml`: Create clinic-installers for all platforms on demand <sup>1</sup>. The installers are uploaded as an artifact and they are available for download from the GitHub Actions tab.
-* `package-clinic-win.yaml`: Create clinic-installers for Windows on demand <sup>1</sup>. The installer is uploaded as an artifact and it is available for download from the GitHub Actions tab
-* `release-home-all.yml`: Every time an a Tag is released, home-installers are created and uploaded as packages. This also builds PsiTurk version, and deploys to GitHub pages a web version of the application. 
-* `release-clinic-all.yml`:Every time an a Tag is released, clinic-installers are created and uploaded as packages
+* `build.yaml`: Every time an Pull Request is open, or a push is made to the `main` branch, the software is built and tests are run for all platforms and `at-home` and `clinic` configurations. This workflow does not build and upload desktop installers
+* `package.yaml`: Create installers for all platforms and `at-home` and `clinic` configurations on demand <sup>1</sup>. The installer/executable is uploaded as an artifact and it is available for download from the GitHub Actions tab. This also builds PsiTurk version, and deploys to GitHub pages a web version of the application. 
+* `release.yml`: Every time an a Tag is released, installers are created and uploaded as packages. This also builds PsiTurk version, and deploys to GitHub pages a web version of the application. 
+
 
 <sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage. Uploading artifacts counts against your quota. You should configure your workflows to only upload what you need.
 
@@ -38,7 +34,7 @@ More specifically, the following workflows are included:
 
 You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file and allow to run. 
 
-The executable does not require installation of any additional software (including the prerequisites listed in Overview: Software prerequisites). 
+The executable does not require installation of any additional software. 
 
 ## Uninstall the task
 
