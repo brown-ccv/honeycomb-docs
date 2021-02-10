@@ -11,7 +11,7 @@ Git creates a hidden `.git` folder \(in the current folder\) to store the detail
 
 Git tracks file changes by the user creating a _save point_, or in Git terms a **commit**. Each commit takes a snapshot of the current file system. Commits are uniquely identified by a SHA–1 hash. This is a 40 character string which may along the lines of `ded7a0db6422d59e9893e975e32275fc36f853da`This hash can be used to track a particular commit within the repository.
 
-Nearly all operations that are performed by Git are in you local computing environment, for the exception of few used purly to synchronize with a remote. Some of the most common git operations are depicted below. In summary a typical flow consists of making changes to your files, _staging_ them via `git add`, marking a save point via `git commit`, then finally syncing to your remote \(e.g., GitHub\) via `git push`. If you are pushing changes to your remote from multiple places, you can bring changes your most recent version usin `git pull`, which is the equivalent of doing `git fetch` followed by a `git merge` operation
+Nearly all operations that are performed by Git are in you local computing environment, for the exception of few used purely to synchronize with a remote. Some of the most common git operations are depicted below. In summary, a typical flow consists of making changes to your files, _staging_ them via `git add`, marking a save point via `git commit`, then finally syncing to your remote \(e.g., GitHub\) via `git push`. If you are pushing changes to your remote from multiple places, you can bring changes your most recent version using `git pull`, which is the equivalent of doing `git fetch` followed by a `git merge` operation
 
 ![](assets/git-basics.png)
 
@@ -27,7 +27,7 @@ Nearly all operations that are performed by Git are in you local computing envir
 
 ## Best Practices
 
-### Workflow¶
+### Workflow
 
 We recommend a simple flow based on following rules:
 
@@ -36,12 +36,12 @@ We recommend a simple flow based on following rules:
 * Everyone starts from main, and targets main.
 * Commit messages reflect intent.
 
-### Branches¶
+### Branches
 
 * main is the default branch and where releases are made off. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches
 * topic branches are created for new features, fixes, or really any changes
 
-### Comment styles¶
+### Comment styles
 
 We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
 

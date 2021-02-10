@@ -31,7 +31,7 @@ Update the `package.json` fields to reflect your app name and description, e.g. 
 ### 3. Install the dependencies. 
 
 **Electron Dependencies**
-Honeycomb relies on Electron to package the cros-platform desktop applications. Before starting, you will need to install Electron's pre-requisites. You can find instructions [here](https://www.electronjs.org/docs/development) for you specific OS
+Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites. You can find instructions [here](https://www.electronjs.org/docs/development) for your specific OS
 
 **Honeycomb npm packages**
 Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for HoneyComb run the following command at the terminal (remember you need `cd your-new-task-name` before)
