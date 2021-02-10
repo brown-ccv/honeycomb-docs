@@ -5,7 +5,7 @@ title: Configuration
 
 ## Environment Variables
 
-Honeycomb uses environment variables during build and run time to control the different configurations. Below we list the  environment variables used by the app and indicate whether they are mandatory, optional and needed during build (`npm build`) or run time (using the application executable of `npm run dev`)
+Honeycomb uses environment variables during build and run time to control the different configurations. Below we list the  environment variables used by the app and indicate whether they are mandatory, optional and needed during build (`npm build`) or run time (using the application executable or `npm run dev`)
 
 * `ELECTRON_START_URL` ![](https://img.shields.io/badge/-string-grey)![](https://img.shields.io/badge/-optional-yellow): URL (e.g. `http://localhost:3000`) where the front end of the app is being hosted - also used in `electron.js` to indicate the app is running in dev mode
 * `EVENT_MARKER_PRODUCT_ID`![](https://img.shields.io/badge/-string-grey)![](https://img.shields.io/badge/-optional-yellow)![](https://img.shields.io/badge/-runtime-purple): The product ID of the event marker (e.g. `0487`).  If not set, it will use the `productID` set in `public/config/trigger.js` if available, or attempt to connect using the com name.

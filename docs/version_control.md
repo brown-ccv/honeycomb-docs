@@ -44,13 +44,3 @@ We recommend a simple flow based on following rules:
 ### Comment styles
 
 We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
-
-<!-- ### Keep your code style consistent
-
-* `let` instead of `var`
-* fat arrow functions (`const myFunc = (var) => doSomething(var)`) instead of es5/6 functions (`function myFunc(var) { doSomething(var) }`)
-* camel case for variable, and function names (`doSomething`) instead of snake case (`do_something`)
-* but snake case inside json is fine
-* a `tab` === two spaces
-* file exports at the bottom of the file in one chunk instead of exporting the function declaration
-* when in doubt, leave future you a comment (you'll never regret it) -->
