@@ -28,19 +28,6 @@ cd your-new-task-name
 
 Update the `package.json` fields to reflect your app name and description, e.g. `name`, `author`, `repository`
 
-### 3. Create a GitHub access token
-
-Run the command: 
-```
-npm login --registry=https://npm.pkg.github.com --scope=@brown-ccv
-```
-
-Running this command will prompt you for a username and password. Use your GitHub username in the username field. For the password, generate a new access token. To generate a new token, follow the steps below. 
-
-From GitHub, go to settings --> developer settings --> generate new token. 
-
-Select repo and read packages scopes, and generate the token. 
-
 ### 3. Install the dependencies. 
 
 **Electron Dependencies**
