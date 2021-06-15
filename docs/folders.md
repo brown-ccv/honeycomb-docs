@@ -37,9 +37,9 @@ Note: the productId can be overwritten by the environment variable EVENT_MARKER_
 
 This folder contains the code for the app, the vast majority of changes and code should go here.
 
-#### `App.js`
+#### `App.jsx`
 
-This is the starting point for the app. The `<Login>` component handles the validation in the different use cases and the `<JsPsychExperiment>` component initializes the `jspsych` experiment. This is also where communication is set up with the `electron` and `psiturk` processes.
+This is the starting point for the app. The `<Login>` component handles use authentication in the different use cases and the `<JsPsychExperiment>` component initializes the `jspsych` experiment. This is also where communication is set up with the `electron` and `psiturk` processes.
 
 #### `App.css`
 
@@ -51,11 +51,11 @@ This folder contains any static files that are used by the app, such as images.
 
 #### `components/`
 
-This folder contains the components referenced in `App.js`.
+This folder contains the components referenced in `App.jsx`.
 
 #### `config/`
 
-In the `config/` directory, there are `.js` files which contain settings for the different parts of the task.  Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different default configurations can be loaded into .env files in the `env` directory. The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
+In the `config/` directory, there are `.js` files which contain settings for the different parts of the task.  Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different in-task features can be loaded from .env files and is set in the `main` config. For example, we have included some of these files in the `env` directory (e.g. `env.clinic` file enables event marker, photodiode and volume adjustment). The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
 
 Other config files can be used to add settings for specific blocks or sub-sections of the experiment.
 
@@ -73,7 +73,7 @@ The `lib/` directory contains utility functions and markup that is used in the t
 
 #### `timelines`
 
-`jspsych` uses `timelines` to control what `trials` are displayed in what order.  `timelines` can contain other `timelines`, which is why there may be several files in this directory.  The `main.js` file should have the timeline that is called by `App.js` in the `<JsPsychExperiment>` component.
+`jspsych` uses `timelines` to control what `trials` are displayed in what order.  `timelines` can contain other `timelines`, which is why there may be several files in this directory.  The `main.js` file should have the timeline that is called by `App.jsx` in the `<JsPsychExperiment>` component.
 
 #### `trials`
 

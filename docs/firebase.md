@@ -3,14 +3,14 @@ id: firebase
 title: Set up Firebase
 ---
 
-Honeycomb comes with methods and configurations for easy firebase and firestore cloud storage set up. Please use this section to configure firebase hosting services and firestore cloud storage.
+Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) set up. Please use this section to configure [Firebase Hosting](https://firebase.google.com/docs/hosting) services and firestore cloud storage.
 
 ## Getting Started
 
 Follow these steps to create a firebase project and link it with the current task.
 
 #### 1. Initializing firebase account and project
-- Create and login to a firebase account on [this page](https://firebase.google.com/).
+- Create and login to a firebase account on [the Firebase website](https://firebase.google.com/).
 - Create a firebase project by clicking add project and enter a Project Name.
 
 #### 2. Linking firebase to task
@@ -47,3 +47,5 @@ Honeycomb includes a set of security rules to store participant data in firestor
 - Navigate to the `Rules` tab once the database is created then copy the code that is in the `firestore.rules` file.
 
 Firestore is now set up. To add an authorized participant, create a collection named `registered_studies`, add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
+
+![](assets/test-task.png)

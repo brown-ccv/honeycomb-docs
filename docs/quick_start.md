@@ -37,7 +37,7 @@ Honeycomb relies on Electron to package the cross-platform desktop applications.
 Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for HoneyComb run the following command at the terminal (remember you need `cd your-new-task-name` before)
 
 ```
-npm install -D
+npm install
 ```
 
 ### 4. Run the task in dev mode
