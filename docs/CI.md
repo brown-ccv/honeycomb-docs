@@ -30,6 +30,16 @@ More specifically, the following workflows are included:
 
 <sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage on private repositories. Uploading artifacts counts against your quota. You may consider configuring your workflows to only upload what you need.
 
+## Github Actions for firebase hosting
+
+Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the follwing steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md)
+
+* Run `firebase init hosting:github` in the terminal and follow the CLI prompts to start setting up the github actions.
+   - For the github directory question, select your task github directory.
+   - When prompted with the npm command, type `npm install && npm run build:firebase`
+
+There should be two new `.yml` files created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch.
+
 ## Download your bundled executable to install and run your task 
 
 You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file and allow to run. 
