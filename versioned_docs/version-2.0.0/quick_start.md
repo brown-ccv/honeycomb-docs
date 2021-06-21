@@ -31,7 +31,50 @@ Update the `package.json` fields to reflect your app name and description, e.g. 
 ### 3. Install the dependencies. 
 
 **Electron Dependencies**
-Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites. You can find instructions [here](https://www.electronjs.org/docs/development) for your specific OS
+Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions [here](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS
+
+#### Windows
+
+- Visual Studio:
+Install the latest version of Visual Studio (https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
+To add the workflow, follow the instructions linked below: 
+https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify.
+
+- Node.js:
+Install Node.js: https://nodejs.org/en/download/
+
+- Git bash:
+Install git bash: https://git-scm.com/downloads
+
+##### Note: restart computer after all installs are complete
+
+#### MacOS
+
+- Node.js:
+Install Node.js: https://nodejs.org/en/download/
+
+- Git bash:
+Install git bash: https://git-scm.com/downloads/
+
+- Python 2.7 with support for TLS 1.2:
+Follow the guide on electron docs to install and configure python and its modules: https://www.electronjs.org/docs/development/build-instructions-macos#python
+
+#### Linux
+
+- Node.js: 
+Dowload Node.js source code and compile it: https://nodejs.org/en/download/
+
+- Git bash: 
+Install git bash: https://git-scm.com/downloads/
+
+- Python 2.7:
+Install Python: https://www.python.org/downloads/
+
+- Clang:
+Install Clang: https://clang.llvm.org/get_started.html
+
+- Development headers of GTK 3 and libnotify:
+Follow these instructions on the electron docs: https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites
 
 **Honeycomb npm packages**
 Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for HoneyComb run the following command at the terminal (remember you need `cd your-new-task-name` before)
@@ -44,23 +87,23 @@ npm install
 
 To launch an electron window with the task with the inspector open to the console and will hot-reload when changes are made to the app
 
-**For Mac and Linux:
-```
-npm run dev
-```
+- For Mac and Linux:
+    ```
+    npm run dev
+    ```
 
-**For Windows:
-You will need to open 2 terminals. In the first -and make sure you are in the `task-<TASK NAME>` repo directory- run the command:
+- For Windows:
+    You will need to open 2 terminals. In the first -and make sure you are in the `task-<TASK NAME>` repo directory- run the command:
 
-```
-npm start
-```
+    ```
+    npm start
+    ```
 
-In the second terminal -  make sure you are in the `task-<TASK NAME>` repo directory-, run:
+    In the second terminal -  make sure you are in the `task-<TASK NAME>` repo directory-, run:
 
-```
-npm run electron-dev
-```
+    ```
+    npm run electron-dev
+    ```
 
 ### 5. Run the task with preset environment variables
 

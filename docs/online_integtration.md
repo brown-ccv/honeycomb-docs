@@ -51,8 +51,10 @@ For this step to succeed you will need to create a deploy key and enable GitHub 
 
 ### Using Firebase
 
-We have included methods and configurations for close integration with firebase. Before proceeding with the follwing steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md)
+We have included methods and configurations for close integration with firebase. Before proceeding with the follwing steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md).
 
 1. Run `npm run build:firebase` in the terminal to create a production build for firebase.
 2. Run `firebase deploy` in the terminal to deploy the production build.
 3. The production build is now deployed to the firebase project domain. 
+
+To automate firebase deployments, we have included instructions on setting up firebase github actions on our [Automated Builds page](CI.md#github-actions-for-firebase-hosting)
