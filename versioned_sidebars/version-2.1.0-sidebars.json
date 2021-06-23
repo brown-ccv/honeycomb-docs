@@ -7,11 +7,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-2.0.0/intro"
+          "id": "version-2.1.0/intro"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/folders"
+          "id": "version-2.1.0/folders"
         }
       ]
     },
@@ -22,39 +22,39 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-2.0.0/quick_start"
+          "id": "version-2.1.0/quick_start"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/version_control"
+          "id": "version-2.1.0/version_control"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/firebase"
+          "id": "version-2.1.0/firebase"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/ci"
+          "id": "version-2.1.0/ci"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/configuration"
+          "id": "version-2.1.0/configuration"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/event_triggers"
+          "id": "version-2.1.0/event_triggers"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/online_integration"
+          "id": "version-2.1.0/online_integration"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/troubleshooting"
+          "id": "version-2.1.0/troubleshooting"
         },
         {
           "type": "doc",
-          "id": "version-2.0.0/npm_scripts"
+          "id": "version-2.1.0/npm_scripts"
         }
       ]
     }
