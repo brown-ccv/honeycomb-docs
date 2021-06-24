@@ -27,3 +27,15 @@ This command generates static content into the `build` directory and can be serv
 ## Deployment
 
 Deployment happens in GitHub Actions to GitHub Pages
+
+## Versioning
+
+To edit files for the current version, update the files under the `docs` directory. To edit the files in a previous version, edit the files from `versioned_docs/<you version>`.
+
+To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
+
+```console
+yarn run docusaurus docs:version <version number>
+```
+
+This will copy the files in the `docs` folder to `versioned_docs/version-<version number>/`, create a `version-<version number>-sidebar.json` file under `version_sidebars` and add the version number to the `version.json` file. 

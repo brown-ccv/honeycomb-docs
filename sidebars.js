@@ -4,6 +4,7 @@ module.exports = {
         HowTo: [
             "quick_start",
             "version_control",
+            "firebase",
             "ci",
             "configuration",
             "event_triggers",
