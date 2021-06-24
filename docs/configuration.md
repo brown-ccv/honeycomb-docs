@@ -18,9 +18,9 @@ Honeycomb uses environment variables during build and run time to control the di
 * `REACT_APP_STUDY_ID` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The default study id to show when authorizing a participant.  If not set, no default is shown (blank input box).
 
 Here are details on some of the badges:
-- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variable. Set at the system level. Follow [these](https://www.imatest.com/docs/editing-system-environment-variables/#Windows) for OS specific instructions.
+- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variable. Set at the system level. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows)
 
 - ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable. Set in a `.env` file before building. Can also be defined in a separate file under the `env/` directory and called with the dotenv-cli before building.
 ```
-dotenv -e env/<your env file> <your command>
+dotenv -e env/<your env file> npm run build
 ```

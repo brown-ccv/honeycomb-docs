@@ -11,13 +11,13 @@ Continuous Integration, Continuous Deployment: CI/CD or CICD refers to continuou
 
 ## What are Github Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
+[GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
 
-GitHub Actions are written as YML files inside a `.github/worflows/` folder in your repository.
+GitHub Actions are written as YAML files inside a `.github/worflows/` folder in your repository.
 
 ## Building the executables
 
-Honeycomb includes workflows to build and create installers for Windows. Mac and Linux. These workflows exist for two configurations of the tasks:
+Honeycomb includes workflows to build and create installers for Windows, Mac, and Linux. These workflows exist for two configurations of the tasks:
 * Home: The app does not expect event code triggers and photodiode spots. 
 * Clinic: The app expects event code triggers and photodiode spots. 
 
@@ -41,7 +41,6 @@ The executable does not require installation of any additional software.
 #### Windows 
 
 Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall. 
-
 
 
 

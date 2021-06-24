@@ -31,27 +31,26 @@ Update the `package.json` fields to reflect your app name and description, e.g. 
 ### 3. Install the dependencies. 
 
 **Electron Dependencies**
-Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions [here](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS
+Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
 
 #### Windows
 
 - Visual Studio:
-Install the latest version of Visual Studio (https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
-To add the workflow, follow the instructions linked below: 
-https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify.
+Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
+To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
 
 - Node.js:
-Install Node.js: https://nodejs.org/en/download/
+Install [Node.js](https://nodejs.org/en/download/)
 
 - Git bash:
-Install git bash: https://git-scm.com/downloads
+Install [git bash](https://git-scm.com/downloads)
 
 ##### Note: restart computer after all installs are complete
 
 #### MacOS
 
 - Node.js:
-Install Node.js: https://nodejs.org/en/download/
+Install [Node.js](https://nodejs.org/en/download/)
 
 - Git bash:
 Install git bash: https://git-scm.com/downloads/
