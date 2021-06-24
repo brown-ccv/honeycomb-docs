@@ -30,12 +30,12 @@ Deployment happens in GitHub Actions to GitHub Pages
 
 ## Versioning
 
-To add a new version, edit the files in `docs` folder with the new version content. Once the new version content is finalized, run:
+To edit files for the current version, update the files under the `docs` directory. To edit the files in a previous version, edit the files from `versioned_docs/<you version>`.
+
+To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
 
 ```console
 yarn run docusaurus docs:version <version number>
 ```
 
 This will copy the files in the `docs` folder to `versioned_docs/version-<version number>/`, create a `version-<version number>-sidebar.json` file under `version_sidebars` and add the version number to the `version.json` file. 
-
-To edit the files in a previous version, edit the files from `versioned_docs` directly. To edit files in the latest version, both the files under `versioned_docs` and `docs` need to be updated. Thus, it's good practice to create the version only when the content in the `docs` folder is finalized.
