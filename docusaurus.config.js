@@ -18,6 +18,11 @@ module.exports = {
             },
             items: [
                 {
+                    type: "docsVersionDropdown",
+                    position: "left",
+                    dropdownActiveClassDisabled: true,
+                },
+                {
                     to: "docs/",
                     activeBasePath: "docs",
                     label: "Docs",
@@ -63,6 +68,38 @@ module.exports = {
                     // Please change this to your repo.
                     editUrl:
                         "https://github.com/brown-ccv/honeycomb-docs/edit/main/",
+
+                    showLastUpdateTime: true,
+
+                    /**
+                     * The last version is the one we navigate to in priority on versioned sites
+                     * It is the one displayed by default in docs navbar items
+                     * By default, the last version is the first one to appear in versions.json
+                     * By default, the last version is at the "root" (docs have path=/docs/myDoc)
+                     * Note: it is possible to configure the path and label of the last version
+                     * Tip: using lastVersion: 'current' make sense in many cases
+                     */
+                    lastVersion: "current",
+                    /**
+                     * The docusaurus versioning defaults don't make sense for all projects
+                     * This gives the ability customize the label and path of each version
+                     * You may not like that default version
+                     */
+                    versions: {
+                        current: {
+                            label: "2.1.0",
+                            path: "",
+                        },
+                        "1.1.0": {
+                            label: "1.1.0",
+                            path: "1.1.0",
+                        },
+                    },
+                    /**
+                     * Sometimes you only want to include a subset of all available versions.
+                     * Tip: limit to 2 or 3 versions to improve startup and build time in dev and deploy previews
+                     */
+                    // onlyIncludeVersions: undefined, // ex: ["current", "1.0.0", "2.0.0"]
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
