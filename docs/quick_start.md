@@ -48,32 +48,36 @@ Install [git bash](https://git-scm.com/downloads)
 ##### Note: restart computer after all installs are complete
 
 #### MacOS
+- Command Line Tools: Type in the terminal
+```
+xcode-select --install
+```
 
 - Node.js:
 Install [Node.js](https://nodejs.org/en/download/)
 
-- Git bash:
-Install git bash: https://git-scm.com/downloads/
+- Git:
+Install [git](https://git-scm.com/downloads/)
 
 - Python 2.7 with support for TLS 1.2:
-Follow the guide on electron docs to install and configure python and its modules: https://www.electronjs.org/docs/development/build-instructions-macos#python
+Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python) 
 
 #### Linux
 
 - Node.js: 
-Dowload Node.js source code and compile it: https://nodejs.org/en/download/
+Dowload [Node.js source code](https://nodejs.org/en/download/) and compile it: 
 
-- Git bash: 
-Install git bash: https://git-scm.com/downloads/
+- Git: 
+Install [git](https://git-scm.com/downloads/)
 
 - Python 2.7:
-Install Python: https://www.python.org/downloads/
+Install [Python](https://www.python.org/downloads/)
 
 - Clang:
-Install Clang: https://clang.llvm.org/get_started.html
+Install [Clang](https://clang.llvm.org/get_started.html)
 
 - Development headers of GTK 3 and libnotify:
-Follow these instructions on the electron docs: https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites
+Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
 **Honeycomb npm packages**
 Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for HoneyComb run the following command at the terminal (remember you need `cd your-new-task-name` before)
