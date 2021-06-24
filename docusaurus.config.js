@@ -18,15 +18,15 @@ module.exports = {
             },
             items: [
                 {
-                    type: "docsVersionDropdown",
-                    position: "left",
-                    dropdownActiveClassDisabled: true,
-                },
-                {
                     to: "docs/",
                     activeBasePath: "docs",
                     label: "Docs",
                     position: "left",
+                },
+                {
+                    type: "docsVersionDropdown",
+                    position: "right",
+                    dropdownActiveClassDisabled: true,
                 },
                 {
                     href: "https://github.com/brown-ccv/honeycomb",
@@ -95,11 +95,6 @@ module.exports = {
                             path: "1.1.0",
                         },
                     },
-                    /**
-                     * Sometimes you only want to include a subset of all available versions.
-                     * Tip: limit to 2 or 3 versions to improve startup and build time in dev and deploy previews
-                     */
-                    // onlyIncludeVersions: undefined, // ex: ["current", "1.0.0", "2.0.0"]
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
