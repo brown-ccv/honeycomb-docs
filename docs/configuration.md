@@ -20,7 +20,8 @@ Honeycomb uses environment variables during build and run time to control the di
 Here are details on some of the badges:
 - ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variable. Set at the system level. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows)
 
-- ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable. Set in a `.env` file before building. Can also be defined in a separate file under the `env/` directory and called with the dotenv-cli before building.
+- ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable. Set in a `.env` file before building. Can also be defined in a separate file under the `env/` directory and called with the dotenv-cli before building. **NOTE:** The `dotenv` command will not work directly from the command line. Instead, to set build-time environment variables, either run an existing npm script (e.g., `npm run build:clinic`, which sets clinic variables) or add a new script to `package.json` with the following format:
 ```
-dotenv -e env/<your env file> npm run build
+"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run build"
 ```
+Then run the script like so: `npm run [build|dev]:<script name>`
