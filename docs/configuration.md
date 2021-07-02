@@ -22,6 +22,10 @@ Here are details on some of the badges:
 
 - ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable. Set in a `.env` file before building. Can also be defined in a separate file under the `env/` directory and called with the dotenv-cli before building. **NOTE:** The `dotenv` command will not work directly from the command line. Instead, to set build-time environment variables, either run an existing npm script (e.g., `npm run build:clinic`, which sets clinic variables) or add a new script to `package.json` with the following format:
 ```
-"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run build"
+"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
 ```
-Then run the script like so: `npm run [build|dev]:<script name>`
+Or, to add your new variables to an existing environment configuration, e.g. `.env.clinic`, create a script in the following format:
+```
+"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]:clinic"
+```
+Then run the script like so: `npm run [build|dev]:<script name>`.
