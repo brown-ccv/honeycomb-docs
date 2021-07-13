@@ -19,6 +19,10 @@ The icons used for the installed applications are put here.
 
 This folder contains different .env files with presets for common use cases. These files can be loaded with `dotenv`, which is explained in greater detail in the [Configuration](configuration.md) section.
 
+### `.github/workflows/`
+
+This folder contains different .yaml files which are used to configure the build tests (`build.yaml`) following a push and to create task executables either in a single instance (`package.yaml`) or for a full release (`release.yaml`).
+
 ### `public/`
 
 The `public` directory contains files that are used as assets in the built app. The `favicon.ico` is the small icon you can see in the browser tab (on Chrome) - it is set to Brown's logo in the project. The `index.html` contains the shell of your website - the name displayed on the tab can be changed here, otherwise it shouldn't need to be edited. The scripts included in the file are for `psiturk` as are the files in the `lib/` directory.
