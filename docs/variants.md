@@ -5,7 +5,7 @@ title: Variants
 
 ## Variant Specific Executables
 
-In order to create multiple variants of a task that can be co-installed, it is necessary to add new scripts to the (`package.json`) file in addition to creating the necessary environment variables for configuration. Each variant must have a unique, lowercase name. Optionally, a unique icon can be used for each variant by saving multiple icons to the icons directories with the same names as the variants. Example scripts for Windows, Mac, and Linux are shown below. 
+In order to create multiple variants of a task that can be co-installed, it is necessary to add new scripts to the `package.json` file in addition to creating the necessary environment variables for configuration. Each variant must have a unique, lowercase name. Optionally, a unique icon can be used for each variant by saving multiple icons to the icons directories with the same names as the variants. Example scripts for Windows, Mac, and Linux are shown below. 
 
 Windows:
 
@@ -30,11 +30,11 @@ Linux:
 
 ## Variant Specific Workflows
 
-In order to use Github workflows to build and upload executables for each variant, the (`build.yaml`), (`package.yaml`), and (`release.yaml`) files must be modified as well. For all three files, a new row should be added to the matrix variable as follows:
+In order to use Github workflows to build and upload executables for each variant, the `build.yaml`, `package.yaml`, and `release.yaml` files must be modified as well. For all three files, a new row should be added to the matrix variable as follows:
 
 	variant: [<comma_separated_list_of_variant_names>]
 
-Add the following before npm build in the steps section of (`build.yaml`):
+Add the following before npm build in the steps section of `build.yaml`:
 
       - name: Load .env file for variant
         uses: xom9ikk/dotenv@v1.0.2
@@ -42,7 +42,7 @@ Add the following before npm build in the steps section of (`build.yaml`):
           path: ./env
           mode: ${{matrix.variant}}
 
-In (`package.yaml`) and (`release.yaml`), replace the (`# Build electron app package installers`) section with the following code:
+In `package.yaml` and `release.yaml`, replace the `# Build electron app package installers` section with the following code:
 
       - name: package electron - windows
         if: startsWith(matrix.os, 'windows')
@@ -60,7 +60,7 @@ In (`package.yaml`) and (`release.yaml`), replace the (`# Build electron app pac
         if: startsWith(matrix.os, 'mac')
         run: npm run installer:mac:${{ matrix.variant }}
 
-Replace the (`# Upload installers to github action`) section in (`package.yaml`) with the following code:
+Replace the `# Upload installers to github action` section in `package.yaml` with the following code:
 
       - name: upload win-installer
         uses: actions/upload-artifact@master
@@ -81,7 +81,7 @@ Replace the (`# Upload installers to github action`) section in (`package.yaml`)
           name: ${{ format('linux-installer-{0}', github.event.inputs.setting) }}
           path: dist/installers/${{ matrix.variant }}_${{ steps.package_info.outputs.package_version }}_x64.deb
 
-Replace the (`# Upload installers to github release`) section in (`release.yaml`) with the following code:
+Replace the `# Upload installers to github release` section in `release.yaml` with the following code:
 
       - name: Upload app to release - windows
         if: startsWith(matrix.os, 'windows')
