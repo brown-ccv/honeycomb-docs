@@ -34,7 +34,7 @@ In order to use Github workflows to build and upload executables for each varian
 
 	variant: [<comma_separated_list_of_variant_names>]
 
-Add the following before npm build in the steps section of `build.yaml`:
+Add the following before npm build in the steps section of `build.yaml`, `package.yaml`, and `release.yaml`:
 
       - name: Load .env file for variant
         uses: xom9ikk/dotenv@v1.0.2
