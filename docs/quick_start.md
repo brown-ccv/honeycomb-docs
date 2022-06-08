@@ -42,7 +42,7 @@ To add the workflow, follow [these instructions](https://docs.microsoft.com/en-u
 - Node.js:
 Install [Node.js](https://nodejs.org/en/download/)
 
-- Git bash:
+- Git bash (Git 2.20.0 or later with support for "--show-current"):
 Install [git bash](https://git-scm.com/downloads)
 
 ##### Note: restart computer after all installs are complete
@@ -56,10 +56,10 @@ xcode-select --install
 - Node.js:
 Install [Node.js](https://nodejs.org/en/download/)
 
-- Git:
+- Git 2.20.0 or later (with support for "--show-current"):
 Install [git](https://git-scm.com/downloads/)
 
-- Python 2.7 with support for TLS 1.2:
+- Python 3.7 or later (with support for TLS 1.2):
 Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python) 
 
 #### Linux
@@ -67,14 +67,14 @@ Follow the guide on electron docs to [install and configure python and its modul
 - Node.js: 
 Dowload [Node.js source code](https://nodejs.org/en/download/) and compile it: 
 
-- Git: 
+- Git 2.20.0 or later (with support for "--show-current"):
 Install [git](https://git-scm.com/downloads/)
 
-- Python 2.7:
+- Python 3.7 or later (with support for TLS 1.2):
 Install [Python](https://www.python.org/downloads/)
 
 - Clang:
-Install [Clang](https://clang.llvm.org/get_started.html)
+Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
 - Development headers of GTK 3 and libnotify:
 Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
