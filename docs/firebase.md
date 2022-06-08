@@ -26,8 +26,11 @@ Follow these steps to create a firebase project and link it with the current tas
     ``` 
 #### 3. Copying web app credentials.
 - Navigate to the [firebase console](https://console.firebase.google.com/) and select the project.
-- Click `Add App` and choose to create a wep app. Enter app name and click `Register App`.
-- Copy these fields in the firebase SDK generated from the console to the corresponding variable in the `.env.firebase` file in the `env` folder:
+- Create a new Web App by clicking on `Add App` or the `</>` code symbol and following the prompts.
+- Enter the a name for the Firebase app (could be the same as your Honeycomb task repo name).
+- Check "Also set up Firebase Hosting for this app."
+- Click `Register App`.  This should auto-generate a script with several values that you need to copy into the next step.
+- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo:
   ```
     REACT_APP_apiKey=
     REACT_APP_authDomain=
@@ -36,6 +39,8 @@ Follow these steps to create a firebase project and link it with the current tas
     REACT_APP_messagingSenderId=
     REACT_APP_appId=
   ```
+- You can skip running `firebase init` if prompted to do so.  The results of `firebase init` are already saved into the Honeycomb template repo.
+
 Firebase is now set up!
 
 ## Setting up firestore.
