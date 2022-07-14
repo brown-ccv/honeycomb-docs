@@ -39,7 +39,7 @@ This folder contains the code for the app, the vast majority of changes and code
 
 #### `App.jsx`
 
-This is the starting point for the app. The `<Login>` component handles user authentication in the different use cases and the `<JsPsychExperiment>` component initializes the `jspsych` experiment. This is also where communication is set up with the `electron` and `psiturk` processes.
+This is the starting point for the app. The `<Login>` component handles user authentication in the different use cases and the `<JsPsychExperiment>` component initializes the `jspsych` 7 experiment. This is also where communication is set up with the `electron` and `psiturk` processes.
 
 #### `App.css`
 
@@ -51,7 +51,7 @@ This folder contains any static files that are used by the app, such as images.
 
 #### `components/`
 
-This folder contains the components referenced in `App.jsx`.
+This folder contains the components referenced in `App.jsx`.  This includes the Honeycomb `<JsPsychExperiment>` component which connects the Honyecomb login page to your `jspsych` 7 experiment.
 
 #### `config/`
 

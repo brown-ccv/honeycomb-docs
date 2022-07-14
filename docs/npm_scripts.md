@@ -34,13 +34,15 @@ Creates a production build of the app (renderer).  This must be done before runn
 
 ### `npm run package:platform`
 
-It correctly bundles creates electron packages for the given platform.  It then creates an installer for that platform.  The output can be found in `/dist`
-platforms: windows, mac, linux.
+Uses Electron to build the app and create a standalone installer for the given platform.  Supported platforms are:
 
+ - `npm run package:windows`
+ - `npm run package:linux`
+ - `npm run package:mac`
 
-#### Prerequisites
+The output can be found in the `./out` subfolder.
 
-If not running this command on a windows machine, must have `mono` and `wine` installed.
+** Note: packaging for windows on a non-windows machine requires `mono` and `wine` to be installed. **
 
 ### `npm run eject`
 
