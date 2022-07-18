@@ -14,5 +14,4 @@ Honeycomb provides the ability to write one codebase and use it flexibly across 
 Deployment specifications are abstracted as parameters that are easy to configure, and application building is automated via GitHub actions providing continuous delivery of easy-to-download executables, easing setup burden across research sites. 
 
 ### Foundation in jsPsych 
-jsPsych tasks can be converted to the Honeycomb structure to take advantage of the flexible deployment and automated GitHub Actions workflow that Honeycomb provides. 
-
+jsPsych 7 tasks can be converted to the Honeycomb structure to take advantage of the flexible deployment and automated GitHub Actions workflow that Honeycomb provides.
