@@ -12,4 +12,9 @@ When developing electron apps there are two processes: `main`, and `renderer`.  
 
 Try deleting your `node_modules` folder and the `package-lock.json` then running `npm install` then `npm run rebuild`.
 
+### Inspecting Errors
 
+In case you want to find out where the error is coming from when running the app locally:
+
+* Try reviewing logs in the terminal
+* Inspect element in your browser by openning your developer tools. For instance, in Chrome, this can be done via the menu View -> Developer or right-clicking and pressing inspect.
