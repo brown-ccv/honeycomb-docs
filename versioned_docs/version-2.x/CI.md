@@ -42,7 +42,7 @@ There should be two new `.yml` files, `firebase-hosting-pull-request.yml` and `f
 
 ## Download your bundled executable to install and run your task 
 
-You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file and allow to run. 
+You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file, install and run. 
 
 The executable does not require installation of any additional software. 
 
