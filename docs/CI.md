@@ -28,7 +28,7 @@ More specifically, the following workflows are included:
 * `release.yml`: Every time a Tag is released, installers are created and uploaded as packages. This also builds PsiTurk version, and deploys to GitHub pages a web version of the application. 
 
 
-<sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage on private repositories. Uploading artifacts counts against your quota. You may consider configuring your workflows to only upload what you need.
+<sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage on private repositories. Uploading artifacts counts against your quota. You may consider configuring your workflows to only upload what you need. You can learn more about GitHub's storage limits in their [official documentation](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions).
 
 ## Github Actions for firebase hosting
 
@@ -38,7 +38,7 @@ Automatic deployment on a firebase hosting site can also be setup with github ac
    - For the github directory question, select your task github directory.
    - When prompted with the npm command, type `npm install && npm run build:firebase`
 
-There should be two new `.yml` files created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch.
+There should be two new `.yml` files, `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml`, created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch.
 
 ## Download your bundled executable to install and run your task 
 
