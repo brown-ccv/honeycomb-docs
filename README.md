@@ -39,3 +39,5 @@ yarn run docusaurus docs:version <version number>
 ```
 
 This will copy the files in the `docs` folder to `versioned_docs/version-<version number>/`, create a `version-<version number>-sidebar.json` file under `version_sidebars` and add the version number to the `version.json` file. 
+
+> **WARNING**: If you are editing the docs with the intention of upgrades corresponding to a new major version, please generate the past version before editing the `/docs` folder

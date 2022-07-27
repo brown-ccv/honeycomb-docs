@@ -1,0 +1,62 @@
+{
+  "version-2.x/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Overview",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.x/intro"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/folders"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "HowTo",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-2.x/quick_start"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/version_control"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/firebase"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/ci"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/configuration"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/event_triggers"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/online_integration"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "version-2.x/npm_scripts"
+        }
+      ]
+    }
+  ]
+}
