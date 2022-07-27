@@ -50,7 +50,7 @@ The executable does not require installation of any additional software.
 
 #### Windows 
 
-Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall. 
+Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and uninstall. 
 
 
 
