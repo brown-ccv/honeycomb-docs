@@ -24,6 +24,26 @@ Nearly all operations that are performed by Git are in you local computing envir
 | git push                      | upload staged commit to repo                                       |
 | git pull                      | get remote repo commits and download \(try and resolve conflicts\) |
 | git clone &lt;url&gt;         | download entire repository                                         |
+| git branch <new-branch>       | create a new branch on your currently checked out (HEAD) branch    |
+| git checkout <branch>         | checkout the branch you want to use                                | 
+| git clone <repository>        | download repository to your local computer 
+  
+  
+```bash
+# check status of your git repo including what's changed
+git branch my_branch
+# and what's not being tracked
+git status
+# add file contents to be ready to be committed
+git add FILE 
+# commit file contents to the local repository
+git commit FILE
+# commit all added/modified/deleted file contents with
+# specific message
+git commit -a -m "commit message"
+# push file contents to the remote (i.e. cloud) repository
+git push 
+```
 
 ## Best Practices
 
