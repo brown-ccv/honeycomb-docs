@@ -130,7 +130,16 @@ Honeycomb depends on certain packages only present in GitHub's own package manag
     //npm.pkg.github.com/:_authToken=ghp_abcde12345
     ```
 
-- Install the dependencies for Honeycomb:
+`.npmrc` now contains a secret key, we must tell git to stop tracking it.
+
+- Add ".npmrc" to the end of the `.gitignore` file
+- Remove the file from git:
+
+    ```
+    git rm --cached .npmrc
+    ```
+
+Everything is now prepared to install the dependencies for Honeycomb! Run:
 
     ```
     npm install
