@@ -67,7 +67,7 @@ We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great to
   
 ### Alternative options 
   
-Instead of using commands in terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
+Instead of using commands in the terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
   
 * Clone repository 
   
