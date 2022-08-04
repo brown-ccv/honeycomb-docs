@@ -72,18 +72,20 @@ Instead of using commands in the terminal, you can also download [GitHub desktop
 * Clone repository 
   
   ![](assets/git_gui_0.png =100x20)
+  <img src="assets/git_gui_0.png" alt="drawing" width="200"/>
+
   
 * Select a branch 
   
-  ![](assets/git_gui_1.png =100x20)
+   ![](assets/git_gui_1.png =100x20)
   
  * Create a new branch 
   
-  ![](assets/git_gui_2.png =100x20)
+   ![](assets/git_gui_2.png =100x20)
   
-  * Commit changes 
+ * Commit changes 
   
-  ![](assets/git_gui_3.png =100x20)
+   ![](assets/git_gui_3.png =100x20)
 
   
   
