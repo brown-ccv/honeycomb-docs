@@ -23,6 +23,32 @@ You can now move into the directory that was just created
 cd your-new-task-name
 ```
 
+### 2. Change name and description
+
+It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
+
+```
+git switch -c your-new-branch-name
+```
+
+Open `package.json` and edit it to reflect your app name and description (e.g. `name`, `author`, `repository`). Save your changes and commit them to git:
+
+```
+git commit -m "Commit message goes here!"
+```
+
+Now you can switch back to your main branch and merge the changes in!
+
+```
+git switch main
+```
+
+```
+git merge your-new-branch-name
+```
+
+*You can see your current branches at any time with `git branch`*
+
 ### 3. Install Electron dependencies
 
 Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
@@ -77,10 +103,11 @@ Follow installation instructions on the [electron docs](https://www.electronjs.o
 
 **Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
 
-### 3. Add Your Personal Access Token
+### 4. Add Your Personal Access Token
 
 Honeycomb depends on certain packages only present in GitHub's own package manager. In order to install the packages you generate a personal access token on your GitHub account:
 
+- Create a new branch
 - Open the `.npmrc` file in `your-new-task-name` and add the following line:
 
     ```
@@ -103,37 +130,11 @@ Honeycomb depends on certain packages only present in GitHub's own package manag
     //npm.pkg.github.com/:_authToken=ghp_abcde12345
     ```
 
-### 4. Change name and description
+- Install the dependencies for Honeycomb:
 
-Now that [Node.js](https://nodejs.org/en/download/) is installed and `npm` is configured we can begin working in the project! It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
-
-```
-git switch -c your-new-branch-name
-```
-
-Install the dependencies for Honeycomb:
-
-```
-npm install
-```
-
-Open `package.json` and edit it to reflect your app name and description (e.g. `name`, `author`, `repository`). Save your changes and commit them to git:
-
-```
-git commit -m "Commit message goes here!"
-```
-
-Now you can switch back to your main branch and merge the changes in!
-
-```
-git switch main
-```
-
-```
-git merge your-new-branch-name
-```
-
-*You can see your current branches at any time with `git branch`*
+    ```
+    npm install
+    ```
 
 ### 5. Run the task in dev mode
 
