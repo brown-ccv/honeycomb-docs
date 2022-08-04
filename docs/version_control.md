@@ -71,21 +71,20 @@ Instead of using commands in the terminal, you can also download [GitHub desktop
   
 * Clone repository 
   
-  ![](assets/git_gui_0.png =100x20)
-  <img src="assets/git_gui_0.png" alt="drawing" width="800"/>
-
+<img src="assets/git_gui_0.png" alt="drawing" width="600"/>
   
 * Select a branch 
   
-   ![](assets/git_gui_1.png =100x20)
-  
+<img src="assets/git_gui_1.png" alt="drawing" width="600"/>
+
  * Create a new branch 
   
-   ![](assets/git_gui_2.png =100x20)
-  
+<img src="assets/git_gui_2.png" alt="drawing" width="600"/>
+
  * Commit changes 
   
-   ![](assets/git_gui_3.png =100x20)
+<img src="assets/git_gui_3.png" alt="drawing" width="600"/>
+
 
   
   
