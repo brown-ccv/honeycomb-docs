@@ -5,14 +5,13 @@ title: Quick Start
 
 To start a new task locally, in development mode follow these steps:
 
-
 ### 1. Start your new task from our template repository
 
 The simplest way to get started is creating a new repository using Honeycomb as a template.
 
 Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. Then select the organization and the name of your repository and click on `create repository from template`
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then simply run on your terminal: 
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then simply run on your terminal:
 
 ```
 gh repo create your-new-task-name --template brown-ccv/honeycomb
@@ -23,10 +22,6 @@ You can now move into the directory that was just created
 ```
 cd your-new-task-name
 ```
-
-### 2. Change name and description
-
-Update the `package.json` fields to reflect your app name and description, e.g. `name`, `author`, `repository`
 
 ### 3. Install Electron dependencies
 
@@ -44,13 +39,15 @@ Install [Node.js](https://nodejs.org/en/download/)
 - Git bash (Git 2.20.0 or later with support for "--show-current"):
 Install [git bash](https://git-scm.com/downloads)
 
-** Note: restart computer after all installs are complete **
+**Note: restart computer after all installs are complete**
 
 #### MacOS
+
 - Command Line Tools: Type in the terminal
-```
-xcode-select --install
-```
+
+    ```
+    xcode-select --install
+    ```
 
 - Node.js:
 Install [Node.js](https://nodejs.org/en/download/)
@@ -63,7 +60,7 @@ Follow the guide on electron docs to [install and configure python and its modul
 
 #### Linux
 
-- Node.js: 
+- Node.js:
 Dowload [Node.js source code](https://nodejs.org/en/download/) and compile it: 
 
 - Git 2.20.0 or later (with support for "--show-current"):
@@ -78,20 +75,72 @@ Install [Clang](https://clang.llvm.org/get_started.html) or follow installation 
 - Development headers of GTK 3 and libnotify:
 Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
-** Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28) **
+**Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
 
-### 4. Install Honeycomb npm packages
-Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (remember you need `cd your-new-task-name` before)
+### 3. Add Your Personal Access Token
+
+Honeycomb depends on certain packages only present in GitHub's own package manager. In order to install the packages you generate a personal access token on your GitHub account:
+
+- Open the `.npmrc` file in `your-new-task-name` and add the following line:
+
+    ```
+    //npm.pkg.github.com/:_authToken=
+    ```
+
+- Log in to [GitHub](https://github.com) on the web
+- Navigate to Settings -> Developer Settings -> Personal Access Tokens
+- Click "Generate a new token", add a note, set `Expiration` to "No expiration" and select `read:packages`
+
+    ![Personal Access Token access settings](assets/github-pat-access.png)
+
+- Click "Generate Token" and copy the token. *The token will be lost forever after you exit the page!*
+
+    ![Personal Access Token access code](assets/github-pat-token.png)
+
+- Paste the code after the = from before and save. It should look as such:
+
+    ```
+    //npm.pkg.github.com/:_authToken=ghp_abcde12345
+    ```
+
+### 4. Change name and description
+
+Now that [Node.js](https://nodejs.org/en/download/) is installed and `npm` is configured we can begin working in the project! It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
+
+```
+git switch -c your-new-branch-name
+```
+
+Install the dependencies for Honeycomb:
 
 ```
 npm install
 ```
+
+Open `package.json` and edit it to reflect your app name and description (e.g. `name`, `author`, `repository`). Save your changes and commit them to git:
+
+```
+git commit -m "Commit message goes here!"
+```
+
+Now you can switch back to your main branch and merge the changes in!
+
+```
+git switch main
+```
+
+```
+git merge your-new-branch-name
+```
+
+*You can see your current branches at any time with `git branch`*
 
 ### 5. Run the task in dev mode
 
 To launch an electron window with the task with the inspector open to the console and will hot-reload when changes are made to the app
 
 - For Mac and Linux:
+
     ```
     npm run dev
     ```
