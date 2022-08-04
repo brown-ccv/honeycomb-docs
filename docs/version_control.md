@@ -64,3 +64,22 @@ We recommend a simple flow based on following rules:
 ### Comment styles
 
 We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
+  
+### Alternative options 
+  
+Instead of using commands in terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
+  
+* Clone repository 
+  
+  ![](assets/git-gui_0.png)
+  
+* Select a branch 
+  
+  ![](assets/git-gui_1.png)
+  
+ * Create a new branch 
+  
+  ![](assets/git-gui_2.png)
+
+  
+  
