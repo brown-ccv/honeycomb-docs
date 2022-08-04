@@ -24,9 +24,8 @@ Nearly all operations that are performed by Git are in you local computing envir
 | git push                      | upload staged commit to repo                                       |
 | git pull                      | get remote repo commits and download \(try and resolve conflicts\) |
 | git clone &lt;url&gt;         | download entire repository                                         |
-| git branch <new-branch>       | create a new branch on your currently checked out (HEAD) branch    |
-| git checkout <branch>         | checkout the branch you want to use                                | 
-| git clone <repository>        | download repository to your local computer 
+| git branch &lt;new-branch&gt; | create a new branch on your currently checked out (HEAD) branch    |
+| git checkout &lt;branch&gt;   | checkout the branch you want to use                                | 
   
   
 ```bash
