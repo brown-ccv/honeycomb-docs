@@ -71,15 +71,15 @@ Instead of using commands in terminal, you can also download [GitHub desktop](ht
   
 * Clone repository 
   
-  ![](assets/git-gui_0.png)
+  ![](assets/git_gui_0.png)
   
 * Select a branch 
   
-  ![](assets/git-gui_1.png)
+  ![](assets/git_gui_1.png)
   
  * Create a new branch 
   
-  ![](assets/git-gui_2.png)
+  ![](assets/git_gui_2.png)
 
   
   
