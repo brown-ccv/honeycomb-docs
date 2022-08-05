@@ -95,11 +95,11 @@ Follow installation instructions on the [electron docs](https://www.electronjs.o
 
 ### 4. Install NPM Packages
 
-Once Node.js is installed you will able to use npm commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (remember you need `cd your-new-task-name` before)
+Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
 
-    ```
-    npm install
-    ```
+```
+npm install
+```
 
 ### 5. Run the task in dev mode
 
