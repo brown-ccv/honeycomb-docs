@@ -10,9 +10,11 @@ To start a new task locally, in development mode follow these steps:
 
 The simplest way to get started is creating a new repository using Honeycomb as a template.
 
-Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. Then select the organization and the name of your repository and click on `create repository from template`
+Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. 
 
 ![](assets/use_template.png)
+
+Then select the organization and the name of your repository and click on `create repository from template`
 
 ![](assets/new_task.png)
 
