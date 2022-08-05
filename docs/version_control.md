@@ -69,21 +69,19 @@ We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great to
 Instead of using commands in the terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
   
 * Clone repository 
-  
-<img src="assets/git_gui_0.png" alt="drawing" width="600"/>
+
+![](assets/git_gui_0.png)
   
 * Select a branch 
-  
-<img src="assets/git_gui_1.png" alt="drawing" width="600"/>
 
+![](assets/git_gui_1.png)
+  
  * Create a new branch 
   
-<img src="assets/git_gui_2.png" alt="drawing" width="600"/>
+ ![](assets/git_gui_2.png)
 
  * Commit changes 
-  
-<img src="assets/git_gui_3.png" alt="drawing" width="600"/>
+ *
+ *  ![](assets/git_gui_3.png)
 
-
-  
   
