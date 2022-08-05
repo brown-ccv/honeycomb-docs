@@ -70,18 +70,14 @@ Instead of using commands in the terminal, you can also download [GitHub desktop
   
 #### Clone repository 
 
-![](assets/git_gui_0.png)
+![](assets/git_clone.png)
   
-#### Select a branch 
+#### Select a branch or create a new branch
 
-![](assets/git_gui_1.png)
+![](assets/git_branch.png)
   
-#### Create a new branch 
-  
-![](assets/git_gui_2.png)
+#### Commit changes and push
 
-#### Commit changes 
-
-![](assets/git_gui_3.png)
+![](assets/git_commit.png)
 
   
