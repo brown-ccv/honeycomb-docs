@@ -86,4 +86,18 @@ Instead of using commands in the terminal, you can also download [GitHub desktop
 
 ![](assets/git_commit.png)
 
+ ### Git Workflow
   
+ We recommend using a simple flow based on following rules:
+
+- Use topic/feature branches, no direct commits on main.
+- Perform tests and code reviews before merges into main, not afterwards.
+- Everyone starts from main, and targets main.
+- Commit messages reflect intent.
+
+**Branches**
+
+* `main` is the default branch and where releases are made off. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches
+* `topic` branches are created for new features, fixes, or really any changes. E.g, `fix-task-trial2-stuck-button`
+
+This flow is sometimes referred to as [Feature Branch Workflow](https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html)
