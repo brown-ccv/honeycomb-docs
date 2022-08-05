@@ -93,43 +93,9 @@ Follow installation instructions on the [electron docs](https://www.electronjs.o
 
 **Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
 
-### 4. Add Your Personal Access Token
+### 4. Install NPM Packages
 
-Honeycomb depends on certain packages only present in GitHub's own package manager. In order to install the packages you generate a personal access token on your GitHub account:
-
-- Create a new branch
-- Open the `.npmrc` file in `your-new-task-name` and add the following line:
-
-    ```
-    //npm.pkg.github.com/:_authToken=
-    ```
-
-- Log in to [GitHub](https://github.com) on the web
-- Navigate to Settings -> Developer Settings -> Personal Access Tokens
-- Click "Generate a new token", add a note, set `Expiration` to "No expiration" and select `read:packages`
-
-    ![Personal Access Token access settings](assets/github-pat-access.png)
-
-- Click "Generate Token" and copy the token. *The token will be lost forever after you exit the page!*
-
-    ![Personal Access Token access code](assets/github-pat-token.png)
-
-- Paste the code after the = from before and save. It should look as such:
-
-    ```
-    //npm.pkg.github.com/:_authToken=ghp_abcde12345
-    ```
-
-`.npmrc` now contains a secret key, we must tell git to stop tracking it.
-
-- Add ".npmrc" to the end of the `.gitignore` file
-- Remove the file from git:
-
-    ```
-    git rm --cached .npmrc
-    ```
-
-Everything is now prepared to install the dependencies for Honeycomb! Run:
+Once Node.js is installed you will able to use npm commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (remember you need `cd your-new-task-name` before)
 
     ```
     npm install
