@@ -14,7 +14,7 @@ Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on
 
 ![](assets/use_template.png)
 
-Then select the organization and the name of your repository and click on `create repository from template`
+Then select the organization and the name of your repository and click on `create repository from template`.
 
 ![](assets/new_task.png)
 
