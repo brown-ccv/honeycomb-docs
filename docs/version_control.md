@@ -29,20 +29,26 @@ Nearly all operations that are performed by Git are in you local computing envir
   
   
 ```bash
-# check status of your git repo including what's changed
-git branch my_branch
-# and what's not being tracked
+# clone project 
+git clone https://github.com/brown-ccv/honeycomb.git
+# create branch with your feature
+git checkout -b feature_name
+# check the status of your repositoey
 git status
-# add file contents to be ready to be committed
-git add FILE 
 # commit file contents to the local repository
-git commit FILE
-# commit all added/modified/deleted file contents with
+git commit -am "My feature is ready"
 # specific message
-git commit -a -m "commit message"
 # push file contents to the remote (i.e. cloud) repository
-git push 
+git push origin feature_name
 ```
+
+## Create a Pull Request 
+
+Pull request are useful before you merge your branch to the main branch. You can request a review from your coallegues and check for any conflicts with the main branch. 
+
+![](assets/pull_request.png)
+
+![](assets/pull_request_info.png)
 
 ## Best Practices
 
