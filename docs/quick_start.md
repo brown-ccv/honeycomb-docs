@@ -28,7 +28,7 @@ cd your-new-task-name
 It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
 
 ```
-git switch -c your-new-branch-name
+git checkout -b <branch-name>
 ```
 
 Open `package.json` and edit it to reflect your app name and description (e.g. `name`, `author`, `repository`). Save your changes and commit them to git:
@@ -37,17 +37,7 @@ Open `package.json` and edit it to reflect your app name and description (e.g. `
 git commit -m "Commit message goes here!"
 ```
 
-Now you can switch back to your main branch and merge the changes in!
-
-```
-git switch main
-```
-
-```
-git merge your-new-branch-name
-```
-
-*You can see your current branches at any time with `git branch`*
+*Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
 
 ### 3. Install Electron dependencies
 
