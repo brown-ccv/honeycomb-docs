@@ -12,7 +12,7 @@ The simplest way to get started is creating a new repository using Honeycomb as 
 
 Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. 
 
-![](assets/use_template.png)
+![](assets/template.png)
 
 Then select the organization and the name of your repository and click on `create repository from template`.
 
