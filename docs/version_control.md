@@ -44,7 +44,7 @@ git push origin feature_name
 
 ## Create a Pull Request 
 
-Pull request are useful before you merge your branch to the main branch. You can request a review from your coallegues and check for any conflicts with the main branch. 
+Pull requests are useful before you merge your branch with the main branch. You can request a review from your colleagues and check for any conflicts with the main branch. The easiest way to do this is to go github repository and click pull request.  
 
 ![](assets/pull_request.png)
 
