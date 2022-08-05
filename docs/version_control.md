@@ -19,21 +19,6 @@ Nearly all operations that are performed by Git are in you local computing envir
 
 We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
   
-### Alternative options 
-  
-Instead of using commands in the terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
-  
-#### Clone repository 
-
-![](assets/git_clone.png)
-  
-#### Select a branch or create a new branch
-
-![](assets/git_branch.png)
-  
-#### Commit changes and push
-
-![](assets/git_commit.png)
 
 ## Cheatsheet
 
@@ -60,6 +45,21 @@ git commit -am "My feature is ready"
 # push file contents to the remote (i.e. cloud) repository
 git push origin feature_name
 ```
+### Alternative options 
+  
+Instead of using commands in the terminal, you can also download [GitHub desktop](https://desktop.github.com/). It is very intuitive to use. 
+  
+#### Clone repository 
+
+![](assets/git_clone.png)
+  
+#### Select a branch or create a new branch
+
+![](assets/git_branch.png)
+  
+#### Commit changes and push
+
+![](assets/git_commit.png)
 
 ## Create a Pull Request 
 
