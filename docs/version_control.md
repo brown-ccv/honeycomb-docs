@@ -71,21 +71,6 @@ Pull requests are useful before you merge your branch with the main branch. You 
 
 ## Best Practices
 
-### Workflow
-
-We recommend a simple flow based on following rules:
-
-* Use topic/feature branches, no direct commits on main.
-* Perform tests and code reviews before merges into main, not afterwards.
-* Everyone starts from main, and targets main.
-* Commit messages reflect intent.
-
-### Branches
-
-* main is the default branch and where releases are made off. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches
-* topic branches are created for new features, fixes, or really any changes
-
-
  ### Git Workflow
   
  We recommend using a simple flow based on following rules:
