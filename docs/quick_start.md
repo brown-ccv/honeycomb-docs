@@ -24,7 +24,7 @@ Then select the organization and the name of your repository and click on `creat
 
 ![](assets/new_task.png)
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then simply run on your terminal: 
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal: 
 
 ```
 gh repo create your-new-task-name --template brown-ccv/honeycomb
