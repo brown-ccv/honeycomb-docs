@@ -44,3 +44,31 @@ We recommend a simple flow based on following rules:
 ### Comment styles
 
 We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
+
+## Stay up-to-date with Honeycomb template repo
+
+Honeycomb is an active project, and will be updated with new features over time. To bring changes from the honeycomb template repository to
+ your task, follow the following steps:
+
+### Add honeycomb as an additional remote
+
+By default, your repository is configured to only sync with your remote. You can add Honeycomb as and 
+First time only:
+```
+git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
+```
+Every time: 
+```
+git fetch --all
+```
+```
+git merge honeycomb/main --allow-unrelated histories
+```
+If there are any conflicts:
+```
+git stash
+```
+To merge:
+```
+git commit -a -m "merge honeycomb latest"
+```
