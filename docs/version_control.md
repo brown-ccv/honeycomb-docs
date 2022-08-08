@@ -17,8 +17,7 @@ If you would like to make any changes to current repository, it is always good t
 
 ### Comment styles
 
-We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for writing angular commits - this will create a standardized commit format which makes for easier change logging and more sane messages.
-  
+We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for recording descriptions of commits in a standardized format which makes it easier for people to understand what changed in the code.
 
 ## Cheatsheet
 
@@ -77,12 +76,12 @@ Pull requests are useful before you merge your branch with the main branch. You 
 
 - Use topic/feature branches, no direct commits on main.
 - Perform tests and code reviews before merges into main, not afterwards.
-- Everyone starts from main, and targets main.
+- Every branch starts from main, and targets main.
 - Commit messages reflect intent.
 
 **Branches**
 
-* `main` is the default branch and where releases are made off. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches
-* `topic` branches are created for new features, fixes, or really any changes. E.g, `fix-task-trial2-stuck-button`
+- `main` is the default branch and where releases are made off. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches
+- `topic` branches are created for new features, fixes, or really any changes. E.g, `fix-task-trial2-stuck-button`
 
 This flow is sometimes referred to as [Feature Branch Workflow](https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html)
