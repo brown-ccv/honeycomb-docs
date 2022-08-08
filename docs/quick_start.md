@@ -138,30 +138,8 @@ Cmd+Q (for Mac)
 ```
 Partial data will be saved.
 
-### 9. Merge updates from Honeycomb template repo
 
-Honeycomb is an active project, and will be updated with new features over time. To merge the honeycomb template repository updates with your task, follow the following steps:
-First time only:
-```
-git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
-```
-Every time: 
-```
-git fetch --all
-```
-```
-git merge honeycomb/main --allow-unrelated histories
-```
-If there are any conflicts:
-```
-git stash
-```
-To merge:
-```
-git commit -a -m "merge honeycomb latest"
-```
-
-### 10. Run automated tests
+### 9. Run automated tests
 
 When getting started, merging updates, or making custom changes, it's a good idea to run automated tests.  These can tell you if things are working or if recent changes broke something that previously worked.
 
