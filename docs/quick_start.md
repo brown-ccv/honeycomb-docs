@@ -3,9 +3,9 @@ id: quick_start
 title: Quick Start
 ---
 
-Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites listed by Honeycomb to run. 
+Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
 ### 0. Honeycomb Dependencies and How To Install
-Listed below are 4 main software that are required across all operating systems to run Honeycomb. Also included are instructions specific to the operating system the user may be using. 
+Listed below are the 4 main software that are required across all operating systems to run Honeycomb. Also included are instructions specific to the operating system the user may be using. 
 
 #### Git
 - asd asda asd asd a
@@ -13,22 +13,22 @@ Listed below are 4 main software that are required across all operating systems 
 #### Node.js 
 - Open-source JavaScript platform that allows users to build network applications quickly. It is just another way to execute code on your computer. 
 - Node.js is a popular choice as it is cross-platform, so a Node.js app can run on all major operating systems. 
-- Electron, one of the other main dependencies of the Honeycomb app, uses the Node.js runtime environment.
+- Electron, one of the other main dependencies of the Honeycomb app, requires the Node.js runtime environment.
 
 #### Electron 
 - Framework for building desktop applications using JavaScript, HTML, and CSS 
-- Requires you to have one JavaScript codebase that will create create cross-platform apps that work on Windows, MacOS, and Linux.
-- Honeycomb relies on Electron to package the cross-platform desktop applications. 
+- Requires you to have one JavaScript codebase that will create cross-platform apps that work on Windows, MacOS, and Linux.
+- Honeycomb relies on Electron to package the cross-platform desktop application. 
 
 
-##### Windows - Prerequisties Specific to Windows
+##### Prerequisties Specific to Windows
 
 - Visual Studio:
 Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
 To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
 
 
-##### MacOS - Prerequisties Specific to MacOS
+##### Prerequisties Specific to MacOS
 
 - Command Line Tools: Type in the terminal
 
@@ -40,7 +40,7 @@ To add the workflow, follow [these instructions](https://docs.microsoft.com/en-u
 - Python 3.7 or later (with support for TLS 1.2):
 Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python) 
 
-##### Linux - Prerequisties Specific to Linux
+##### Prerequisties Specific to Linux
 
 - Python 3.7 or later (with support for TLS 1.2):
 Install [Python](https://www.python.org/downloads/)
@@ -66,14 +66,13 @@ Note: This applies only to MacOS users.
 - It is very straightforward and makes the installation of software very easy for users of all experience levels. 
 - Installation happens with the `brew` command, which gives us access to thousands of command-line utilities. 
 ##### What is a brewfile?
-- A brewfile  is a script that lists the software that are a project’s “dependencies” (programs/tools that it needs to run).
+- A Brewfile is a script that lists the software that are a project’s “dependencies” (programs/tools that it needs to run).
+- Running a command on this file will allow us to easily install these dependencies. 
 
-
-The file will include all the packages we want to install and all we need to do is run the command
-
-    ```
+Locate the file in the project called `Brewfile` and on the command line, run the following command:
+    
     brew bundle
-    ```
+    
 This will call the `brew` command on each package listed, effectively downloading and installing that package to your project. 
 
 
