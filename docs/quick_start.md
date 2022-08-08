@@ -8,7 +8,9 @@ Before we can get started with Honeycomb, we must make sure our machines have th
 Listed below are the 4 main software that are required across all operating systems to run Honeycomb. Also included are instructions specific to the operating system the user may be using. 
 
 #### Git
-- asd asda asd asd a
+- Git is a version control system. 
+- It allows us to track the changes and updates being made to a project. We are able to see who made which changes. 
+- Git also provides safety mechanisms to ensure collaborative work is done systematically and allow a large group of developers to work on one project together without getting in each others way. 
 
 #### Node.js 
 - Open-source JavaScript platform that allows users to build network applications quickly. It is just another way to execute code on your computer. 
