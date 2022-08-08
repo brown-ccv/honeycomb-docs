@@ -1,7 +1,7 @@
 module.exports = {
     title: "Honeycomb",
     tagline:
-        "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use",
+        "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use.",
     url: "https://brown-ccv.github.io",
     baseUrl: "/honeycomb-docs/",
     onBrokenLinks: "throw",
@@ -53,6 +53,15 @@ module.exports = {
                         {
                             label: "GitHub",
                             href: "https://github.com/brown-ccv/honeycomb",
+                        },
+                    ],
+                },
+                {
+                    title: "Related Publication",
+                    items: [
+                        {
+                            label: "Provenza, N.R., Gelin, L.F.F., Mahaphanit, W., McGrath, M.C., Dastin-van Rijn, E.M., Fan, Y., Dhar, R., Frank, M.J., Restrepo, M.I., Goodman, W.K. and Borton, D.A., 2021. Honeycomb: a template for reproducible psychophysiological tasks for clinic, laboratory, and home use. Brazilian Journal of Psychiatry, 44, pp.147-155.",
+                            href: "https://doi.org/10.1590/1516-4446-2020-1675",
                         },
                     ],
                 },
