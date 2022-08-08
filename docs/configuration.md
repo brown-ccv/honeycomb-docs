@@ -27,17 +27,17 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 
 ### Understanding Build Time and Run Time Variables
 
-- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variables allow for quick changes before running the task. They are convinient since they don't require building a whole different executable. For a Desktop Application, these are set at the system level and must be available at the time where the task runs. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows). For a Firebase Application, these must be stored in the Firestore.
+- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variables allow for quick changes before running the task. They are convenient since they don't require building a whole different executable. For a Desktop Application, these are set at the system level and must be available at the time where the task runs. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows). For a Firebase Application, these must be stored in the Firestore.
 
 - ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to defined separate files under the `env/` directory, and use a package called `dotenv-cli` before building`. 
 
-The `dotenv-cli` commes with the `dotenv` command that can be used to propery load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a  script to `package.json` with the following format:
+The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a  script to `package.json` with the following format:
 
 ```
 "[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
 ```
 
-Honeycomb includes so scripts for common scenarios. For instace, you can run 
+Honeycomb includes so scripts for common scenarios. For instance, you can run 
 
 ```
 npm run dev:home
