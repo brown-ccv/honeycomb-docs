@@ -5,27 +5,52 @@ title: Configuration
 
 ## Environment Variables
 
-Honeycomb uses environment variables during build and run time to control the different configurations. Below we list the  environment variables used by the app and indicate whether they are mandatory, optional and needed during build (`npm build`) or run time (using the application executable or `npm run dev`)
+Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the environment variables used by the app and indicate their properties via badges and text. Optional variables are labeled with the ![optional](https://img.shields.io/badge/-optional-yellow) badge and mandatory variables are labeled with the ![default <default-value>](https://img.shields.io/badge/default-<defaultvalue>-yellow) badge with their default value specified. The ![buildtime](https://img.shields.io/badge/-buildtime-blue) badge indicates the variable is used during the build/compilation phase (`npm build`) while the ![runtime](https://img.shields.io/badge/-runtime-purple) badge indicates the variable is used during the executable run (`npm run dev`).
 
+
+### Dev Mode Only
 * `ELECTRON_START_URL` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow): URL (e.g. `http://localhost:3000`) where the front end of the app is being hosted - also used in `electron.js` to indicate the app is running in dev mode.
+
+### Desktop Only
+
 * `EVENT_MARKER_PRODUCT_ID`![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The product ID of the event marker (e.g. `0487`).  If not set, it will use the `productID` set in `public/config/trigger.js` if available, or attempt to connect using the com name.
 * `EVENT_MARKER_COM_NAME` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The com name of the event marker (e.g. `COM3`). If not set, it will use the `comName` set in `public/config/trigger.js`.  If the `productID` is set (not an empty string), this field will be ignored.
-* `REACT_APP_VOLUME`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the participant is being asked to adjust volume. This can be used on both the desktop (electron) and online settings.
 * `REACT_APP_VIDEO`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the participant is being video recorded. This can be used when the task is running as a desktop app (electron). 
 * `REACT_APP_USE_EEG`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the event marker/EEG is available. This can be used when the task is running as a desktop app (electron).
 * `REACT_APP_USE_PHOTODIODE`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the photodiode is in use. This can be used when the task is running as a desktop app (electron).
+
+
+### Desktop and Online
+* `REACT_APP_VOLUME`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the participant is being asked to adjust volume. This can be used on both the desktop (electron) and online settings.
 * `REACT_APP_PARTICIPANT_ID` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The default participant id to show when authorizing a participant. If not set, user will need to enter the value in the provided input box.
 * `REACT_APP_STUDY_ID` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The default study id to show when authorizing a participant. If not set, user will need to enter the value in the provided input box.
 
-Here are details on some of the badges:
-- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variable. Set at the system level. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows)
+### Understanding Build Time and Run Time Variables
 
-- ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable. Set in a `.env` file before building. Can also be defined in a separate file under the `env/` directory and called with the dotenv-cli before building. **NOTE:** The `dotenv` command will not work directly from the command line. Instead, to set build-time environment variables, either run an existing npm script (e.g., `npm run build:clinic`, which sets clinic variables) or add a new script to `package.json` with the following format:
+- ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variables allow for quick changes before running the task. They are convenient since they don't require building a whole different executable. For a Desktop Application, these are set at the system level and must be available at the time where the task runs. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows). For a Firebase Application, these must be stored in the Firestore.
+
+- ![buildtime](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to defined separate files under the `env/` directory, and use a package called `dotenv-cli` before building`. 
+
+The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a  script to `package.json` with the following format:
+
 ```
 "[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
 ```
-Or, to add your new variables to an existing environment configuration, e.g. `.env.clinic`, create a script in the following format:
+
+Honeycomb includes so scripts for common scenarios. For instance, you can run 
+
 ```
-"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]:clinic"
+npm run dev:home
 ```
-Then run the script like so: `npm run [build|dev]:<script name>`.
+```
+npm run dev:home:video
+```
+```
+npm run dev:clinic
+```
+```
+npm run dev:clinic:video
+```
+```
+npm run dev:firebase
+```
