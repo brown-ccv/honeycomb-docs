@@ -85,3 +85,30 @@ Pull requests are useful before you merge your branch with the main branch. You 
 - `topic` branches are created for new features, fixes, or really any changes. E.g, `fix-task-trial2-stuck-button`
 
 This flow is sometimes referred to as [Feature Branch Workflow](https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html)
+
+## Stay up-to-date with Honeycomb template repo
+
+Honeycomb is an active project, and will be updated with new features over time. To bring changes from the honeycomb template repository to
+ your task, follow the following steps:
+
+### Add honeycomb as an additional remote
+
+By default, your repository is configured to only sync with your remote, which typically is referred to as `origin`. You can add Honeycomb as an additional remote as follows: 
+
+```
+git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
+```
+
+Adding a remote is a one time operation. At that point you can pull content from the `honeycomb` remote as follows:
+
+```
+git fetch --all
+git merge honeycomb/main --allow-unrelated histories
+```
+
+If there are any conflicts, you'll need to resolve those, then commit the merge:
+
+To merge:
+```
+git commit -a -m "merge honeycomb latest"
+```
