@@ -19,7 +19,7 @@ Paste the following in a MacOS Terminal and press enter to install Homebrew.
   
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  
-Note: There may be additional instructions once you run the command above, will depend on user's machine configurations.
+Note: There may be additional instructions you have to follow, depending on user's machine configurations.
 
 #### Running Brewfile (for macOS)
 A Brewfile is a script that developers can use to install multiple software tools that are required to run the application. 
