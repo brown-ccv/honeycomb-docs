@@ -5,7 +5,7 @@ title: Configuration
 
 ## Environment Variables
 
-Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the environment variables used by the app and indicate their properties via badges and text. Optional variables are labeled with the ![optional](https://img.shields.io/badge/-optional-yellow) badge and mandatory variables are labeled with the ![default false](https://img.shields.io/badge/default-false-yellow) badge with their default value specified. The ![buildtime](https://img.shields.io/badge/-buildtime-blue) badge indicates the variable is used during the build/compilation phase (npm build) while the ![runtime](https://img.shields.io/badge/-runtime-purple) badge indicates the variable is used during the executable run (nom run dev).
+Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the environment variables used by the app and indicate their properties via badges and text. Optional variables are labeled with the ![optional](https://img.shields.io/badge/-optional-yellow) badge and mandatory variables are labeled with the ![default <default-value>](https://img.shields.io/badge/default-<defaultvalue>-yellow) badge with their default value specified. The ![buildtime](https://img.shields.io/badge/-buildtime-blue) badge indicates the variable is used during the build/compilation phase (`npm build`) while the ![runtime](https://img.shields.io/badge/-runtime-purple) badge indicates the variable is used during the executable run (`npm run dev`).
 
 
 ### Dev Mode Only
