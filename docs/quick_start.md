@@ -4,7 +4,7 @@ title: Quick Start
 ---
 
 Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
-### 0. Honeycomb Dependencies and How To Install
+### 0. Electron Dependencies and How To Install
 Listed below are the 4 main software that are required across all operating systems to run Honeycomb. Also included are instructions specific to the operating system the user may be using. 
 
 #### Git
@@ -122,6 +122,31 @@ Once [Node.js](https://nodejs.org/en/download/) is installed you will able to us
 ```
 npm install
 ```
+- To understand this command, we must also understand the package.json file. 
+    - package.json file can be described as a manifest of your project, which includes the package and applications it depends on. It also includes specific metadata about your project like the project’s name, description, author. 
+    - package.json always in json format, easy to read, easy for machines to read as well. 
+    - The package.json can be split into three distinct parts below: 
+
+##### Metadata
+<img width="785" alt="Screen Shot 2022-08-08 at 12 19 53 PM" src="https://user-images.githubusercontent.com/34087669/183465240-144cd17b-70cc-43d4-87b2-b315b67fa170.png">
+
+- The metadata, provides users and contributors information about this project. 
+
+##### Dependencies
+<img width="608" alt="Screen Shot 2022-08-05 at 10 03 43 AM" src="https://user-images.githubusercontent.com/34087669/183464741-0fc46427-5b2f-45c8-ad33-68f16796a1d4.png">
+
+- The project’s dependencies section detail all the packages that the project rely on for it to function properly. 
+- They are formatted in specific key/value pairs very every key is a name of the package and the value is the version range that’s acceptable to install. 
+- So for example we have “electron-log”, and it’s acceptable version is 4.4.8
+- The `npm install` command will go through this package.json and install all of the packages listed in the dependencies section. 
+
+##### Scripts
+<img width="1051" alt="Screen Shot 2022-08-05 at 10 03 27 AM" src="https://user-images.githubusercontent.com/34087669/183464773-79c4a57e-4b1d-4d9b-8e13-e4c7a2b630bb.png">
+
+- The last section of package.json contains the project’s scripts. This section contains a number of user customized commands.
+- They are also presented in key/value pair where the key is the command name which we will use to run and value is the command we want to run. 
+- This section comes in handy when we want to run the Honeycomb application when ready. 
+
 
 ### 5. Run the task in dev mode
 
