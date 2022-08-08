@@ -65,9 +65,9 @@ Instead of using commands in the terminal, you can also download [GitHub desktop
 
 Pull requests are useful before you merge your branch with the main branch. You can request a review from your colleagues and check for any conflicts with the main branch. After you pushed all the changes to your branch, you can go to the original GitHub repository and click on the pull request.  
 
-![](assets/pull_request.png)
+![](assets/pull_request_1.png)
 
-![](assets/pull_request_info.png)
+![](assets/pull_request_info_1.png)
 
 ## Best Practices
 
