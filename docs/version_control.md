@@ -52,22 +52,21 @@ Honeycomb is an active project, and will be updated with new features over time.
 
 ### Add honeycomb as an additional remote
 
-By default, your repository is configured to only sync with your remote. You can add Honeycomb as and 
-First time only:
+By default, your repository is configured to only sync with your remote, which typically is referred to as `origin`. You can add Honeycomb as an additional remote as follows: 
+
 ```
 git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
 ```
-Every time: 
+
+Adding a remote is a one time operation. At that point you can pull content from the `honeycomb` remote as follows:
+
 ```
 git fetch --all
-```
-```
 git merge honeycomb/main --allow-unrelated histories
 ```
-If there are any conflicts:
-```
-git stash
-```
+
+If there are any conflicts, you'll need to resolve those, then commit the merge:
+
 To merge:
 ```
 git commit -a -m "merge honeycomb latest"
