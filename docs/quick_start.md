@@ -119,7 +119,7 @@ This will launch an electron window with the task and inspector open. It will ho
 
 ### 6. Learn about configuring you task for diffent enviroments
 
-HoneyComb tasks can be configured to run as a webapp in Firebase, as desktop application via electron, to receive port signals from EEG, cameras, foot pedals and more. To learn more about how ro configure your task for these different scenarios, see the [Connfiguration Section](/configuration).
+HoneyComb tasks can be configured to run as a webapp in Firebase, as desktop application via electron, to receive port signals from EEG, cameras, foot pedals and more. To learn more about how ro configure your task for these different scenarios, see the [Connfiguration Section](/docs/configuration).
 
 ### 7. Check out the data
 
