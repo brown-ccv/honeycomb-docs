@@ -5,7 +5,7 @@ title: Configuration
 
 ## Environment Variables
 
-Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the  environment variables used by the app and indicate (via badges and text), whether they are mandatory, optional and needed during build (`npm build`) or run time (using the application executable or `npm run dev`). We also separet them via the enviroment (Desktop or Online) where get used by.
+Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the  environment variables used by the app and indicate (via badges and text), whether they are mandatory, optional and needed during build (`npm build`) or run time (using the application executable or `npm run dev`). We also separate them based on the environment (Desktop or Online) where honeycomb will be run.
 
 
 ### Dev Mode Only
