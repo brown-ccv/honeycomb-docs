@@ -61,13 +61,14 @@ You can read more in-depth about Electron at [electron documentation](https://ww
 #### How To Install - Brew
 Note: This applies only to MacOS users. 
 - Using Brew will help simplify the task of downloading the prerequisite software introduced above. 
-- To make this process easier we will be using a brew file which will complete the installation in one simple command line command.
+- To make this process easier we will be using a `Brewfile` which will complete the installation in one simple command.
 
 ##### What is Brew (HomeBrew)?
 - Brew is an open-source software built specifically for macOS that makes it easy to install software on your machine. 
 - It is very straightforward and makes the installation of software very easy for users of all experience levels. 
 - Installation happens with the `brew` command, which gives us access to thousands of command-line utilities. 
-##### What is a brewfile?
+
+##### What is a Brewfile?
 - A Brewfile is a script that lists the software that are a project’s “dependencies” (programs/tools that it needs to run).
 - Running a command on this file will allow us to easily install these dependencies. 
 
@@ -130,14 +131,13 @@ npm install
 ##### Metadata
 <img width="785" alt="Screen Shot 2022-08-08 at 12 19 53 PM" src="https://user-images.githubusercontent.com/34087669/183465240-144cd17b-70cc-43d4-87b2-b315b67fa170.png">
 
-- The metadata, provides users and contributors information about this project. 
+- The metadata provides users and contributors information about this project. 
 
 ##### Dependencies
 <img width="608" alt="Screen Shot 2022-08-05 at 10 03 43 AM" src="https://user-images.githubusercontent.com/34087669/183464741-0fc46427-5b2f-45c8-ad33-68f16796a1d4.png">
 
 - The project’s dependencies section detail all the packages that the project rely on for it to function properly. 
-- They are formatted in specific key/value pairs very every key is a name of the package and the value is the version range that’s acceptable to install. 
-- So for example we have “electron-log”, and it’s acceptable version is 4.4.8
+- They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable to install. 
 - The `npm install` command will go through this package.json and install all of the packages listed in the dependencies section. 
 
 ##### Scripts
@@ -145,7 +145,6 @@ npm install
 
 - The last section of package.json contains the project’s scripts. This section contains a number of user customized commands.
 - They are also presented in key/value pair where the key is the command name which we will use to run and value is the command we want to run. 
-- This section comes in handy when we want to run the Honeycomb application when ready. 
 
 
 ### 4. Run the task in dev mode
