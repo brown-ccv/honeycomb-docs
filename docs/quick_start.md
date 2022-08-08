@@ -117,7 +117,7 @@ npm run dev
 
 This will launch an electron window with the task and inspector open. It will hot-reload whenever changes are made to the app.
 
-### 6. Learn about configuring you task for diffent enviroments
+### 6. Learn about configuring your task for different environments
 
 HoneyComb tasks can be configured to run as a web app in Firebase, as desktop application via electron, to receive port signals from EEG, cameras, foot pedals and more. To learn more about how to configure your task for these different scenarios, see the [Configuration Section](/docs/configuration).
 
