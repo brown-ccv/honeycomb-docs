@@ -4,73 +4,19 @@ title: Quick Start
 ---
 
 Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
-### 0. Electron Dependencies and How To Install
-Listed below are the 4 main software that are required across all operating systems to run Honeycomb. Also included are instructions specific to the operating system the user may be using. 
+### 0. Installing Prerequisites
+There are some prerequisites that are required across all operating systems to run Honeycomb. For MacOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
 
-#### Git
-- Git is a version control system. 
-- It allows us to track the changes and updates being made to a project. We are able to see who made which changes. 
-- Git also provides safety mechanisms to ensure collaborative work is done systematically and allow a large group of developers to work on one project together without getting in each others way. 
-
-#### Node.js 
-- Open-source JavaScript platform that allows users to build network applications quickly. It is just another way to execute code on your computer. 
-- Node.js is a popular choice as it is cross-platform, so a Node.js app can run on all major operating systems. 
-- Electron, one of the other main dependencies of the Honeycomb app, requires the Node.js runtime environment.
-
-#### Electron 
-- Framework for building desktop applications using JavaScript, HTML, and CSS 
-- Requires you to have one JavaScript codebase that will create cross-platform apps that work on Windows, MacOS, and Linux.
-- Honeycomb relies on Electron to package the cross-platform desktop application. 
-
-
-##### Prerequisties Specific to Windows
-
-- Visual Studio:
-Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
-To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
-
-
-##### Prerequisties Specific to MacOS
-
-- Command Line Tools: Type in the terminal
+#### Installing Homebrew (for MacOS)
+Paste the following in a MacOS Terminal and press enter to install Homebrew. 
 
     ```
-    xcode-select --install
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
+Note: There may be additional instructions once you run the command above, will depend on user's machine configurations.
 
-
-- Python 3.7 or later (with support for TLS 1.2):
-Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python) 
-
-##### Prerequisties Specific to Linux
-
-- Python 3.7 or later (with support for TLS 1.2):
-Install [Python](https://www.python.org/downloads/)
-
-- Clang:
-Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-
-- Development headers of GTK 3 and libnotify:
-Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-
-**Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
-**Note: restart computer after all installs are complete**
-
-You can read more in-depth about Electron at [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
-
-#### How To Install - Brew
-Note: This applies only to MacOS users. 
-- Using Brew will help simplify the task of downloading the prerequisite software introduced above. 
-- To make this process easier we will be using a `Brewfile` which will complete the installation in one simple command.
-
-##### What is Brew (HomeBrew)?
-- Brew is an open-source software built specifically for macOS that makes it easy to install software on your machine. 
-- It is very straightforward and makes the installation of software very easy for users of all experience levels. 
-- Installation happens with the `brew` command, which gives us access to thousands of command-line utilities. 
-
-##### What is a Brewfile?
-- A Brewfile is a script that lists the software that are a project’s “dependencies” (programs/tools that it needs to run).
-- Running a command on this file will allow us to easily install these dependencies. 
+#### Running Brewfile
+A Brewfile is a script that developers can use to install multiple software tools that are required to run the application. 
 
 Locate the file in the project called `Brewfile` and on the command line, run the following command:
     
