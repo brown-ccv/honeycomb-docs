@@ -9,8 +9,8 @@ When developing electron apps there are two processes: `main`, and `renderer`.  
 
 In case you want to find out where the error is coming from when running the app locally:
 
-* Try reviewing logs in the terminal
-* Inspect element in your browser by openning your developer tools. For instance, in Chrome, this can be done via the menu View -> Developer or right-clicking and pressing inspect.
+- Try reviewing logs in the terminal
+- Inspect element in your browser by openning your developer tools. For instance, in Chrome, this can be done via the menu View -> Developer or right-clicking and pressing inspect.
 
 ## Package not found or other error related to `npm`
 
