@@ -117,15 +117,15 @@ git commit -m "Commit message goes here!"
 
 ### 3. Install NPM Packages
 
-Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
+Once [Node.js](https://nodejs.org/en/download/) is installed you will be able to use `npm` command in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
 
 ```
 npm install
 ```
 - To understand this command, we must also understand the package.json file. 
-    - package.json file can be described as a manifest of your project, which includes the package and applications it depends on. It also includes specific metadata about your project like the project’s name, description, author. 
-    - package.json always in json format, easy to read, easy for machines to read as well. 
-    - The package.json can be split into three distinct parts below: 
+    - package.json file can be described as a manifest of your project, which includes the packages and applications it depends on. It also includes specific metadata about your project like the project name, description, author. 
+    - package.json is always in json format, making it easy to read and easy for machines to read as well. 
+    - The package.json can be split into three distinct parts: 
 
 ##### Metadata
 <img width="785" alt="Screen Shot 2022-08-08 at 12 19 53 PM" src="https://user-images.githubusercontent.com/34087669/183465240-144cd17b-70cc-43d4-87b2-b315b67fa170.png">
