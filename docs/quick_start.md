@@ -5,17 +5,23 @@ title: Quick Start
 
 Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
 ### 0. Installing Prerequisites
-There are some prerequisites that are required across all operating systems to run Honeycomb. For MacOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
+There are some prerequisites that are required across all operating systems to run Honeycomb. For macOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
 
-#### Installing Homebrew (for MacOS)
+The desired prerequisites for this project are: 
+1. git
+2. Node.js
+3. Electron
+4. Firebase CLI
+
+#### Installing Homebrew (for macOS)
 Paste the following in a MacOS Terminal and press enter to install Homebrew. 
 
-    ```
+  
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
+ 
 Note: There may be additional instructions once you run the command above, will depend on user's machine configurations.
 
-#### Running Brewfile
+#### Running Brewfile (for macOS)
 A Brewfile is a script that developers can use to install multiple software tools that are required to run the application. 
 
 Locate the file in the project called `Brewfile` and on the command line, run the following command:
