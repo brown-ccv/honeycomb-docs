@@ -7,7 +7,7 @@ To start a new task locally, in development mode follow these steps:
 
 ### 1. Start your new task from our template repository
 
-The simplest way to get started is creating a new repository using Honeycomb as a template. This option will generate a new repository with the same directory structure and files as the existing repository.
+The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
 
 Creating a repository from a template is similar to forking a repository, but there are important differences:
 
@@ -17,7 +17,13 @@ Creating a repository from a template is similar to forking a repository, but th
 
 Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. 
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then simply run on your terminal:
+![](assets/template_0.png)
+
+Then select the organization and the name of your repository and click on `create repository from template`.
+
+![](assets/template_1.png)
+
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal: 
 
 ```
 gh repo create your-new-task-name --template brown-ccv/honeycomb
