@@ -60,7 +60,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! Assuming you are in your root directory of the project, run:
 
 ```
-choco install dependencies/chocolatey.config
+choco install chocolatey.config
 ```
 
 ##### Installing firebase-cli
