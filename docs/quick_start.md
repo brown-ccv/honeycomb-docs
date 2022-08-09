@@ -3,7 +3,39 @@ id: quick_start
 title: Quick Start
 ---
 
-To start a new task locally, in development mode follow these steps:
+Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
+### 0. Installing Prerequisites
+There are some prerequisites that are required across all operating systems to run Honeycomb. For macOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
+
+The following are required for this project: 
+1. git
+2. Node.js
+3. Electron
+4. Firebase CLI
+
+
+#### Installing Prerequisites on macOS (Homebrew)
+##### Installing Homebrew 
+Paste the following in a macOS Terminal and press enter to install Homebrew. 
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
+Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
+
+##### Running Brewfile 
+A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
+
+In the project directory, please navigate to the `dependencies` folder where you will locate a file named `Brewfile`. On the command line, run the following command:
+
+```    
+brew bundle
+```
+
+This will call the `brew` command which will install all the listed packages to your project. 
+
 
 ### 1. Start your new task from our template repository
 
@@ -51,69 +83,76 @@ git commit -m "Commit message goes here!"
 
 *Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
 
-### 3. Install Electron dependencies
 
-Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
 
-#### Windows
+### 3. Install NPM Packages
+With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
+`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
-- Visual Studio:
-Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
-To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
-
-- Node.js:
-Install [Node.js](https://nodejs.org/en/download/)
-
-- Git bash (Git 2.20.0 or later with support for "--show-current"):
-Install [git bash](https://git-scm.com/downloads)
-
-**Note: restart computer after all installs are complete**
-
-#### MacOS
-
-- Command Line Tools: Type in the terminal
-
-    ```
-    xcode-select --install
-    ```
-
-- Node.js:
-Install [Node.js](https://nodejs.org/en/download/)
-
-- Git 2.20.0 or later (with support for "--show-current"):
-Install [git](https://git-scm.com/downloads/)
-
-- Python 3.7 or later (with support for TLS 1.2):
-Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python) 
-
-#### Linux
-
-- Node.js:
-Dowload [Node.js source code](https://nodejs.org/en/download/) and compile it: 
-
-- Git 2.20.0 or later (with support for "--show-current"):
-Install [git](https://git-scm.com/downloads/)
-
-- Python 3.7 or later (with support for TLS 1.2):
-Install [Python](https://www.python.org/downloads/)
-
-- Clang:
-Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-
-- Development headers of GTK 3 and libnotify:
-Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-
-**Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
-
-### 4. Install NPM Packages
-
-Once [Node.js](https://nodejs.org/en/download/) is installed you will able to use `npm` commands in the terminal. To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
+Please run the following command to trigger the installation of all the dependencies relevant to this project.
 
 ```
 npm install
 ```
 
-### 5. Run the task in dev mode
+Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
+
+
+##### 1. Metadata
+ ```json
+{
+  "name": "honeycomb",
+  "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
+  "author": {
+    "name": "Brown CCV",
+    "email": "ccv-bot@brown.edu",
+    "url": "ccv.brown.edu"
+  },
+```
+The metadata provides information about the project such as the name, author and description. 
+
+##### 2. Dependencies
+```json
+"dependencies": {
+    "@brown-ccv/behavioral-task-trials": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^5.2.0-beta1",
+    "electron-log": "^4.4.8",
+    "electron-squirrel-startup": "^1.0.0",
+    "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
+    ...
+}
+```
+
+Dependencies are packages that the project rely on for it to function properly. 
+
+They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
+
+Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
+
+
+##### 3. Scripts
+```json
+"scripts": {
+    "commit": "git-cz",
+    "postinstall": "node version.js && npm run rebuild",
+    "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
+    "start:browser": "react-scripts start",
+    "test": "react-scripts test",
+    "prebuild": "electron-rebuild",
+    "build": "react-scripts build",
+    ...    
+}
+```
+
+The scripts section contains a number of commands you can run.
+
+They are also presented in key/value pair where the key is the command name and value is the command we want to run. 
+
+*Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run.*
+
+
+### 4. Run the task in dev mode
 
 *Windows users must use a git bash terminal*
 
@@ -123,17 +162,18 @@ npm run dev
 
 This will launch an electron window with the task and inspector open. It will hot-reload whenever changes are made to the app.
 
-### 6. Learn about configuring your task for different environments
+
+### 5. Learn about configuring your task for different environments
 
 HoneyComb tasks can be configured to run as a web app in Firebase, as desktop application via electron, to receive port signals from EEG, cameras, foot pedals and more. To learn more about how to configure your task for these different scenarios, see the [Configuration Section](/docs/configuration).
 
-### 7. Check out the data
+### 6. Check out the data
 
 The data is saved throughout the task. When running as a Desktop App, data is saved to the user's app directory. When running as Web App in Firebase, data is stored in the FireStore. 
 
 For a Desktop App, the location of the  is logged at the beginning of the task wherever you ran `npm run dev`. Data is also stored in a folder that is generated by the app, which should be found on the desktop.
 
-### 8. Quit the task
+### 7. Quit the task
 
 If you want to quit in the middle of the task, you can use these keyboard shortcuts:
 ```
@@ -144,8 +184,7 @@ Cmd+Q (for Mac)
 ```
 Partial data will be saved.
 
-
-### 9. Run automated tests
+### 8. Run automated tests
 
 When getting started, merging updates, or making custom changes, it's a good idea to run automated tests.  These can tell you if things are working or if recent changes broke something that previously worked.
 
