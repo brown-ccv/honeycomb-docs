@@ -31,7 +31,7 @@ In the project directory, locate the file named `Brewfile` and on the command li
     
     brew bundle
     
-This will call the `brew` command on each of the packages listed, effectively downloading and installing all of the desired prerequisites to your project. 
+This will call the `brew` command which will install each listed package to your project. 
 
 
 ### 1. Start your new task from our template repository
