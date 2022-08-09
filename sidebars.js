@@ -11,7 +11,7 @@ module.exports = {
             "online_integration",
             "troubleshooting",
             "npm_scripts",
-            "setup_help"
+            "setup_details"
         ],
     },
 };

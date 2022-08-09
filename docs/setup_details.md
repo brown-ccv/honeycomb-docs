@@ -1,18 +1,15 @@
 ---
-id: setup_help
-title: Set Up Help
+id: setup_details
+title: Setup Details
 ---
 
 Checkout the following for additional information and help in the setup process for Honeycomb for all operating systems!
 
 
-### Honeycomb Prerequisites
-
-Honeycomb relies on Electron to package the cross-platform desktop applications.
-
-
 
 ### Help With Installing [Electron Prerequisites](https://brown-ccv.github.io/honeycomb-docs/docs/quick_start#0-installing-prerequisites) 
+
+Honeycomb relies on Electron to package the cross-platform desktop applications.
 You will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
 
 Listed below are the prerequisites for each operating system along with resources for manually installing them.

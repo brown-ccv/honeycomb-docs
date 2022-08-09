@@ -33,13 +33,13 @@ Homebrew will prompt you to `Press RETURN to continue or any other key to abort`
 
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
 
-In the project directory, locate the file named `Brewfile` and on the command line, run the following command:
+In the project directory, please navigate to the `dependencies` folder where you will locate a file named `Brewfile`. On the command line, run the following command:
 
-```
+```    
 brew bundle
 ```
 
-This will call the `brew` command which will install each listed package to your project.
+This will call the `brew` command which will install all the listed packages to your project. 
 
 #### Install Perquisites on Windows (chocolatey)
 
@@ -126,38 +126,64 @@ git commit -m "Commit message goes here!"
 *Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
 
 ### 3. Install NPM Packages
+With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
+`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
-With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal. 
-
-npm is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application.
-
-Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
-
-#### 1. Metadata
-
-![](assets/packagelock1.png)
-
-The metadata provides information about the project such as the name, author and description. 
-
-#### 2. Dependencies
-
-![](assets/packagelock2.png)
-
-Dependencies are packages that the project rely on for it to function properly. 
-
-They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
-
-Please run the following command to trigger the installation of all the dependencies listed in the `package.json`.
+Please run the following command to trigger the installation of all the dependencies relevant to this project.
 
 ```
 npm install
 ```
 
+Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
+
+##### 1. Metadata
+
+ ```json
+{
+  "name": "honeycomb",
+  "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
+  "author": {
+    "name": "Brown CCV",
+    "email": "ccv-bot@brown.edu",
+    "url": "ccv.brown.edu"
+  },
+```
+The metadata provides information about the project such as the name, author and description. 
+
+##### 2. Dependencies
+```json
+"dependencies": {
+    "@brown-ccv/behavioral-task-trials": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^5.2.0-beta1",
+    "electron-log": "^4.4.8",
+    "electron-squirrel-startup": "^1.0.0",
+    "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
+    ...
+}
+```
+
+Dependencies are packages that the project rely on for it to function properly. 
+
+They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
+
 Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
 
-##### 3. Scripts
 
-![](assets/packagelock3.png)
+##### 3. Scripts
+```json
+"scripts": {
+    "commit": "git-cz",
+    "postinstall": "node version.js && npm run rebuild",
+    "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
+    "start:browser": "react-scripts start",
+    "test": "react-scripts test",
+    "prebuild": "electron-rebuild",
+    "build": "react-scripts build",
+    ...    
+}
+```
 
 The scripts section contains a number of commands you can run.
 
