@@ -67,6 +67,16 @@ Moreover, chocolatey will install multiple software packages if given a configur
 choco install dependencies/chocolatey.config
 ```
 
+#### Installing firebase-cli
+
+firebase-cli can be installed using npm (Node Package Manager):
+
+```
+npm install -g firebase-tools
+```
+
+*The `-g` flag installs an npm package globally on your system, as opposed to the current project*
+
 ### 1. Start your new task from our template repository
 
 To start a new task locally, in development mode follow these steps:
