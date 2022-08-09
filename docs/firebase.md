@@ -52,14 +52,14 @@ Follow these steps to create a firebase project and link it with the current tas
 
 Firebase is now set up!
 
-## Setting up firestore.
+## Setting up firestore
 
 Honeycomb includes cloud storage for task data using Firestore. Follow these steps to initialize firestore:
 
 - Navigate to the current project in the developer console and select `Firestore Database` from the sidebar.
 - Click `Create Database`, select `production mode` and choose the current location for the cloud storage bucket.
   
-### Firestore security rules.
+### Firestore security rules
 
 [Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started) provides easy server-side authorization to the database. For a honeycomb task, we use the security rules to allow access to only authorized participants for a specified study. Honeycomb's default set of rules is included in the `firestore.rules` file in the home directory. This file can be edited to change the rules. To deploy the rules in the file, type the following line of code in the terminal:
 
