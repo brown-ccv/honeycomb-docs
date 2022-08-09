@@ -69,10 +69,9 @@ git commit -m "Commit message goes here!"
 
 
 ### 3. Install NPM Packages
+With Node.js installed from the prerequisites of Step 0, we will be able to utilize the `npm` command in the terminal. 
+npm is a command-line utility for Node.js that supports package installation, version management and dependency management.
 
-Once [Node.js](https://nodejs.org/en/download/) is installed you will be able to use `npm` command in the terminal. 
-
-- npm is a command-line utility for Node.js that supports package installation, version management and dependency management. 
 - A wide range of Node.js libraries are published on npm and using one single `npm` command line command you can install these packages. 
 
 To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
