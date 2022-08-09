@@ -1,6 +1,6 @@
 ---
 id: setup_help
-title: Set Up Help
+title: Setup Details
 ---
 
 Checkout the following for additional information and help in the setup process for Honeycomb for all operating systems!
