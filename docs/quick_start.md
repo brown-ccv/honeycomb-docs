@@ -120,6 +120,7 @@ The metadata provides information about the project such as the name, author and
     "electron-log": "^4.4.8",
     "electron-squirrel-startup": "^1.0.0",
     "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
+    ...
 }
 ```
 
@@ -140,6 +141,7 @@ Note: *If any changes are made to the dependencies section of the `package.json`
     "test": "react-scripts test",
     "prebuild": "electron-rebuild",
     "build": "react-scripts build",
+    ...    
 }
 ```
 
