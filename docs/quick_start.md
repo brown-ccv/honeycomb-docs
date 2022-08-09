@@ -22,7 +22,7 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  
 Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
-Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please allow these installations by pressing `Return`*
+Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
 
 ##### Running Brewfile 
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
