@@ -13,7 +13,7 @@ Nearly all operations that are performed by Git are in you local computing envir
 
 If you would like to make any changes to current repository, it is always good to start with creating a feature branch, where you can save all the changes.
 
-![](assets/branch.png)
+![](assets/branch_1.png)
 
 ### Comment styles
 
