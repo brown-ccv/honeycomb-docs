@@ -3,20 +3,24 @@ id: quick_start
 title: Quick Start
 ---
 
-Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run. 
+Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run.
+
 ### 0. Installing Prerequisites
+
 There are some prerequisites that are required across all operating systems to run Honeycomb. For macOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
 
-The following are required for this project: 
+The following are required for this project:
+
 1. git
 2. Node.js
 3. Electron
 4. Firebase CLI
 
+#### Installing Prerequisites with Homebrew (for macOS)
 
-#### Installing Prerequisites on macOS (Homebrew)
-##### Installing Homebrew 
-Paste the following in a macOS Terminal and press enter to install Homebrew. 
+##### Installing Homebrew
+
+Paste the following in a macOS Terminal and press enter to install Homebrew.
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -25,19 +29,53 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
 
-##### Running Brewfile 
-A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
+##### Running Brewfile
 
-In the project directory, please navigate to the `dependencies` folder where you will locate a file named `Brewfile`. On the command line, run the following command:
+A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
 
-```    
+Navigate to the project directory on the command line and run the following command:
+
+```
 brew bundle
 ```
 
-This will call the `brew` command which will install all the listed packages to your project. 
+This will call the `brew` command which will install all the listed packages to your project.
 
+#### Install Perquisites on Windows (chocolatey)
+
+[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
+
+##### Installing Chocolatey
+
+Run Powershell with administrator privileges and paste the following command:
+
+![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+##### Using Chocolatey
+
+Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! Assuming you are in your root directory of the project, run:
+
+```
+choco install dependencies/chocolatey.config
+```
+
+##### Installing firebase-cli
+
+firebase-cli can be installed using npm (Node Package Manager):
+
+```
+npm install -g firebase-tools
+```
+
+*The `-g` flag installs an npm package globally on your system, as opposed to the current project*
 
 ### 1. Start your new task from our template repository
+
+To start a new task locally, in development mode follow these steps:
 
 The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
 
@@ -47,7 +85,7 @@ Creating a repository from a template is similar to forking a repository, but th
 - Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
 - A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
 
-Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. 
+Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right.
 
 ![](assets/template_0.png)
 
@@ -55,11 +93,11 @@ Then select the organization and the name of your repository and click on `creat
 
 ![](assets/template_1.png)
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal: 
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal:
 
 ```
 gh repo create your-new-task-name --template brown-ccv/honeycomb
-``` 
+```
 
 You can now move into the directory that was just created
 
@@ -83,9 +121,8 @@ git commit -m "Commit message goes here!"
 
 *Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
 
-
-
 ### 3. Install NPM Packages
+
 With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
 `npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
@@ -97,8 +134,8 @@ npm install
 
 Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
 
-
 ##### 1. Metadata
+
  ```json
 {
   "name": "honeycomb",
@@ -109,9 +146,11 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
     "url": "ccv.brown.edu"
   },
 ```
-The metadata provides information about the project such as the name, author and description. 
+
+The metadata provides information about the project such as the name, author and description.
 
 ##### 2. Dependencies
+
 ```json
 "dependencies": {
     "@brown-ccv/behavioral-task-trials": "^2.0.0",
@@ -130,8 +169,8 @@ They are formatted in specific key/value pairs where every key is a name of the 
 
 Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
 
-
 ##### 3. Scripts
+
 ```json
 "scripts": {
     "commit": "git-cz",
@@ -147,10 +186,9 @@ Note: *If any changes are made to the dependencies section of the `package.json`
 
 The scripts section contains a number of commands you can run.
 
-They are also presented in key/value pair where the key is the command name and value is the command we want to run. 
+They are also presented in key/value pair where the key is the command name and value is the command we want to run.
 
 *Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run.*
-
 
 ### 4. Run the task in dev mode
 
@@ -161,7 +199,6 @@ npm run dev
 ```
 
 This will launch an electron window with the task and inspector open. It will hot-reload whenever changes are made to the app.
-
 
 ### 5. Learn about configuring your task for different environments
 
@@ -176,12 +213,15 @@ For a Desktop App, the location of the  is logged at the beginning of the task w
 ### 7. Quit the task
 
 If you want to quit in the middle of the task, you can use these keyboard shortcuts:
+
 ```
 Ctrl+W (for PC/Windows)
 ```
+
 ```
 Cmd+Q (for Mac)
 ```
+
 Partial data will be saved.
 
 ### 8. Run automated tests
@@ -189,25 +229,29 @@ Partial data will be saved.
 When getting started, merging updates, or making custom changes, it's a good idea to run automated tests.  These can tell you if things are working or if recent changes broke something that previously worked.
 
 To run the tests interactively:
+
 ```
 npm test
 ```
 
 Or non-interactively:
+
 ```
 CI=true npm test
 ```
 
 #### Linux
+
 When running `npm test` on Linux, you might get an error that mentions `ENOSPC`.  This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change.  Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
 
 This is a "known issue" with some test runners on Linux, as in discussions [here](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached) and [here](https://stackoverflow.com/questions/62206460/jest-watch-error-enospc-system-limit-for-number-of-file-watchers-reached).
 
 One simple workaround is to increase the number of allowed watchers (100000 seems to be sufficient):
- - Command that initially fails with `ENOSPC`: `npm test`
- - Check the configured limit on "watchers": `cat /proc/sys/fs/inotify/max_user_watches`
- - Edit the relevant Linux config file: `sudo vim /etc/sysctl.conf`
- - Add a line at the end of the config file: `fs.inotify.max_user_watches=100000`
- - Save, exit, and reload the config file: `sudo sysctl -p`
- - Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
- - Retry the initial command, which should now succeed: `npm test`
+
+- Command that initially fails with `ENOSPC`: `npm test`
+- Check the configured limit on "watchers": `cat /proc/sys/fs/inotify/max_user_watches`
+- Edit the relevant Linux config file: `sudo vim /etc/sysctl.conf`
+- Add a line at the end of the config file: `fs.inotify.max_user_watches=100000`
+- Save, exit, and reload the config file: `sudo sysctl -p`
+- Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
+- Retry the initial command, which should now succeed: `npm test`
