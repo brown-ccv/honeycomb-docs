@@ -33,15 +33,17 @@ Homebrew will prompt you to `Press RETURN to continue or any other key to abort`
 
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
 
-In the project directory, please navigate to the `dependencies` folder where you will locate a file named `Brewfile`. On the command line, run the following command:
+Navigate to the project directory on the command line and run the following command:
 
-```    
+```
 brew bundle
 ```
 
-This will call the `brew` command which will install all the listed packages to your project. 
+This will call the `brew` command which will install all the listed packages to your project.
 
 #### Install Perquisites on Windows (chocolatey)
+
+[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
 
 ##### Installing Chocolatey
 
@@ -55,19 +57,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ##### Using Chocolatey
 
-Chocolatey is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. In installs software from the command line and makes updates much easier. For example:
-
-```
-choco install googlechrome
-```
-
-Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one!. Assuming you are in your root directory, run:
+Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! Assuming you are in your root directory of the project, run:
 
 ```
 choco install dependencies/chocolatey.config
 ```
 
-#### Installing firebase-cli
+##### Installing firebase-cli
 
 firebase-cli can be installed using npm (Node Package Manager):
 
@@ -89,7 +85,7 @@ Creating a repository from a template is similar to forking a repository, but th
 - Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
 - A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
 
-Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right. 
+Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right.
 
 ![](assets/template_0.png)
 
@@ -97,7 +93,7 @@ Then select the organization and the name of your repository and click on `creat
 
 ![](assets/template_1.png)
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal: 
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal:
 
 ```
 gh repo create your-new-task-name --template brown-ccv/honeycomb
@@ -126,6 +122,7 @@ git commit -m "Commit message goes here!"
 *Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
 
 ### 3. Install NPM Packages
+
 With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
 `npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
@@ -149,9 +146,11 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
     "url": "ccv.brown.edu"
   },
 ```
-The metadata provides information about the project such as the name, author and description. 
+
+The metadata provides information about the project such as the name, author and description.
 
 ##### 2. Dependencies
+
 ```json
 "dependencies": {
     "@brown-ccv/behavioral-task-trials": "^2.0.0",
@@ -170,8 +169,8 @@ They are formatted in specific key/value pairs where every key is a name of the 
 
 Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
 
-
 ##### 3. Scripts
+
 ```json
 "scripts": {
     "commit": "git-cz",

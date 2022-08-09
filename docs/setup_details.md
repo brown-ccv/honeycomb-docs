@@ -13,7 +13,10 @@ Honeycomb relies on Electron to package the cross-platform desktop applications.
 You will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
 
 Listed below are the prerequisites for each operating system along with resources for manually installing them.
+
 #### Windows
+
+On 
 
 - Visual Studio:
   Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow.
