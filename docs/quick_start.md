@@ -26,7 +26,7 @@ Note: *When this command is run, additional installations may be automatically a
 ##### Running Brewfile 
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
 
-In the project directory, locate the file name `Brewfile` and on the command line, run the following command:
+In the project directory, locate the file named `Brewfile` and on the command line, run the following command:
     
     brew bundle
     
