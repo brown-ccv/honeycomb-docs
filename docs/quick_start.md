@@ -89,7 +89,7 @@ git commit -m "Commit message goes here!"
 With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
 `npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
-Please run the following command to trigger the installation of all the dependencies relevant to this application.
+Please run the following command to trigger the installation of all the dependencies relevant to this project.
 
 ```
 npm install
