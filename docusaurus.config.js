@@ -67,6 +67,9 @@ module.exports = {
                 },
             ],
         },
+        prism: {
+            additionalLanguages: ['powershell'],
+        }
     },
     presets: [
         [

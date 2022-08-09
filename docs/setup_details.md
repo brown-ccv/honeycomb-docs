@@ -16,8 +16,6 @@ Listed below are the prerequisites for each operating system along with resource
 
 #### Windows
 
-On 
-
 - Visual Studio:
   Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow.
   To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
