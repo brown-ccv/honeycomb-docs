@@ -99,11 +99,30 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
 
 
 ##### 1. Metadata
-![](assets/packagelock1.png)
+ ```json
+{
+  "name": "honeycomb",
+  "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
+  "author": {
+    "name": "Brown CCV",
+    "email": "ccv-bot@brown.edu",
+    "url": "ccv.brown.edu"
+  },
+```
 The metadata provides information about the project such as the name, author and description. 
 
 ##### 2. Dependencies
-![](assets/packagelock2.png)
+```json
+"dependencies": {
+    "@brown-ccv/behavioral-task-trials": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^5.2.0-beta1",
+    "electron-log": "^4.4.8",
+    "electron-squirrel-startup": "^1.0.0",
+    "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
+    ...
+}
+```
 
 Dependencies are packages that the project rely on for it to function properly. 
 
@@ -113,7 +132,18 @@ Note: *If any changes are made to the dependencies section of the `package.json`
 
 
 ##### 3. Scripts
-![](assets/packagelock3.png)
+```json
+"scripts": {
+    "commit": "git-cz",
+    "postinstall": "node version.js && npm run rebuild",
+    "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
+    "start:browser": "react-scripts start",
+    "test": "react-scripts test",
+    "prebuild": "electron-rebuild",
+    "build": "react-scripts build",
+    ...     
+}
+```
 
 The scripts section contains a number of commands you can run.
 

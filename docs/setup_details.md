@@ -1,5 +1,5 @@
 ---
-id: setup_help
+id: setup_details
 title: Setup Details
 ---
 
