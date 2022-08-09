@@ -115,6 +115,8 @@ The scripts section contains a number of commands you can run.
 
 They are also presented in key/value pair where the key is the command name and value is the command we want to run. 
 
+*Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run.*
+
 
 ### 4. Run the task in dev mode
 
