@@ -28,13 +28,13 @@ Homebrew will prompt you to `Press RETURN to continue or any other key to abort`
 ##### Running Brewfile 
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
 
-In the project directory, locate the file named `Brewfile` and on the command line, run the following command:
+In the project directory, please navigate to the `dependencies` folder where you will locate a file named `Brewfile`. On the command line, run the following command:
 
 ```    
 brew bundle
 ```
 
-This will call the `brew` command which will install each listed package to your project. 
+This will call the `brew` command which will install all the listed packages to your project. 
 
 
 ### 1. Start your new task from our template repository
