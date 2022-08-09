@@ -18,8 +18,10 @@ The following are required for this project:
 ##### Installing Homebrew 
 Paste the following in a macOS Terminal and press enter to install Homebrew. 
 
-  
- 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
 
@@ -27,14 +29,15 @@ Homebrew will prompt you to `Press RETURN to continue or any other key to abort`
 A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
 
 In the project directory, locate the file named `Brewfile` and on the command line, run the following command:
-    
-    brew bundle
-    
+
+```    
+brew bundle
+```
+
 This will call the `brew` command which will install each listed package to your project. 
 
 
 ### 1. Start your new task from our template repository
-To start a new task locally, in development mode follow these steps:
 
 The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
 
@@ -83,9 +86,14 @@ git commit -m "Commit message goes here!"
 
 
 ### 3. Install NPM Packages
-With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal. 
+With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
+`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
 
-npm is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
+Please run the following command to trigger the installation of all the dependencies relevant to this application.
+
+```
+npm install
+```
 
 Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
 
@@ -100,10 +108,6 @@ The metadata provides information about the project such as the name, author and
 Dependencies are packages that the project rely on for it to function properly. 
 
 They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
-
-Please run the following command to trigger the installation of all the dependencies listed in the `package.json`.
-
-    npm install
 
 Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
 
