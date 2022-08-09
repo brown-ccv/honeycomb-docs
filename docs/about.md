@@ -7,30 +7,30 @@ Before we can get started with Honeycomb, we must make sure our machines have th
 ### 0. Installing Prerequisites
 There are some prerequisites that are required across all operating systems to run Honeycomb. For macOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
 
-The following are required for this project: 
+The desired prerequisites for this project are: 
 1. git
 2. Node.js
 3. Electron
 4. Firebase CLI
 
+*To view these prerequisites more in depth, please checkout the [About](https://brown-ccv.github.io/honeycomb-docs/docs/about) page.*
 
-#### Installing Prerequisites with Homebrew (for macOS)
-##### Installing Homebrew 
-Paste the following in a macOS Terminal and press enter to install Homebrew. 
+#### Installing Homebrew (for macOS)
+Paste the following in a MacOS Terminal and press enter to install Homebrew. 
 
   
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  
-Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.*
+Note: There may be additional instructions you have to follow, depending on your machine's configurations.
 
-##### Running Brewfile 
-A Brewfile is a script that developers can use to install multiple software tools that are required to run an application. 
+#### Running Brewfile (for macOS)
+A Brewfile is a script that developers can use to install multiple software tools that are required to run the application. 
 
-In the project directory, locate the file name `Brewfile` and on the command line, run the following command:
+Locate the file in the project called `Brewfile` and on the command line, run the following command:
     
     brew bundle
     
-This will call the `brew` command on each package listed, effectively downloading and installing all of the desired prerequisites to your project. 
+This will call the `brew` command on each package listed, effectively downloading and installing that package to your project. 
 
 
 ### 1. Start your new task from our template repository
@@ -71,37 +71,37 @@ git commit -m "Commit message goes here!"
 
 
 ### 3. Install NPM Packages
-With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal. 
+With Node.js installed from the prerequisites of Step 0, we will be able to utilize the `npm` command in the terminal. 
+npm is a command-line utility for Node.js that supports package installation, version management and dependency management.
 
-npm is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
+- A wide range of Node.js libraries are published on npm and using one single `npm` command line command you can install these packages. 
 
-Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
+To install the dependencies for Honeycomb run the following command at the terminal (make sure you're in your project directory)
 
+```
+npm install
+```
+To understand this command, we must also understand the `package.json` file. 
+- package.json file can be described as a manifest of your project, which includes the packages and applications it depends on. It also includes specific metadata about your project like the project name, description, author. 
+- package.json is always in json format, making it easy to read and easy for machines to read as well. 
+- The package.json can be split into three distinct parts: 
 
-##### 1. Metadata
+##### Metadata
 ![](assets/packagelock1.png)
-The metadata provides information about the project such as the name, author and description. 
+- The metadata provides users and contributors information about this project. 
 
-##### 2. Dependencies
+##### Dependencies
 ![](assets/packagelock2.png)
 
-Dependencies are packages that the project rely on for it to function properly. 
+- The project’s dependencies section detail all the packages that the project rely on for it to function properly. 
+- They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable to install. 
+- The `npm install` command will go through this package.json and install all of the packages listed in the dependencies section. 
 
-They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
-
-Please run the following command to trigger the installation of all the dependencies listed in the `package.json`.
-
-    npm install
-
-Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
-
-
-##### 3. Scripts
+##### Scripts
 ![](assets/packagelock3.png)
 
-The scripts section contains a number of commands you can run.
-
-They are also presented in key/value pair where the key is the command name and value is the command we want to run. 
+- The last section of package.json contains the project’s scripts. This section contains a number of user customized commands.
+- They are also presented in key/value pair where the key is the command name which we will use to run and value is the command we want to run. 
 
 
 ### 4. Run the task in dev mode
