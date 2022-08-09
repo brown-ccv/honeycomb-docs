@@ -14,7 +14,7 @@ The following are required for this project:
 4. Firebase CLI
 
 
-#### Installing Prerequisites with Homebrew (for macOS)
+#### Installing Prerequisites on macOS (Homebrew)
 ##### Installing Homebrew 
 Paste the following in a macOS Terminal and press enter to install Homebrew. 
 
