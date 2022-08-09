@@ -19,7 +19,6 @@ The following are required for this project:
 Paste the following in a macOS Terminal and press enter to install Homebrew. 
 
   
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  
 Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
