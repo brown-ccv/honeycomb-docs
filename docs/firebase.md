@@ -45,10 +45,9 @@ Follow these steps to create a firebase project and link it with the current tas
   REACT_APP_storageBucket=
   REACT_APP_messagingSenderId=
   REACT_APP_appId=
-  ``` 
+  ```
 
-- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created:
-- Run `firebase init` in the command line. **Do not run firebase init** 
+- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created
 
 Firebase is now set up!
 
