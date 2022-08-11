@@ -7,7 +7,7 @@ Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code 
 
 ## What is CI/CD?
 
-Continuous Integration, Continuous Deployment: CI/CD or CICD refers to continuous integration and either continuous delivery or continuous deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions. 
+Continuous Integration, Continuous Deployment: CI/CD or CICD refers to continuous integration and either continuous delivery or continuous deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
 
 ## What are Github Actions
 
