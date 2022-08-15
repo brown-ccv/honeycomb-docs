@@ -18,7 +18,7 @@ In addition, Honeycomb relies on Electron to package the cross-platform desktop 
 
 ### Brew
 
-All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](./quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
+All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
 
 ### Manual Installation (MacOS)
 
@@ -140,7 +140,7 @@ We recommend using Ubuntu (18.10 or later) as your distro but any distro new eno
 
 - Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
 - [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
-- [Python 3.7 or later]((https://www.python.org/downloads/)) (with support for TLS 1.2)
+- [Python 3.7 or later](https://www.python.org/downloads/) (with support for TLS 1.2)
 - Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 - Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
 
