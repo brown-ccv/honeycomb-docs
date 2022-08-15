@@ -14,7 +14,6 @@ Runs `npm start` and `npm run electron-dev` concurrently.  This may not play nic
 
 Runs the app in the development mode.
 
-
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
@@ -31,18 +30,17 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Creates a production build of the app (renderer).  This must be done before running `package:platform` or the psiturk build instructions.
 
-
 ### `npm run package:platform`
 
 Uses Electron to build the app and create a standalone installer for the given platform.  Supported platforms are:
 
- - `npm run package:windows`
- - `npm run package:linux`
- - `npm run package:mac`
+- `npm run package:windows`
+- `npm run package:linux`
+- `npm run package:mac`
 
 The output can be found in the `./out` subfolder.
 
-** Note: packaging for windows on a non-windows machine requires `mono` and `wine` to be installed. **
+Note: Packaging for windows on a non-windows machine requires `mono` and `wine` to be installed.
 
 ### `npm run eject`
 
