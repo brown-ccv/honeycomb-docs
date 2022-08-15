@@ -9,15 +9,28 @@ It is important that your computer is set up with the necessary packages before 
 
 - git (version control and GitHub integration)
 - nodejs (web development - we recommend the latest long term support version)
+- python (3.7 or later)
 - An Integrated Development Environment (we recommend VS Code)
-  
+
 In addition, Honeycomb relies on Electron to package the cross-platform desktop applications. Some of electron's prerequisites are platform dependant - listed below are the prerequisites for each operating system along with resources for manually installing them.
 
-- git
-- nodejs
-- vscode
-- electrum
-- os specific
+## MacOS
+
+### Brew
+
+All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
+
+### Manual Installation (MacOS)
+
+- [XCode](https://developer.apple.com/xcode/) must be installed from the terminal:
+
+  ```terminal
+    xcode-select --install
+  ```
+
+- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
+- [Node.js](https://nodejs.org/en/download/)
+- To install Python (3.7 or later with support for TLS 1.2) follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python)
 
 ## Windows
 
@@ -25,51 +38,111 @@ Note that Windows occasionally requires a restart after package installations co
 
 ### chocolatey
 
+#### Installing Chocolatey
 
-### Python on Windows
+Run Powershell with administrator privileges and paste the following command:
 
+![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
 
-### Manual Installation
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+#### chocolatey.config
+
+Chocolatey will install multiple packages at the same time when given a config file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="git" />
+  <package id="nodejs-lts" />
+  <package id="vscode" />
+  <package id="pyenv-win" />
+  <package id="visualstudio2022community" />
+  <package id="visualstudio2022-workload-nativedesktop" />
+  <package id="electron" />
+</packages>
+```
+
+Running `choco install chocolatey.config` is the equivalent of calling `choco install <id>` for every package in the file.
+
+### Python on Windows (pyenv)
+
+Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. There are several one-time steps to set up your system that will drastically reduce future headaches.
+
+First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **This is a highly recommend step even if you already have a Python manager**
+
+![App execution aliases](assets/python-win-1.png)
+![Turn off app installer](assets/python-win-2.png)
+
+Now we can set up our python management system. We recommend `pyenv` as it is small and intuitive for newer developers. Complete the following steps to install `pyenv` for Windows and setup your global python environment<sup>1</sup>:
+
+1) Ensure Python is completely uninstalled from your system
+  
+   - Type `python` on the command line and ensure you get a "Command 'python' not found" error
+
+     ```powershell
+     python
+     ```
+
+   - _If the command executes, locate the installation and remove it. Continue until the error appears_
+   - _If the Microsoft Store launches check again to ensure "Manage App execution aliases" is turned off for `python.exe` and `python3.exe`_
+
+2) Install `pyenv-win`
+
+   - `pyenv-win` will install with `chocolatey.config` - enter `pyenv` on the command line to see if it's already on your system. You should see a list of commands printed to your terminal.
+
+     ```shell
+     pyenv
+     ```
+
+   - If not:
+
+      ```shell
+      choco install pyenv-win
+      ```
+
+3) Install a python version
+
+   ```powershell
+   pyenv install <version>
+   ```
+
+   - `3.9.6` is a safe starting point if you're unsure of the version you need
+
+4) Use that install as your global install
+
+   ```powershell
+   pyenv global <version>
+   ```
+
+   ```powershell
+   pyenv global 3.9.6
+   ```
+
+<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and it's various other tools that is okay! You already have python installed on your system and can skip this section._
+
+### Manual Installation (Windows)
 
 - [Git](https://git-scm.com/download/win)
 - [Node.js](https://nodejs.org/en/download/)
   - We recommend installing the "LTS" option for better stability
-
+- [VS Code](https://code.visualstudio.com/download)
 - Visual Studio:
-  Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow.
-  To add the workflow, follow [these instructions](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#:~:text=If%20you%20have%20Visual%20Studio,Then%2C%20choose%20Modify).
-
-## MacOS
-
-### Brew
-
-### Manual Installation
-
-- Command Line Tools: Type in the terminal
-
-  ```terminal
-  xcode-select --install
-  ```
-
-- Git 2.20.0 or later (with support for "--show-current"): [git](https://git-scm.com/downloads/)
-- [Node.js](https://nodejs.org/en/download/)
-- Python 3.7 or later (with support for TLS 1.2):
-  Follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python)
+  - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
+  - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
+- [pyenv for Windows](https://github.com/pyenv-win/pyenv-win#installation)
 
 ## Linux
 
-We reccomend using Ubuntu 18.10 or later as your distro. Any distro new enough to support GLIBC_2.28 should work.
+We recommend using Ubuntu (18.10 or later) as your distro but any distro new enough to support GLIBC_2.28 should work.
 
-- Node.js:
-  Dowload [Node.js source code](https://nodejs.org/en/download/) and compile it
-- Git 2.20.0 or later (with support for "--show-current"):
-  Install [git](https://git-scm.com/downloads/)
-- Python 3.7 or later (with support for TLS 1.2):
-  Install [Python](https://www.python.org/downloads/)
-- Clang:
-  Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-- Development headers of GTK 3 and libnotify:
-  Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
+- Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
+- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
+- [Python 3.7 or later]((https://www.python.org/downloads/)) (with support for TLS 1.2)
+- Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
+- Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
 
 ## Further Help
 

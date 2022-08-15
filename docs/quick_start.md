@@ -26,7 +26,7 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Note: _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
+_When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
 ##### Running Brewfile
@@ -43,25 +43,13 @@ This will call the `brew` command which will install all the listed packages to 
 
 #### Install Perquisites on Windows (chocolatey)
 
-[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
-
-##### Installing Chocolatey
-
-Run Powershell with administrator privileges and paste the following command:
-
-![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
-
-##### Using Chocolatey
-
-Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! Assuming you are in your root directory of the project, run:
+[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier. Install chocolatey and (assuming you are in your root directory of the project) run:
 
 ```console
-choco install chocolatey.config
+choco install chocolatey.config -y
 ```
+
+See [setup details](setup_details.md/#chocolatey) for more information on installing and using chocolatey.
 
 ### 1. Start your new task from our template repository
 
