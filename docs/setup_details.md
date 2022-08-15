@@ -18,7 +18,7 @@ In addition, Honeycomb relies on Electron to package the cross-platform desktop 
 
 ### Brew
 
-All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
+All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](./quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
 
 ### Manual Installation (MacOS)
 
