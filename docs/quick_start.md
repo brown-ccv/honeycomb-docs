@@ -22,12 +22,12 @@ The following are required for this project:
 
 Paste the following in a macOS Terminal and press enter to install Homebrew.
 
-```
+```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Note: *When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
-Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`*
+Note: _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
+Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
 ##### Running Brewfile
 
@@ -35,7 +35,7 @@ A Brewfile is a script that developers can use to install multiple software tool
 
 Navigate to the project directory on the command line and run the following command:
 
-```
+```shell
 brew bundle
 ```
 
@@ -59,19 +59,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 Moreover, chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! Assuming you are in your root directory of the project, run:
 
-```
+```console
 choco install chocolatey.config
 ```
-
-##### Installing firebase-cli
-
-firebase-cli can be installed using npm (Node Package Manager):
-
-```
-npm install -g firebase-tools
-```
-
-*The `-g` flag installs an npm package globally on your system, as opposed to the current project*
 
 ### 1. Start your new task from our template repository
 
@@ -119,12 +109,12 @@ Open `package.json` and edit it to reflect your app name and description (e.g. `
 git commit -m "Commit message goes here!"
 ```
 
-*Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git*
+_Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git_
 
 ### 3. Install NPM Packages
 
 With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
-`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. 
+`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application.
 
 Please run the following command to trigger the installation of all the dependencies relevant to this project.
 
@@ -136,15 +126,15 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
 
 ##### 1. Metadata
 
- ```json
+```json
 {
-  "name": "honeycomb",
-  "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
-  "author": {
-    "name": "Brown CCV",
-    "email": "ccv-bot@brown.edu",
-    "url": "ccv.brown.edu"
-  },
+ "name": "honeycomb",
+ "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
+ "author": {
+   "name": "Brown CCV",
+   "email": "ccv-bot@brown.edu",
+   "url": "ccv.brown.edu"
+ },
 ```
 
 The metadata provides information about the project such as the name, author and description.
@@ -163,11 +153,11 @@ The metadata provides information about the project such as the name, author and
 }
 ```
 
-Dependencies are packages that the project rely on for it to function properly. 
+Dependencies are packages that the project rely on for it to function properly.
 
 They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
 
-Note: *If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies.*
+Note: _If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies._
 
 ##### 3. Scripts
 
@@ -180,7 +170,7 @@ Note: *If any changes are made to the dependencies section of the `package.json`
     "test": "react-scripts test",
     "prebuild": "electron-rebuild",
     "build": "react-scripts build",
-    ...    
+    ...
 }
 ```
 
@@ -188,11 +178,11 @@ The scripts section contains a number of commands you can run.
 
 They are also presented in key/value pair where the key is the command name and value is the command we want to run.
 
-*Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run.*
+_Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run._
 
 ### 4. Run the task in dev mode
 
-*Windows users must use a git bash terminal*
+_Windows users must use a git bash terminal_
 
 ```
 npm run dev
@@ -206,9 +196,9 @@ HoneyComb tasks can be configured to run as a web app in Firebase, as desktop ap
 
 ### 6. Check out the data
 
-The data is saved throughout the task. When running as a Desktop App, data is saved to the user's app directory. When running as Web App in Firebase, data is stored in the FireStore. 
+The data is saved throughout the task. When running as a Desktop App, data is saved to the user's app directory. When running as Web App in Firebase, data is stored in the FireStore.
 
-For a Desktop App, the location of the  is logged at the beginning of the task wherever you ran `npm run dev`. Data is also stored in a folder that is generated by the app, which should be found on the desktop.
+For a Desktop App, the location of the is logged at the beginning of the task wherever you ran `npm run dev`. Data is also stored in a folder that is generated by the app, which should be found on the desktop.
 
 ### 7. Quit the task
 
@@ -226,7 +216,7 @@ Partial data will be saved.
 
 ### 8. Run automated tests
 
-When getting started, merging updates, or making custom changes, it's a good idea to run automated tests.  These can tell you if things are working or if recent changes broke something that previously worked.
+When getting started, merging updates, or making custom changes, it's a good idea to run automated tests. These can tell you if things are working or if recent changes broke something that previously worked.
 
 To run the tests interactively:
 
@@ -242,7 +232,7 @@ CI=true npm test
 
 #### Linux
 
-When running `npm test` on Linux, you might get an error that mentions `ENOSPC`.  This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change.  Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
+When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
 
 This is a "known issue" with some test runners on Linux, as in discussions [here](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached) and [here](https://stackoverflow.com/questions/62206460/jest-watch-error-enospc-system-limit-for-number-of-file-watchers-reached).
 
