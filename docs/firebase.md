@@ -9,7 +9,7 @@ Honeycomb comes with methods and configurations for easy [Firebase](https://fire
 
 ### 0. Installing the Firebase Command Line Interface
 
-If the firebase cli is not installed on your computer it's best to install it now. To check if it is install simply type `firebase` into a terminal window.
+To check if firebase has been installed, type `firebase` into a terminal window.
 
 ```terminal
 firebase
