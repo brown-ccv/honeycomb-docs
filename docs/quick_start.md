@@ -122,7 +122,8 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
    "name": "Brown CCV",
    "email": "ccv-bot@brown.edu",
    "url": "ccv.brown.edu"
- },
+  }
+}
 ```
 
 The metadata provides information about the project such as the name, author and description.
@@ -131,13 +132,13 @@ The metadata provides information about the project such as the name, author and
 
 ```json
 "dependencies": {
-    "@brown-ccv/behavioral-task-trials": "^2.0.0",
-    "@fortawesome/fontawesome-free": "^5.9.0",
-    "bootstrap": "^5.2.0-beta1",
-    "electron-log": "^4.4.8",
-    "electron-squirrel-startup": "^1.0.0",
-    "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
-    ...
+  "@brown-ccv/behavioral-task-trials": "^2.0.0",
+  "@fortawesome/fontawesome-free": "^5.9.0",
+  "bootstrap": "^5.2.0-beta1",
+  "electron-log": "^4.4.8",
+  "electron-squirrel-startup": "^1.0.0",
+  "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
+  ...
 }
 ```
 
@@ -170,7 +171,7 @@ _Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_
 
 ### 4. Run the task in dev mode
 
-_Windows users must use a git bash terminal_
+Note: **Windows users must use a git bash terminal**
 
 ```
 npm run dev

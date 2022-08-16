@@ -30,7 +30,6 @@ _The `-g` flag installs an npm package globally on your system, as opposed to th
 
 ### 2. Linking firebase to task
 
-- Install [Firebase CLI](https://firebase.google.com/docs/cli) on your local computer.
 - Login to firebase using `firebase login` command in the terminal.
 - Navigate to the `.firebaserc` file home directory and edit the `"default"` field with the project name given in part 1.
 
