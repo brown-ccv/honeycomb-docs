@@ -60,4 +60,4 @@ Restart computer after all installs are complete
 - Development headers of GTK 3 and libnotify:
   Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
-_Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)_
+Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)
