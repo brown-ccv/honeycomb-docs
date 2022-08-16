@@ -1,11 +1,11 @@
 ---
 id: setup_details
-title: Setup Details
+title: Setup Details (Prerequisites)
 ---
 
-Checkout the following for additional information and help in the setup process for Honeycomb for all operating systems!
+Check out the following for additional information and help in the setup process for Honeycomb for all operating systems!
 
-### Help With Installing [Electron Prerequisites](https://brown-ccv.github.io/honeycomb-docs/docs/quick_start#0-installing-prerequisites)
+### Help With Installing [Electron Prerequisites](https://brown-ccv.github.io/honeycomb-docs/docs/quick_start#0-installing-prerequisites) 
 
 Honeycomb relies on Electron to package the cross-platform desktop applications.
 You will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
@@ -60,4 +60,4 @@ Restart computer after all installs are complete
 - Development headers of GTK 3 and libnotify:
   Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
-Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)
+_Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)_
