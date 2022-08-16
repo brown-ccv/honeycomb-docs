@@ -204,7 +204,7 @@ Partial data will be saved.
 
 ### 8. Run automated tests
 
-When getting started, merging updates, or making custom changes, it's a good idea to run automated tests. These can tell you if things are working or if recent changes broke something that previously worked.
+Automated tests can tell a user whether the code is working as expected or if recent changes have broken previous functionality. When getting started, merging updates, or making custom changes, running automated tests is a good idea.
 
 To run the tests interactively:
 
