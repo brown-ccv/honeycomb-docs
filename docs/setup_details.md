@@ -69,16 +69,16 @@ Running `choco install chocolatey.config` is the equivalent of calling `choco in
 
 ### Python on Windows (pyenv)
 
-Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. There are several one-time steps to set up your system that will drastically reduce future headaches.
+Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing python on your system, which is a rule for most things in software development (this is what [npm](quick_start.md/#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using python again.** We promise the extra setup today will pay great dividends in the future!
 
-First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **This is a highly recommend step even if you already have a Python manager**
+First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **Please complete this step even if you already have a Python manager**
 
 ![App execution aliases](assets/python-win-1.png)
 ![Turn off app installer](assets/python-win-2.png)
 
-Now we can set up our python management system. We recommend `pyenv` as it is small and intuitive for newer developers. Complete the following steps to install `pyenv` for Windows and setup your global python environment<sup>1</sup>:
+Now we can set up our python management system<sup>1</sup>. We recommend [pyenv](https://github.com/pyenv-win/pyenv-win) as it is small and intuitive for newer developers. It lets us install python globally AND switch between different versions for individual projects. It does this (and only this) extremely well. Complete the following steps to install `pyenv` for Windows and set up your global python environment:
 
-1) Ensure Python is completely uninstalled from your system
+1) Ensure Python is completely uninstalled from your system<sup>2</sup>
   
    - Type `python` on the command line and ensure you get a "Command 'python' not found" error
 
@@ -86,7 +86,7 @@ Now we can set up our python management system. We recommend `pyenv` as it is sm
      python
      ```
 
-   - _If the command executes, locate the installation and remove it. Continue until the error appears_
+   - _If the command executes, locate the installation (check "Add or Remove programs" in the settings) and remove it. Continue until the error appears_
    - _If the Microsoft Store launches check again to ensure "Manage App execution aliases" is turned off for `python.exe` and `python3.exe`_
 
 2) Install `pyenv-win`
@@ -103,25 +103,28 @@ Now we can set up our python management system. We recommend `pyenv` as it is sm
       choco install pyenv-win
       ```
 
-3) Install a python version
+3) Install your python version
 
    ```powershell
    pyenv install <version>
    ```
 
-   - `3.9.6` is a safe starting point if you're unsure of the version you need
+   - If you're using a different Python version for another project that version will work fine so long as it is at least version `> 3.0.0`
+   - Otherwise install the newest version that includes exactly 3 numbers, e.g. `3.10.6`
 
-4) Use that install as your global install
+     ```powershell
+     pyenv install --list
+     ```
+
+4) Use that version as your global install
 
    ```powershell
    pyenv global <version>
    ```
 
-   ```powershell
-   pyenv global 3.9.6
-   ```
+<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and it's various other tools that is okay! You already have python manager installed on your system and can skip this section._
 
-<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and it's various other tools that is okay! You already have python installed on your system and can skip this section._
+<sup>2</sup>_Any "solo" installations can and will cause major conflicts with `pyenv`. It can cause issues when you try to change your version, when another program checks for python, when you update Windows... so on and so forth. Perhaps you've already run into something unexpected like this! This is why it's essential python is completely uninstalled from your computer before beginning._
 
 ### Manual Installation (Windows)
 
