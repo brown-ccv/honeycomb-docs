@@ -53,7 +53,7 @@ firebase init hosting:github
 ```
 
 - Be sure to type "`<username>/<repository name>`" exactly as it appears in GitHub when the prompt "For which GitHub repository would you like to set up a GitHub workflow?" appears.
-- When you see the prompy "Set up the workflow to run a build script before every deploy?" enter `y`
+- When you see the prompt "Set up the workflow to run a build script before every deploy?" enter `y`
 - Enter the following command for the prompt "What script should be run before every deploy?":
 
   ```console
