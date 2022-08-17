@@ -13,7 +13,7 @@ The `package-lock.json` contains metadata about the package installation. It sho
 
 ### `assets/`
 
-The icons used for the installed applications are put here.
+This folder contains any static files that are used by the app, such as the images used as icons for the installed applications.
 
 ### `env/`
 
@@ -35,7 +35,9 @@ This file contains all of the code relating to the electron app. This includes t
 
 The `config` directory contains the config files needed for the electron app.  This includes the event-marker details and event codes.
 
-Note: the productId can be overwritten by the environment variable EVENT_MARKER_PRODUCT_ID
+In the `config/` directory, there are `.js` files which contain settings for the different parts of the task.  Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different in-task features can be loaded from .env files and is set in the `main` config. For example, we have included some of these files in the `env` directory (e.g. `env.clinic` file enables event marker, photodiode and volume adjustment). The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
+
+Other config files can be used to add settings for specific blocks or sub-sections of the experiment. Also, *note that the productId can be overwritten by the environment variable EVENT_MARKER_PRODUCT_ID*.
 
 ### `src/`
 
@@ -49,19 +51,9 @@ This is the starting point for the app. The `<Login>` component handles user aut
 
 This is where styling for the app is housed. If colors, fonts, spacing, etc. need to be set, do it here.
 
-#### `assets/`
-
-This folder contains any static files that are used by the app, such as images.
-
 #### `components/`
 
 This folder contains the components referenced in `App.jsx`.  This includes the Honeycomb `<JsPsychExperiment>` component which connects the Honyecomb login page to your `jspsych` 7 experiment.
-
-#### `config/`
-
-In the `config/` directory, there are `.js` files which contain settings for the different parts of the task.  Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different in-task features can be loaded from .env files and is set in the `main` config. For example, we have included some of these files in the `env` directory (e.g. `env.clinic` file enables event marker, photodiode and volume adjustment). The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
-
-Other config files can be used to add settings for specific blocks or sub-sections of the experiment.
 
 #### `language/`
 

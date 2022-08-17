@@ -24,15 +24,15 @@ Listed below are the prerequisites for each operating system along with resource
 - Git bash (Git 2.20.0 or later with support for "--show-current"):
   Install [git bash](https://git-scm.com/downloads)
 
-**Note: restart computer after all installs are complete**
+Restart computer after all installs are complete
 
 #### MacOS
 
 - Command Line Tools: Type in the terminal
 
-    ```
-    xcode-select --install
-    ```
+  ```shell
+  xcode-select --install
+  ```
 
 - Node.js:
   Install [Node.js](https://nodejs.org/en/download/)
@@ -60,4 +60,4 @@ Listed below are the prerequisites for each operating system along with resource
 - Development headers of GTK 3 and libnotify:
   Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 
-**Note: Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)**
+Ubuntu 18.10 or later recommended (or another distro new enough to support GLIBC_2.28)
