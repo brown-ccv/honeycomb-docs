@@ -7,7 +7,7 @@ Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code 
 
 ## What is CI/CD?
 
-Continuous Integration, Continuous Deployment: CI/CD or CICD refers to continuous integration and either continuous delivery or continuous deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
+CI/CD refers to Continuous Integration and either Continuous Delivery or Continuous Deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
 
 ## What are Github Actions
 
@@ -42,7 +42,8 @@ The executable does not require installation of any additional software.
 
 Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall.
 
-## Firebase Hosting
+The executable does not require installation of any additional software.
+>>>>>>> main
 
 Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the following steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md). Then run the following command in the terminal:
 
