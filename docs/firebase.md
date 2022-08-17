@@ -5,9 +5,23 @@ title: Set up Firebase
 
 Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) set up. Please use this section to configure [Firebase Hosting](https://firebase.google.com/docs/hosting) services and Firestore cloud storage.
 
-## Getting Started
+## Setting up Firebase
 
-Follow these steps to create a firebase project and link it with the current task.
+### 0. Installing the Firebase Command Line Interface
+
+To check if firebase has been installed, type `firebase` into a terminal window.
+
+```shell
+firebase
+```
+
+If a list of options are printed on the terminal then the firebase tool has already been installed. If not, you will get an error - something along the lines of "Command not found." The firebase-cli can then be installed using npm:
+
+```shell
+npm install -g firebase-tools
+```
+
+_The `-g` flag installs an npm package globally on your system, as opposed to the current project_
 
 ### 1. Initializing firebase account and project
 
@@ -16,38 +30,38 @@ Follow these steps to create a firebase project and link it with the current tas
 
 ### 2. Linking firebase to task
 
-- Install [Firebase CLI](https://firebase.google.com/docs/cli) on your local computer.
 - Login to firebase using `firebase login` command in the terminal.
 - Navigate to the `.firebaserc` file home directory and edit the `"default"` field with the project name given in part 1.
 
-    ```json
-    {
-        "projects": {
-            "default": "<your project name>"
-        }
-    }   
-    ```
-  
+```json
+{
+    "projects": {
+        "default": "<your project name>"
+    }
+}
+```
+
 ### 3. Copying web app credentials
 
 - Navigate to the [firebase console](https://console.firebase.google.com/) and select the project.
 - Create a new Web App by clicking on `Add App` or the `</>` code symbol and following the prompts.
 - Enter the a name for the Firebase app (could be the same as your Honeycomb task repo name).
 - Check "Also set up Firebase Hosting for this app."
-- Click `Register App`.  This should auto-generate a script with several values that you need to copy into the next step.
+- Click `Register App`. This should auto-generate a script with several values that you need to copy into the next step.
 - Create a new file, `.env.firebase` in the `env/` folder and copy the following lines:
 
-  ```text
-  REACT_APP_FIREBASE="true"
-  REACT_APP_apiKey=
-  REACT_APP_authDomain=
-  REACT_APP_projectId=
-  REACT_APP_storageBucket=
-  REACT_APP_messagingSenderId=
-  REACT_APP_appId=
-  ```
+```text
+REACT_APP_FIREBASE="true"
+REACT_APP_apiKey=
+REACT_APP_authDomain=
+REACT_APP_projectId=
+REACT_APP_storageBucket=
+REACT_APP_messagingSenderId=
+REACT_APP_appId=
+```
 
-- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created
+- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created.
+  - You only need to copy the variables referenced here. _If you enabled Google Analytics during project creation, additional variables may be printed in the console. You don't need to copy those._
 
 Firebase is now set up!
 
@@ -57,12 +71,12 @@ Honeycomb includes cloud storage for task data using Firestore. Follow these ste
 
 - Navigate to the current project in the developer console and select `Firestore Database` from the sidebar.
 - Click `Create Database`, select `production mode` and choose the current location for the cloud storage bucket.
-  
+
 ### Firestore security rules
 
 [Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started) provides easy server-side authorization to the database. For a honeycomb task, we use the security rules to allow access to only authorized participants for a specified study. Honeycomb's default set of rules is included in the `firestore.rules` file in the home directory. This file can be edited to change the rules. To deploy the rules in the file, type the following line of code in the terminal:
 
-```console
+```shell
 firebase deploy --only firestore:rules
 ```
 
