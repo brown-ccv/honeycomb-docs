@@ -29,6 +29,20 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 Note: _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
+#### Install Perquisites on Windows (chocolatey)
+
+[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
+
+##### Installing Chocolatey
+
+Run Powershell with administrator privileges and paste the following command:
+
+![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
 ### Start your new task from our template repository
 
 To start a new task locally, in development mode follow these steps:
@@ -78,19 +92,6 @@ brew bundle
 
 This will call the `brew` command which will install all the listed packages to your project.
 
-#### Install Perquisites on Windows (chocolatey)
-
-[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
-
-##### Installing Chocolatey
-
-Run Powershell with administrator privileges and paste the following command:
-
-![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
 
 ##### Using Chocolatey
 
