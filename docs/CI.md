@@ -43,7 +43,8 @@ The executable does not require installation of any additional software.
 Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall.
 
 The executable does not require installation of any additional software.
->>>>>>> main
+
+## Firebase Hosting
 
 Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the following steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md). Then run the following command in the terminal:
 
