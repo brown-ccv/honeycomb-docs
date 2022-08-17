@@ -7,7 +7,7 @@ Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code 
 
 ## What is CI/CD?
 
-Continuous Integration, Continuous Deployment: CI/CD or CI/CD refers to continuous integration and either continuous delivery or continuous deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
+CI/CD refers to Continuous Integration and either Continuous Delivery or Continuous Deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
 
 ## What are Github Actions
 
@@ -30,24 +30,39 @@ More specifically, the following workflows are included:
 
 <sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage on private repositories. Uploading artifacts counts against your quota. You may consider configuring your workflows to only upload what you need. You can learn more about GitHub's storage limits in their [official documentation](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions).
 
-## Github Actions for firebase hosting
-
-Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the follwing steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md)
-
-- Run `firebase init hosting:github` in the terminal and follow the CLI prompts to start setting up the github actions.
-  - For the github directory question, select your task github directory.
-  - When prompted with the npm command, type `npm install && npm run build:firebase`
-
-There should be two new `.yml` files, `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml`, created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch.
-
-## Download your bundled executable to install and run your task
+### Download your bundled executable to install and run your task
 
 You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file, install and run.
 
 The executable does not require installation of any additional software.
 
-## Uninstall the task
+### Uninstall the task
 
-### Windows
+#### Windows
 
 Go to System Settings: Add or remove programs. Look for the name of your task in the installed programs list, and Uninstall.
+
+The executable does not require installation of any additional software.
+
+## Firebase Hosting
+
+Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the following steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.md). Then run the following command in the terminal:
+
+```console
+firebase init hosting:github
+```
+
+- Be sure to type "`<username>/<repository name>`" exactly as it appears in GitHub when the prompt "For which GitHub repository would you like to set up a GitHub workflow?" appears.
+- When you see the prompt "Set up the workflow to run a build script before every deploy?" enter `y`
+- Enter the following command for the prompt "What script should be run before every deploy?":
+
+  ```console
+  npm install && npm run build:firebase
+  ```
+
+- When you see the prompt "Set up automatic deployment to your site's live channel when a PR is merged?" enter `y`
+- Enter "`main`" for the prompt "What is the name of the GitHub branch associated with your site's live channel?"
+
+There should be two new `.yml` files, `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml`, created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch. Double check that the correct run script is present in both files.
+
+![Firebase actions](assets/firebase-actions.png)
