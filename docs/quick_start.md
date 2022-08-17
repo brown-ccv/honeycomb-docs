@@ -105,15 +105,13 @@ _Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/
 
 Please run the following command to trigger the installation of all the dependencies relevant to this project:
 
-_Note: Windows users must use a git bash terminal<sup>1</sup>_
-
 ```console
 npm install
 ```
 
 Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
 
-##### 1. Metadata
+#### 1. Metadata
 
 ```json
 {
@@ -129,7 +127,7 @@ Honeycomb, like most applications, contains a template called `package.json`. Th
 
 The metadata provides information about the project such as the name, author and description.
 
-##### 2. Dependencies
+#### 2. Dependencies
 
 ```json
 "dependencies": {
@@ -149,7 +147,7 @@ They are formatted in specific key/value pairs where every key is a name of the 
 
 Note: _If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies._
 
-##### 3. Scripts
+#### 3. Scripts
 
 ```json
 "scripts": {
@@ -164,11 +162,9 @@ Note: _If any changes are made to the dependencies section of the `package.json`
 }
 ```
 
-The scripts section contains a number of commands you can run.
+The scripts section contains a number of commands you can run. They are presented in key/value pair where the key is the command name and value is the command we want to run.
 
-They are also presented in key/value pair where the key is the command name and value is the command we want to run.
-
-_Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run._
+_Check out the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run._
 
 ### 4. Run the task in dev mode
 
@@ -177,6 +173,12 @@ npm run dev
 ```
 
 This will launch an electron window with the task and inspector open. It will hot-reload whenever changes are made to the app.
+
+#### Scripts on Windows
+
+Windows users must use a Git Bash terminal to execute  scripts such as `npm run dev`. This is because node scripts are designed to execute on a Unix style command line environment but neither Command Prompt nor PowerShell are Unix based.
+
+Check out [these instructions](https://www.shanebart.com/set-default-vscode-terminal/) to set git bash as your default terminal on VS Code.
 
 ### 5. Learn about configuring your task for different environments
 
@@ -218,7 +220,7 @@ Or non-interactively:
 CI=true npm test
 ```
 
-### Linux
+#### Testing on Linux
 
 When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
 
@@ -233,5 +235,3 @@ One simple workaround is to increase the number of allowed watchers (100000 seem
 - Save, exit, and reload the config file: `sudo sysctl -p`
 - Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
 - Retry the initial command, which should now succeed: `npm test`
-
-_1:_ ![Git bash terminal](assets/git-bash.png)
