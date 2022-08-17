@@ -32,8 +32,6 @@ We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great to
   
   
 ```bash
-# clone project 
-git clone https://github.com/brown-ccv/honeycomb.git
 # create branch with your feature
 git checkout -b feature_name
 # check the status of your repositoey
