@@ -60,7 +60,7 @@ REACT_APP_messagingSenderId=
 REACT_APP_appId=
 ```
 
-- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created
+- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created. You only need to copy the variables referenced here. If you enabled Google Analytics during project creation, additional variables may be printed in the console. You don't need to worry about copying those.
 
 Firebase is now set up!
 
