@@ -38,19 +38,9 @@ Note that Windows occasionally requires a restart after package installations co
 
 ### chocolatey
 
-#### Installing Chocolatey
-
-Run Powershell with administrator privileges and paste the following command:
-
-![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
-
 #### chocolatey.config
 
-Chocolatey will install multiple packages at the same time when given a config file:
+A Chocolatey configuration file looks something like this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -11,13 +11,13 @@ Honeycomb comes with methods and configurations for easy [Firebase](https://fire
 
 To check if firebase has been installed, type `firebase` into a terminal window.
 
-```terminal
+```shell
 firebase
 ```
 
 If a list of options are printed on the terminal then the firebase tool has already been installed. If not, you will get an error - something along the lines of "Command not found." The firebase-cli can then be installed using npm:
 
-```terminal
+```shell
 npm install -g firebase-tools
 ```
 
