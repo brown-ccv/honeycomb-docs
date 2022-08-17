@@ -5,7 +5,7 @@ title: Quick Start
 
 Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run.
 
-### 0. Installing Prerequisites
+### 1. Installing Prerequisites
 
 There are some prerequisites that are required across all operating systems to run Honeycomb. For macOS users, we highly recommend using Homebrew to expedite installing these prerequisites.
 
@@ -29,18 +29,6 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 Note: _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
-##### Running Brewfile
-
-A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
-
-Navigate to the project directory on the command line and run the following command:
-
-```shell
-brew bundle
-```
-
-This will call the `brew` command which will install all the listed packages to your project.
-
 #### Install Perquisites on Windows (chocolatey)
 
 [Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier.
@@ -54,6 +42,56 @@ Run Powershell with administrator privileges and paste the following command:
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
+
+### Start your new task from our template repository
+
+To start a new task locally, in development mode follow these steps:
+
+The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
+
+Creating a repository from a template is similar to forking a repository, but there are important differences:
+
+- A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
+- Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
+- A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
+
+Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right.
+
+![](assets/template_0.png)
+
+Then select the organization and the name of your repository and click on `create repository from template`.
+
+![](assets/template_1.png)
+
+```
+# clone project 
+git clone https://github.com/your-github-account/your-new-task-name.git
+```
+
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal:
+
+```
+gh repo create your-new-task-name --template brown-ccv/honeycomb
+```
+
+You can now move into the directory that was just created
+
+```
+cd your-new-task-name
+```
+
+##### Running Brewfile
+
+A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
+
+Navigate to the project directory on the command line and run the following command:
+
+```shell
+brew bundle
+```
+
+This will call the `brew` command which will install all the listed packages to your project.
+
 
 ##### Using Chocolatey
 
@@ -73,37 +111,6 @@ npm install -g firebase-tools
 
 _The `-g` flag installs an npm package globally on your system, as opposed to the current project_
 
-### 1. Start your new task from our template repository
-
-To start a new task locally, in development mode follow these steps:
-
-The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
-
-Creating a repository from a template is similar to forking a repository, but there are important differences:
-
-- A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
-- Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
-- A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
-
-Go to [https://github.com/brown-ccv/honeycomb](https://github.com/brown-ccv/honeycomb) and click on `Use this template` on the top right.
-
-![Use this template](assets/template_0.png)
-
-Then select the organization and the name of your repository and click on `create repository from template`.
-
-![Create a new repository](assets/template_1.png)
-
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI ([https://cli.github.com/](https://cli.github.com/)), then run on your terminal:
-
-```shell
-gh repo create your-new-task-name --template brown-ccv/honeycomb
-```
-
-You can now move into the directory that was just created
-
-```shell
-cd your-new-task-name
-```
 
 ### 2. Change name and description
 
