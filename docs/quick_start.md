@@ -20,7 +20,7 @@ The following are required for this project:
 
 ##### Installing Homebrew
 
-Paste the following in a macOS Terminal and press enter to install Homebrew.
+Paste the following in a macOS Terminal and press enter to install Homebrew. Then follow the steps in the terminal screen.
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -28,6 +28,16 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 
 Note: _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
 Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
+
+##### Set up Homebrew in your `PATH`
+
+To make Homebrew available in your shell, we need to add the Homebrew installation location to our `PATH`. This should be done automatically on macOS 10.14 Mojave or newer. For older versions, or to do it manually run the following command in your terminal.
+
+```shell
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+```
+
+If you're using `zsh`, also add to your `~/.zshrc` file.
 
 #### Install Perquisites on Windows (chocolatey)
 
