@@ -26,8 +26,7 @@ Paste the following in a macOS Terminal and press enter to install Homebrew.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-_When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations.
-Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
+_When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations. Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
 ##### Running Brewfile
 
@@ -63,23 +62,23 @@ Creating a repository from a template is similar to forking a repository, but th
 - Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
 - A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
 
-Go to https://github.com/brown-ccv/honeycomb and click on `Use this template` on the top right.
+Go to [https://github.com/brown-ccv/honeycomb](https://github.com/brown-ccv/honeycomb) and click on `Use this template` on the top right.
 
-![](assets/template_0.png)
+![Use this template](assets/template_0.png)
 
 Then select the organization and the name of your repository and click on `create repository from template`.
 
-![](assets/template_1.png)
+![Create a new repository](assets/template_1.png)
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal:
+Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI ([https://cli.github.com/](https://cli.github.com/)), then run on your terminal:
 
-```
+```shell
 gh repo create your-new-task-name --template brown-ccv/honeycomb
 ```
 
 You can now move into the directory that was just created
 
-```
+```shell
 cd your-new-task-name
 ```
 
@@ -87,13 +86,13 @@ cd your-new-task-name
 
 It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
 
-```
+```shell
 git checkout -b <branch-name>
 ```
 
 Open `package.json` and edit it to reflect your app name and description (e.g. `name`, `author`, `repository`). Save your changes and commit them to git:
 
-```
+```shell
 git commit -m "Commit message goes here!"
 ```
 
@@ -105,7 +104,7 @@ _Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/
 
 Please run the following command to trigger the installation of all the dependencies relevant to this project:
 
-```console
+```shell
 npm install
 ```
 
@@ -151,14 +150,14 @@ Note: _If any changes are made to the dependencies section of the `package.json`
 
 ```json
 "scripts": {
-    "commit": "git-cz",
-    "postinstall": "node version.js && npm run rebuild",
-    "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
-    "start:browser": "react-scripts start",
-    "test": "react-scripts test",
-    "prebuild": "electron-rebuild",
-    "build": "react-scripts build",
-    ...
+  "commit": "git-cz",
+  "postinstall": "node version.js && npm run rebuild",
+  "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
+  "start:browser": "react-scripts start",
+  "test": "react-scripts test",
+  "prebuild": "electron-rebuild",
+  "build": "react-scripts build",
+  ...
 }
 ```
 
@@ -168,7 +167,7 @@ _Check out the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm
 
 ### 4. Run the task in dev mode
 
-```
+```shell
 npm run dev
 ```
 
@@ -194,11 +193,11 @@ For a Desktop App, the location of the is logged at the beginning of the task wh
 
 If you want to quit in the middle of the task, you can use these keyboard shortcuts:
 
-```
+```shortcut
 Ctrl+W (for PC/Windows)
 ```
 
-```
+```shortcut
 Cmd+Q (for Mac)
 ```
 
@@ -206,17 +205,17 @@ Partial data will be saved.
 
 ### 8. Run automated tests
 
-Automated tests can tell a user whether the code is working as expected or if recent changes have broken previous functionality. When getting started, merging updates, or making custom changes, running automated tests is a good idea.
+Automated tests can tell a user whether the code is working as expected or if recent changes have broken previous functionality. Running automated tests is a good idea whenever you're getting started, merging updates, or making custom changes.
 
 To run the tests interactively:
 
-```
+```shell
 npm test
 ```
 
 Or non-interactively:
 
-```
+```shell
 CI=true npm test
 ```
 

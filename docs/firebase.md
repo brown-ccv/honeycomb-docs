@@ -3,7 +3,7 @@ id: firebase
 title: Set up Firebase
 ---
 
-Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) set up. Please use this section to configure [Firebase Hosting](https://firebase.google.com/docs/hosting) services and firestore cloud storage.
+Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) set up. Please use this section to configure [Firebase Hosting](https://firebase.google.com/docs/hosting) services and Firestore cloud storage.
 
 ## Setting up Firebase
 
@@ -67,7 +67,7 @@ Firebase is now set up!
 
 ## Setting up Firestore
 
-Honeycomb includes cloud storage for task data using Firestore. Follow these steps to initialize firestore:
+Honeycomb includes cloud storage for task data using Firestore. Follow these steps to initialize Firestore:
 
 - Navigate to the current project in the developer console and select `Firestore Database` from the sidebar.
 - Click `Create Database`, select `production mode` and choose the current location for the cloud storage bucket.
