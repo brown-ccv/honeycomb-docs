@@ -49,6 +49,11 @@ Then select the organization and the name of your repository and click on `creat
 
 ![](assets/template_1.png)
 
+```
+# clone project 
+git clone https://github.com/your-github-account/your-new-task-name.git
+```
+
 Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI (https://cli.github.com/), then run on your terminal:
 
 ```
