@@ -101,12 +101,13 @@ _Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/
 
 ### 3. Install NPM Packages
 
-With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
-`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application.
+`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
 
-Please run the following command to trigger the installation of all the dependencies relevant to this project.
+Please run the following command to trigger the installation of all the dependencies relevant to this project:
 
-```
+_Note: Windows users must use a git bash terminal<sup>1</sup>_
+
+```console
 npm install
 ```
 
@@ -171,8 +172,6 @@ _Checkout the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_
 
 ### 4. Run the task in dev mode
 
-Note: **Windows users must use a git bash terminal**
-
 ```
 npm run dev
 ```
@@ -219,7 +218,7 @@ Or non-interactively:
 CI=true npm test
 ```
 
-#### Linux
+### Linux
 
 When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
 
@@ -234,3 +233,5 @@ One simple workaround is to increase the number of allowed watchers (100000 seem
 - Save, exit, and reload the config file: `sudo sysctl -p`
 - Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
 - Retry the initial command, which should now succeed: `npm test`
+
+_1:_ ![Git bash terminal](assets/git-bash.png)
