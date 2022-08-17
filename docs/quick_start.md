@@ -11,15 +11,25 @@ There are some prerequisites that are required across all operating systems to r
 
 #### MacOS Package Manager (HomeBrew)
 
-Paste the following in a macOS Terminal and press enter to install Homebrew.
+Paste the following in a macOS Terminal and press enter to install Homebrew. Then follow the steps in the terminal screen.
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 ```
 
 _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations. Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
 
-#### Windows Package Manager (Chocolatey)
+##### Set up Homebrew in your `PATH`
+
+To make Homebrew available in your shell, we need to add the Homebrew installation location to our `PATH`. This should be done automatically on macOS 10.14 Mojave or newer. For older versions, or to do it manually run the following command in your terminal.
+
+```shell
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+```
+
+If you're using `zsh`, also add to your `~/.zshrc` file.
+
+#### Install Perquisites on Windows (chocolatey)
 
 [Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier. Run Powershell with administrator privileges and paste the following command:
 
@@ -164,7 +174,7 @@ Note: _If any changes are made to the dependencies section of the `package.json`
 }
 ```
 
-The scripts section contains a number of commands you can run. They are presented in key/value pair where the key is the command name and value is the command we want to run.
+The scripts section contains a number of commands you can run.
 
 _Check out the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run._
 
