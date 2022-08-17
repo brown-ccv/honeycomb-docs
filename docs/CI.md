@@ -53,14 +53,14 @@ firebase init hosting:github
 ```
 
 - Be sure to type "`<username>/<repository name>`" exactly as it appears in GitHub when the prompt "For which GitHub repository would you like to set up a GitHub workflow?" appears.
-- Enter "`y`" for the prompt "Set up the workflow to run a build script before every deploy?"
+- When you see the prompy "Set up the workflow to run a build script before every deploy?" enter `y`
 - Enter the following command for the prompt "What script should be run before every deploy?":
 
   ```console
   npm install && npm run build:firebase
   ```
 
-- Enter "`y`" for the prompt "Set up automatic deployment to your site's live channel when a PR is merged?"
+- When you see the prompt "Set up automatic deployment to your site's live channel when a PR is merged?" enter `y`
 - Enter "`main`" for the prompt "What is the name of the GitHub branch associated with your site's live channel?"
 
 There should be two new `.yml` files, `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml`, created in the `.github/workflows` directory for a deployment preview for each pull request and the official deployment when merged onto the main branch. Double check that the correct run script is present in both files.
