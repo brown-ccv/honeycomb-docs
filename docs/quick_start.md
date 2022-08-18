@@ -9,12 +9,12 @@ Before we can get started with Honeycomb, we must make sure our machines have th
 
 There are some prerequisites that are required across all operating systems to run Honeycomb. We will be using a package manager to install these dependencies.
 
-#### MacOS Package Manager (HomeBrew)
+#### MacOS Package Manager (Homebrew)
 
 Paste the following in a macOS Terminal and press enter to install Homebrew, then follow the steps in the terminal screen.
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'
 ```
 
 _When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations. Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
