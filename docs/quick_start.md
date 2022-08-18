@@ -29,7 +29,7 @@ echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 
 If you're using `zsh`, also add to your `~/.zshrc` file.
 
-#### Windows Package Manager (chocolatey)
+#### Windows Package Manager (Chocolatey)
 
 [Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier. Run Powershell with administrator privileges and paste the following command:
 
