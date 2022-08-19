@@ -30,7 +30,7 @@ We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great to
 | git clone &lt;url&gt;         | download entire repository                                         |
 | git checkout &lt;branch&gt;   | checkout and create the branch you want to use                     |
 
-```
+```shell
 # create branch with your feature
 git checkout -b feature_name
 # check the status of your repositoey
