@@ -48,7 +48,7 @@ _The `-g` flag installs an npm package globally on your system, as opposed to th
 - Enter the a name for the Firebase app (could be the same as your Honeycomb task repo name).
 - Check "Also set up Firebase Hosting for this app."
 - Click `Register App`. This should auto-generate a script with several values that you need to copy into the next step.
-- Create a new file, `.env.firebase` in the `env/` folder and copy the following lines:
+- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo:
 
 ```text
 REACT_APP_FIREBASE="true"
