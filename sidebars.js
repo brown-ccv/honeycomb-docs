@@ -1,5 +1,4 @@
 module.exports = {
-  // NEW
   mySidebar: [
     'introduction',
     'project_organization',
