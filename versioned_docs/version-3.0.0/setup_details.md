@@ -68,8 +68,8 @@ First and foremost, turn off both Python App Installers in the "App Execution Al
 
 Now we can set up our python management system<sup>1</sup>. We recommend [pyenv](https://github.com/pyenv-win/pyenv-win) as it is small and intuitive for newer developers. It lets us install python globally AND switch between different versions for individual projects. It does this (and only this) extremely well. Complete the following steps to install `pyenv` for Windows and set up your global python environment:
 
-1) Ensure Python is completely uninstalled from your system<sup>2</sup>
-  
+1. Ensure Python is completely uninstalled from your system<sup>2</sup>
+
    - Type `python` on the command line and ensure you get a "Command 'python' not found" error
 
      ```powershell
@@ -79,7 +79,7 @@ Now we can set up our python management system<sup>1</sup>. We recommend [pyenv]
    - _If the command executes, locate the installation (check "Add or Remove programs" in the settings) and remove it. Continue until the error appears_
    - _If the Microsoft Store launches check again to ensure "Manage App execution aliases" is turned off for `python.exe` and `python3.exe`_
 
-2) Install `pyenv-win`
+2. Install `pyenv-win`
 
    - `pyenv-win` will install with `chocolatey.config` - enter `pyenv` on the command line to see if it's already on your system. You should see a list of commands printed to your terminal.
 
@@ -89,11 +89,11 @@ Now we can set up our python management system<sup>1</sup>. We recommend [pyenv]
 
    - If not:
 
-      ```shell
-      choco install pyenv-win
-      ```
+     ```shell
+     choco install pyenv-win
+     ```
 
-3) Install your python version
+3. Install your python version
 
    ```powershell
    pyenv install <version>
@@ -106,7 +106,7 @@ Now we can set up our python management system<sup>1</sup>. We recommend [pyenv]
      pyenv install --list
      ```
 
-4) Use that version as your global install
+4. Use that version as your global install
 
    ```powershell
    pyenv global <version>
