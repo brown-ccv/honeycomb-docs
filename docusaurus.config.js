@@ -7,10 +7,18 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/hexagon-regular.svg',
-  organizationName: 'brown-ccv', // Usually your GitHub org/user name.
-  projectName: 'honeycomb-docs', // Usually your repo name.
+  organizationName: 'brown-ccv',
+  projectName: 'honeycomb-docs',
   themeConfig: {
-    metadata: [{ name: 'keywords', content: 'javascript, jspsych' }],
+    metadata: [
+      {
+        name: 'keywords',
+        content: 'javascript, jspsych',
+      },
+    ],
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: 'Honeycomb',
       logo: {
@@ -19,18 +27,12 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
-        {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
         },
         {
-          href: 'https://github.com/brown-ccv/honeycomb',
+          href: 'https://github.com/`br`own-ccv/honeycomb',
           label: 'GitHub',
           position: 'right',
         },
@@ -41,21 +43,11 @@ module.exports = {
       links: [
         {
           title: 'Docs',
-          items: [
-            {
-              label: 'Introduction',
-              to: 'docs/',
-            },
-          ],
+          items: [{ label: 'Introduction', to: 'docs/' }],
         },
         {
           title: 'Community',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/brown-ccv/honeycomb',
-            },
-          ],
+          items: [{ label: 'GitHub', href: 'https://github.com/brown-ccv/honeycomb' }],
         },
         {
           title: 'Related Publications',
@@ -72,17 +64,21 @@ module.exports = {
     prism: {
       additionalLanguages: ['powershell'],
     },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
   },
   presets: [
     [
       '@docusaurus/preset-classic',
       {
+        theme: { customCss: require.resolve('./src/css/custom.css') },
         docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           //   TODO: Invalid link? This should just be deleted?
           editUrl: 'https://github.com/brown-ccv/honeycomb-docs/edit/main/',
-
           showLastUpdateTime: true,
 
           /**
@@ -93,15 +89,8 @@ module.exports = {
            */
           lastVersion: 'current',
           versions: { current: { label: '3.1.x', path: '' } },
-          //   versions: {
-          //     current: { label: '3.x', path: '' },
-          //     '3.0.0': { label: '3.0.0', path: '3.0.0' },
-          //     '2.x': { label: '2.x', path: '2.x' },
-          //     '1.1.0': { label: '1.1.0', path: '1.1.0' },
-          //   },
         },
         blog: false, // Disable Docusaurus blog feature
-        theme: { customCss: require.resolve('./src/css/custom.css') },
       },
     ],
   ],
