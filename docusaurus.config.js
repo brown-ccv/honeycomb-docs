@@ -10,6 +10,7 @@ module.exports = {
   organizationName: 'brown-ccv', // Usually your GitHub org/user name.
   projectName: 'honeycomb-docs', // Usually your repo name.
   themeConfig: {
+    metadata: [{ name: 'keywords', content: 'javascript, jspsych' }],
     navbar: {
       title: 'Honeycomb',
       logo: {
