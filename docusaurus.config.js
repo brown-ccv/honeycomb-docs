@@ -32,7 +32,7 @@ module.exports = {
           dropdownActiveClassDisabled: true,
         },
         {
-          href: 'https://github.com/`br`own-ccv/honeycomb',
+          href: 'https://github.com/brown-ccv/honeycomb',
           label: 'GitHub',
           position: 'right',
         },
@@ -75,7 +75,6 @@ module.exports = {
       {
         theme: { customCss: require.resolve('./src/css/custom.css') },
         docs: {
-          routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           //   TODO: Invalid link? This should just be deleted?
           editUrl: 'https://github.com/brown-ccv/honeycomb-docs/edit/main/',
