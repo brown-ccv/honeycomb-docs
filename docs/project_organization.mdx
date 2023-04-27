@@ -9,7 +9,7 @@ here's some new text!
 
 ### `package.json`
 
-The `package.json` file contains metadata about your project and scripts to run tasks related to your task. The `name` should be updated to your task's name and `scripts` can be added as desired, but otherwise this file should not be edited manually.  To remove or add a dependency use `npm install` or `npm uninstall` with the `-D` flag if installing a dev dependency.
+The `package.json` file contains metadata about your project and scripts to run tasks related to your task. The `name` should be updated to your task's name and `scripts` can be added as desired, but otherwise this file should not be edited manually. To remove or add a dependency use `npm install` or `npm uninstall` with the `-D` flag if installing a dev dependency.
 
 The `package-lock.json` contains metadata about the package installation. It should never be manually updated.
 
@@ -35,11 +35,11 @@ This file contains all of the code relating to the electron app. This includes t
 
 #### `config/`
 
-The `config` directory contains the config files needed for the electron app.  This includes the event-marker details and event codes.
+The `config` directory contains the config files needed for the electron app. This includes the event-marker details and event codes.
 
-In the `config/` directory, there are `.js` files which contain settings for the different parts of the task.  Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different in-task features can be loaded from .env files and is set in the `main` config. For example, we have included some of these files in the `env` directory (e.g. `env.clinic` file enables event marker, photodiode and volume adjustment). The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
+In the `config/` directory, there are `.js` files which contain settings for the different parts of the task. Every task should have a `main` config and a `trigger` config (assuming use of the event marker). The `main` config has all global settings for the task (such as whether it is in mturk mode or not), load the appropriate language file, and set up a default (or only) configuration object for the task. Different in-task features can be loaded from .env files and is set in the `main` config. For example, we have included some of these files in the `env` directory (e.g. `env.clinic` file enables event marker, photodiode and volume adjustment). The `trigger` config has settings specific to the event marker and uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
 
-Other config files can be used to add settings for specific blocks or sub-sections of the experiment. Also, *note that the productId can be overwritten by the environment variable EVENT_MARKER_PRODUCT_ID*.
+Other config files can be used to add settings for specific blocks or sub-sections of the experiment. Also, _note that the productId can be overwritten by the environment variable EVENT_MARKER_PRODUCT_ID_.
 
 ### `src/`
 
@@ -55,7 +55,7 @@ This is where styling for the app is housed. If colors, fonts, spacing, etc. nee
 
 #### `components/`
 
-This folder contains the components referenced in `App.jsx`.  This includes the Honeycomb `<JsPsychExperiment>` component which connects the Honyecomb login page to your `jspsych` 7 experiment.
+This folder contains the components referenced in `App.jsx`. This includes the Honeycomb `<JsPsychExperiment>` component which connects the Honyecomb login page to your `jspsych` 7 experiment.
 
 #### `language/`
 
@@ -63,7 +63,7 @@ Any language that is displayed in the experiment should be stored in this folder
 
 #### `lib/`
 
-The `lib/` directory contains utility functions and markup that is used in the tasks.  This allows for functions and html to be re-used wherever needed. The `lib/utils.js` file contains functions that are generally useful across many tasks, whereas `lib/taskUtils.js` contains functions specific to this task.
+The `lib/` directory contains utility functions and markup that is used in the tasks. This allows for functions and html to be re-used wherever needed. The `lib/utils.js` file contains functions that are generally useful across many tasks, whereas `lib/taskUtils.js` contains functions specific to this task.
 
 #### `lib/markup`
 
@@ -71,7 +71,7 @@ The `lib/` directory contains utility functions and markup that is used in the t
 
 #### `timelines`
 
-`jspsych` uses `timelines` to control what `trials` are displayed in what order.  `timelines` can contain other `timelines`, which is why there may be several files in this directory.  The `main.js` file should have the timeline that is called by `App.jsx` in the `<JsPsychExperiment>` component.
+`jspsych` uses `timelines` to control what `trials` are displayed in what order. `timelines` can contain other `timelines`, which is why there may be several files in this directory. The `main.js` file should have the timeline that is called by `App.jsx` in the `<JsPsychExperiment>` component.
 
 #### `trials`
 
