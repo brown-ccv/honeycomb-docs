@@ -80,6 +80,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          //   TODO: Invalid link? This should just be deleted?
           editUrl: 'https://github.com/brown-ccv/honeycomb-docs/edit/main/',
 
           showLastUpdateTime: true,
@@ -99,27 +100,13 @@ module.exports = {
            * You may not like that default version
            */
           versions: {
-            current: {
-              label: '3.x',
-              path: '',
-            },
-            '3.0.0': {
-              label: '3.0.0',
-              path: '3.0.0',
-            },
-            '2.x': {
-              label: '2.x',
-              path: '2.x',
-            },
-            '1.1.0': {
-              label: '1.1.0',
-              path: '1.1.0',
-            },
+            current: { label: '3.x', path: '' },
+            '3.0.0': { label: '3.0.0', path: '3.0.0' },
+            '2.x': { label: '2.x', path: '2.x' },
+            '1.1.0': { label: '1.1.0', path: '1.1.0' },
           },
         },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        theme: { customCss: require.resolve('./src/css/custom.css') },
       },
     ],
   ],
