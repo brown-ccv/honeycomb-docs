@@ -30,30 +30,30 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 
 - ![build time](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to defined separate files under the `env/` directory, and use a package called `dotenv-cli` before building`.
 
-The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a script to `package.json` with the following format:
+The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. We write our npm scriptswith the following format:
 
-```json
+```json title="package.json"
 "[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
 ```
 
 Honeycomb includes so scripts for common scenarios. For instance, you can run:
 
-```console
+```shell
 npm run dev:home
 ```
 
-```console
+```shell
 npm run dev:home:video
 ```
 
-```console
+```shell
 npm run dev:clinic
 ```
 
-```console
+```shell
 npm run dev:clinic:video
 ```
 
-```console
+```shell
 npm run dev:firebase
 ```

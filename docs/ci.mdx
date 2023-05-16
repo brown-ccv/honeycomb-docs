@@ -52,7 +52,7 @@ The executable does not require installation of any additional software.
 
 Automatic deployment on a firebase hosting site can also be setup with github actions. Before proceeding with the following steps, please make sure that firebase is configured by following the [Getting started with firebase section under Set Up Firebase](firebase.mdx). Then run the following command in the terminal:
 
-```console
+```shell
 firebase init hosting:github
 ```
 
@@ -60,7 +60,7 @@ firebase init hosting:github
 - When you see the prompt "Set up the workflow to run a build script before every deploy?" enter `y`
 - Enter the following command for the prompt "What script should be run before every deploy?":
 
-  ```console
+  ```shell
   npm install && npm run build:firebase
   ```
 
