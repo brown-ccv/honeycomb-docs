@@ -10,7 +10,7 @@ module.exports = {
       items: [
         // TODO: These ids have nothing to do with the heading, filename, etc. MAKE THEM MATCH
         'npm_scripts',
-        'project_configuration',
+        'environment_variables',
         'event_triggers',
         'firebase',
         'deploy_online',
