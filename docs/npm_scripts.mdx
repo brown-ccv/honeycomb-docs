@@ -5,15 +5,15 @@ title: NPM Scripts
 description: Guide to using the npm scripts needed for Honeycomb
 ---
 
-Node package manager (NPM) ships with functionality to combine common shell commands into custom scripts. These scripts are defined in `package.json`. All of the commands needed to develop, build, and deploy Honeycomb are written out as scripts. The scripts you'll likely used are listed below.
+Node package manager (NPM) ships with functionality to combine common shell commands into custom scripts. These scripts are defined in `package.json`. All of the commands needed to develop, build, and deploy Honeycomb are written out as scripts.
+
+Additional scripts can be created if desired but we generally recommend against changing or deleting the scripts Honeycomb ships with.
+
+Scripts are run using the following terminal command:
 
 ```shell
 npm run <script>
 ```
-
-:::caution
-Additional scripts can be created if desired but we generally recommend against changing or deleting the scripts Honeycomb ships with.
-:::
 
 ## Start
 
@@ -38,8 +38,8 @@ Additional scripts can be created if desired but we generally recommend against 
 
 Note that this is a base script that other scripts build on top of - you should always run one of the scripts below while developing your task.
 
-- `dev:home` executes `npm run dev` with equipment enabled (`env/.env.home`)
-- `dev:home:video` executes `npm run dev` with equipment enabled (`env/.env.home`) and video enabled (`env/.env.video`)
+- `dev:home` executes `npm run dev` with equipment disabled (`env/.env.home`)
+- `dev:home:video` executes `npm run dev` with equipment disabled (`env/.env.home`) and video enabled (`env/.env.video`)
 - `dev:clinic` executes `npm run dev` with equipment enabled (`env/.env.clinic`)
 - `dev:clinic:video` executes `npm run dev` with equipment enabled (`env/.env.clinic`) and video enabled (`env/.env.video`)
 - `dev:firebase` executes `npm run start:browser` with Firebase enabled (`env/.env.firebase`)
@@ -49,9 +49,25 @@ Note that this is a base script that other scripts build on top of - you should 
 
 ## Build
 
-`npm run build` creates a production build of the app in the `build/` folder.
+`npm run build` creates a production build of the app in the `build/` folder. Note that this is a base script that other scripts build on top of - you should always run one of the scripts below while developing your task.
+
+- `dev:home` executes `npm run build` with equipment disabled (`env/.env.home`)
+- `dev:home:video` executes `npm run build` with equipment disabled (`env/.env.home`) and video enabled (`env/.env.video`)
+- `dev:clinic` executes `npm run build` with equipment enabled (`env/.env.clinic`)
+- `dev:clinic:video` executes `npm run build` with equipment enabled (`env/.env.clinic`) and video enabled (`env/.env.video`)
+- `dev:firebase` executes `npm run build` with Firebase enabled (`env/.env.firebase`)
 
 ## Package
+
+`npm run package:[platform]` creates a standalone installer for the given platform using electron-forge. The installer is created in `out/`. Note that the scripts build the app before creating the installers
+
+- `npm run package:windows`
+- `npm run package:linux`
+- `npm run package:mac`
+
+:::note
+Packaging for windows on a non-windows machine requires `mono` and `wine` to be installed.
+:::
 
 ## Miscellaneous
 
@@ -59,15 +75,3 @@ Note that this is a base script that other scripts build on top of - you should 
 - `lint` uses [Eslint](https://eslint.org/) to find problems in the code
 - `format` uses [Eslint](https://eslint.org/) to find and fix problems in the code that it can automatically
 - `test` launches the test runner in the interactive watch mode. See [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run package:platform`
-
-Uses Electron to build the app and create a standalone installer for the given platform. Supported platforms are:
-
-- `npm run package:windows`
-- `npm run package:linux`
-- `npm run package:mac`
-
-The output can be found in the `./out` subfolder.
-
-Note: Packaging for windows on a non-windows machine requires `mono` and `wine` to be installed.
