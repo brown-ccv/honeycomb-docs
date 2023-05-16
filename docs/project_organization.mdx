@@ -26,7 +26,7 @@ This folder contains starter data for the Firebase Emulators to use while develo
 
 ## env/
 
-This folder contains different `.env` files used to pass environemnt variables (secrets and/or settings) into Honeycomb. Honeycomb starts with presets for common use cases and is explained in greater detail in the [Environment Variables](environment_variables) section.
+This folder contains different `.env` files used to pass environment variables (secrets and/or settings) into Honeycomb. Honeycomb starts with presets for common use cases and is explained in greater detail in the [Environment Variables](environment_variables) section.
 
 ## node_modules/
 
@@ -53,7 +53,7 @@ The `lib/` directory contains the files PsiTurk needs to run. Note that `index.h
 
 ### config/
 
-The `config` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the verison of your task used for a given experiment.
+The `config` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the version of your task used for a given experiment.
 
 {/* TODO */}
 
@@ -78,9 +78,9 @@ These assets are **not** statically generated like the root [`assets/`](#assets)
 The React components that make up Honeycomb are located here.
 
 - `App.jsx` initializes and maintains the state of the application. It is also where communication is set up between the `electron` and `psiturk` processes.
-- `Error.jsx` displays a small eror message. It is rendered when therApp.jsx detects an issue in state.
+- `Error.jsx` displays a small error message. It is rendered when the App.jsx detects an issue in state.
 - `JsPsychExperiment.jsx` initializes the JsPsych experiment
-- `Login.jsx` handles user authentication based on the environemnt variables passed to Honeycomb
+- `Login.jsx` handles user authentication based on the environment variables passed to Honeycomb
 
 ### config/
 
@@ -125,7 +125,7 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 
 ### index.js
 
-`index.js` is the entry point for React in our application. Note that the id 'root' corrosponds with a tag in `public/index.html`:
+`index.js` is the entry point for React in our application. Note that the id 'root' corresponds with a tag in `public/index.html`:
 
 ```html
 <div id="root"></div>
@@ -144,7 +144,7 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 
 ### Git Files
 
-- `.gitignore` lists the folders and files that should be excluded from Git. Make sure all of your seccrets and tokens are listed here!
+- `.gitignore` lists the folders and files that should be excluded from Git. Make sure all of your secrets and tokens are listed here!
 
 ### Eslint Files
 

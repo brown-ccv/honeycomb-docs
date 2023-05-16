@@ -2,10 +2,10 @@
 id: npm_scripts
 slug: /npm_scripts
 title: NPM Scripts
-description: Guide to using the npm scripts needed for Hoenycomb
+description: Guide to using the npm scripts needed for Honeycomb
 ---
 
-Node package manager (NPM) ships with functionality to combine common shell commands into custom scripts. These scripts are definied in `package.json`. All of the commands needed to develop, build, and deploy Honeycomb are written out as scripts. The scripts you'll likely used are listed below.
+Node package manager (NPM) ships with functionality to combine common shell commands into custom scripts. These scripts are defined in `package.json`. All of the commands needed to develop, build, and deploy Honeycomb are written out as scripts. The scripts you'll likely used are listed below.
 
 ```shell
 npm run <script>
@@ -17,8 +17,8 @@ Additional scripts can be created if desired but we generally recommend against 
 
 ## Start
 
-- `electron` starts an electron proccess with the built application.
-- `elctron-dev` starts an electron proces with the current code.
+- `electron` starts an electron process with the built application.
+- `electron-dev` starts an electron process with the current code.
   - Note that the script waits for http://localhost:3000 to be available before launching the electron process.
 - `start` runs the app in development mode and does NOT open a browser. This makes working with electron easier as it creates its own browser for development.
 - `start:browser` runs the app in development mode and automatically opens a new browser tab. It uses your system's default browser. The page will reload if you make edits.
@@ -49,18 +49,16 @@ Note that this is a base script that other scripts build on top of - you should 
 
 ## Build
 
+`npm run build` creates a production build of the app in the `build/` folder.
+
 ## Package
 
-## Miscelaneous
+## Miscellaneous
 
 - `commit` runs [commitizen](https://commitizen-tools.github.io/commitizen/) in the console. It is useful for ensuring your Git commit messages are easy to follow.
 - `lint` uses [Eslint](https://eslint.org/) to find problems in the code
 - `format` uses [Eslint](https://eslint.org/) to find and fix problems in the code that it can automatically
 - `test` launches the test runner in the interactive watch mode. See [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm build`
-
-Creates a production build of the app (renderer). This must be done before running `package:platform` or the psiturk build instructions.
 
 ### `npm run package:platform`
 
