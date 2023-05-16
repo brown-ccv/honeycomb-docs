@@ -8,7 +8,33 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/hexagon-regular.svg',
   organizationName: 'brown-ccv',
+  markdown: { mermaid: true },
+  themes: ['@docusaurus/theme-mermaid'],
   projectName: 'honeycomb-docs',
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        theme: { customCss: require.resolve('./src/css/custom.css') },
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          //   TODO: Invalid link? This should just be deleted?
+          editUrl: 'https://github.com/brown-ccv/honeycomb-docs/edit/main/',
+          showLastUpdateTime: true,
+
+          /**
+           * Here we give a specific label to the current doc version. Note the old versions:
+           *    '3.0.0': { label: '3.0.0', path: '3.0.0' },
+           *    '2.x': { label: '2.x', path: '2.x' },
+           *    '1.1.0': { label: '1.1.0', path: '1.1.0' },
+           */
+          lastVersion: 'current',
+          versions: { current: { label: '3.1.x', path: '' } },
+        },
+        blog: false, // Disable Docusaurus blog feature
+      },
+    ],
+  ],
   themeConfig: {
     metadata: [
       {
@@ -69,28 +95,4 @@ module.exports = {
       maxHeadingLevel: 4,
     },
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        theme: { customCss: require.resolve('./src/css/custom.css') },
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          //   TODO: Invalid link? This should just be deleted?
-          editUrl: 'https://github.com/brown-ccv/honeycomb-docs/edit/main/',
-          showLastUpdateTime: true,
-
-          /**
-           * Here we give a specific label to the current doc version. Note the old versions:
-           *    '3.0.0': { label: '3.0.0', path: '3.0.0' },
-           *    '2.x': { label: '2.x', path: '2.x' },
-           *    '1.1.0': { label: '1.1.0', path: '1.1.0' },
-           */
-          lastVersion: 'current',
-          versions: { current: { label: '3.1.x', path: '' } },
-        },
-        blog: false, // Disable Docusaurus blog feature
-      },
-    ],
-  ],
 };
