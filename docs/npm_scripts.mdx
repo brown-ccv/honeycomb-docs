@@ -5,27 +5,58 @@ title: NPM Scripts
 description: Guide to using the npm scripts needed for Hoenycomb
 ---
 
-In the project directory, you can run:
+Node package manager (NPM) ships with functionality to combine common shell commands into custom scripts. These scripts are definied in `package.json`. All of the commands needed to develop, build, and deploy Honeycomb are written out as scripts. The scripts you'll likely used are listed below.
 
-### `npm run dev`
+```shell
+npm run <script>
+```
 
-Runs `npm start` and `npm run electron-dev` concurrently. This may not play nicely with windows. If it doesn't, run `npm start` and `npm run electron-dev` from different terminal windows.
+:::caution
+Additional scripts can be created if desired but we generally recommend against changing or deleting the scripts Honeycomb ships with.
+:::
 
-### `npm start`
+## Start
 
-Runs the app in the development mode.
+- `electron` starts an electron proccess with the built application.
+- `elctron-dev` starts an electron proces with the current code.
+  - Note that the script waits for http://localhost:3000 to be available before launching the electron process.
+- `start` runs the app in development mode and does NOT open a browser. This makes working with electron easier as it creates its own browser for development.
+- `start:browser` runs the app in development mode and automatically opens a new browser tab. It uses your system's default browser. The page will reload if you make edits.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Firebase
 
-The page will reload if you make edits.
+- `firebase:emulators:start` starts the Firebase emulators with the data found in `emulator_data/`
+- `firebase:emulators:save` saves the current state of the Firebase emulators into `emulator_data/`
+  :::caution
+  There's no way to revert to what used to be in `emulator_data/ once it's overwritten!
+  :::
+- `firebase:download` runs the `firebase-download-script.js` script, saving certain data in Firebase to your local machine.
 
-You will also see any lint errors in the console.
+## Dev
 
-### `npm test`
+`npm run dev` runs the task in development mode on Electron. It executes `npm start` and `npm run electron-dev` concurrently.
 
-Launches the test runner in the interactive watch mode.
+Note that this is a base script that other scripts build on top of - you should always run one of the scripts below while developing your task.
 
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `dev:home` executes `npm run dev` with equipment enabled (`env/.env.home`)
+- `dev:home:video` executes `npm run dev` with equipment enabled (`env/.env.home`) and video enabled (`env/.env.video`)
+- `dev:clinic` executes `npm run dev` with equipment enabled (`env/.env.clinic`)
+- `dev:clinic:video` executes `npm run dev` with equipment enabled (`env/.env.clinic`) and video enabled (`env/.env.video`)
+- `dev:firebase` executes `npm run start:browser` with Firebase enabled (`env/.env.firebase`)
+  :::info
+  `firebase:emulators:start` must be run in its own terminal in order for `npm run firebase:dev` to work
+  :::
+
+## Build
+
+## Package
+
+## Miscelaneous
+
+- `commit` runs [commitizen](https://commitizen-tools.github.io/commitizen/) in the console. It is useful for ensuring your Git commit messages are easy to follow.
+- `lint` uses [Eslint](https://eslint.org/) to find problems in the code
+- `format` uses [Eslint](https://eslint.org/) to find and fix problems in the code that it can automatically
+- `test` launches the test runner in the interactive watch mode. See [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm build`
 
@@ -42,23 +73,3 @@ Uses Electron to build the app and create a standalone installer for the given p
 The output can be found in the `./out` subfolder.
 
 Note: Packaging for windows on a non-windows machine requires `mono` and `wine` to be installed.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-### Run Electron
-
-#### `npm run electron`
-
-Run the built app.
-
-#### `npm run electron-dev`
-
-Run the current state of the code (un-built).
