@@ -34,27 +34,7 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. We write our npm scripts with the following format:
 
 ```json title="package.json"
-"[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
+"[build|dev]:<env name>": "dotenv -e env/<env name> npm run [build|dev]:<env name>"
 ```
 
-Honeycomb includes so scripts for common scenarios. For instance, you can run:
-
-```shell
-npm run dev:home
-```
-
-```shell
-npm run dev:home:video
-```
-
-```shell
-npm run dev:clinic
-```
-
-```shell
-npm run dev:clinic:video
-```
-
-```shell
-npm run dev:firebase
-```
+_See [NPM Scripts](npm_scripts) for more_
