@@ -5,10 +5,9 @@ module.exports = {
     'quick_start',
     {
       type: 'category',
-      label: 'How To Guides',
+      label: 'Guides',
       collapsed: false,
       items: [
-        // TODO: These ids have nothing to do with the heading, filename, etc. MAKE THEM MATCH
         'npm_scripts',
         'environment_variables',
         'event_triggers',
@@ -20,7 +19,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Further Reading',
-      items: ['further_reading/version_control'], // TODO: Folder structure without effecting slugs
+      items: ['further_reading/version_control'],
     },
     'prerequisites',
     'troubleshooting',
