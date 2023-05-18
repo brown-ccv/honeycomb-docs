@@ -89,7 +89,7 @@ module.exports = {
       ],
     },
     prism: {
-      additionalLanguages: ['powershell'],
+      additionalLanguages: ['powershell', 'firestore-security-rules'],
     },
     tableOfContents: {
       minHeadingLevel: 2,

@@ -5,13 +5,15 @@ title: Firebase
 description: Guide for connecting Honeycomb to a Firebase project
 ---
 
-Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) use. These tools make it possible reach a wider audience by deploying your task online.
+Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
+
+## Setting up Firebase
 
 :::info
 Please have your PI contact [support@ccv.brown.edu](mailto:support@ccv.brown.edu) to create a Firebase project for your Honeycomb task before beginning.
 :::
 
-## Setting up the Firebase Project
+### Adding Products
 
 First we'll configure [Firebase Hosting](https://firebase.google.com/docs/hosting) and [Cloud Firestore](https://firebase.google.com/docs/firestore) on your project.
 
@@ -28,8 +30,6 @@ First we'll configure [Firebase Hosting](https://firebase.google.com/docs/hostin
    :::note
    Chose `production mode` for the starting mode and the default "Cloud Firestore Location"
    :::
-
-## Setting up the Task
 
 The Firebase project is now fully set up! Now we'll connect your task to that project from your computer.
 
@@ -62,13 +62,13 @@ _A "command not found" error usually indicates `firebase-tools` has not been ins
 2. Copy the web app credentials from the Firebase console to the corresponding variables in `.env.firebase`
 
    1. Return to your project on the [Firebase console](https://console.firebase.google.com/).
-   2. Navigate to your project settings
+   2. Navigate to your project setting
 
-   ![Firebase Project Settings](./assets/firebase-console-settings.png)
+      ![Firebase Project Settings](./assets/firebase-console-settings.png)
 
-   3. Scroll down and copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo:
+   3. Scroll down and copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo
 
-   ![Firebase Web Credentials](./assets/firebase-web-credentials.png)
+      ![Firebase Web Credentials](./assets/firebase-web-credentials.png)
 
    ```shell title="env/.env.firebase"
    REACT_APP_FIREBASE="true"
@@ -88,17 +88,50 @@ _A "command not found" error usually indicates `firebase-tools` has not been ins
 firebase deploy --only firestore:rules
 ```
 
-:::note
-Honeycomb uses security rules to authenticate participants and studies for each task. By default participants must be registered to each study in order to complete the task. Firestore rules are defined `firestore.rules` file in the home directory. This file can be edited if your task has different authentication requirements.
-:::
+Your task is now connected to an initialized Firebase project!
 
-### Register a Study
+## Registering Studies
 
-Your task is now set up with Firebase!
+1. Navigate to your Firestore Database in the console
 
-Firestore database and rules are now both deployed. For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
+For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
 
 ![Example Task](assets/test-task.png)
+
+:::caution
+This step must be followed _exactly_, otherwise participant will not be allowed to complete the task. The next section details why
+:::
+
+### Security Rules
+
+Honeycomb uses security rules to authenticate participants and studies for each task. By default participants must be registered to each study in order to complete the task.
+
+Firestore rules are defined `firestore.rules` file in the home directory. Note the highlighted lines:
+
+```firestore-security-rules title="firestore.rules" showLineNumbers
+rules_version = '2';
+service cloud.firestore {
+  //highlight-start
+  match /databases/{database}/documents {
+      match /participant_responses/{studyID}/participants/{participantID} {
+        allow create, read:
+        if participantID in get(/databases/$(database)/documents/registered_studies/$(studyID)).data.registered_participants;
+  //highlight-end
+        // ...
+      }
+    }
+}
+```
+
+Line 3 and 4 indicates that Honeycomb attempts to connect to a document at `/databases/{database}/documents/participant_responses/{studyID}/participants/{participantID}` where `studyID` is a given study and `participantID` is a given participant within that study.
+
+Line 6 defines our rule - it must pass for Honeycomb to connect to the document. `participantID` must be found in an array called `registered_participants` inside of a document at `/databases/{database}/documents/registered_studies/{studyID}`.
+
+Line 5 indicates how Honeycomb can interact with that document. Note that Honeycomb cannot update or delete data! You must manually make these changes from the Firestore console.
+
+:::info
+Firestore rules must define every match pattern in your project. Attempting to connect anywhere other than `/participant_responses/{studyID}/participants/{participantID}` will be automatically denied even if you add other collections to your database. This is why `firestore.rules` contains additional nested rules - these should be left alone.
+:::
 
 ## Developing With Firebase
 
