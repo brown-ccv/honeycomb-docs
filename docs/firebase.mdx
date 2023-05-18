@@ -92,15 +92,22 @@ Your task is now connected to an initialized Firebase project!
 
 ## Registering Studies
 
-1. Navigate to your Firestore Database in the console
-
-For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
-
-![Example Task](assets/test-task.png)
-
 :::caution
-This step must be followed _exactly_, otherwise participant will not be allowed to complete the task. The next section details why
+This step must be followed _exactly_, otherwise participant will not be allowed to complete the task. See [Security Rules](#security-rules) for more information.
 :::
+
+1. Navigate to your Firestore Database in the [console](https://console.firebase.google.com/).
+2. Click "Start collection"
+3. Enter `registered_studies` for the collection id and click "next"
+4. Enter the id of your study for the document id
+5. Add a field named `registered_participants` with the type "array"
+6. Add the id of each study participant as a string inside the array
+
+![Create Study](assets/firestore-create-study.png)
+
+The study should like this when you're finished:
+
+![Example Study](assets/firestore-example-study.png)
 
 ### Security Rules
 
