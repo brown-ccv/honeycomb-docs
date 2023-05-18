@@ -5,7 +5,9 @@ title: Project Organization
 description: Overview of Honeycomb's directory structure
 ---
 
-This project directory is organized to be very modular and composable. In general, files and functions should be relatively small and self-contained, global scope should not be used (and definitely not mutated), and only the pieces of code needed for any given file should be imported. This keeps the code maintainable with clear lineage and purpose for each piece of code. Almost all of the changes needed for custom JsPsych tasks will be done in the [`src/`](sr) folder.
+This project directory is organized to be very modular and composable. In general, files and functions should be relatively small and self-contained, global scope should not be used and only the pieces of code needed for any given file should be imported. This keeps the code maintainable with clear lineage and purpose for each piece of code.
+
+Almost all of the changes needed for custom JsPsych tasks will be done in the [`src/`](#src) folder.
 
 ## assets/
 
@@ -22,6 +24,7 @@ The build folder is in Honeycomb's `.gitignore` and as such should never be adde
 ## emulator_data/
 
 {/* TODO: Link to firebase:emulators:start and save in NPM Scripts */}
+
 This folder contains starter data for the Firebase Emulators to use while developing locally. `emulator_data/` should be left alone!
 
 ## env/
