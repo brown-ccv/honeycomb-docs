@@ -65,7 +65,8 @@ The `lib/` directory contains utility functions and markup that is used in the t
 
 #### `lib/markup`
 
-`markup` files should contain primarily templates for HTML that is used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+`markup` files should contain primarily templates for HTML that are used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+
 
 #### `timelines`
 
