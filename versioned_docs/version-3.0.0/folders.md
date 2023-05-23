@@ -29,7 +29,8 @@ The `public` directory contains files that are used as assets in the built app. 
 
 #### `electron.js`
 
-This file contains all of the code relating to the electron app. This includes the event-marker, throwing errors via dialog windows, saving data, and reading files.
+This file contains all of the code relating to the Electron app. This includes the event-marker, throwing errors via dialog windows, saving data, and reading files.
+
 
 #### `config/`
 
