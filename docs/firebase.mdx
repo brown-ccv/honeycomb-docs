@@ -45,7 +45,8 @@ _The `-g` flag installs an npm package globally on your system, as opposed to th
 
 - Navigate to the [firebase console](https://console.firebase.google.com/) and select the project.
 - Create a new Web App by clicking on `Add App` or the `</>` code symbol and following the prompts.
-- Enter the a name for the Firebase app (could be the same as your Honeycomb task repo name).
+- Enter a name for the Firebase app (could be the same as your Honeycomb task repo name).
+
 - Check "Also set up Firebase Hosting for this app."
 - Click `Register App`. This should auto-generate a script with several values that you need to copy into the next step.
 - Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo:
@@ -83,6 +84,7 @@ firebase deploy --only firestore:rules
 Alternatively, editing the rules directly in the console is also possible. To do so, navigate to the `Rules` tab in the `Firestore Database` section from the firebase console sidebar then copy and paste the code that is in the `firestore.rules` file.
 
 
-Firestore database and rules are now both deployed. For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
+Firestore database and rules are now both deployed. For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, and add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
+
 
 ![Example Task](assets/test-task.png)

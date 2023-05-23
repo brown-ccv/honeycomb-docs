@@ -3,20 +3,20 @@ id: prerequisites
 title: Prerequisites
 ---
 
-It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. First we need the following programs
+It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. First we need the following programs:
 
 - git (version control and GitHub integration)
 - nodejs (web development - we recommend the latest long term support version)
 - python (3.7 or later)
 - An Integrated Development Environment (we recommend VS Code)
 
-In addition, Honeycomb relies on Electron to package the cross-platform desktop applications. Some of electron's prerequisites are platform dependant - listed below are the prerequisites for each operating system along with resources for manually installing them.
+In addition, Honeycomb relies on Electron to package the cross-platform desktop applications. Some of electron's prerequisites are platform dependent - listed below are the prerequisites for each operating system along with resources for manually installing them.
 
 ## MacOS
 
 ### Brew
 
-All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.mdx/#installing-prerequisites-with-homebrew-for-macos) for more information.
+All of the required dependencies for Honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.mdx/#installing-prerequisites-with-homebrew-for-macos) for more information.
 
 ### Manual Installation (MacOS)
 
@@ -34,7 +34,7 @@ All of the required dependencies for honeycomb on MacOS can be installed via the
 
 Note that Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or your entire computer. This should resolve most issues.
 
-### chocolatey
+### Chocolatey
 
 #### chocolatey.config
 
@@ -57,14 +57,14 @@ Running `choco install chocolatey.config` is the equivalent of calling `choco in
 
 ### Python on Windows (pyenv)
 
-Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing python on your system, which is a rule for most things in software development (this is what [npm](quick_start.mdx/#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using python again.** We promise the extra setup today will pay great dividends in the future!
+Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing Python on your system, which is a rule for most things in software development (this is what [npm](quick_start.mdx/#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using Python again.** We promise the extra setup today will pay great dividends in the future!
 
 First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **Please complete this step even if you already have a Python manager**
 
 ![App execution aliases](assets/python-win-1.png)
 ![Turn off app installer](assets/python-win-2.png)
 
-Now we can set up our python management system<sup>1</sup>. We recommend [pyenv](https://github.com/pyenv-win/pyenv-win) as it is small and intuitive for newer developers. It lets us install python globally AND switch between different versions for individual projects. It does this (and only this) extremely well. Complete the following steps to install `pyenv` for Windows and set up your global python environment:
+Now we can set up our Python management system<sup>1</sup>. We recommend [pyenv](https://github.com/pyenv-win/pyenv-win) as it is small and intuitive for newer developers. It lets us install python globally AND switch between different versions for individual projects. It does this (and only this) extremely well. Complete the following steps to install `pyenv` for Windows and set up your global Python environment:
 
 1. Ensure Python is completely uninstalled from your system<sup>2</sup>
 
@@ -91,14 +91,14 @@ Now we can set up our python management system<sup>1</sup>. We recommend [pyenv]
      choco install pyenv-win
      ```
 
-3. Install your python version
+3. Install your Python version
 
    ```powershell
    pyenv install <version>
    ```
 
    - If you're using a different Python version for another project that version will work fine so long as it is at least version `> 3.0.0`
-   - Otherwise install the newest version that includes exactly 3 numbers, e.g. `3.10.6`
+   - Otherwise, install the newest version that includes exactly 3 numbers, e.g. `3.10.6`
 
      ```powershell
      pyenv install --list
@@ -110,12 +110,12 @@ Now we can set up our python management system<sup>1</sup>. We recommend [pyenv]
    pyenv global <version>
    ```
 
-<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and it's
+<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and its
 various other tools that is okay! You already have python manager installed on your system and can
 skip this section._
 
 <sup>2</sup>_Any "solo" installations can and will cause major conflicts with `pyenv`. It can cause
-issues when you try to change your version, when another program checks for python, when you update
+issues when you try to change your version, when another program checks for Python, when you update
 Windows... so on and so forth. Perhaps you've already run into something unexpected like this! This
 is why it's essential python is completely uninstalled from your computer before beginning._
 
