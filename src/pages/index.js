@@ -13,8 +13,10 @@ const features = [
     imageUrl: 'img/undraw_Content_creator_re_pt5b.svg',
     description: (
       <>
-        Honeycomb was designed to be modular, composable, easily configured to deploy to linux, mac,
-        windows, browser, PsiTurk and more
+        Honeycomb was designed to be modular, composable, easily configured to deploy to Linux, Mac,
+
+        Windows, Browsers, PsiTurk, and more
+
       </>
     ),
   },

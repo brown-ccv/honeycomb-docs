@@ -5,9 +5,14 @@ title: Variants
 description: Overview of Honeycomb variants
 ---
 
+<<<<<<< HEAD
 {/* TODO: What to do with this page? */}
 
 ## Variant Specific Executables
+=======
+## Variant-specific Executables
+
+>>>>>>> main
 
 In order to create multiple variants of a task that can be co-installed, it is necessary to add new scripts to the `package.json` file in addition to creating the necessary environment variables for configuration. Each variant must have a unique, lowercase name. Optionally, a unique icon can be used for each variant by saving multiple icons to the icons directories with the same names as the variants. Example scripts for Windows, Mac, and Linux are shown below.
 
@@ -41,7 +46,8 @@ Linux:
 "postpackage:linux:<task_name>": "electron-installer-debian --src dist/<task_name>-linux-x64/ --dest dist/installers/ --arch x64 --overwrite --name <task_name> --productName <task_name> --genericName <task_name> --bin <task_name>"
 ```
 
-## Variant Specific Workflows
+## Variant-specific Workflows
+
 
 In order to use Github workflows to build and upload executables for each variant, the `build.yaml`, `package.yaml`, and `release.yaml` files must be modified as well. For all three files, a new row should be added to the matrix variable as follows:
 

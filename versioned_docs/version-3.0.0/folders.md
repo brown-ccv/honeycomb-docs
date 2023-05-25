@@ -29,7 +29,8 @@ The `public` directory contains files that are used as assets in the built app. 
 
 #### `electron.js`
 
-This file contains all of the code relating to the electron app. This includes the event-marker, throwing errors via dialog windows, saving data, and reading files.
+This file contains all of the code relating to the Electron app. This includes the event-marker, throwing errors via dialog windows, saving data, and reading files.
+
 
 #### `config/`
 
@@ -57,7 +58,8 @@ This folder contains the components referenced in `App.jsx`.  This includes the 
 
 #### `language/`
 
-Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) as well as allows for mturk specific language. This also makes it easy to re-use common phrases in many places in the task.
+Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. English and Spanish) as well as allows for mturk-specific language. This also makes it easy to re-use common phrases in many places in the task.
+
 
 #### `lib/`
 
@@ -65,7 +67,8 @@ The `lib/` directory contains utility functions and markup that is used in the t
 
 #### `lib/markup`
 
-`markup` files should contain primarily templates for HTML that is used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+`markup` files should contain primarily templates for HTML that are used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+
 
 #### `timelines`
 
