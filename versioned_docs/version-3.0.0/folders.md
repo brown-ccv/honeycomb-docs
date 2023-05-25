@@ -58,7 +58,8 @@ This folder contains the components referenced in `App.jsx`.  This includes the 
 
 #### `language/`
 
-Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) as well as allows for mturk specific language. This also makes it easy to re-use common phrases in many places in the task.
+Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. English and Spanish) as well as allows for mturk-specific language. This also makes it easy to re-use common phrases in many places in the task.
+
 
 #### `lib/`
 
