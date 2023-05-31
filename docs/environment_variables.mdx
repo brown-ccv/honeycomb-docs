@@ -25,11 +25,13 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 - `REACT_APP_PARTICIPANT_ID` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The default participant id to show when authorizing a participant. If not set, user will need to enter the value in the provided input box.
 - `REACT_APP_STUDY_ID` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The default study id to show when authorizing a participant. If not set, user will need to enter the value in the provided input box.
 
-## Understanding Build Time and Run Time Variables
+## Understanding Build-Time and Run-Time Variables
+
 
 - ![runtime](https://img.shields.io/badge/-runtime-purple): Run-time environment variables allow for quick changes before running the task. They are convenient since they don't require building a whole different executable. For a Desktop Application, these are set at the system level and must be available at the time where the task runs. See [this tutorial for OS specific instructions.](https://www.imatest.com/docs/editing-system-environment-variables/#Windows). For a Firebase Application, these must be stored in the Firestore.
 
-- ![build time](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to defined separate files under the `env/` directory, and use a package called `dotenv-cli` before building`.
+- ![build time](https://img.shields.io/badge/-buildtime-blue): Build-time environment variables are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to define separate files under the `env/` directory, and use a package called `dotenv-cli` before building`.
+
 
 The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. We write our npm scripts with the following format:
 

@@ -90,13 +90,15 @@ The React components that make up Honeycomb are located here.
 Each file in the config directory contains settings for a different part of the task.
 
 - `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate language file.
-- `trigger.js` for equipment related settings (e.g. event markers). It uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
+- `trigger.js` for equipment-related settings (e.g. event markers). It uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
+
 
 Other config files can be used to add settings for specific blocks or sub-sections of the experiment.
 
 ### language/
 
-Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) and mturk specific language. Common phrases can be written once in a language file and re-used throughout the task.
+Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once in a language file and re-used throughout the task.
+
 
 ### lib/
 
@@ -110,7 +112,8 @@ Be sure to look through `utils.js` for functions you might be able to use in you
 
 ### timelines/
 
-A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves, you may want to break this nesting into multiple files in this folder.
+A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
+
 
 `main.js` contains the root timeline which `App.jsx` loads into the `<JsPsychExperiment>` component.
 
@@ -137,7 +140,8 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 ## Other Files
 
 - `.github/workflows/` contains .yaml files used to build Honeycomb on a pull request (`build.yaml`) and create task executables either in a single instance (`package.yaml`) or for a full release (`release.yaml`)
-- `package.json` contains metadata about your project, a list of the dependency needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
+- `package.json` contains metadata about your project, a list of the dependencies needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
+
 - `download-response-data.js` is the script used to download data stored in Firestore to your local machine.
 - `version.js` is the script used to keep track of which version of the task a given experiment is using
 
