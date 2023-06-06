@@ -7,15 +7,7 @@ description: Quick start guide for Honeycomb
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-1. Create your task from a template
-2. Clone the repository
-3. Install the prerequisites (tab for OS specific command, point to pre-requisites page for issues/more details)
-4. Run npm install
-5. Run npm run dev
-6. Quit the task
-7. Change name and description (don't need details about the parts of the file)
-8. Next Steps (check out the data, firebase install, etc.)
+import cloneCodeButton from './assets/clone-code-button.webp';
 
 ## Creating Your Task Repository
 
@@ -30,11 +22,56 @@ The Honeycomb repository is a template and serves as the starting point for all 
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
 
-Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+_Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
 
 ## Cloning the Repository
 
 With the repository now setup it can be cloned onto your computer.
+
+1.  Navigate to the repository on [GitHub](https://github.com).
+2.  Click the `Code` button and copy the URL
+
+    <img
+      src={cloneCodeButton}
+      alt='GitHub clone repo button'
+    />
+
+3.  Open a terminal and navigate to where you want the cloned directory
+
+<Tabs groupId='os' queryString defaultValue='mac'>
+<TabItem
+  value='win'
+  label='Windows'
+>
+
+```shell title="Powershell"
+cd 'path/to/directory'
+```
+
+</TabItem>
+<TabItem
+  value='mac'
+  label='macOS'
+>
+
+```shell title="Terminal.app"
+cd 'path/to/directory'
+```
+
+</TabItem>
+</Tabs>
+
+4. Clone the repo with the following command
+
+```shell title='Paste the URL you copied earlier'
+ git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>
+```
+
+:::note
+Git can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if it is not already on your system.
+:::
+
+_Additional details and alternative methods for cloning a repository can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)._
 
 ## Installing Prerequisites
 
@@ -80,14 +117,6 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
     ```shell
     brew bundle
     ```
-
-</TabItem>
-<TabItem
-  value='linux'
-  label='Linux'
->
-
-Linux
 
 </TabItem>
 </Tabs>
@@ -181,14 +210,14 @@ Now that the task is up and running we can make our first changes to the code! W
 
 ## Next Steps
 
-### Firebase Setup
+Honeycomb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more.
 
 The [Firebase](firebase) page explains how to set up your task with Firebase.
-
-### Environment Setup
-
-Honeycomb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more.
 
 To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
 
 The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
+
+```
+
+```
