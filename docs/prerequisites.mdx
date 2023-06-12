@@ -5,57 +5,85 @@ title: Prerequisites
 description: Overview of prerequisite software and how to install them
 ---
 
-It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. First we need the following programs:
+It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. **The [quick start](quick_start#installing-prerequisites) guide explains how to run an automated install**, this page details what programs and packages are needed to run and build Honeycomb. There are some OS specific prerequisites needed to build a task as a desktop application.
 
-- git (version control and GitHub integration)
-- nodejs (web development - we recommend the latest long term support version)
-- python (3.7 or later)
-- An Integrated Development Environment (we recommend VS Code)
+## OS Independent
 
-In addition, Honeycomb relies on Electron to package the cross-platform desktop applications. Some of electron's prerequisites are platform dependent - listed below are the prerequisites for each operating system along with resources for manually installing them.
+### Git
 
-## MacOS
+- git (version control)
+- GitHub Desktop (GUI for managing git and GitHub)
 
-### Brew
+### Node JS
 
-All of the required dependencies for Honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start/#installing-prerequisites-with-homebrew-for-macos) for more information.
+- nodejs (web development - we install the latest long term support version)
 
-### Manual Installation (MacOS)
+### Python
 
-- [XCode](https://developer.apple.com/xcode/) must be installed from the terminal:
+- Python 3.7 or later (programming language - we install v3.11)
 
-  ```terminal
-    xcode-select --install
-  ```
+### Oracle JDk
+
+- Oracle JDK (Java Development Kit - we install v19)
+
+### Visual Studio Code
+
+- VS Code (Integrated Development Environment)
+
+## Mac Specific Installs
+
+### X-Code
+
+[XCode](https://developer.apple.com/xcode/) is a special IDE for the Apple platform. It comes with everything needed to compile desktop applications from an Apple computer.
+
+must be installed from the terminal:
+
+```terminal
+  xcode-select --install
+```
+
+### Rosetta
+
+## Windows Specific Install
+
+### Visual Studio
+
+[XCode](https://developer.apple.com/xcode/) is a special IDE for the Apple platform. It comes with everything needed to compile desktop applications from an Apple computer.
+
+### Manual Installation (macOS)
 
 - [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
 - [Node.js](https://nodejs.org/en/download/)
 - To install Python (3.7 or later with support for TLS 1.2) follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python)
 
-## Windows
+### Manual Installation (Windows)
 
-Note that Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or your entire computer. This should resolve most issues.
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
 
-### Chocolatey
+- [Git](https://git-scm.com/download/win)
+- [Node.js](https://nodejs.org/en/download/)
+  - We recommend installing the "LTS" option for better stability
+- [VS Code](https://code.visualstudio.com/download)
+- Visual Studio:
+  - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
+  - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
+- [pyenv for Windows](https://github.com/pyenv-win/pyenv-win#installation)
 
-#### chocolatey.config
+### Manual Installation (Linux)
 
-A Chocolatey configuration file looks something like this:
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software. Your preferred installation method for the programs listed [above](#os-independent) should get you up and running on any Linux distro new enough to support GLIBC_2.28.
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<packages>
-  <package id="git" />
-  <package id="nodejs-lts" />
-  <package id="vscode" />
-  <package id="pyenv-win" />
-  <package id="visualstudio2022community" />
-  <package id="visualstudio2022-workload-nativedesktop" />
-  <package id="electron" />
-</packages>
-```
+- Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
+- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
+- [Python 3.7 or later](https://www.python.org/downloads/) (with support for TLS 1.2)
+- Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
+- Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
 
-Running `choco install chocolatey.config` is the equivalent of calling `choco install <id>` for every package in the file.
+## Further Help
+
+If you are still having issues setting up your computer you can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
+
+DONE
 
 ### Python on Windows (pyenv)
 
@@ -120,28 +148,3 @@ skip this section._
 issues when you try to change your version, when another program checks for Python, when you update
 Windows... so on and so forth. Perhaps you've already run into something unexpected like this! This
 is why it's essential python is completely uninstalled from your computer before beginning._
-
-### Manual Installation (Windows)
-
-- [Git](https://git-scm.com/download/win)
-- [Node.js](https://nodejs.org/en/download/)
-  - We recommend installing the "LTS" option for better stability
-- [VS Code](https://code.visualstudio.com/download)
-- Visual Studio:
-  - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
-  - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
-- [pyenv for Windows](https://github.com/pyenv-win/pyenv-win#installation)
-
-## Linux
-
-We recommend using Ubuntu (18.10 or later) as your distro but any distro new enough to support GLIBC_2.28 should work.
-
-- Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
-- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
-- [Python 3.7 or later](https://www.python.org/downloads/) (with support for TLS 1.2)
-- Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
-- Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
-
-## Further Help
-
-If you are still having issues setting up your computer you can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
