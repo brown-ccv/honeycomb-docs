@@ -11,24 +11,30 @@ It is important that your computer is set up with the necessary packages before 
 
 ### Git
 
-- git (version control)
-- GitHub Desktop (GUI for managing git and GitHub)
+- [git](https://git-scm.com) is an open source version control system. It is used to track changes, revert mistakes, and enable peer code reviews!
+- [GitHub Desktop](https://desktop.github.com) is a GUI application used to interact with git and GitHub directly from your computer. It is not strictly needed but many folks find it easier to work with then using git directly from the command line.
 
 ### Node JS
 
-- nodejs (web development - we install the latest long term support version)
+[NodeJS](https://nodejs.org/en) is a cross-platform runtime environment for JavaScript code. Almost every web application today builds on top of node.
+
+Note Honeycomb needs version 16 or later to run - the installers run the long term support (LTS) version. This is version 18 as of June 2023
 
 ### Python
 
-- Python 3.7 or later (programming language - we install v3.11)
+[Python](https://www.python.org) is a high-level programming language. Some "under the hood" tools needed by Honeycomb are written in python so it must be installed on your system.
+
+Note Honeycomb needs version 3.7 or later to run - the installers use version 3.11.
 
 ### Oracle JDk
 
-- Oracle JDK (Java Development Kit - we install v19)
+[Java](https://www.oracle.com/java/) is another high-level programming languages that some tools (Namely the Firebase Emulators) are written in. We must install a JDK (Java Development Kit) for it to run.
+
+Note Honeycomb needs version 11 or later to run - the installers use version 18.
 
 ### Visual Studio Code
 
-- VS Code (Integrated Development Environment)
+[Visual Studio Code](https://code.visualstudio.com) is a well-loved and easy to use integrated development environment (IDE). This is the program you'll use to write your task.
 
 ## Mac Specific Installs
 
@@ -44,38 +50,53 @@ must be installed from the terminal:
 
 ### Rosetta
 
+Rosetta is a translation layer built for Mac computers with Apple Silicon. It should ask to be installed if any of the prerequisite tools need it. Otherwise, [this guide](https://support.apple.com/en-us/HT211861) can be used to make sure it is on your apple silicon system.
+
 ## Windows Specific Install
 
 ### Visual Studio
 
-[XCode](https://developer.apple.com/xcode/) is a special IDE for the Apple platform. It comes with everything needed to compile desktop applications from an Apple computer.
+[Visual Studio](https://visualstudio.microsoft.com) is a special IDE for the Windows platform. It comes with everything needed to compile desktop applications from a PC. Visual Studio Community is a free to use platform.
 
-### Manual Installation (macOS)
+The "Desktop development with C++" workload must also be installed on your system. The automated installers will do so.
 
-- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
+## Manual Installation (macOS)
+
+- [Git](https://git-scm.com/download/mac)
+- [GitHub Desktop](https://desktop.github.com)
 - [Node.js](https://nodejs.org/en/download/)
-- To install Python (3.7 or later with support for TLS 1.2) follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python)
+  - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/macos/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-windows)
+- [VS Code](https://code.visualstudio.com/download)
+- [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 
-### Manual Installation (Windows)
+## Manual Installation (Windows)
 
 The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
 
 - [Git](https://git-scm.com/download/win)
+- [GitHub Desktop](https://desktop.github.com)
 - [Node.js](https://nodejs.org/en/download/)
   - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/windows/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-mac)
 - [VS Code](https://code.visualstudio.com/download)
 - Visual Studio:
   - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
   - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
-- [pyenv for Windows](https://github.com/pyenv-win/pyenv-win#installation)
 
-### Manual Installation (Linux)
+## Manual Installation (Linux)
 
 The links below will take you to each project installation page should you prefer to manually install the prerequisite software. Your preferred installation method for the programs listed [above](#os-independent) should get you up and running on any Linux distro new enough to support GLIBC_2.28.
 
-- Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
-- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
-- [Python 3.7 or later](https://www.python.org/downloads/) (with support for TLS 1.2)
+- [Git](https://git-scm.com/download/linux)
+- [GitHub Desktop](https://desktop.github.com)
+- [Node.js](https://nodejs.org/en/download/)
+  - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/source/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-linux)
+- [VS Code](https://code.visualstudio.com/download)
 - Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 - Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
 
