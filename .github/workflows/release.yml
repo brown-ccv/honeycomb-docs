@@ -1,39 +1,14 @@
-name: documentation
-
+name: Release to GitHub Pages
 on:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
 
-# TODO: These jobs should be split into two files? On pull_request and on push are separate?
 jobs:
-  checks:
-    if: github.event_name != 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Test Build
-        run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npm run build
   gh-release:
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
       - name: Add key to allow access to repository
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
