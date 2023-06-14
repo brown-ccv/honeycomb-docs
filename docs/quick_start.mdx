@@ -85,18 +85,22 @@ See [Prerequisites](prerequisites) for more information about these programs.
     label='Windows'
   >
 
-The [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) package manager is available on Windows 10 and Windows 11.
-
-1. Run Powershell as an admin form the start menu
+1. Run Powershell as an admin from the start menu
 
    ![Powershell admin launcher](assets/powershell_admin.png)
 
 2. Navigate to the root directory of your cloned repository
-3. Pase the following command and follow the prompts to install the listed programs:
+3. Paste the following command and follow the prompts to install the listed programs:
 
    ```shell
    ./winget.ps1
    ```
+
+4. The "Visual Studio Installer" will open a GUI during installation. Make sure "Desktop Development with C++" is checked before continuing.
+
+:::note
+Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
+:::
 
 </TabItem>
 <TabItem
@@ -112,10 +116,16 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
     /bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'
     ```
 
-2.  Pase the following command and follow the prompts to install the listed programs:
+2.  Paste the following command and follow the prompts to install the listed programs:
 
     ```shell
     brew bundle
+    ```
+
+3.  Install Xcode (not available on Homebrew)
+
+    ```shell
+    xcode-select --install
     ```
 
 </TabItem>
@@ -137,6 +147,10 @@ npm install -g electron
 
 ```shell title="Install the Firebase CLI"
 npm install -g firebase-tools
+```
+
+```shell title="Install the dotenv cli"
+npm install -g dotenv-cli
 ```
 
 ## Run the Task in Development Mode
