@@ -2,8 +2,8 @@ module.exports = {
   // TODO: Match sidebar to folder structure? Autogenerate?
   mySidebar: [
     'introduction',
-    'project_organization',
     'quick_start',
+    'project_organization',
     {
       type: 'category',
       label: 'Guides',

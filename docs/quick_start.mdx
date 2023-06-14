@@ -5,251 +5,229 @@ title: Quick Start
 description: Quick start guide for Honeycomb
 ---
 
-Before we can get started with Honeycomb, we must make sure our machines have the required prerequisites for Honeycomb to run.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import cloneCodeButton from './assets/clone-code-button.webp';
 
-## 1. Install a Package Manager
+## Creating Your Task Repository
 
-There are some prerequisites that are required across all operating systems to run Honeycomb. We will be using a package manager to install these dependencies.
+The Honeycomb repository is a template and serves as the starting point for all tasks. Creating your repository from the template starts your project with the same directory structure and files as an existing repository.
 
-### MacOS Package Manager (Homebrew)
+1. Go to the [Honeycomb repository](https://github.com/brown-ccv/honeycomb)
+2. Click on `Use this template` and select `Create a new repository`.
+   ![Use this template](assets/template_0.png)
+3. Enter the owner, name, and description of your repository and click on `Create repository from template`.
+   ![Create repository](assets/template_1.png)
+   :::note
+   We recommend creating a public repository and leaving `Include all branches` unchecked
+   :::
 
-Paste the following in a macOS Terminal and press enter to install Homebrew, then follow the steps in the terminal screen.
+_Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
 
-```shell
-/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'
+## Cloning the Repository
+
+With the repository now setup it can be cloned onto your computer.
+
+1.  Navigate to the repository on [GitHub](https://github.com).
+2.  Click the `Code` button and copy the URL
+
+    <img
+      src={cloneCodeButton}
+      alt='GitHub clone repo button'
+    />
+
+3.  Open a terminal and navigate to where you want the cloned directory
+
+<Tabs groupId='os' queryString defaultValue='mac'>
+<TabItem
+  value='win'
+  label='Windows'
+>
+
+```shell title="Powershell"
+cd 'path/to/directory'
 ```
 
-_When this command is run, additional installations may be automatically added by Homebrew based on your machine's configurations. Homebrew will prompt you to `Press RETURN to continue or any other key to abort`. Please continue with these installations by pressing `Return`_
+</TabItem>
+<TabItem
+  value='mac'
+  label='macOS'
+>
 
-#### Set up Homebrew on your PATH
-
-To make Homebrew available in your shell, we need to add the Homebrew installation location to our `PATH`. This should be done automatically on macOS 10.14 Mojave or newer. For older versions, or to do it manually run the following command in your terminal.
-
-```shell
-echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+```shell title="Terminal.app"
+cd 'path/to/directory'
 ```
 
-If you're using `zsh`, also add to your `~/.zshrc` file.
+</TabItem>
+</Tabs>
 
-### Windows Package Manager (Chocolatey)
+4. Clone the repo with the following command
 
-[Chocolatey](https://chocolatey.org) is a package manager for Windows - essentially the equivalent of Homebrew for MacOs. It installs software from the command line and makes updates much easier. Run Powershell with administrator privileges and paste the following command:
-
-![Run Powershell as an admin form the start menu](assets/powershell_admin.png)
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```shell title='Paste the URL you copied earlier'
+ git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>
 ```
 
-## 2. Start your new task from our template repository
+:::note
+Git can be downloaded [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if it is not already on your system.
+:::
 
-To start a new task locally, in development mode follow these steps:
+_Additional details and alternative methods for cloning a repository can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)._
 
-The simplest way to get started is creating a new repository using Honeycomb as a template. This option will allow you to generate a new repository with the same directory structure and files as an existing repository.
+## Installing Prerequisites
 
-Creating a repository from a template is similar to forking a repository, but there are important differences:
+All of the needed programs for Honeycomb must be installed before we can develop our task. We will use a [package manager](https://en.wikipedia.org/wiki/Package_manager) to automatically install them.
 
-- A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
-- Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
-- A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
+See [Prerequisites](prerequisites) for more information about these programs.
 
-Go to [https://github.com/brown-ccv/honeycomb](https://github.com/brown-ccv/honeycomb) and click on `Use this template` on the top right.
+<Tabs groupId='os' queryString defaultValue='mac'>
+  <TabItem
+    value='win'
+    label='Windows'
+  >
 
-![Use this template](assets/template_0.png)
+1. Run Powershell as an admin from the start menu
 
-Then select the organization and the name of your repository and click on `create repository from template`.
+   ![Powershell admin launcher](assets/powershell_admin.png)
 
-![Create repository](assets/template_1.png)
+2. Navigate to the root directory of your cloned repository
+3. Paste the following command and follow the prompts to install the listed programs:
 
-Alternatively, you can use GitHub CLI to create a new project based on the Honeycomb template repository. First, install GitHub CLI ([https://cli.github.com/](https://cli.github.com/)), then run on your terminal:
+   ```shell
+   ./winget.ps1
+   ```
 
-```shell
-gh repo create your-new-task-name --template brown-ccv/honeycomb
-```
+4. The "Visual Studio Installer" will open a GUI during installation. Make sure "Desktop Development with C++" is checked before continuing.
 
-You can now move into the directory that was just created
+:::note
+Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
+:::
 
-```shell
-cd your-new-task-name
-```
+</TabItem>
+<TabItem
+  value='mac'
+  label='macOS'
+>
 
-## 3. Install Prerequisites
+The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
 
-### Running Brewfile (macOS)
+1.  Paste the following command in a macOS Terminal and follow the prompts to install Homebrew.
 
-A Brewfile is a script that developers can use to install multiple software tools that are required to run an application.
+    ```shell
+    /bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'
+    ```
 
-```shell
-brew bundle
-```
+2.  Paste the following command and follow the prompts to install the listed programs:
 
-This will call the `brew` command which will install all the listed packages to your project.
+    ```shell
+    brew bundle
+    ```
 
-### Using Chocolatey (Windows)
+3.  Install Xcode (not available on Homebrew)
 
-Chocolatey will install multiple software packages if given a configuration file. The honeycomb template repository includes one! See [Prerequisites](prerequisites#chocolatey) for more information about using chocolatey.
+    ```shell
+    xcode-select --install
+    ```
 
-```shell
-choco install chocolatey.config
-```
+</TabItem>
+</Tabs>
 
-#### Python on Windows
+## Install Dependencies
 
-In addition to the packages installed by Chocolatey you need to complete your Python installation using `pyenv`. Please complete the steps in [Python on Windows](prerequisites#python-on-windows-pyenv) before continuing.
+There are many node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
 
-## 4. Change name and description
-
-It's best practice to create a new branch whenever we look to make changes and/or add a new feature. Your IDE may have a way to do this or it can always be done on the command line.
-
-Create a new branch:
-
-```shell
-git checkout -b <branch-name>
-```
-
-Open `package.json` and edit it to reflect your app:
-
-1. `name` is your task's name, generally this is the name of our repository
-2. `description` should be rewritten to better match your task
-3. `author` is your lab (or PIs) name, email, and webpage
-4. `version` should be reset to 1.0.0
-5. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
-
-Save your changes and commit them to git:
-
-```shell
-git commit -m "Commit message goes here!"
-```
-
-_Checkout the [Version Control](https://brown-ccv.github.io/honeycomb-docs/docs/version_control) page for more information about working with git_
-
-## 5. Install NPM Packages
-
-`npm` is a command-line utility for Node.js that makes it easy for you to install packages and maintain them throughout the lifecycle of your application. With Node.js installed in Step 0, we are now able to utilize the `npm` command in the terminal.
-
-Please run the following command to trigger the installation of all the dependencies relevant to this project:
-
-```shell
+```shell title="Install Honeycomb's dependencies"
 npm install
 ```
 
-Honeycomb, like most applications, contains a template called `package.json`. This file contains three distinctive parts that we interact with using a series of npm commands.
+Certain dependencies are best installed globally within node. These tools will be available from the command line anywhere on your system.
 
-### Metadata
-
-```json
-{
-  "name": "honeycomb",
-  "description": "all-in-one task starter app with jsPsych + React + Electron + psiturk ",
-  "author": {
-    "name": "Brown CCV",
-    "email": "ccv-bot@brown.edu",
-    "url": "ccv.brown.edu"
-  }
-}
+```shell title="Install electron"
+npm install -g electron
 ```
 
-The metadata provides information about the project such as the name, author and description.
-
-### Dependencies
-
-```json
-"dependencies": {
-  "@brown-ccv/behavioral-task-trials": "^2.0.0",
-  "@fortawesome/fontawesome-free": "^5.9.0",
-  "bootstrap": "^5.2.0-beta1",
-  "electron-log": "^4.4.8",
-  "electron-squirrel-startup": "^1.0.0",
-  "event-marker": "git+https://github.com/brown-ccv/event-marker.git",
-  ...
-}
+```shell title="Install the Firebase CLI"
+npm install -g firebase-tools
 ```
 
-Dependencies are packages that the project relies on for it to function properly.
-
-They are formatted in specific key/value pairs where every key is a name of the package and the value is the version range that’s acceptable.
-
-Note: _If any changes are made to the dependencies section of the `package.json`, you must run `npm install` again to download the newly updated list of dependencies._
-
-### Scripts
-
-```json
-"scripts": {
-  "commit": "git-cz",
-  "postinstall": "node version.js && npm run rebuild",
-  "start": "cross-env BROWSER=\"none\" NODE_PATH=\"./src\" react-scripts start",
-  "start:browser": "react-scripts start",
-  "test": "react-scripts test",
-  "prebuild": "electron-rebuild",
-  "build": "react-scripts build",
-}
+```shell title="Install the dotenv cli"
+npm install -g dotenv-cli
 ```
 
-The scripts section contains a number of commands you can run.
+## Run the Task in Development Mode
 
-_Check out the [NPM Scripts](https://brown-ccv.github.io/honeycomb-docs/docs/npm_scripts) page for more information about the different scripts you can run._
+Running the task in development mode causes it to hot-reload whenever changes are made to the app. This is how you'll run the project while building your task.
 
-## 6. Run the task in dev mode
-
-```shell
+```shell title="Run the task in dev mode"
 npm run dev
 ```
 
-This will launch an electron window with the task and inspector open. It will hot-reload whenever changes are made to the app.
+This script launches an electron window with the task and inspector open.
 
-## 7. Learn about configuring your task for different environments
+You can quit the task in the middle of development if needed:
 
-HoneyComb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more. To learn more about how to configure your task for these different scenarios, see the [Configuration Section](environment_variables).
+<Tabs
+  groupId='os'
+  queryString
+  defaultValue='mac'
+>
+  <TabItem
+    value='win'
+    label='Windows'
+  >
+    <kbd>Control</kbd> + W
+  </TabItem>
+  <TabItem
+    value='mac'
+    label='macOS'
+  >
+    <kbd>⌘</kbd> + Q
+  </TabItem>
+  <TabItem
+    value='linux'
+    label='Linux'
+  >
+    <kbd>Control</kbd> + W
+  </TabItem>
+</Tabs>
 
-## 8. Check out the data
+### Saving data
 
-The data is saved throughout the task. When running as a Desktop App, data is saved to the user's app directory. When running as a Web App in Firebase, data is stored in the FireStore.
+Data is saved throughout the task, even when running in development mode. The location of the task is logged at the beginning of the task wherever you ran `npm run dev`.
 
+Note how the data is organized by study and participant. Every run through of the task will save the data somewhere within this folder!
 
-For a Desktop App, the location of the task is logged at the beginning of the task wherever you ran `npm run dev`. Data is also stored in a folder that is generated by the app, which should be found on the desktop.
+## Edit the Task
 
-## 9. Quit the **task**
+Now that the task is up and running we can make our first changes to the code! We'll edit the `package.json` file to reflect your information.
 
-If you want to quit in the middle of the task, you can use these keyboard shortcuts:
+1. Create a new branch
 
-```shortcut
-Ctrl+W (for PC/Windows)
-```
+   ```shell
+   git checkout -b <branch-name>
+   ```
 
-```shortcut
-Cmd+Q (for Mac)
-```
+2. Open `package.json` and edit it to reflect your app:
 
-Partial data will be saved.
+   1. `name` is your task's name, generally this is the name of our repository
+   2. `description` should be rewritten to better match your task
+   3. `author` is your lab (or PIs) name, email, and website
+   4. `version` should be reset to 1.0.0
+   5. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
 
-## 10. Run automated tests
+3. Save your changes and commit them to git:
 
-Automated tests can tell a user whether the code is working as expected or if recent changes have broken previous functionality. Running automated tests is a good idea whenever you're getting started, merging updates, or making custom changes.
+   ```shell
+   git commit -m "Commit message goes here!"
+   ```
 
-To run the tests interactively:
+4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
 
-```shell
-npm test
-```
+## Next Steps
 
-Or non-interactively:
+Honeycomb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more.
 
-```shell
-CI=true npm test
-```
+The [Firebase](firebase) page explains how to set up your task with Firebase.
 
-### Testing on Linux
+To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
 
-When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
-
-This is a "known issue" with some test runners on Linux, as in discussions [here](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached) and [here](https://stackoverflow.com/questions/62206460/jest-watch-error-enospc-system-limit-for-number-of-file-watchers-reached).
-
-One simple workaround is to increase the number of allowed watchers (100000 seems to be sufficient):
-
-- Command that initially fails with `ENOSPC`: `npm test`
-- Check the configured limit on "watchers": `cat /proc/sys/fs/inotify/max_user_watches`
-- Edit the relevant Linux config file: `sudo vim /etc/sysctl.conf`
-- Add a line at the end of the config file: `fs.inotify.max_user_watches=100000`
-- Save, exit, and reload the config file: `sudo sysctl -p`
-- Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
-- Retry the initial command, which should now succeed: `npm test`
+The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
