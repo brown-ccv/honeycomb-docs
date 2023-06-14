@@ -1,16 +1,16 @@
 module.exports = {
+  // TODO: Match sidebar to folder structure? Autogenerate?
   mySidebar: [
     'introduction',
-    'project_organization',
     'quick_start',
+    'project_organization',
     {
       type: 'category',
-      label: 'How To Guides',
+      label: 'Guides',
       collapsed: false,
       items: [
-        // TODO: These ids have nothing to do with the heading, filename, etc. MAKE THEM MATCH
         'npm_scripts',
-        'project_configuration',
+        'environment_variables',
         'event_triggers',
         'firebase',
         'deploy_online',
@@ -20,7 +20,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Further Reading',
-      items: ['further_reading/version_control'], // TODO: Folder structure without effecting slugs
+      items: ['further_reading/version_control'],
     },
     'prerequisites',
     'troubleshooting',

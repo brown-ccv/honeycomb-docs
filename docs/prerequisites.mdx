@@ -1,142 +1,111 @@
 ---
 id: prerequisites
+slug: /prerequisites
 title: Prerequisites
+description: Overview of prerequisite software and how to install them
 ---
 
-It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. First we need the following programs:
+It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. **The [quick start](quick_start#installing-prerequisites) guide explains how to run an automated install**, this page details what programs and packages are needed to run and build Honeycomb. There are some OS specific prerequisites needed to build a task as a desktop application.
 
-- git (version control and GitHub integration)
-- nodejs (web development - we recommend the latest long term support version)
-- python (3.7 or later)
-- An Integrated Development Environment (we recommend VS Code)
+## OS Independent
 
-In addition, Honeycomb relies on Electron to package the cross-platform desktop applications. Some of electron's prerequisites are platform dependent - listed below are the prerequisites for each operating system along with resources for manually installing them.
+### Git
 
-## MacOS
+[git](https://git-scm.com) is an open-sourced version control system. It is used to track changes, revert mistakes, and enable peer code reviews!
 
-### Brew
+[GitHub Desktop](https://desktop.github.com) is a GUI application used to interact with git and GitHub directly from your computer. It is not strictly needed but many folks find it easier to work with than using git directly from the command line.
 
-All of the required dependencies for Honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.mdx/#installing-prerequisites-with-homebrew-for-macos) for more information.
+### Node JS
 
-### Manual Installation (MacOS)
+[NodeJS](https://nodejs.org/en) is a cross-platform runtime environment for JavaScript code. Almost every web application today builds on top of node.
 
-- [XCode](https://developer.apple.com/xcode/) must be installed from the terminal:
+:::note
+Honeycomb needs version 16 or later to run - the installers run the long term support (LTS) version. This is version 18 as of June 2023
+:::
 
-  ```terminal
-    xcode-select --install
-  ```
+### Python
 
-- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
-- [Node.js](https://nodejs.org/en/download/)
-- To install Python (3.7 or later with support for TLS 1.2) follow the guide on electron docs to [install and configure python and its modules](https://www.electronjs.org/docs/development/build-instructions-macos#python)
+[Python](https://www.python.org) is a high-level programming language. Some "under the hood" tools needed by Honeycomb are written in python so it must be installed on your system.
 
-## Windows
+:::note
+Honeycomb needs version 3.7 or later to run - the installers use version 3.11.
+:::
 
-Note that Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or your entire computer. This should resolve most issues.
+### Oracle JDk
 
-### Chocolatey
+[Java](https://www.oracle.com/java/) is another high-level programming languages that some tools are written in (namely, the Firebase Emulators). We must install a JDK (Java Development Kit) for it to run.
 
-#### chocolatey.config
+:::note
+Honeycomb needs version 11 or later to run - the installers use version 18.
+:::
 
-A Chocolatey configuration file looks something like this:
+### Visual Studio Code
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<packages>
-  <package id="git" />
-  <package id="nodejs-lts" />
-  <package id="vscode" />
-  <package id="pyenv-win" />
-  <package id="visualstudio2022community" />
-  <package id="visualstudio2022-workload-nativedesktop" />
-  <package id="electron" />
-</packages>
+[Visual Studio Code](https://code.visualstudio.com) is a well-loved and easy to use integrated development environment (IDE). This is the program you'll use to write your task.
+
+## Mac-specific Installs
+
+### X-Code
+
+[XCode](https://developer.apple.com/xcode/) is a special IDE for the Apple platform. It comes with everything needed to compile desktop applications from an Apple computer. It must be installed from the terminal:
+
+```shell title="Installing XCode"
+  xcode-select --install
 ```
 
-Running `choco install chocolatey.config` is the equivalent of calling `choco install <id>` for every package in the file.
+### Rosetta
 
-### Python on Windows (pyenv)
+Rosetta is a translation layer built for Mac computers with Apple Silicon. It should ask to be installed if any of the prerequisite tools need it. Otherwise, [this guide](https://support.apple.com/en-us/HT211861) can be used to make sure it is on your Apple silicon system.
 
-Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing Python on your system, which is a rule for most things in software development (this is what [npm](quick_start.mdx/#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using Python again.** We promise the extra setup today will pay great dividends in the future!
+## Windows-specific Install
 
-First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **Please complete this step even if you already have a Python manager**
+### Visual Studio
 
-![App execution aliases](assets/python-win-1.png)
-![Turn off app installer](assets/python-win-2.png)
+[Visual Studio](https://visualstudio.microsoft.com) is a special IDE for the Windows platform. It comes with everything needed to compile desktop applications from a PC. Visual Studio Community is a free to use platform.
 
-Now we can set up our Python management system<sup>1</sup>. We recommend [pyenv](https://github.com/pyenv-win/pyenv-win) as it is small and intuitive for newer developers. It lets us install python globally AND switch between different versions for individual projects. It does this (and only this) extremely well. Complete the following steps to install `pyenv` for Windows and set up your global Python environment:
+:::caution
+The "Desktop development with C++" workload must also be installed with Visual Studio. The automated installers should preselect this but you should double check to be certain!
+:::
 
-1. Ensure Python is completely uninstalled from your system<sup>2</sup>
+## Manual Installation (macOS)
 
-   - Type `python` on the command line and ensure you get a "Command 'python' not found" error
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
 
-     ```powershell
-     python
-     ```
-
-   - _If the command executes, locate the installation (check "Add or Remove programs" in the settings) and remove it. Continue until the error appears_
-   - _If the Microsoft Store launches check again to ensure "Manage App execution aliases" is turned off for `python.exe` and `python3.exe`_
-
-2. Install `pyenv-win`
-
-   - `pyenv-win` will install with `chocolatey.config` - enter `pyenv` on the command line to see if it's already on your system. You should see a list of commands printed to your terminal.
-
-     ```shell
-     pyenv
-     ```
-
-   - If not:
-
-     ```shell
-     choco install pyenv-win
-     ```
-
-3. Install your Python version
-
-   ```powershell
-   pyenv install <version>
-   ```
-
-   - If you're using a different Python version for another project that version will work fine so long as it is at least version `> 3.0.0`
-   - Otherwise, install the newest version that includes exactly 3 numbers, e.g. `3.10.6`
-
-     ```powershell
-     pyenv install --list
-     ```
-
-4. Use that version as your global install
-
-   ```powershell
-   pyenv global <version>
-   ```
-
-<sup>1</sup>_If you are already using [Anaconda](https://www.anaconda.com) for Python and its
-various other tools that is okay! You already have python manager installed on your system and can
-skip this section._
-
-<sup>2</sup>_Any "solo" installations can and will cause major conflicts with `pyenv`. It can cause
-issues when you try to change your version, when another program checks for Python, when you update
-Windows... so on and so forth. Perhaps you've already run into something unexpected like this! This
-is why it's essential python is completely uninstalled from your computer before beginning._
-
-### Manual Installation (Windows)
-
-- [Git](https://git-scm.com/download/win)
+- [Git](https://git-scm.com/download/mac)
+- [GitHub Desktop](https://desktop.github.com)
 - [Node.js](https://nodejs.org/en/download/)
   - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/macos/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-windows)
+- [VS Code](https://code.visualstudio.com/download)
+- [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+
+## Manual Installation (Windows)
+
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
+
+- [Git](https://git-scm.com/download/win)
+- [GitHub Desktop](https://desktop.github.com)
+- [Node.js](https://nodejs.org/en/download/)
+  - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/windows/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-mac)
 - [VS Code](https://code.visualstudio.com/download)
 - Visual Studio:
   - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
   - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
-- [pyenv for Windows](https://github.com/pyenv-win/pyenv-win#installation)
 
-## Linux
+## Manual Installation (Linux)
 
-We recommend using Ubuntu (18.10 or later) as your distro but any distro new enough to support GLIBC_2.28 should work.
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software. Your preferred installation method for the programs listed [above](#os-independent) should get you up and running on any Linux distro new enough to support GLIBC_2.28.
 
-- Download the [Node.js source code](https://nodejs.org/en/download/) and compile it
-- [Git 2.20.0 or later](https://git-scm.com/downloads/) with support for "--show-current"
-- [Python 3.7 or later](https://www.python.org/downloads/) (with support for TLS 1.2)
+- [Git](https://git-scm.com/download/linux)
+- [GitHub Desktop](https://desktop.github.com)
+- [Node.js](https://nodejs.org/en/download/)
+  - We recommend installing the "LTS" option for better stability
+- [Python](https://www.python.org/downloads/source/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-linux)
+- [VS Code](https://code.visualstudio.com/download)
 - Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
 - Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
 

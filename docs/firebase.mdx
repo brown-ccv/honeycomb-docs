@@ -1,39 +1,63 @@
 ---
 id: firebase
-title: Set up Firebase
+slug: /firebase
+title: Firebase
+description: Guide for connecting Honeycomb to a Firebase project
 ---
 
-Honeycomb comes with methods and configurations for easy [Firebase](https://firebase.google.com/) and [Cloud Firestore](https://firebase.google.com/docs/firestore) set up. Please use this section to configure [Firebase Hosting](https://firebase.google.com/docs/hosting) services and Firestore cloud storage.
+import firebaseConsoleSettings from './assets/firebase-console-settings.png';
+import firebaseWebCredentials from './assets/firebase-web-credentials.png';
+import firestoreCreateStudy from './assets/firestore-create-study.png';
+import firestoreExampleStudy from './assets/firestore-example-study.png';
+import firebaseActions from './assets/firebase-actions.png';
+
+Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
 
 ## Setting up Firebase
 
-### 0. Installing the Firebase Command Line Interface
+:::info
+Please have your PI contact [support@ccv.brown.edu](mailto:support@ccv.brown.edu) to create a Firebase project for your Honeycomb task before beginning.
+:::
 
-To check if firebase has been installed, type `firebase` into a terminal window.
+### Adding Products
 
-```shell
-firebase
-```
+First we'll configure [Firebase Hosting](https://firebase.google.com/docs/hosting) and [Cloud Firestore](https://firebase.google.com/docs/firestore) on your project.
 
-If a list of options are printed on the terminal then the firebase tool has already been installed. If not, you will get an error - something along the lines of "Command not found." The firebase-cli can then be installed using npm:
+1. Log in to Firebase with your Google account on the [Firebase console](https://console.firebase.google.com/).
+2. Navigate to your project from the console
+3. Register a new web app to your project ([Register your app](https://firebase.google.com/docs/web/setup#register-app))
 
-```shell
+   :::note
+   We recommend giving your web app the same name as your task's repository
+   :::
+
+4. Add Firestore Database to your project ([Create a Cloud Firestore database](https://firebase.google.com/docs/firestore/quickstart#create))
+
+   :::note
+   Chose `production mode` for the starting mode and the default "Cloud Firestore Location"
+   :::
+
+The Firebase project is now fully set up! Now we'll connect your task to that project from your computer.
+
+### Installing the Command Line Interface
+
+The Firebase CLI can be installed with the node package manager just like the rest of Honeycomb's dependencies. Be sure to log in with same account you used when logging into the console!
+
+```shell title="Install the Firebase CLI"
 npm install -g firebase-tools
 ```
 
-_The `-g` flag installs an npm package globally on your system, as opposed to the current project_
+```shell title="Login to Firebase"
+firebase login
+```
 
-### 1. Initializing firebase account and project
+_A "command not found" error usually indicates `firebase-tools` has not been installed correctly_
 
-- Create and login to a firebase account on [the Firebase website](https://firebase.google.com/).
-- Create a firebase project by clicking add project and enter a Project Name.
+### Connecting Your Firebase Project
 
-### 2. Linking firebase to task
+1. Change the default project name of your task in `.firebaserc`
 
-- Login to firebase using `firebase login` command in the terminal.
-- Navigate to the `.firebaserc` file home directory and edit the `"default"` field with the project name given in part 1.
-
-```json
+```json title=".firebaserc" showLineNumbers
 {
   "projects": {
     "default": "<your project name>"
@@ -41,50 +65,179 @@ _The `-g` flag installs an npm package globally on your system, as opposed to th
 }
 ```
 
-### 3. Copying web app credentials
+2. Copy the web app credentials from the Firebase console to the corresponding variables in `.env.firebase`
 
-- Navigate to the [firebase console](https://console.firebase.google.com/) and select the project.
-- Create a new Web App by clicking on `Add App` or the `</>` code symbol and following the prompts.
-- Enter a name for the Firebase app (could be the same as your Honeycomb task repo name).
+   1. Return to your project on the [Firebase console](https://console.firebase.google.com/).
+   2. Navigate to your project setting
 
-- Check "Also set up Firebase Hosting for this app."
-- Click `Register App`. This should auto-generate a script with several values that you need to copy into the next step.
-- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo:
+      <img
+        src={firebaseConsoleSettings}
+        alt='Firebase project settings'
+      />
 
-```text
-REACT_APP_FIREBASE="true"
-REACT_APP_apiKey=
-REACT_APP_authDomain=
-REACT_APP_projectId=
-REACT_APP_storageBucket=
-REACT_APP_messagingSenderId=
-REACT_APP_appId=
-```
+   3. Scroll down and copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo
 
-- Copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` you just created.
-  - You only need to copy the variables referenced here. _If you enabled Google Analytics during project creation, additional variables may be printed in the console. You don't need to copy those._
+      <img
+        src={firebaseWebCredentials}
+        alt='Firebase web credentials'
+      />
 
-Firebase is now set up!
+      <br />
+      <br />
 
-## Setting up Firestore
+      ```shell title="env/.env.firebase"
+      REACT_APP_FIREBASE="true"
+      REACT_APP_apiKey=
+      REACT_APP_authDomain=
+      REACT_APP_projectId=
+      REACT_APP_storageBucket=
+      REACT_APP_messagingSenderId=
+      REACT_APP_appId=
+      ```
 
-Honeycomb includes cloud storage for task data using Firestore. Follow these steps to initialize Firestore:
+      _Additional variables may be present in the console, they do not need to be copied._
 
-- Navigate to the current project in the developer console and select `Firestore Database` from the sidebar.
-- Click `Create Database`, select `production mode` and choose the current location for the cloud storage bucket.
+3. Deploy the default [Firestore security rules](https://firebase.google.com/docs/firestore/security/get-started)
 
-### Firestore security rules
-
-[Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started) provides easy server-side authorization to the database. For a honeycomb task, we use the security rules to allow access to only authorized participants for a specified study. Honeycomb's default set of rules is included in the `firestore.rules` file in the home directory. This file can be edited to change the rules. To deploy the rules in the file, type the following line of code in the terminal:
-
-```shell
+```shell title="Deploy Firestore rules"
 firebase deploy --only firestore:rules
 ```
 
-Alternatively, editing the rules directly in the console is also possible. To do so, navigate to the `Rules` tab in the `Firestore Database` section from the firebase console sidebar then copy and paste the code that is in the `firestore.rules` file.
+Your task is now connected to an initialized Firebase project!
 
+## Registering Studies
 
-Firestore database and rules are now both deployed. For Honeycomb's default set of rules, to add an authorized participant for a study, create a collection named `registered_studies`, and add a study with the study ID as the document name in that collection. For each registered study, add an array field named `registered_participants` where each element in the array will be an authorized participant for that study.
+:::caution
+This step must be followed **exactly**. See [Security Rules](#security-rules) for more information.
+:::
 
+1. Navigate to your Firestore Database in the [console](https://console.firebase.google.com/).
+2. Click "Start collection"
+3. Enter `registered_studies` for the collection id and click "next"
+4. Enter the id of your study for the document id
+5. Add a field named `registered_participants` with the type "array"
+6. Add the id of each study participant as a string inside the array
 
-![Example Task](assets/test-task.png)
+<div style={{ textAlign: 'center' }}>
+  <img
+    src={firestoreCreateStudy}
+    alt='Create a study'
+    style={{ maxHeight: '600px' }}
+  />
+</div>
+<br />
+
+The study should like this when you're finished:
+
+<img
+  src={firestoreExampleStudy}
+  alt='Example study'
+/>
+<br />
+<br />
+
+**Additional studies must be created inside the `registered_studies` collection**
+
+## Developing With Firebase
+
+_Two terminal windows must be used while developing for Firebase. Instructions splitting terminals in VSCode can be found [here](https://code.visualstudio.com/docs/terminal/basics#_groups-split-panes)._
+
+```shell title="Run Honeycomb with Firebase Enabled"
+npm run dev:firebase
+```
+
+```shell title="Start the Firebase Emulators"
+npm run firebase:emulators:start
+```
+
+Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore.
+That data can be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
+
+:::info
+Honeycomb populates the Firestore emulators with the study `s1` and participant `p1`.
+:::
+
+## Deploying on Firebase
+
+Firebase deployments are handled automatically following [Continuous Integration Continuous Development](ci) practices using GitHub Actions. Here we will connect create custom actions that are connected to the task's Firebase project.
+
+Execute the following command to begin initializing Firebase hosting via GitHub actions. Be sure to follow the instructions below as the prompts appear.
+
+```shell title="Initialize Firebase hosting via Github actions"
+firebase init hosting:github
+```
+
+1. The window should log you in automatically. If not, follow the prompts to log in with the same account you used in the console.
+2. `<username>/<repository name>` refers to the name of your repository in Github. Be sure it's typed correctly!
+3. Enter `y` for the prompt "Set up the workflow to run a build script before every deploy?"
+4. Enter `npm install && npm run build:firebase` for the prompt "What script should be run before every deploy?"
+5. Enter `y` to overwrite the current workflow file
+6. Enter `y` for the prompt "Set up automatic deployment to your site's live channel when a PR is merged?"
+7. Enter `main` for the prompt "What is the name of the GitHub branch associated with your site's live channel?"
+8. Enter `y` to overwrite the current workflow file
+
+Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml` inside the `.github/workflows/` directory. Ensure the correct run script is present in both files.
+
+<img
+  src={firebaseActions}
+  alt='Github actions created by firebase'
+/>
+
+## Downloading Data
+
+Honeycomb ships with a script for downloading data from Firebase onto a computer. A local service account must be created in order to use it.
+
+### Setting up a Service Account
+
+Service accounts are accounts that are not attached to a human user. They authorize access to a Firebase project without someone physically logging in online. We use a service account to give the download script access to the Firestore database automatically.
+
+1. Return to the project settings your project on the [Firebase console](https://console.firebase.google.com/).
+   <img
+     src={firebaseConsoleSettings}
+     alt='Firebase project settings'
+   />
+2. Click on the "Service accounts" tab
+3. Near the bottom, click "Generate new Private key" and "Generate Key"
+
+4. Rename the key `firebase-service-account.json` and move it to the root directory of your task. Be sure the file looks grayed out and is not picked up by git!
+
+:::danger
+A service account has total administrative access to ts Firebase project. The file and keys inside should never be shared and **never committed to GitHub.**
+:::
+
+### Using the Download Script
+
+## Further Reading
+
+_The [Firebase Documentation](https://firebase.google.com/docs/emulator-suite) details its Emulator Suite in much greater detail._
+
+### Security Rules
+
+Honeycomb uses security rules to authenticate participants and studies for each task. By default participants must be registered to each study in order to complete the task.
+
+Firestore rules are defined in the `firestore.rules` file in the home directory. Note the highlighted lines:
+
+```firestore-security-rules title="firestore.rules" showLineNumbers
+rules_version = '2';
+service cloud.firestore {
+  //highlight-start
+  match /databases/{database}/documents {
+      match /participant_responses/{studyID}/participants/{participantID} {
+        allow create, read:
+        if participantID in get(/databases/$(database)/documents/registered_studies/$(studyID)).data.registered_participants;
+  //highlight-end
+        // ...
+      }
+    }
+}
+```
+
+Lines 3 and 4 indicate that Honeycomb attempts to connect to a document at `/databases/{database}/documents/participant_responses/{studyID}/participants/{participantID}` where `studyID` is a given study and `participantID` is a given participant within that study.
+
+Line 6 defines our rule - it must pass for Honeycomb to connect to the document. `participantID` must be found in an array called `registered_participants` inside of a document at `/databases/{database}/documents/registered_studies/{studyID}`.
+
+Line 5 indicates how Honeycomb can interact with that document. Note that Honeycomb cannot update or delete data! You must manually make these changes from the Firestore console.
+
+:::danger
+Firestore rules must define every match pattern in your project. Attempting to connect anywhere other than `/participant_responses/{studyID}/participants/{participantID}` will be automatically denied even if you add other collections to your database. This is why `firestore.rules` contains additional nested rules - these should be left alone.
+:::

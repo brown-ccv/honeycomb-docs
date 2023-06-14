@@ -1,26 +1,22 @@
 ---
 id: troubleshooting
+slug: /troubleshooting
 title: Troubleshooting
+description: Guide to troubleshooting some known errors and contacting the CCV with questions
 ---
 
 ## Inspecting Errors
 
 When developing Electron apps there are two processes: `main`, and `renderer`. In this case `main` corresponds to `electron-starter.js` and its console is wherever you called `npm run dev` or `electron .` from. `renderer` corresponds to the React App - this is everything else. The React app's console is in the electron/browser window and can be seen by using dev tools to inspect the window. When running `npm run dev`, it should open by default.
 
-
 In case you want to find out where the error is coming from when running the app locally:
 
 - Try reviewing logs in the terminal
-- Inspect element in your browser by openning your developer tools. For instance, in Chrome, this can be done via the menu View -> Developer or right-clicking and pressing Inspect.
-
-
-## Package not found or other error related to `npm`
-
-Try deleting your `node_modules` folder and the `package-lock.json` then running `npm install` then `npm run rebuild`.
+- Inspect element in your browser by opening your developer tools. For instance, in Chrome, this can be done via the menu View -> Developer or right-clicking and pressing inspect.
 
 ## Testing in Linux
 
-When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runer creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
+When running `npm test` on Linux, you might get an error that mentions `ENOSPC`. This is because the test runner creates "watchers" for files in the project repo in order to automatically re-run tests as the files change. Linux limits the number of watchers that can be created at a time and the default limit may be smaller than the number of files in the repo.
 
 This is a "known issue" with some test runners on Linux, as in discussions [here](https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached) and [here](https://stackoverflow.com/questions/62206460/jest-watch-error-enospc-system-limit-for-number-of-file-watchers-reached).
 
@@ -33,3 +29,25 @@ One simple workaround is to increase the number of allowed watchers (100000 seem
 - Save, exit, and reload the config file: `sudo sysctl -p`
 - Check that the limit has changed: `cat /proc/sys/fs/inotify/max_user_watches`
 - Retry the initial command, which should now succeed: `npm test`
+
+## Common issues
+
+### Installing Dependencies
+
+#### Brew Not Available
+
+If you run into issues installing Homebrew in step 1 of [Installing Prerequisites](quick_start?os=mac#installing-prerequisites) it may be because Homebrew is not available on your shell. Older versions of macOS (under 10.14) do not do this automatically.
+
+Run the following command to manually add the Homebrew installation location to your `PATH` so it is available in your shell.
+
+```shell
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+```
+
+:::note
+If you're using `zsh`, also add to your `~/.zshrc` file.
+:::
+
+### NPM Errors
+
+Try deleting your `node_modules` folder and the `package-lock.json` then running `npm install` then `npm run rebuild`. This should fix most issues.
