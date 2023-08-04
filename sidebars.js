@@ -20,7 +20,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Further Reading',
-      items: ['further_reading/version_control'],
+      items: ['further_reading/version_control', 'further_reading/javascript'],
     },
     'prerequisites',
     'troubleshooting',
