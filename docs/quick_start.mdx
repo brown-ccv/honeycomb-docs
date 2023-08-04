@@ -8,6 +8,7 @@ description: Quick start guide for Honeycomb
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import cloneCodeButton from './assets/clone-code-button.webp';
+import workflowPermissions from './assets/workflow-permissions.png';
 
 ## Creating Your Task Repository
 
@@ -21,6 +22,14 @@ The Honeycomb repository is a template and serves as the starting point for all 
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
+4. Ensure the repositories workflow permissions are set to "Read and write permissions"
+
+   _`Settings -> Actions -> General -> Workflow permissions`_
+
+   <img
+     src={workflowPermissions}
+     alt='GitHub workflow permissions settings'
+   />
 
 _Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
 
@@ -141,16 +150,8 @@ npm install
 
 Certain dependencies are best installed globally within node. These tools will be available from the command line anywhere on your system.
 
-```shell title="Install electron"
-npm install -g electron
-```
-
-```shell title="Install the Firebase CLI"
-npm install -g firebase-tools
-```
-
-```shell title="Install the dotenv cli"
-npm install -g dotenv-cli
+```shell title="Install Honeycomb's global dependencies"
+npm install -g electron firebase-tools dotenv-cli
 ```
 
 ## Run the Task in Development Mode
