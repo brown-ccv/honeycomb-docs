@@ -23,9 +23,7 @@ The build folder is in Honeycomb's `.gitignore` and as such should never be adde
 
 ## emulator_data/
 
-{/* TODO: Link to firebase:emulators:start and save in NPM Scripts */}
-
-This folder contains starter data for the Firebase Emulators to use while developing locally. `emulator_data/` should be left alone!
+This folder contains starter data for the Firebase Emulators to use while developing locally. See the [Firebase Scripts](npm_scripts#firebase) to use the data - `emulator_data/` should be left alone!
 
 ## env/
 
@@ -57,8 +55,6 @@ The `lib/` directory contains the files PsiTurk needs to run. Note that `index.h
 ### config/
 
 The `config` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the version of your task used for a given experiment.
-
-{/* TODO */}
 
 ## src/
 
@@ -92,13 +88,11 @@ Each file in the config directory contains settings for a different part of the 
 - `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate language file.
 - `trigger.js` for equipment-related settings (e.g. event markers). It uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
 
-
 Other config files can be used to add settings for specific blocks or sub-sections of the experiment.
 
 ### language/
 
 Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once in a language file and re-used throughout the task.
-
 
 ### lib/
 
@@ -113,7 +107,6 @@ Be sure to look through `utils.js` for functions you might be able to use in you
 ### timelines/
 
 A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
-
 
 `main.js` contains the root timeline which `App.jsx` loads into the `<JsPsychExperiment>` component.
 
