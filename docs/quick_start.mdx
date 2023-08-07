@@ -157,6 +157,16 @@ The package manager installs Node Version Manager (nvm). NVM keeps track of mult
     nvm use
     ```
 
+4.  Set the current version as your default
+
+    ```shell
+    nvm alias default node
+    ```
+
+:::note
+You can skip step 4 if you've already set a default node version in a different project.
+:::
+
 ## Install Dependencies
 
 There are many node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
