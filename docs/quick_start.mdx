@@ -5,10 +5,10 @@ title: Quick Start
 description: Quick start guide for Honeycomb
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import cloneCodeButton from './assets/clone-code-button.webp';
-import nvmrc from './assets/nvmrc.png';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import cloneCodeButton from "./assets/clone-code-button.webp";
+import nvmrc from "./assets/nvmrc.png";
 
 ## Creating Your Task Repository
 
@@ -34,7 +34,7 @@ With the repository now setup it can be cloned onto your computer.
 
     <img
       src={cloneCodeButton}
-      alt='GitHub clone repo button'
+      alt="GitHub clone repo button"
     />
 
 3.  Open a terminal and navigate to where you want the cloned directory
@@ -83,10 +83,10 @@ See [Prerequisites](prerequisites) for more information about these programs.
 ### Initial Install
 
 <Tabs groupId='os' queryString defaultValue='mac'>
-  <TabItem
-    value='win'
-    label='Windows'
-  >
+<TabItem
+  value='win'
+  label='Windows'
+>
 
 1. Run Powershell as an admin from the start menu
 
@@ -136,32 +136,60 @@ If you are running into issues after installing the packages please restart your
 
 ### Setting Up Node
 
-The package manager installs Node Version Manager (nvm). NVM keeps track of multiple versions of NodeJS on your system at the same time. To install the version needed by Honeycomb:
+NVM (Node Version Manager) is a tool for installing and using multiple versions on node on your computer. It must first be installed:
 
-1.  Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+1. Install NVM
 
-    <img
-      src={nvmrc}
-      alt='.nvmrc file'
-    />
+   <Tabs
+  groupId="os"
+  queryString
+  defaultValue="mac"
+>
+<TabItem
+  value="win"
+  label="Windows"
+>
 
-2.  Install that version.
+   _The previous step installs [NVM for Windows](https://github.com/coreybutler/nvm-windows) via the winget package manager. Note that this is a different tool than NVM with slight differences needed for compatibility with Windows._
 
-    ```shell
-    nvm install [version]
-    ```
+   </TabItem>
 
-3.  Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+   <TabItem
+  value="mac"
+  label="macOS"
+>
 
-    ```shell
-    nvm use
-    ```
+   ```sh
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+   ```
 
-4.  Set the current version as your default
+   </TabItem>
+</Tabs>
 
-    ```shell
-    nvm alias default node
-    ```
+2. Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+
+   <img
+     src={nvmrc}
+     alt=".nvmrc file"
+   />
+
+3. Install that version.
+
+   ```shell
+   nvm install [version]
+   ```
+
+4. Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+
+   ```shell
+   nvm use
+   ```
+
+5. Set the current version as your default
+
+   ```shell
+   nvm alias default node
+   ```
 
 :::note
 You can skip step 4 if you've already set a default node version in a different project.
@@ -202,25 +230,25 @@ This script launches an electron window with the task and inspector open.
 You can quit the task in the middle of development if needed:
 
 <Tabs
-  groupId='os'
+  groupId="os"
   queryString
-  defaultValue='mac'
+  defaultValue="mac"
 >
   <TabItem
-    value='win'
-    label='Windows'
+    value="win"
+    label="Windows"
   >
     <kbd>Control</kbd> + W
   </TabItem>
   <TabItem
-    value='mac'
-    label='macOS'
+    value="mac"
+    label="macOS"
   >
     <kbd>⌘</kbd> + Q
   </TabItem>
   <TabItem
-    value='linux'
-    label='Linux'
+    value="linux"
+    label="Linux"
   >
     <kbd>Control</kbd> + W
   </TabItem>
