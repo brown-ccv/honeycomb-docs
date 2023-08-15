@@ -207,6 +207,46 @@ A service account has total administrative access to ts Firebase project. The fi
 
 ### Using the Download Script
 
+Honeycomb comes with a download script. It will programmatically access Firestore to download the experiment data you choose
+
+```bash title="Script Usage"
+npm run firebase:download -- <studyID> <participantID> [sessionNumber] [outputRoot]
+```
+
+- `studyID`: The ID of a given study
+- `participantID`: The ID of a given participant on the `studyID` study
+- `sessionNumber`: Optional number to select which session to download, defaults to the most recent session
+- `outputRoot`: Optional path to the folder where data should be saved, defaults to the current folder
+
+Running the script without `sessionNumber` list all of the available sessions. For example:
+
+```
+Found 3 sessions:
+  0: 2022-07-26T22:04:55.544Z
+  1: 2022-07-27T14:16:36.301Z
+  2: 2022-07-27T19:56:26.229Z
+```
+
+#### sessionNumber
+
+Adding a `sessionNumber` will download that sessions data:
+
+```shell title="Download data for session 2022-07-26T22:04:55.544Z"
+npm run firebase:download -- <studyID> <participantID> 0 [outputRoot]
+```
+
+#### outputRoot
+
+Session data is stored in the current directory by default. The folders and file name are chosen to avoid naming collisions: `./participant_responses/<studyID>/<participantID>/<sessionID>.json`
+
+Adding an `outputRoot` will download that data in a custom location:
+
+```shell title="Download data for session 2022-07-26T22:04:55.544Z at /path/to/my/data"
+npm run firebase:download -- <studyID> <participantID> 0 /path/to/my/data
+```
+
+This will result in data saved to `/path/to/my/data/participant_responses/<studyID>/<participantID>/<sessionID>.json`
+
 ## Further Reading
 
 _The [Firebase Documentation](https://firebase.google.com/docs/emulator-suite) details its Emulator Suite in much greater detail._
