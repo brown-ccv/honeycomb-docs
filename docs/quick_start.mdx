@@ -5,10 +5,12 @@ title: Quick Start
 description: Quick start guide for Honeycomb
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import cloneCodeButton from './assets/clone-code-button.webp';
-import workflowPermissions from './assets/workflow-permissions.png';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import cloneCodeButton from "./assets/clone-code-button.webp";
+import nvmrc from "./assets/nvmrc.png";
+import workflowPermissions from "./assets/workflow-permissions.png";
 
 ## Creating Your Task Repository
 
@@ -28,7 +30,7 @@ The Honeycomb repository is a template and serves as the starting point for all 
 
    <img
      src={workflowPermissions}
-     alt='GitHub workflow permissions settings'
+     alt="GitHub workflow permissions settings"
    />
 
 _Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
@@ -42,7 +44,7 @@ With the repository now setup it can be cloned onto your computer.
 
     <img
       src={cloneCodeButton}
-      alt='GitHub clone repo button'
+      alt="GitHub clone repo button"
     />
 
 3.  Open a terminal and navigate to where you want the cloned directory
@@ -88,11 +90,13 @@ All of the needed programs for Honeycomb must be installed before we can develop
 
 See [Prerequisites](prerequisites) for more information about these programs.
 
+### Initial Install
+
 <Tabs groupId='os' queryString defaultValue='mac'>
-  <TabItem
-    value='win'
-    label='Windows'
-  >
+<TabItem
+  value='win'
+  label='Windows'
+>
 
 1. Run Powershell as an admin from the start menu
 
@@ -106,10 +110,6 @@ See [Prerequisites](prerequisites) for more information about these programs.
    ```
 
 4. The "Visual Studio Installer" will open a GUI during installation. Make sure "Desktop Development with C++" is checked before continuing.
-
-:::note
-Windows occasionally requires a restart after package installations complete. If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
-:::
 
 </TabItem>
 <TabItem
@@ -140,6 +140,71 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
 </TabItem>
 </Tabs>
 
+:::note
+If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
+:::
+
+### Setting Up Node
+
+NVM (Node Version Manager) is a tool for installing and using multiple versions on node on your computer. It must first be installed:
+
+1.  Install NVM
+
+    <Tabs
+      groupId="os"
+      queryString
+      defaultValue="mac"
+    >
+      <TabItem
+        value="win"
+        label="Windows"
+      >
+        <em>
+          The previous step installs{" "}
+          <a href="https://github.com/coreybutler/nvm-windows">NVM for Windows</a> via the winget
+          package manager. Note that this is a different tool than NVM with slight differences
+          needed for compatibility with Windows.
+        </em>
+      </TabItem>
+      <TabItem
+        value="mac"
+        label="macOS"
+      >
+        <CodeBlock language="sh">
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+        </CodeBlock>
+      </TabItem>
+    </Tabs>
+
+2.  Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+
+    <img
+      src={nvmrc}
+      alt=".nvmrc file"
+    />
+
+3.  Install that version.
+
+    ```shell
+    nvm install [version]
+    ```
+
+4.  Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+
+    ```shell
+    nvm use
+    ```
+
+5.  Set the current version as your default
+
+    ```shell
+    nvm alias default node
+    ```
+
+:::note
+You can skip step 4 if you've already set a default node version in a different project.
+:::
+
 ## Install Dependencies
 
 There are many node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
@@ -167,25 +232,25 @@ This script launches an electron window with the task and inspector open.
 You can quit the task in the middle of development if needed:
 
 <Tabs
-  groupId='os'
+  groupId="os"
   queryString
-  defaultValue='mac'
+  defaultValue="mac"
 >
   <TabItem
-    value='win'
-    label='Windows'
+    value="win"
+    label="Windows"
   >
     <kbd>Control</kbd> + W
   </TabItem>
   <TabItem
-    value='mac'
-    label='macOS'
+    value="mac"
+    label="macOS"
   >
     <kbd>⌘</kbd> + Q
   </TabItem>
   <TabItem
-    value='linux'
-    label='Linux'
+    value="linux"
+    label="Linux"
   >
     <kbd>Control</kbd> + W
   </TabItem>
