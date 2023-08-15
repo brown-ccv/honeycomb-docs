@@ -9,6 +9,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import cloneCodeButton from "./assets/clone-code-button.webp";
 import nvmrc from "./assets/nvmrc.png";
+import workflowPermissions from "./assets/workflow-permissions.png";
 
 ## Creating Your Task Repository
 
@@ -22,6 +23,14 @@ The Honeycomb repository is a template and serves as the starting point for all 
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
+4. Ensure the repositories workflow permissions are set to "Read and write permissions"
+
+   _`Settings -> Actions -> General -> Workflow permissions`_
+
+   <img
+     src={workflowPermissions}
+     alt="GitHub workflow permissions settings"
+   />
 
 _Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
 
@@ -138,58 +147,66 @@ If you are running into issues after installing the packages please restart your
 
 NVM (Node Version Manager) is a tool for installing and using multiple versions on node on your computer. It must first be installed:
 
-1. Install NVM
+1.  Install NVM
 
-   <Tabs
-  groupId="os"
-  queryString
-  defaultValue="mac"
->
-<TabItem
-  value="win"
-  label="Windows"
->
+              <Tabs
 
-   _The previous step installs [NVM for Windows](https://github.com/coreybutler/nvm-windows) via the winget package manager. Note that this is a different tool than NVM with slight differences needed for compatibility with Windows._
+        groupId="os"
+        queryString
+        defaultValue="mac"
 
-   </TabItem>
+        >
 
-   <TabItem
-  value="mac"
-  label="macOS"
->
+        <TabItem
 
-   ```sh
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-   ```
+    value="win"
+    label="Windows"
 
-   </TabItem>
-</Tabs>
+    >
 
-2. Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+        _The previous step installs [NVM for Windows](https://github.com/coreybutler/nvm-windows) via the winget package manager. Note that this is a different tool than NVM with slight differences needed for compatibility with Windows._
 
-   <img
-     src={nvmrc}
-     alt=".nvmrc file"
-   />
+              </TabItem>
 
-3. Install that version.
+              <TabItem
 
-   ```shell
-   nvm install [version]
-   ```
+        value="mac"
+        label="macOS"
 
-4. Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+        >
 
-   ```shell
-   nvm use
-   ```
+        ```sh
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+        ```
 
-5. Set the current version as your default
+              </TabItem>
 
-   ```shell
-   nvm alias default node
-   ```
+        </Tabs>
+
+2.  Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+
+    <img
+      src={nvmrc}
+      alt=".nvmrc file"
+    />
+
+3.  Install that version.
+
+    ```shell
+    nvm install [version]
+    ```
+
+4.  Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+
+    ```shell
+    nvm use
+    ```
+
+5.  Set the current version as your default
+
+    ```shell
+    nvm alias default node
+    ```
 
 :::note
 You can skip step 4 if you've already set a default node version in a different project.
@@ -205,16 +222,8 @@ npm install
 
 Certain dependencies are best installed globally within node. These tools will be available from the command line anywhere on your system.
 
-```shell title="Install electron"
-npm install -g electron
-```
-
-```shell title="Install the Firebase CLI"
-npm install -g firebase-tools
-```
-
-```shell title="Install the dotenv cli"
-npm install -g dotenv-cli
+```shell title="Install Honeycomb's global dependencies"
+npm install -g electron firebase-tools dotenv-cli
 ```
 
 ## Run the Task in Development Mode
