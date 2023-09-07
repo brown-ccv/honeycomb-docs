@@ -10,10 +10,6 @@ import firebaseConsoleSettings from "./assets/firebase/firebase-console-settings
 import firebaseWebCredentials from "./assets/firebase/firebase-web-credentials.png";
 import firestoreCreateStudy from "./assets/firebase/firestore-create-study.png";
 import firestoreExampleStudy from "./assets/firebase/firestore-example-study.png";
-import cliDownload from "./assets/firebase/firebase-cli-download.png";
-import cliStudy from "./assets/firebase/firebase-cli-study.png";
-import cliParticipant from "./assets/firebase/firebase-cli-participant.png";
-import cliSelect from "./assets/firebase/firebase-cli-select.png";
 
 Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
 
@@ -216,24 +212,17 @@ Honeycomb comes with a download script. It will programmatically access Firestor
 npm run cli
 ```
 
-1. The CLI script will prompt you download or delete data
-2. The CLI script will prompt you to enter the ID of a given study
-3. The CLI script will prompt you to enter the ID of a given participant on that study
-4. The CLI script will prompt you to select the sessions to download/delete
+1. Select whether you would like to download or delete data
+2. Enter the ID of a given study
+3. Enter the ID of a given participant on that study
+4. Select the sessions to download/delete
+   :::info
 
-The download script will additionally ask where the data should be stored. The deletion script will ask for confirmation whenever deleting files.
+   <kbd>SPACE</kbd> selects a single session and <kbd>A</kbd> toggles every session
 
-#### outputRoot
+   :::
 
-Session data is stored in the current directory by default. The folders and file name are chosen to avoid naming collisions: `./participant_responses/<studyID>/<participantID>/<sessionID>.json`
-
-Adding an `outputRoot` will download that data in a custom location:
-
-```shell title="Download data for session 2022-07-26T22:04:55.544Z at /path/to/my/data"
-npm run firebase:download -- <studyID> <participantID> 0 /path/to/my/data
-```
-
-This will result in data saved to `/path/to/my/data/participant_responses/<studyID>/<participantID>/<sessionID>.json`
+_The download script will additionally ask where the data should be stored. The deletion script will ask for confirmation whenever deleting files._
 
 ## Further Reading
 
