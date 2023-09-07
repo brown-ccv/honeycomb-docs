@@ -10,6 +10,10 @@ import firebaseConsoleSettings from "./assets/firebase/firebase-console-settings
 import firebaseWebCredentials from "./assets/firebase/firebase-web-credentials.png";
 import firestoreCreateStudy from "./assets/firebase/firestore-create-study.png";
 import firestoreExampleStudy from "./assets/firebase/firestore-example-study.png";
+import cliDownload from "./assets/firebase/firebase-cli-download.png";
+import cliStudy from "./assets/firebase/firebase-cli-study.png";
+import cliParticipant from "./assets/firebase/firebase-cli-participant.png";
+import cliSelect from "./assets/firebase/firebase-cli-select.png";
 
 Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
 
@@ -81,7 +85,6 @@ _A "command not found" error usually indicates `firebase-tools` has not been ins
         src={firebaseWebCredentials}
         alt="Firebase web credentials"
       />
-
       <br />
       <br />
 
@@ -213,29 +216,34 @@ Honeycomb comes with a download script. It will programmatically access Firestor
 npm run cli
 ```
 
-The CLI script will prompt
+1. The CLI script will prompt you download or delete data
 
-- `studyID`: The ID of a given study
-- `participantID`: The ID of a given participant on the `studyID` study
-- `sessionNumber`: Optional number to select which session to download, defaults to the most recent session
-- `outputRoot`: Optional path to the folder where data should be saved, defaults to the current folder
+   <img
+     src={cliDownload}
+     alt="CLI output for selecting download or delete"
+   />
 
-Running the script without `sessionNumber` list all of the available sessions. For example:
+2. The CLI script will prompt you to enter the ID of a given study
 
-```
-Found 3 sessions:
-  0: 2022-07-26T22:04:55.544Z
-  1: 2022-07-27T14:16:36.301Z
-  2: 2022-07-27T19:56:26.229Z
-```
+   <img
+     src={cliStudy}
+     alt="CLI output for entering a studyID"
+   />
 
-#### sessionNumber
+3. The CLI script will prompt you to enter the ID of a given participant on that study
 
-Adding a `sessionNumber` will download that sessions data:
+   <img
+     src={cliParticipant}
+     alt="CLI output for entering a participantID"
+   />
 
-```shell title="Download data for session 2022-07-26T22:04:55.544Z"
-npm run firebase:download -- <studyID> <participantID> 0 [outputRoot]
-```
+4. The CLI script will prompt you to select the sessions to download/delete
+
+   <img
+     src={cliSelect}
+     alt="CLI output for entering a participantID"
+   />
+   {/* 5. The CLI script will prompt you for a path to where the sessions should be saved */}
 
 #### outputRoot
 
