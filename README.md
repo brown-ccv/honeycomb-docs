@@ -32,12 +32,13 @@ Deployment happens in GitHub Actions to GitHub Pages
 
 To edit files for the current version, update the files under the `docs` directory. To edit the files in a previous version, edit the files from `versioned_docs/<you version>`.
 
-To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
+1. To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
 
-```console
-yarn run docusaurus docs:version <version number>
-```
+    ```console
+    yarn run docusaurus docs:version <version number>
+    ```
 
-This will copy the files in the `docs` folder to `versioned_docs/version-<version number>/`, create a `version-<version number>-sidebar.json` file under `version_sidebars` and add the version number to the `version.json` file.
+2. Update `versions.json` to include the new version (make sure "current" is first in the array)
+3. Update `docusaurus.config.js` to set the current version's label to the new version
 
 > **WARNING**: If you are editing the docs with the intention of upgrades corresponding to a new major version, please generate the past version before editing the `/docs` folder
