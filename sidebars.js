@@ -8,7 +8,7 @@ module.exports = {
       type: "category",
       label: "Deployments",
       collapsed: false,
-      items: ["deployments", "firebase"],
+      items: ["deployments/deployments", "deployments/firebase", "deployments/gh_pages"],
     },
     {
       type: "category",
