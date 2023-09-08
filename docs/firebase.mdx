@@ -184,7 +184,7 @@ Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase
 
 ## Downloading and Deleting Data
 
-Honeycomb ships with a script for downloading data from Firebase onto a computer. A local service account must be created in order to use it.
+Honeycomb ships with a CLI script that can be used to manage data in Firebase. A local service account must be created in order to use it.
 
 ### Setting up a Service Account
 
@@ -206,8 +206,6 @@ A service account has total administrative access to ts Firebase project. The fi
 
 ### Using the CLI Script
 
-Honeycomb comes with a download script. It will programmatically access Firestore to download the experiment data you choose
-
 ```bash title="Script Usage"
 npm run cli
 ```
@@ -222,7 +220,9 @@ npm run cli
 
    :::
 
-_The download script will additionally ask where the data should be stored. The deletion script will ask for confirmation whenever deleting files._
+:::note
+The download script will prompt you for where the data should be saved. It defaults to `.`, which is your current folder. The folder must exist before running the script.
+:::
 
 ## Further Reading
 
