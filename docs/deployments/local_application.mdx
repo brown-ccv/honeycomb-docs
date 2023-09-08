@@ -9,30 +9,21 @@ A major feature of Honeycomb is the ability to bundle JsPsych tasks into applica
 
 Installers for these application can be created on demand and/or automatically when a new release is created. This is called "Continuous Deployment" - more information about Honeycomb's CI/CD workflow can be found here [here](ci).
 
-## Building the executables
+## Creating a Release
 
-Honeycomb includes workflows to build and create installers for Windows, Mac and Linux. These workflows exist for two configurations of the tasks:
+Follow the [GitHub documentation](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) for creating a release.
 
-- `Home`: The app does not expect event code triggers and photodiode spots.
-- `Clinic`: The app expects event code triggers and photodiode spots.
+Your release MUST included a new tag in order for the CI/CD workflow to work. The tag should be in the format `vX.X.X` where `X.X.X` is the version number of the release. For example, if the release is version 1.0.0, the tag should be `v1.0.0`.
 
-:::tip
-Event code triggers and photodiode spots can only be used on local applications! They will not appear when Honeycomb is deployed on the web.
-:::
+## Running the task
 
-More specifically, the following workflows are included:
+1. Navigate to the repository's "Releases" tab and select the tag you just created.
+2. Download the installer for your operating system.
+3. Double click the installer to run it. Follow the instructions to install the application.
+4. The application will automatically start after the first instillation.
 
-- `build.yaml`: Every time an Pull Request (PR) is opened, or a push is made to the `main` branch, the software is built and tests are run for all platforms with `home` and `clinic` settings. This workflow does not upload desktop installers
-- `package.yaml`: Create installers for any/all platforms for the `home` and `clinic` setting on demand <sup>1</sup>. The installers/executables are uploaded as artifacts and are available for download from the GitHub Actions tab. This also builds a PsiTurk version when linux or all operating systems are selected.
-- `release.yml`: Every time a Tag is released, installers are created and uploaded as packages. This also builds a PsiTurk version, and deploys to GitHub pages a web version of the application.
+The executable does not require installation of any additional software!
 
-<sup>1</sup> On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual
-has a quota on storage in private repositories. Uploading artifacts counts against your quota. You may
-consider configuring your workflows to only upload what you need. You can learn more about GitHub's storage
-limits in their [official documentation](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions).
+## Working with Data
 
-### Download your bundled executable to install and run your task
-
-You can download the executable file from either the tagged release page or the GitHub actions page. To install, unzip the downloaded file, install, and run.
-
-The executable does not require installation of any additional software.
+Data is automatically saved to a nested folder structure on the Desktop. Each session will be saved as its own `.json` file nested under the id of the study and participant.
