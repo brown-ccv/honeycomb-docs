@@ -7,8 +7,6 @@ description: Overview of Honeycomb's directory structure
 
 This project directory is organized to be very modular and composable. In general, files and functions should be relatively small and self-contained, global scope should not be used and only the pieces of code needed for any given file should be imported. This keeps the code maintainable with clear lineage and purpose for each piece of code.
 
-Almost all of the changes needed for custom JsPsych tasks will be done in the [`src/`](#src) folder.
-
 ## assets/
 
 This folder contains any static files that are used by the app. Honeycomb starts with a few images used as icons for the installed applications.
@@ -43,10 +41,14 @@ The file `psiturk-it` inside `psiturkit/` is a bash script used to instal PsiTur
 
 The `public` directory contains files that are used as assets in the built app.
 
-- `favicon.ico` is the small icon you can see in the browser tab.
 - `index.html` is the entry point of the website
   - Changing `<title>Honeycomb</title>` will update the name you can see in the browser tab.
+- `favicon.ico` is the small icon you can see in the browser tab.
 - `electron.js` contains all of the code related to the electron app.
+
+### assets/
+
+The `assets/` directory contains all of the images and videos in the application
 
 ### lib/
 
@@ -60,19 +62,11 @@ The `config` directory contains the config files needed for the electron app. Th
 
 This folder contains the source code for the Honeycomb application.
 
-### \_\_tests\_\_/
+### App/
 
-Automated test cases should be created in this folder.
+Files relating to the React application. This is the code that runs your JsPsych task and shouldn't need to be changed.
 
-### assets/
-
-Any assets used by your task should be stored here, such as images and videos.
-
-:::note
-These assets are **not** statically generated like the root [`assets/`](#assets) folder. Only assets needed by your task should go here.
-:::
-
-### components/
+#### components/
 
 The React components that make up Honeycomb are located here.
 
@@ -81,34 +75,36 @@ The React components that make up Honeycomb are located here.
 - `JsPsychExperiment.jsx` initializes the JsPsych experiment
 - `Login.jsx` handles user authentication based on the environment variables passed to Honeycomb
 
+#### deployments/
+
+Custom code used by the various deployments. This is where sending data to Firebase is handled
+
 ### config/
 
 Each file in the config directory contains settings for a different part of the task.
 
 - `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate language file.
 - `trigger.js` for equipment-related settings (e.g. event markers). It uses a slightly different style of javascript as it is imported both in the React app as well as the electron process.
-
-Other config files can be used to add settings for specific blocks or sub-sections of the experiment.
-
-### language/
-
-Any language that is displayed in the experiment should be stored in this folder. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once in a language file and re-used throughout the task.
+- `config.json` contains the settings for your task. Usage of the config file allows for easy updating of task settings. Common settings can be written once in the config file and re-used throughout the task.
+- `language.json` contains the language used in your task. Usage of language json files allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once in a language file and re-used throughout the task.
 
 ### lib/
 
-The utility functions and markup used in the tasks are located here. This allows for functions and html to be re-used wherever needed.
+Utility functions and markup are located here. This allows for functions and html to be re-used wherever needed.
 
-`markup` files contain HTML templates used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+`markup/` files contain HTML templates used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
 
 :::tip
-Be sure to look through `utils.js` for functions you might be able to use in your task
+Be sure to look through `utils.js` for functions you might be able to use in your task!
 :::
 
 ### timelines/
 
 A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
 
-`main.js` contains the root timeline which `App.jsx` loads into the `<JsPsychExperiment>` component.
+- `main.js` contains the JsPsych options and root timeline which `App.jsx` uses to run the experiment.
+- `honeycombBlock.js` contains the timeline for the Honeycomb block. It uses the task settings from [config.json](config#configjson).
+-
 
 ### trials/
 
