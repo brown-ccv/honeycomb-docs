@@ -28,7 +28,7 @@ Honeycomb includes workflows to build and create installers for Windows, Mac and
 Event code triggers and photodiode spots can only be used on local applications! They will not appear when Honeycomb is deployed on the web.
 :::
 
-- `build.yaml`: Every time an Pull Request (PR) is opened, or a push is made to the `main` branch, the software is built and tests are run for all platforms with `home` and `clinic` settings, as well as `video on` and `video of`. This workflow does not upload desktop installers.
+- `build.yaml`: Every time an Pull Request (PR) is opened, or a push is made to the `main` branch, the software is built and tests are run for all platforms with `home` and `clinic` settings, as well as `video on` and `video off`. This workflow does not upload desktop installers.
 - `release.yml`: Every time a Tag is released, installers are created and uploaded as packages. This also builds a PsiTurk version, and deploys to GitHub pages a web version of the application.
 - `package.yaml`: Create installers for any/all platforms for the `home` and/or `clinic` setting on demand. The installers/executables are uploaded as artifacts and are available for download from the GitHub Actions tab. This also builds a PsiTurk version when linux or all operating systems are selected.
 
