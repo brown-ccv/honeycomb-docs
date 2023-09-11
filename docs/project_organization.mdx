@@ -107,7 +107,7 @@ Be sure to look through `utils.js` for functions you might be able to use in you
 A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
 
 - `main.js` contains the JsPsych options and root timeline which `App.jsx` uses to run the experiment.
-- `honeycombBlock.js` contains the timeline for the Honeycomb block - the "meat" the example reaction-time task. It uses the task settings from [config.json](config#configjson).
+- `honeycombBlock.js` contains the timeline for the Honeycomb block - the "meat" the example reaction-time task. It uses the task settings from [config.json](#config-1).
 - `honeycombTimeline.js` contains the timeline for the entire Honeycomb task. This includes the block timeline from `honeycombBlock.js`, as well as individual trials such as the welcome screen, full screen trial, and instructions.
 - `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `honeycombBlock.js` and `honeycombTimeline.js`.
 - `preamble.js` contains a base timeline for showing the name and welcome screen of an experiment, as well as automatically entering fullscreen mode. It adds the photodiode instructions to the timeline if Honeycomb is using the photodiode.
