@@ -1,8 +1,8 @@
 module.exports = {
-  // TODO: Match sidebar to folder structure? Autogenerate?
   mySidebar: [
     "introduction",
     "quick_start",
+    "prerequisites",
     {
       type: "category",
       label: "Project Organization",
@@ -29,16 +29,15 @@ module.exports = {
     {
       type: "category",
       label: "External Tools",
-      collapsed: true,
+      collapsed: false,
       items: ["event_triggers"],
     },
-    "prerequisites",
-    "troubleshooting",
     {
       type: "category",
       label: "Further Reading",
       items: ["further_reading/version_control", "further_reading/javascript"],
       description: "Guides pointing to additional resources for further learning",
     },
+    "troubleshooting",
   ],
 };
