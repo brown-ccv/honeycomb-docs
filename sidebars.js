@@ -8,7 +8,7 @@ module.exports = {
       label: "Project Organization",
       collapsed: false,
       items: [
-        "project_organization/project_organization",
+        "project_organization/directory_structure",
         "project_organization/npm_scripts",
         "project_organization/environment_variables",
         "project_organization/ci_cd",
