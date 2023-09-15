@@ -1,0 +1,107 @@
+---
+id: prerequisites
+slug: /prerequisites
+title: Prerequisites
+description: Overview of prerequisite software and how to install them
+---
+
+It is important that your computer is set up with the necessary packages before you begin development. You will come across a variety of errors if these prerequisites are not installed. **The [quick start](quick_start#installing-prerequisites) guide explains how to run an automated install**, this page details what programs and packages are needed to run and build Honeycomb. There are some OS specific prerequisites needed to build a task as a desktop application.
+
+## OS Independent
+
+### Git
+
+[git](https://git-scm.com) is an open-sourced version control system. It is used to track changes, revert mistakes, and enable peer code reviews!
+
+[GitHub Desktop](https://desktop.github.com) is a GUI application used to interact with git and GitHub directly from your computer. It is not strictly needed but many folks find it easier to work with than using git directly from the command line.
+
+### Node Version Manager
+
+[NodeJS](https://nodejs.org/en) is a cross-platform runtime environment for JavaScript code. Almost every web application today builds on top of node. [Node Version Manager](https://github.com/nvm-sh/nvm) manages running multiple versions of node on the same system. The `.nvmrc` denotes the version of node that Honeycomb uses.
+
+### Python
+
+[Python](https://www.python.org) is a high-level programming language. Some "under the hood" tools needed by Honeycomb are written in python so it must be installed on your system.
+
+:::note
+Honeycomb needs version 3.7 or later to run - the installers use version 3.11.
+:::
+
+### Oracle JDk
+
+[Java](https://www.oracle.com/java/) is another high-level programming languages that some tools are written in (namely, the Firebase Emulators). We must install a JDK (Java Development Kit) for it to run.
+
+:::note
+Honeycomb needs version 11 or later to run - the installers use version 18.
+:::
+
+### Visual Studio Code
+
+[Visual Studio Code](https://code.visualstudio.com) is a well-loved and easy to use integrated development environment (IDE). This is the program you'll use to write your task.
+
+## Mac-specific Installs
+
+### X-Code
+
+[XCode](https://developer.apple.com/xcode/) is a special IDE for the Apple platform. It comes with everything needed to compile desktop applications from an Apple computer. It must be installed from the terminal:
+
+```shell title="Installing XCode"
+  xcode-select --install
+```
+
+### Rosetta
+
+Rosetta is a translation layer built for Mac computers with Apple Silicon. It should ask to be installed if any of the prerequisite tools need it. Otherwise, [this guide](https://support.apple.com/en-us/HT211861) can be used to make sure it is on your Apple silicon system.
+
+## Windows-specific Install
+
+### Visual Studio
+
+[Visual Studio](https://visualstudio.microsoft.com) is a special IDE for the Windows platform. It comes with everything needed to compile desktop applications from a PC. Visual Studio Community is a free to use platform.
+
+:::caution
+The "Desktop development with C++" workload must also be installed with Visual Studio. The automated installers should preselect this but you should double check to be certain!
+:::
+
+## Manual Installation (macOS)
+
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
+
+- [Git](https://git-scm.com/download/mac)
+- [GitHub Desktop](https://desktop.github.com)
+- [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Python](https://www.python.org/downloads/macos/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-windows)
+- [VS Code](https://code.visualstudio.com/download)
+- [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+
+## Manual Installation (Windows)
+
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software.
+
+- [Git](https://git-scm.com/download/win)
+- [GitHub Desktop](https://desktop.github.com)
+- [NVM](https://github.com/coreybutler/nvm-windows#installation--upgrades)
+- [Python](https://www.python.org/downloads/windows/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-mac)
+- [VS Code](https://code.visualstudio.com/download)
+- Visual Studio:
+  - [Visual Studio 2022 Community](https://visualstudio.microsoft.com/vs/community/)
+  - Install the [Native C++ Workflow](https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=msvc-160#step-4---choose-workloads-1)
+
+## Manual Installation (Linux)
+
+The links below will take you to each project installation page should you prefer to manually install the prerequisite software. Your preferred installation method for the programs listed [above](#os-independent) should get you up and running on any Linux distro new enough to support GLIBC_2.28.
+
+- [Git](https://git-scm.com/download/linux)
+- [GitHub Desktop](https://desktop.github.com)
+- [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Python](https://www.python.org/downloads/source/)
+- [Oracle JDK](https://www.oracle.com/java/technologies/downloads/#jdk20-linux)
+- [VS Code](https://code.visualstudio.com/download)
+- Install [Clang](https://clang.llvm.org/get_started.html) or follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites)
+- Development headers of `GTK 3` and `libnotify` (Follow installation instructions on the [electron docs](https://www.electronjs.org/docs/development/build-instructions-linux#prerequisites))
+
+## Further Help
+
+If you are still having issues setting up your computer you can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
