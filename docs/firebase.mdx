@@ -41,7 +41,7 @@ The Firebase project is now fully set up! Now we'll connect your task to that pr
 
 ### Installing the Command Line Interface
 
-The Firebase CLI can be installed with the node package manager just like the rest of Honeycomb's dependencies. Be sure to log in with same account you used when logging into the console!
+The Firebase CLI is installed with the node package manager just like the rest of Honeycomb's dependencies. Be sure to log in with same account you used when logging into the console!
 
 ```shell title="Install the Firebase CLI"
 npm install -g firebase-tools
@@ -139,7 +139,7 @@ The study should like this when you're finished:
 
 ## Developing With Firebase
 
-_Two terminal windows must be used while developing for Firebase. Instructions splitting terminals in VSCode can be found [here](https://code.visualstudio.com/docs/terminal/basics#_groups-split-panes)._
+_Two terminal windows must be used while developing for Firebase. See [here](https://code.visualstudio.com/docs/terminal/basics#_groups-split-panes) for instructions on splitting terminals in VSCode._
 
 ```shell title="Run Honeycomb with Firebase Enabled"
 npm run dev:firebase
@@ -149,8 +149,7 @@ npm run dev:firebase
 npm run firebase:emulators:start
 ```
 
-Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore.
-That data can be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
+Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore. It may be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
 
 :::info
 Honeycomb populates the Firestore emulators with the study `s1` and participant `p1`.
@@ -182,9 +181,9 @@ Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase
   alt="Github actions created by firebase"
 />
 
-## Downloading and Deleting Data
+## Managing Data
 
-Honeycomb ships with a CLI script that can be used to manage data in Firebase. A local service account must be created in order to use it.
+Honeycomb ships with a CLI script for managing data in Firebase. A local service account must be created in order to use it.
 
 ### Setting up a Service Account
 
@@ -210,10 +209,12 @@ A service account has total administrative access to ts Firebase project. The fi
 npm run cli
 ```
 
-1. Select whether you would like to download or delete data
-2. Enter the ID of a given study
-3. Enter the ID of a given participant on that study
-4. Select the sessions to download/delete
+The CLI script will guide you through the steps needed to manager your data appropriately:
+
+1. Whether you wish to download or delete data
+2. Entering the ID of a given study
+3. Entering the ID of a given participant on that study
+4. Selecting the sessions to download/delete
    :::info
 
    <kbd>SPACE</kbd> selects a single session and <kbd>A</kbd> toggles every session
