@@ -5,11 +5,11 @@ title: Firebase
 description: Guide for connecting Honeycomb to a Firebase project
 ---
 
-import firebaseConsoleSettings from "../assets/firebase-console-settings.png";
-import firebaseWebCredentials from "../assets/firebase-web-credentials.png";
-import firestoreCreateStudy from "../assets/firestore-create-study.png";
-import firestoreExampleStudy from "../assets/firestore-example-study.png";
-import firebaseActions from "../assets/firebase-actions.png";
+import firebaseActions from "./assets/firebase/firebase-actions.png";
+import firebaseConsoleSettings from "./assets/firebase/firebase-console-settings.png";
+import firebaseWebCredentials from "./assets/firebase/firebase-web-credentials.png";
+import firestoreCreateStudy from "./assets/firebase/firestore-create-study.png";
+import firestoreExampleStudy from "./assets/firebase/firestore-example-study.png";
 
 Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
 
@@ -41,7 +41,7 @@ The Firebase project is now fully set up! Now we'll connect your task to that pr
 
 ### Installing the Command Line Interface
 
-The Firebase CLI can be installed with the node package manager just like the rest of Honeycomb's dependencies. Be sure to log in with same account you used when logging into the console!
+The Firebase CLI is installed with the node package manager just like the rest of Honeycomb's dependencies. Be sure to log in with same account you used when logging into the console!
 
 ```shell title="Install the Firebase CLI"
 npm install -g firebase-tools
@@ -81,7 +81,6 @@ _A "command not found" error usually indicates `firebase-tools` has not been ins
         src={firebaseWebCredentials}
         alt="Firebase web credentials"
       />
-
       <br />
       <br />
 
@@ -140,7 +139,7 @@ The study should like this when you're finished:
 
 ## Developing With Firebase
 
-_Two terminal windows must be used while developing for Firebase. Instructions splitting terminals in VSCode can be found [here](https://code.visualstudio.com/docs/terminal/basics#_groups-split-panes)._
+_Two terminal windows must be used while developing for Firebase. See [here](https://code.visualstudio.com/docs/terminal/basics#_groups-split-panes) for instructions on splitting terminals in VSCode._
 
 ```shell title="Run Honeycomb with Firebase Enabled"
 npm run dev:firebase
@@ -150,8 +149,7 @@ npm run dev:firebase
 npm run firebase:emulators:start
 ```
 
-Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore.
-That data can be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
+Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore. It may be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
 
 :::info
 Honeycomb populates the Firestore emulators with the study `s1` and participant `p1`.
@@ -183,9 +181,9 @@ Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase
   alt="Github actions created by firebase"
 />
 
-## Downloading Data
+## Managing Data
 
-Honeycomb ships with a script for downloading data from Firebase onto a computer. A local service account must be created in order to use it.
+Honeycomb ships with a CLI script for managing data in Firebase. A local service account must be created in order to use it.
 
 ### Setting up a Service Account
 
@@ -205,47 +203,27 @@ Service accounts are accounts that are not attached to a human user. They author
 A service account has total administrative access to ts Firebase project. The file and keys inside should never be shared and **never committed to GitHub.**
 :::
 
-### Using the Download Script
-
-Honeycomb comes with a download script. It will programmatically access Firestore to download the experiment data you choose
+### Using the CLI Script
 
 ```bash title="Script Usage"
-npm run firebase:download -- <studyID> <participantID> [sessionNumber] [outputRoot]
+npm run cli
 ```
 
-- `studyID`: The ID of a given study
-- `participantID`: The ID of a given participant on the `studyID` study
-- `sessionNumber`: Optional number to select which session to download, defaults to the most recent session
-- `outputRoot`: Optional path to the folder where data should be saved, defaults to the current folder
+The CLI script will guide you through the steps needed to manage your data appropriately:
 
-Running the script without `sessionNumber` list all of the available sessions. For example:
+1. Whether you wish to download or delete data
+2. Entering the ID of a given study
+3. Entering the ID of a given participant on that study
+4. Selecting the sessions to download/delete
+   :::info
 
-```
-Found 3 sessions:
-  0: 2022-07-26T22:04:55.544Z
-  1: 2022-07-27T14:16:36.301Z
-  2: 2022-07-27T19:56:26.229Z
-```
+   <kbd>SPACE</kbd> selects a single session and <kbd>A</kbd> toggles every session
 
-#### sessionNumber
+   :::
 
-Adding a `sessionNumber` will download that sessions data:
-
-```shell title="Download data for session 2022-07-26T22:04:55.544Z"
-npm run firebase:download -- <studyID> <participantID> 0 [outputRoot]
-```
-
-#### outputRoot
-
-Session data is stored in the current directory by default. The folders and file name are chosen to avoid naming collisions: `./participant_responses/<studyID>/<participantID>/<sessionID>.json`
-
-Adding an `outputRoot` will download that data in a custom location:
-
-```shell title="Download data for session 2022-07-26T22:04:55.544Z at /path/to/my/data"
-npm run firebase:download -- <studyID> <participantID> 0 /path/to/my/data
-```
-
-This will result in data saved to `/path/to/my/data/participant_responses/<studyID>/<participantID>/<sessionID>.json`
+:::note
+The download script will prompt you for where the data should be saved. It defaults to `.`, which is your current folder. The folder must exist before running the script.
+:::
 
 ## Further Reading
 
