@@ -11,21 +11,29 @@ This project directory is organized to be very modular and composable. In genera
 
 This folder contains any static files that are used by the app. Honeycomb starts with a few images used as icons for the installed applications.
 
+:::caution
+Assets that pertain to your specific task should be added to the [public/assets/](#assets-1) folder, not here!
+:::
+
 ## build/
 
 The [build scripts](npm_scripts#npm-build) automatically create a `build` folder at the root of the repository and update it on subsequent builds. `build/` should be left alone!
 
-:::caution
+:::danger
 The build folder is in Honeycomb's `.gitignore` and should never be added to git
 :::
 
 ## emulator_data/
 
-This folder contains starter data for the Firebase Emulators to use while developing locally. See the [Firebase Scripts](npm_scripts#firebase) to use the data - `emulator_data/` should be left alone!
+This folder contains starter data for the Firebase Emulators to use while developing locally. See the [Firebase Scripts](npm_scripts#firebase) to use the data.
+
+:::danger
+`emulator_data/` is written to when running `npm run firebase:emulators:save` and should never be manually edited.
+:::
 
 ## env/
 
-This folder contains different `.env` files used to pass environment variables (secrets and/or settings) into Honeycomb. Honeycomb starts with presets for common use cases and is explained in greater detail in the [Environment Variables](environment_variables) section.
+This folder contains different files used to pass environment variables (settings) into Honeycomb. Honeycomb starts with presets for common use cases and is explained in greater detail in the [Environment Variables](environment_variables) section.
 
 ## node_modules/
 
@@ -35,7 +43,11 @@ This folder contains different `.env` files used to pass environment variables (
 
 ## psiturkit/
 
-The file `psiturk-it` inside `psiturkit/` is a bash script used to instal PsiTurk locally - see [PsiTurk](psiturk#build-instructions) for more information. `psiturkit/` should be left alone!
+The file `psiturk-it` inside `psiturkit/` is a bash script used to instal PsiTurk locally - see [PsiTurk](psiturk#build-instructions) for more information.
+
+:::caution
+Nothing in this folder should ever need to be manually edited.
+:::
 
 ## public/
 
@@ -48,15 +60,19 @@ The `public` directory contains files that are used as assets in the built app.
 
 ### assets/
 
-The `assets/` directory contains all of the images and videos in the application.
+The `public/assets/` directory contains all of the images and videos needed to run your task.
 
 ### lib/
 
-The `lib/` directory contains the files PsiTurk needs to run. Note that `index.html` references these files inside the `<script>` tags
+The `public/lib/` directory contains the files PsiTurk needs to run. Note that `index.html` references these files inside the `<script>` tags.
+
+:::danger
+These files are minified versions of dependencies and should never be manually edited.
+:::
 
 ### config/
 
-The `config` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the version of your task used for a given experiment.
+The `public/config/` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the version of your task used for a given experiment.
 
 ## src/
 
@@ -80,7 +96,7 @@ The React components that make up Honeycomb are located here.
 Custom code used by the various deployments such as Firebase.
 
 :::caution
-You shouldn't have to touch any of the code in these files.
+Changes to these files will change how Honeycomb handles data and should be done with great caution.
 :::
 
 ### config/
@@ -96,7 +112,7 @@ Each file in the config directory contains settings for a different part of the 
 
 Utility functions and markup are located here. This allows for functions and html to be re-used wherever needed.
 
-`markup/` files contain HTML templates used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+`src/lib/markup/` files contain HTML templates used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
 
 :::tip
 Be sure to look through `utils.js` for functions you might be able to use in your task!
@@ -135,7 +151,7 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 
 - `.github/workflows/` contains .yaml files used to build Honeycomb on a pull request (`build.yaml`) and create task executables either in a single instance (`package.yaml`) or for a full release (`release.yaml`)
 - `package.json` contains metadata about your project, a list of the dependencies needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
-- `cli.js` is the script used to download and delete data stored in Firestore.
+- `cli.mjs` is the script used to download and delete data stored in Firestore.
 - `version.js` is the script used to keep track of which version of the task a given experiment is using
 
 :::danger
@@ -145,13 +161,21 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 ### Firebase Files
 
 - `.firebaserc` contains the name of the project Firebase should connect to. Be sure to update the default project to the one you created!
-- `firebase.json` contains the Firebase settings for Honeycomb. It should be left alone!
-- `firestore.indexes.json` contains the Firestore index settings for Honeycomb. It should be left alone!
-- `firestore.rules` contains the Firestore rules for creating/editing data. It should be left alone!
+- `firebase.json` contains the Firebase settings for Honeycomb.
+- `firestore.indexes.json` contains the Firestore index settings for Honeycomb.
+- `firestore.rules` contains the Firestore rules for creating/editing data.
+
+:::caution
+`firebase.json`, `firestore.indexes.json`, and `firestore.rules` shouldn't need to be manually edited.
+:::
 
 ### Git Files
 
-- `.gitignore` lists the folders and files that should be excluded from Git. Make sure all of your secrets and tokens are listed here!
+- `.gitignore` lists the folders and files that should be excluded from Git.
+
+:::danger
+Any secrets and/or tokens must be added to `.gitignore` or they will be visible to anyone with access to the repository!
+:::
 
 ### Eslint Files
 
