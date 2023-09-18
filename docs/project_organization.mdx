@@ -82,10 +82,6 @@ This folder contains the source code for the Honeycomb application.
 
 Files relating to the React application. This is the code that runs your JsPsych task and shouldn't need to be changed.
 
-:::caution
-Files within this folder shouldn't need to be manually edited.
-:::
-
 #### components/
 
 The React components that make up Honeycomb are located here.
@@ -165,13 +161,21 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 ### Firebase Files
 
 - `.firebaserc` contains the name of the project Firebase should connect to. Be sure to update the default project to the one you created!
-- `firebase.json` contains the Firebase settings for Honeycomb. It should be left alone!
-- `firestore.indexes.json` contains the Firestore index settings for Honeycomb. It should be left alone!
-- `firestore.rules` contains the Firestore rules for creating/editing data. It should be left alone!
+- `firebase.json` contains the Firebase settings for Honeycomb.
+- `firestore.indexes.json` contains the Firestore index settings for Honeycomb.
+- `firestore.rules` contains the Firestore rules for creating/editing data.
+
+:::caution
+`firebase.json`, `firestore.indexes.json`, and `firestore.rules` shouldn't need to be manually edited.
+:::
 
 ### Git Files
 
-- `.gitignore` lists the folders and files that should be excluded from Git. Make sure all of your secrets and tokens are listed here!
+- `.gitignore` lists the folders and files that should be excluded from Git.
+
+:::danger
+Any secrets and/or tokens must be added to `.gitignore` or they will be visible to anyone with access to the repository!
+:::
 
 ### Eslint Files
 
