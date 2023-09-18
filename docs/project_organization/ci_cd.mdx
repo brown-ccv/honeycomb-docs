@@ -5,11 +5,11 @@ title: Continuous Integration / Deployment
 description: Descriptions of the GitHub Actions for Honeycomb's CI/CD workflows
 ---
 
-Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code and installers for different operating systems and settings, both on demand and automatically as code is pushed to the repository. In this section, we provide a short introduction to definitions and explain the GitHub Actions included with Honeycomb. These workflows provide Honeycomb's foundation and can easily be modified or extended to meet more needs.
+Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code and installers for different operating systems and settings, both on demand and automatically as code is pushed to the repository. Honeycomb's CI/CD is managed by GitHub Actions. These workflows provide Honeycomb's foundation and can easily be modified or extended to meet more needs.
 
 ## What are Github Actions
 
-Honeycomb's CI/CD is managed by GitHub Actions. [GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
+[GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 GitHub Actions are written as YML files inside the `.github/workflows/` folder of your repository.
 
