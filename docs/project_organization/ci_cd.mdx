@@ -5,17 +5,13 @@ title: Continuous Integration / Deployment
 description: Descriptions of the GitHub Actions for Honeycomb's CI/CD workflows
 ---
 
-Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code and installers for different operating systems and settings, both on demand and automatically as code is pushed to the repository. In this section, we provide a short introduction to definitions. We explain the GitHub Actions included with Honeycomb. These workflows should provide a foundation but can easily be modified or extended to meet more needs.
-
-## What is CI/CD?
-
-CI/CD refers to Continuous Integration and either Continuous Delivery or Continuous Deployment. CI/CD enforces the automated building of bundled executables so that tasks can be easily installed without dependencies. In Honeycomb, CI/CD is managed by GitHub Actions.
+Honeycomb leverages Continuous Integration/Deployment (CI/CD) to build the code and installers for different operating systems and settings, both on demand and automatically as code is pushed to the repository. In this section, we provide a short introduction to definitions and explain the GitHub Actions included with Honeycomb. These workflows provide Honeycomb's foundation and can easily be modified or extended to meet more needs.
 
 ## What are Github Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
+Honeycomb's CI/CD is managed by GitHub Actions. [GitHub Actions](https://docs.github.com/en/actions) automate tasks within the development life cycle of your software. GitHub Actions consist of a series of commands that run after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command to build and test your software. You can learn more about the events that trigger workflows in [GitHub's documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
-GitHub Actions are written as YML files inside a `.github/workflows/` folder in your repository.
+GitHub Actions are written as YML files inside the `.github/workflows/` folder of your repository.
 
 ## Honeycomb's CI/CD Workflows
 
