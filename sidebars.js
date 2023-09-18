@@ -1,28 +1,32 @@
 module.exports = {
   // TODO: Match sidebar to folder structure? Autogenerate?
   mySidebar: [
-    'introduction',
-    'quick_start',
-    'project_organization',
+    "introduction",
+    "quick_start",
+    "project_organization",
     {
-      type: 'category',
-      label: 'Guides',
+      type: "category",
+      label: "Deployments",
       collapsed: false,
       items: [
-        'npm_scripts',
-        'environment_variables',
-        'event_triggers',
-        'firebase',
-        'deploy_online',
-        'ci',
+        "deployments/local_application",
+        "deployments/firebase",
+        "deployments/psiturk",
+        "deployments/gh_pages",
       ],
     },
     {
-      type: 'category',
-      label: 'Further Reading',
-      items: ['further_reading/version_control', 'further_reading/javascript'],
+      type: "category",
+      label: "Guides",
+      collapsed: false,
+      items: ["npm_scripts", "environment_variables", "event_triggers", "ci"],
     },
-    'prerequisites',
-    'troubleshooting',
+    {
+      type: "category",
+      label: "Further Reading",
+      items: ["further_reading/version_control", "further_reading/javascript"],
+    },
+    "prerequisites",
+    "troubleshooting",
   ],
 };
