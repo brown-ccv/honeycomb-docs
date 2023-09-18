@@ -25,7 +25,7 @@ Event code triggers and photodiode spots can only be used on local applications!
 :::
 
 - `pull_request.yaml`: Every time an Pull Request (PR) is opened the software is built and tests are run for all platforms with `home` and `clinic` settings. This workflow does not upload desktop installers.
-- `release.yml`: Every time a release is created installers are created and uploaded as packages. This also builds a PsiTurk version and deploys the app to GitHub pages.
+- `release.yml`: Every time a release is created, edited, or published installers for the Honeycomb app are created and uploaded to the release. This also builds a PsiTurk version and deploys the app to GitHub pages.
 - `workflow-package.yaml`: Create installers for any/all platforms for the `home` and/or `clinic` setting on demand. The installers/executables are uploaded as artifacts and are available for download from the GitHub Actions tab. This also builds a PsiTurk version when linux or all operating systems are selected.
 
   :::note
@@ -36,12 +36,12 @@ Event code triggers and photodiode spots can only be used on local applications!
 
 ### Firebase
 
-:::note
-If you are not planning on ever using Firebase these workflows may be safely deleted.
-:::
-
 - `firebase-hosting-merge.yaml`: Deploys the web version of the application to Firebase when a PR is merged into the `main` branch.
 - `firebase-hosting-pull-request.yaml`: Creates a preview version of the application with Firebase when a PR is opened.
   :::warning
   While this workflow uses a preview link it does use the production database. Ensure you use a test study to not conflict with your participant data.
   :::
+
+:::note
+If you are not planning on ever using Firebase these workflows may be safely deleted.
+:::
