@@ -110,13 +110,24 @@ Each file in the config directory contains settings for a different part of the 
 
 ### lib/
 
-Utility functions and markup are located here. This allows for functions and html to be re-used wherever needed.
+A library of utility and markup are located here. This allows for functions and html to be re-used wherever needed.
 
-`src/lib/markup/` files contain HTML templates used throughout the task. Typically this will be a function that takes in some parameters and then returns a string with html.
+#### markup/
+
+`src/lib/markup/` files contain HTML templates used throughout the task.
+
+- `stimuli.js` contains a `baseStimulus` function that wraps some markup in a container that takes up 100% of the height and width of the viewport
+- `photodiode.js` contains the markup for the photodiode box and spot. It is displayed in the bottom right corner of the scree.
+- `tags.js` contains functions for wrapping [language](#config-1) in common html tags.
+  - `p('Hello World')` will return `<p>Hello World</p>`. You should always wrap your language in a tag to ensure it is displayed correctly.
 
 :::tip
-Be sure to look through `utils.js` for functions you might be able to use in your task!
+The `tag` function inside `tags.js` can be used to wrap language in any html tag you need.
 :::
+
+#### utils.js
+
+`utils.js` contains utility functions that can be used across a variety of trials. Be sure to look for functions you might be able to use in your task!
 
 ### timelines/
 
@@ -125,13 +136,13 @@ A timeline is a collection of trials that JsPsych displays in the given order. T
 - `main.js` contains the JsPsych options and root timeline which `App.jsx` uses to run the experiment.
 - `honeycombBlock.js` contains the timeline for the Honeycomb block - the "meat" the example reaction-time task. It uses the task settings from [config.json](#config-1).
 - `honeycombTimeline.js` contains the timeline for the entire Honeycomb task. This includes the block timeline from `honeycombBlock.js`, as well as individual trials such as the welcome screen, full screen trial, and instructions.
-- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `honeycombBlock.js` and `honeycombTimeline.js`.
 - `preamble.js` contains a base timeline for showing the name and welcome screen of an experiment, as well as automatically entering fullscreen mode. It adds the photodiode instructions to the timeline if Honeycomb is using the photodiode.
 
 ### trials/
 
 A trial is the base unit of a JsPsych experiment. Each trial should be its own file within this folder - the files in [src/timelines/](#timelines) will combine these trials into the full experiment.
 
+- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `honeycombBlock.js` and `honeycombTimeline.js`.
 - `adjustVolume.js` prompts the user to adjust the volume on their computer.
 - `camera.js` contains trials for beginning and ending a camera recording.
 - `fullscreen.js` contains trials for entering and exiting fullscreen mode.
