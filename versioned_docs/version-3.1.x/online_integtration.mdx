@@ -13,11 +13,9 @@ While this set up is optimized for Electron, we added functionality that will ma
 - Switch the language to Turk specific, if `src/language/<locale>.mturk.json` exists.
 - Use the Turk-specific timeline if different than the primary timeline.
 
-
 ### Prebuilt version
 
 When GitHub Actions is run, a PsiTurk build will be created automatically, and can be downloaded from its artifacts (skip next step if using). The workflows responsible for building the PsiTurk application are `.github/workflows/package-home-all.yml` and `.github/workflows/release-home-all.yml`. The first one has to be triggered manually, the latter is triggered when you tag a release.
-
 
 ### Build instructions
 
@@ -35,7 +33,6 @@ You'll need to follow these steps (the path to the PsiTurk project should be a d
   `./psiturk-it -u -p <PATH_TO_NEW_PSITURK_PROJECT>`
 
 ### Running PsiTurk
-
 
 After that, just navigate to your newly created PsiTurk project directory.
 
