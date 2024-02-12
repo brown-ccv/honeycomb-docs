@@ -30,7 +30,7 @@ module.exports = {
       type: "category",
       label: "External Tools",
       collapsed: false,
-      items: ["event_triggers"],
+      items: ["external_tools/event_triggers", "external_tools/prolific"],
     },
     {
       type: "category",
