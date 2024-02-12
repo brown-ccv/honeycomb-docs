@@ -1,0 +1,45 @@
+---
+id: psiturk
+slug: /psiturk
+title: PsiTurk
+description: Guide for the different deploying a task to PsiTurk
+---
+
+While honeycomb is optimized for use on a [local application](local_application), we added functionality for usage with [PsiTurk](https://psiturk.org/). The application will detect if it's being used in a Turk environment and will save the data to the default PsiTurk SQLite database.
+
+### Prebuilt version
+
+When GitHub Actions is run, a PsiTurk build will be created automatically, and can be downloaded from its artifacts. The workflows responsible for building the PsiTurk application are `.github/workflows/package.yml` and `.github/workflows/release.yml`. The first one has to be triggered manually, the latter is triggered when you tag a release.
+
+If this is all you need, the build instructions below can be skipped!
+
+### Build instructions
+
+To set up your PsiTurk project, we provide a script that does the conversion.
+PsiTurk is a Python package used to manage HITs in Mechanical Turk. Before using the provided script, install [PsiTurk](https://psiturk.org/).
+
+You'll need to follow these steps (the path to the PsiTurk project should be a directory you wish to be created):
+
+- Build the application: `npm run build`
+- Move to the `psiturkit` directory: `cd psiturkit`
+- If it's the first time you're running the script:
+
+  ```shell
+  ./psiturk-it -p <PATH_TO_NEW_PSITURK_PROJECT>
+  ```
+
+- To update an existing PsiTurk project (the path to the PsiTurk project should already exist from the previous steps):
+
+  ```shell
+  ./psiturk-it -U -p <PATH_TO_NEW_PSITURK_PROJECT>
+  ```
+
+### Running PsiTurk
+
+After that, just navigate to your newly created PsiTurk project directory.
+
+```shell
+shell> psiturk # start psiturk
+psiturk> server on # start server
+psiturk> debug # enter debug mode
+```
