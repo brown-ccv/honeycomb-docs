@@ -35,7 +35,11 @@ module.exports = {
     {
       type: "category",
       label: "Further Reading",
-      items: ["further_reading/version_control", "further_reading/javascript"],
+      items: [
+        "further_reading/github_discussions",
+        "further_reading/version_control",
+        "further_reading/javascript",
+      ],
       description: "Guides pointing to additional resources for further learning",
     },
     "troubleshooting",
