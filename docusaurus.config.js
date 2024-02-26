@@ -70,10 +70,6 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
-          items: [{ label: "Introduction", to: "docs/" }],
-        },
-        {
           title: "Community",
           items: [
             { label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" },
