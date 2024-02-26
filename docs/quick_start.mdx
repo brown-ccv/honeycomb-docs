@@ -24,7 +24,7 @@ The Honeycomb repository is a template and serves as the starting point for all 
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
-4. Ensure the repositories workflow permissions are set to "Read and write permissions"
+4. Ensure the repository's workflow permissions are set to "Read and write permissions"
 
    _`Settings -> Actions -> General -> Workflow permissions`_
 
@@ -141,12 +141,12 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
 </Tabs>
 
 :::note
-If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
+If you are running into issues after installing the packages, please restart your terminal and/or reboot your computer. This should resolve most issues.
 :::
 
 ### Setting Up Node
 
-NVM (Node Version Manager) is a tool for installing and using multiple versions on node on your computer. It must first be installed:
+NVM (Node Version Manager) is a tool for installing and using multiple versions on Node on your computer. It must first be installed:
 
 1.  Install NVM
 
@@ -201,19 +201,19 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
     nvm alias default node
     ```
 
-:::note
-You can skip step 4 if you've already set a default node version in a different project.
-:::
+    :::note
+    You can skip this step if you've already set a default node version in a different project.
+    :::
 
 ## Install Dependencies
 
-There are many node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
+There are many Node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
 
 ```shell title="Install Honeycomb's dependencies"
 npm install
 ```
 
-Certain dependencies are best installed globally within node. These tools will be available from the command line anywhere on your system.
+Certain dependencies are best installed globally with Node. These tools will be available from the command line anywhere on your system.
 
 ```shell title="Install Honeycomb's global dependencies"
 npm install -g electron firebase-tools dotenv-cli
@@ -227,7 +227,7 @@ Running the task in development mode causes it to hot-reload whenever changes ar
 npm run dev
 ```
 
-This script launches an electron window with the task and inspector open.
+This script launches an Electron window with the task and inspector open.
 
 You can quit the task in the middle of development if needed:
 
