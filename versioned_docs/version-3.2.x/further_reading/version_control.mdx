@@ -1,0 +1,111 @@
+---
+id: version_control
+slug: /version_control # Hides folder structure from slug
+title: Version Control
+description: "Version control basics with Git and GitHub"
+---
+
+## Git Overview
+
+Git is a version control system that enables you to track changes to files. With Git, you are able to revert files back to previous versions, restore deleted files, remove added files and even track down where a particular line of code was introduced.
+
+Nearly all operations that are performed by Git are in your local computing environment, for the exception of few used purely to synchronize with a remote. Some of the most common git operations are depicted below.
+
+![Git basics](/assets/further_reading/git_basics.png)
+
+If you would like to make any changes to current repository, it is always good to start with creating a feature branch, where you can save all the changes.
+
+![Example branch](/assets/further_reading/git_branch.png)
+
+## Create a Pull Request
+
+Pull requests are useful before you merge your branch with the main branch. You can request a review from your colleagues and check for any conflicts with the main branch. After you pushed all the changes to your branch, you can go to the original GitHub repository and click on the pull request.
+
+![git pr](/assets/further_reading/create_pull_request.png)
+
+![git pr info](/assets/further_reading/add_reviewers.png)
+
+## Stay up-to-date with Honeycomb template repo
+
+Honeycomb is an active project, and will be updated with new features over time. To bring changes from the Honeycomb template repository to your task:
+
+1. Add Honeycomb as an additional remote as follows:
+
+   ```shell
+   git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
+   ```
+
+2. Fetch the changes made to Honeycomb
+
+   ```shell
+   git fetch --all
+   ```
+
+3. Merge the current Honeycomb repo
+
+   ```shell
+   git merge honeycomb/main --allow-unrelated histories
+   ```
+
+:::caution
+There will almost certainly be many "merge conflicts" when merging in changes form the template repository. It is tedious but extremely import to not accidentally overwrite your task when resolving these conflicts
+:::
+
+## Best Practices
+
+### Git Branches
+
+- `main` is the default branch and where releases are made from. This branch should be in clean/working conditions at all times. This branch is protected and can only be merged from Pull Requests for topic branches.
+
+- `topic` branches are created for new features, fixes, or really any changes. E.g, `fix-task-trial2-stuck-button`
+
+This flow is sometimes referred to as [Feature Branch Workflow](https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html)
+
+### Basic Workflow
+
+We recommend using a simple flow based on following rules:
+
+- Use topic/feature branches, no direct commits on main.
+- Perform tests and code reviews before merges into main, not afterwards.
+- Every branch starts from main, and targets main.
+- Commit messages reflect intent.
+
+### Comment styles
+
+We encourage using [Commitizen](http://commitizen.github.io/cz-cli/), a great tool for recording descriptions of commits in a standardized format which makes it easier for people to understand what changed in the code.
+
+## Cheatsheet
+
+### Git Commands
+
+| Command                       | Brief                                                              |
+| :---------------------------- | :----------------------------------------------------------------- |
+| git add &lt;files&gt;         | add a file to next commit \(stage\)                                |
+| git commit -m &lt;message&gt; | commit staged files                                                |
+| git push                      | upload staged commit to repo                                       |
+| git pull                      | get remote repo commits and download \(try and resolve conflicts\) |
+| git clone &lt;url&gt;         | download entire repository                                         |
+| git checkout &lt;branch&gt;   | checkout and create the branch you want to use                     |
+
+```shell
+# create branch with your feature
+git checkout -b feature_name
+# check the status of your repositoey
+git status
+# commit file contents to the local repository
+git commit -m "My feature is ready"
+
+# specific message
+# push file contents to the remote (i.e. cloud) repository
+git push origin feature_name
+```
+
+### Alternative options
+
+#### VS Code
+
+Most IDEs have some built in tools for working with Git and VS Code is no exception. Check out [this overview](https://code.visualstudio.com/docs/sourcecontrol/overview) of source control in VS Code!
+
+#### GitHub Desktop
+
+[GitHub Desktop](https://desktop.github.com/) is a GUI application for working with git. It is one of the programs installed as a prerequisite of Honeycomb. Check out [this overview](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop) of source control in GitHub Desktop!

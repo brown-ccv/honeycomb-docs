@@ -24,13 +24,14 @@ module.exports = {
 
           /**
            * Here we give a specific label to the current doc version. Note the old versions:
-           *    '3.1.x': { label: '3.0.0', path: '3.0.0' },
+           *    '3.2.x': { label: "3.2.x", path: "3.2.x" }
+           *    '3.1.x': { label: '3.1.x', path: '3.1.x' },
            *    '3.0.0': { label: '3.0.0', path: '3.0.0' },
            *    '2.x': { label: '2.x', path: '2.x' },
            *    '1.1.0': { label: '1.1.0', path: '1.1.0' },
            */
           lastVersion: "current",
-          versions: { current: { label: "3.2.x", path: "" } },
+          versions: { current: { label: "3.3.x", path: "" } },
         },
         blog: false, // Disable Docusaurus blog feature
       },
