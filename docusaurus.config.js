@@ -75,8 +75,8 @@ module.exports = {
         },
         {
           title: "Community",
-          items: [{ label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" }],
           items: [
+            { label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" },
             {
               label: "Discussions Board",
               href: "https://github.com/brown-ccv/honeycomb/discussions",
@@ -84,7 +84,7 @@ module.exports = {
           ],
         },
         {
-          title: "Related Publications",
+          title: "Publications",
           items: [
             {
               label:
