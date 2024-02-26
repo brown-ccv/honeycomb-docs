@@ -194,10 +194,13 @@ The `tag` function inside `tags.js` can be used to wrap language in any html tag
 ## Other Folders/Files
 
 - `.nvmrc` determines which version of node that Honeycomb is designed to be run on
-- `.github/workflows/` contains .yaml files used to build Honeycomb on a pull request (`build.yaml`) and create task executables either in a single instance (`package.yaml`) or for a full release (`release.yaml`)
+- `.github/workflows/` contains .yaml files used for [CI/CD](ci_cd) with GitHub Actions
 - `package.json` contains metadata about your project, a list of the dependencies needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
 - `cli.mjs` is the script used to download and delete data stored in Firestore.
 - `version.js` is the script used to keep track of which version of the task a given experiment is using
+  :::caution
+  `cli.mjs` and `version.js` are automated scripts and should not be edited.
+  :::
 
 :::danger
 `package-lock.json` is written to when running `npm install` and should never be edited.
@@ -208,11 +211,10 @@ The `tag` function inside `tags.js` can be used to wrap language in any html tag
 - `.firebaserc` contains the name of the project Firebase should connect to. Be sure to update the default project to the one you created!
 - `firebase.json` contains the Firebase settings for Honeycomb.
 - `firestore.indexes.json` contains the Firestore index settings for Honeycomb.
+  :::caution
+  `firebase.json`, `firestore.indexes.json` are default configs and shouldn't need to be edited.
+  :::
 - `firestore.rules` contains the Firestore rules for creating/editing data.
-
-:::caution
-`firebase.json`, `firestore.indexes.json`, and `firestore.rules` shouldn't need to be edited.
-:::
 
 ### Git Files
 
@@ -224,9 +226,9 @@ Any secrets and/or tokens must be added to `.gitignore` or they will be visible 
 
 ### Eslint Files
 
-- `.eslintrc.js` contains the Eslint settings for Honeycomb. We recommend it's left alone but can be adjusted for personal settings.
+- `.eslintrc.js` contains the Eslint settings for Honeycomb. We recommend it's left alone but can be adjusted for personal preference.
 - `.eslintignore` lists the folders and files that eslint shouldn't touch, similar to `.gitignore`.
 
 ### Prettier Files
 
-`.prettierrc.js` contains the Prettier settings for Honeycomb. We recommend it's left alone but can be adjusted for personal settings.
+`.prettierrc.js` contains the Prettier settings for Honeycomb. We recommend it's left alone but can be adjusted for personal preference.
