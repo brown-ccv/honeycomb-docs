@@ -85,6 +85,14 @@ This folder involves dependencies for a Honeycomb deployment, the files should n
 
 This folder contains the source code for the Honeycomb application.
 
+- `index.js` is the entry point for React in our application. Note that the id 'root' corresponds with a tag in `public/index.html`:
+  ```html
+  <div id="root"></div>
+  ```
+  :::danger
+  `index.js` runs Honeycomb itself and should not be edited.
+  :::
+
 ### App/
 
 Files relating to the React application.
@@ -122,29 +130,48 @@ Each file in the config directory contains settings for a different part of the 
 ### experiment/
 
 :::tip
-This is where you'll spend most of your time when creating a new task!
+This is where you'll spend most of your time while developing your task!
 :::
 
-#### timelines/
+- `index.js` contains the outermost logic for running the experiment. It loads experiment's styling and exports the main timeline and options for the experiment.
+  :::caution
+  The experiment will not run correctly if the names `jsPsychOptions` or `buildTimeline` are changed.
+  :::
+- `honeycomb.js` contains the options and timeline for the [jsPsych tutorial's](https://www.jspsych.org/7.3/tutorials/rt-task/) "Simple React Time Task". It serves as an example for the experiment timeline for your task.
+  :::tip
+  `honeycomb.js` is just an example experiment! Be sure to write your experiment in its own file.
+  {/* TODO: Link to this in the quick_start guide once it's ready */}
+  :::
 
-A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
+#### procedures/
 
-- `main.js` contains the JsPsych options and root timeline which `App.jsx` uses to run the experiment.
-- `honeycombBlock.js` contains the timeline for the Honeycomb block - the "meat" the example reaction-time task. It uses the task settings from [config.json](#config-1).
-- `honeycombTimeline.js` contains the timeline for the entire Honeycomb task. This includes the block timeline from `honeycombBlock.js`, as well as individual trials such as the welcome screen, full screen trial, and instructions.
-- `preamble.js` contains a base timeline for showing the name and welcome screen of an experiment, as well as automatically entering fullscreen mode. It adds the photodiode instructions to the timeline if Honeycomb is using the photodiode.
+A procedure is a tested timeline of trials in jsPsych. Common parameters can be used across trials, and the trials within a procedure can be ordered and repeated as desired. Check out the [JsPsych documentation](https://www.jspsych.org/7.3/overview/timeline/#timeline-variables) for more information on creating a custom procedure.
+
+- `startProcedure.js` contains the procedure for the start of the experiment. It uses the environment and task settings from [config.json](#config) to create a nested timeline that correctly starts the experiment.
+- `honeycombProcedure.js` contains the procedure for the Honeycomb task. It displays a fixation dot and presents the stimulus of the example task.
+  :::tip
+  `honeycombProcedure.js` is just an example procedure! Be sure to write your procedures in their own files.
+  :::
+- `endProcedure.js` contains the procedure for the end of the experiment. It uses the environment and task settings from [config.json](#config) to create a nested timeline that correctly end the experiment.
 
 #### trials/
 
-A trial is the base unit of a JsPsych experiment. Each trial should be its own file within this folder - the files in [src/timelines/](#timelines) will combine these trials into the full experiment.
+A [trial](https://www.jspsych.org/7.3/overview/timeline/#a-single-trial) is the base unit of an experiment. These trials are ordered into procedures and timelines to create the task itself.
 
-- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `honeycombBlock.js` and `honeycombTimeline.js`.
-- `adjustVolume.js` prompts the user to adjust the volume on their computer.
+- `adjustVolume.js` prompts the user to adjust the volume on their tablet.
 - `camera.js` contains trials for beginning and ending a camera recording.
+- `conclusion.js` displays a message to the user indicating that the experiment has concluded.
+- `fixation` displays a fixation dot in the center of the screen. It contains additional logic for flashing a photodiode spot and emitting an event code based on the environment settings.
 - `fullscreen.js` contains trials for entering and exiting fullscreen mode.
 - `holdUpMarker.js` prompts the user to connect their event marker and hold it up to the camera.
-- `quizTrial.js` contains trials for a quiz/survey.
+- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `experiment/procedures/honeycombProcedure.js` and `experiment/honeycomb.js`.
+  :::tip
+  `honeycombTrials.js` is for an example experiment! Be sure to write trials pertaining to your task in their own files.
+  :::
+- `introduction.js` displays a message to the user welcoming them to the experiment. They must click on a button to continue.
+- `name.js` displays the name of the task to the user.
 - `startCode.js` emits a start code to a photodiode spot and audible beep
+- `survey.js` contains trials pertaining to a survey/quiz for the user to complete.
 
 ### lib/
 
@@ -203,15 +230,3 @@ Any secrets and/or tokens must be added to `.gitignore` or they will be visible 
 ### Prettier Files
 
 `.prettierrc.js` contains the Prettier settings for Honeycomb. We recommend it's left alone but can be adjusted for personal settings.
-
-### src/index.js
-
-:::danger
-`index.js` runs the Honeycomb application itself and should not be edited.
-:::
-
-Note that the id 'root' corresponds with a tag in `public/index.html`:
-
-```html
-<div id="root"></div>
-```
