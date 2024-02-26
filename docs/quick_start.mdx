@@ -219,7 +219,7 @@ Certain dependencies are best installed globally with Node. These tools will be 
 npm install -g electron firebase-tools dotenv-cli
 ```
 
-## Run the Task in Development Mode
+## Run the Task
 
 Running the task in development mode causes it to hot-reload whenever changes are made to the app. This is how you'll run the project while building your task.
 
@@ -228,39 +228,6 @@ npm run dev
 ```
 
 This script launches an Electron window with the task and inspector open.
-
-You can quit the task in the middle of development if needed:
-
-<Tabs
-  groupId="os"
-  queryString
-  defaultValue="mac"
->
-  <TabItem
-    value="win"
-    label="Windows"
-  >
-    <kbd>Control</kbd> + W
-  </TabItem>
-  <TabItem
-    value="mac"
-    label="macOS"
-  >
-    <kbd>⌘</kbd> + Q
-  </TabItem>
-  <TabItem
-    value="linux"
-    label="Linux"
-  >
-    <kbd>Control</kbd> + W
-  </TabItem>
-</Tabs>
-
-### Saving data
-
-Data is saved throughout the task, even when running in development mode. The location of the task is logged at the beginning of the task wherever you ran `npm run dev`.
-
-Note how the data is organized by study and participant. Every run through of the task will save the data somewhere within this folder!
 
 ## Edit the Task
 
@@ -290,8 +257,6 @@ Now that the task is up and running we can make our first changes to the code! W
 4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
 
 ## Next Steps
-
-Honeycomb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more.
 
 The [Firebase](firebase) page explains how to set up your task with Firebase.
 
