@@ -5,6 +5,10 @@ title: Local Application
 description: Guide for deploying a task as a local application
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
 A major feature of Honeycomb is the ability to bundle JsPsych tasks into applications that can be run on any computer in a lab or clinic. Installers for these applications can be created for Windows, Mac, and Linux. The applications can be run without an internet connection, and do not require any additional software to be installed on the computer.
 
 Installers for these applications can be created on demand and/or automatically when a new release is created. This is called "Continuous Deployment" - more information about Honeycomb's CI/CD workflow can be found here [here](ci_cd).
@@ -19,15 +23,78 @@ The tag should be in the format `vX.X.X` where `X.X.X` is the version number of 
 Your release **must** included a new tag for the CI/CD workflow to work.
 :::
 
-## Running the task
+## Installing the task
 
-1. Navigate to the repository's "Releases" tab and select the tag you just created
-2. Download the installer for your operating system
-3. Double click the installer to run it. Follow the instructions to install the application
-4. The application will automatically start after the first installation
+1. Navigate to the repository's "Releases" tab and select the tag you created from (see [above](#creating-a-release))
+2. Download the correct installer for your operating system
+3. Double click the installer to run it. Follow the instructions to install the application.
 
-The executable does not require installation of any additional software!
+## Running the Task
+
+The task can be run by double-clicking the application icon on the desktop.
+
+The local application will run the task in a full-screen window. This aims to prevent study participants from doing anything else on the computer while the task is running. However, the task can be exited if needed with the following shortcut:
+
+<Tabs
+  groupId="os"
+  queryString
+  defaultValue="mac"
+>
+  <TabItem
+    value="win"
+    label="Windows"
+  >
+    <kbd>Control</kbd> + W
+  </TabItem>
+  <TabItem
+    value="mac"
+    label="macOS"
+  >
+    <kbd>⌘</kbd> + Q
+  </TabItem>
+  <TabItem
+    value="linux"
+    label="Linux"
+  >
+    <kbd>Control</kbd> + W
+  </TabItem>
+</Tabs>
 
 ## Working with Data
 
-Data is automatically saved to a nested folder structure on the Desktop. Each session will be saved as its own `.json` file nested under the id of the study and participant.
+Data is automatically saved throughout the task and moved to a nested folder structure on the Desktop when the task is completed. Each session will be saved as its own `.json` file nested under the id of the study and participant.
+
+Note how the data is organized by `studyID` and `participantID`. Every run through of the task will save the data somewhere within this folder! Each session is saved as its own `.json` file; it's named with the timestamp of when the task was started.
+
+### Early Exits
+
+The run-through of an experiment in which the tasks exits prematurely will NOT be sent to the desktop. However, what data was collected is available in the user's "userData" folder which can be found in the following location:
+
+<Tabs
+  groupId="os"
+  queryString
+  defaultValue="mac"
+>
+  <TabItem
+    value="win"
+    label="Windows"
+  >
+    <CodeBlock language="sh">%APPDATA%\honeycomb\TempData</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="mac"
+    label="macOS"
+  >
+    <CodeBlock language="sh">~/Library/Application Support/honeycomb/TempData</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="linux"
+    label="Linux"
+  >
+    <CodeBlock language="sh">~/.config/honeycomb/TempData</CodeBlock>
+  </TabItem>
+</Tabs>
+
+:::caution
+The `.json` file will likely not be formatted correctly because of the early exit. Take extra care to fix the file before using it for data analysis.
+:::
