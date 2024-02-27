@@ -10,8 +10,6 @@ jobs:
   gh-release:
     runs-on: ubuntu-latest
     steps:
-      # TODO: Upgrade to v4
-      # TODO: Upgrade node version for the app?
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
@@ -21,7 +19,6 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
-      # TODO: There's gotta be a cleaner way to do this?
       - name: 📥 Install Dependencies
         run: npm ci
 
