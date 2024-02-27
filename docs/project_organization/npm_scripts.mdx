@@ -19,12 +19,6 @@ npm run <script>
 - `start:browser` runs the app in development mode and automatically opens a new browser tab. It uses your system's default browser. The page will reload if you make edits.
 - `start:electron`: Waits for the app to be running (from `start`) and then starts an electron process.
 
-## Firebase
-
-- `firebase:emulators:start` starts the Firebase emulators with the data found in `emulator_data/`.
-- `firebase:emulators:save` saves the current state of the Firebase emulators into `emulator_data/`.
-- `firebase:download` runs the `firebase-download-script.js` script, saving certain data in Firebase to your local machine.
-
 ## Dev
 
 `npm run dev` runs the app in development mode on Electron. It executes `start` and `start:electron` concurrently.
@@ -36,8 +30,13 @@ Note that this is a base script that other scripts build on top of - you should 
 - `dev:clinic` runs the app with equipment enabled.
 - `dev:clinic:video` runs the app with equipment enabled and video enabled.
 - `dev:turk-prolific` runs the app with prolific and PsiTurk enabled.
+- `dev:firebase` runs the app with Firebase enabled.
 
-### Firebase
+### Firebase Development
+
+- `firebase:emulators:start` starts the Firebase emulators with the data found in `emulator_data/`.
+- `firebase:emulators:save` saves the current state of the Firebase emulators into `emulator_data/`.
+- `firebase:download` runs the `firebase-download-script.js` script, saving certain data in Firebase to your local machine.
 
 Working with Firebase is slightly different as it is meant to be run on the browser. `npm run dev:firebase` executes `start:browser` with Firebase enabled, which will automatically launch the running app in your default browser. It can be found on other browsers by navigating to [localhost:3000](https://localhost:3000).
 
@@ -78,7 +77,10 @@ Packaging for Windows on a non-Windows machine requires `mono` and `wine` to be 
 
 ## Miscellaneous
 
+- `cli` runs the [Firebase CLI](firebase#using-the-cli-script) script.
 - `commit` runs [Commitizen](https://commitizen-tools.github.io/commitizen/) in the console. It is useful for ensuring your Git commit messages are easy to follow.
-- `lint` uses [Eslint](https://eslint.org/) to find problems in the code.
 - `format` uses [Prettier](https://prettier.io) to style code in a consistent format.
-- `test` launches the test runner in the interactive watch mode. See [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `lint` uses [Eslint](https://eslint.org/) to find problems in the code.
+- `postinstall` is run automatically after `npm install` and is used to rebuild the Electron dependencies
+- `prepare` is run automatically before the project is packaged/installed and is used to set up the project's pre-commit hooks
+- `prebuild` is run automatically before `npm run build` and is used to rebuild the Electron dependencies
