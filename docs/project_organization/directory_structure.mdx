@@ -5,11 +5,11 @@ title: Directory Structure
 description: Overview of Honeycomb's directory structure
 ---
 
-This project directory is organized to be very modular and composable. In general, files and functions should be relatively small and self-contained, global scope should not be used, and only the pieces of code needed for any given file should be imported. This keeps the code maintainable with clear lineage and purpose for each piece of code.
+This project directory is organized to be modular and composable. In general, files and functions should be relatively small and self-contained, global scope should not be used, and only the pieces of code needed for any given file should be imported.
 
 ## assets/
 
-This folder contains any static files that are used by the app. Honeycomb starts with a few images used as icons for the installed applications.
+This folder contains static files that are used by the application. Honeycomb uses a few images as icons for the installed applications.
 
 :::caution
 Assets that pertain to your specific task should be added to the [public/assets/](#assets-1) folder, not here!
@@ -17,18 +17,18 @@ Assets that pertain to your specific task should be added to the [public/assets/
 
 ## build/
 
-The [build scripts](npm_scripts#npm-build) automatically create a `build` folder at the root of the repository and update it on subsequent builds. `build/` should be left alone!
+The [build scripts](npm_scripts#npm-build) automatically create a `build` folder at the root of the repository and update it on subsequent builds.
 
 :::danger
-The build folder is in Honeycomb's `.gitignore` and should never be added to git
+`build/` should be left alone! It is in Honeycomb's `.gitignore` and should never be added to git.
 :::
 
 ## emulator_data/
 
-This folder contains starter data for the Firebase Emulators to use while developing locally. See the [Firebase Scripts](npm_scripts#firebase) to use the data.
+This folder contains starter data for the Firebase Emulators to use while developing locally. The [Firebase Scripts](npm_scripts#firebase) detail how to use this data.
 
 :::danger
-`emulator_data/` is written to when running `npm run firebase:emulators:save` and should never be manually edited.
+`emulator_data/` is written to when running `npm run firebase:emulators:save` and should never be edited.
 :::
 
 ## env/
@@ -38,7 +38,7 @@ This folder contains different files used to pass environment variables (setting
 ## node_modules/
 
 :::danger
-`node_modules/` is written to when running `npm install` and should never be manually edited.
+`node_modules/` is written to when running `npm install` and should never be edited. It is in Honeycomb's `.gitignore` and should never be added to git.
 :::
 
 ## psiturkit/
@@ -46,7 +46,7 @@ This folder contains different files used to pass environment variables (setting
 The file `psiturk-it` inside `psiturkit/` is a bash script used to instal PsiTurk locally - see [PsiTurk](psiturk#build-instructions) for more information.
 
 :::caution
-Nothing in this folder should ever need to be manually edited.
+This folder involves a Honeycomb deployment. The files do not need to be edited.
 :::
 
 ## public/
@@ -54,120 +54,156 @@ Nothing in this folder should ever need to be manually edited.
 The `public` directory contains files that are used as assets in the built app.
 
 - `index.html` is the entry point of the website
-  - Changing `<title>Honeycomb</title>` will update the name you can see in the browser tab
+  - Changing `<title>Honeycomb</title>` will update the name you can see in the browser tab!
 - `favicon.ico` is the small icon you can see in the browser tab
-- `electron.js` contains all of the code related to the electron app
+- `manifest.json` contains metadata about the web app
 
 ### assets/
 
-The `public/assets/` directory contains all of the images and videos needed to run your task.
+The `public/assets/` directory contains all of the audio, images, and videos needed to run your task.
+
+### electron/
+
+The `public/electron/` directory contains the files needed to run Honeycomb as an Electron app.
+
+- `main.js` sets up Electron itself
+- `preload.js` sets up the communication between the main and renderer processes.
+
+:::caution
+This folder involves a Honeycomb deployment, the files do not need to be edited.
+:::
 
 ### lib/
 
 The `public/lib/` directory contains the files PsiTurk needs to run. Note that `index.html` references these files inside the `<script>` tags.
 
 :::danger
-These files are minified versions of dependencies and should never be manually edited.
+This folder involves dependencies for a Honeycomb deployment, the files should not be edited.
 :::
-
-### config/
-
-The `public/config/` directory contains the config files needed for the electron app. This includes the event-marker details and event codes. `version.json` keeps track of the current git commit, which Honeycomb uses to keep track of the version of your task used for a given experiment.
 
 ## src/
 
 This folder contains the source code for the Honeycomb application.
 
+- `index.js` is the entry point for React in our application. Note that the id 'root' corresponds with a tag in `public/index.html`:
+  ```html
+  <div id="root"></div>
+  ```
+  :::danger
+  `index.js` runs Honeycomb itself and should not be edited.
+  :::
+
 ### App/
 
-Files relating to the React application. This is the code that runs your JsPsych task and shouldn't need to be changed.
+Files relating to the React application.
+
+:::caution
+This folder holds the code that runs the jsPsych task, the files do not need to be edited.
+:::
 
 #### components/
 
 The React components that make up Honeycomb are located here.
 
-- `App.jsx` initializes and maintains the state of the application. It is also where communication is set up between the `electron` and `psiturk` processes
-- `Error.jsx` displays a small error message. It is rendered when the App.jsx detects an issue in state
-- `JsPsychExperiment.jsx` initializes the JsPsych experiment
-- `Login.jsx` handles user authentication based on the environment variables passed to Honeycomb
+- `App.jsx` initializes and maintains the state of the application.
+- `Error.jsx` displays a small error message. It is rendered when the App.jsx detects an issue in state.
+- `JsPsychExperiment.jsx` initializes the jsPsych experiment.
+- `Login.jsx` handles user authentication based on the environment variables passed to Honeycomb.
 
 #### deployments/
 
 Custom code used by the various deployments such as Firebase.
 
 :::caution
-Changes to these files will change how Honeycomb handles data and should be done with great caution.
+This folder involves Honeycomb deployments, the files do not need to be edited.
 :::
 
 ### config/
 
 Each file in the config directory contains settings for a different part of the task.
 
-- `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate language file.
-- `trigger.js` for equipment-related settings (e.g. event markers). It uses a slightly different style of Javascript as it is imported both in the React app as well as the electron process.
-- `config.json` contains the settings for your task. Usage of the config file allows for easy updating of task settings. Common settings can be written once in the config file and re-used throughout the task.
-- `language.json` contains the language used in your task. This files allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once in a language file and re-used throughout the task.
+- `language.json` contains the language used in your task. This file allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once and re-used throughout the task.
+- `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate files.
+- `settings.json` contains the settings for your task. Usage of the config file allows for easy updating of task settings. Common settings can be written once and re-used throughout the task.
+- `trigger.js` contains equipment-related settings for a trigger box. The `eventCodes` are especially important for marking the types of given trials.
+
+### experiment/
+
+:::tip
+This is where you'll spend most of your time while developing your task!
+:::
+
+- `index.js` contains the outermost logic for running the experiment. It loads experiment's styling and exports the main timeline and options for the experiment.
+  :::caution
+  The experiment will not run correctly if the names `jsPsychOptions` or `buildTimeline` are changed.
+  :::
+- `honeycomb.js` contains the options and timeline for the [jsPsych tutorial's](https://www.jspsych.org/7.3/tutorials/rt-task/) "Simple React Time Task". It serves as an example for the experiment timeline for your task.
+  :::tip
+  This is just an example experiment! Be sure to write your experiment in its own file.
+  {/* TODO: Link to this in the quick_start guide once it's ready */}
+  :::
+
+#### procedures/
+
+A procedure is a tested timeline of trials in jsPsych. Common parameters can be used across trials, and the trials within a procedure can be ordered and repeated as desired. Check out the [JsPsych documentation](https://www.jspsych.org/7.3/overview/timeline/#timeline-variables) for more information on creating a custom procedure.
+
+- `startProcedure.js` contains the procedure for the start of the experiment. It uses the environment and task settings from [config.json](#config) to create a nested timeline that correctly starts the experiment.
+- `honeycombProcedure.js` contains the procedure for the Honeycomb task. It displays a fixation dot and presents the stimulus of the example task.
+  :::tip
+  This is just an example procedure! Be sure to write your procedures in their own files.
+  :::
+- `endProcedure.js` contains the procedure for the end of the experiment. It uses the environment and task settings from [config.json](#config) to create a nested timeline that correctly end the experiment.
+
+#### trials/
+
+A [trial](https://www.jspsych.org/7.3/overview/timeline/#a-single-trial) is the base unit of an experiment. These trials are ordered into procedures and timelines to create the task itself.
+
+- `adjustVolume.js` prompts the user to adjust the volume on their tablet.
+- `camera.js` contains trials for beginning and ending a camera recording.
+- `conclusion.js` displays a message to the user indicating that the experiment has concluded.
+- `fixation` displays a fixation dot in the center of the screen. It contains additional logic for flashing a photodiode spot and emitting an event code based on the environment settings.
+- `fullscreen.js` contains trials for entering and exiting fullscreen mode.
+- `holdUpMarker.js` prompts the user to connect their event marker and hold it up to the camera.
+- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `experiment/procedures/honeycombProcedure.js` and `experiment/honeycomb.js`.
+  :::tip
+  These trials are for an example experiment! Be sure to write trials pertaining to your task in their own file(s).
+  :::
+- `introduction.js` displays a message to the user welcoming them to the experiment. They must click on a button to continue.
+- `name.js` displays the name of the task to the user.
+- `startCode.js` emits a start code to a photodiode spot and audible beep
+- `survey.js` contains trials pertaining to a survey/quiz for the user to complete.
 
 ### lib/
 
-A library of utility and markup are located here. This allows for functions and html to be re-used wherever needed.
+A library of utility and markup functions are located here. This allows for functions and html to be re-used wherever needed.
+
+- `utils.js` contains utility functions that can be used across a variety of trials. Be sure to look for functions you might be able to use in your task!
 
 #### markup/
 
-`src/lib/markup/` files contain HTML templates used throughout the task.
+Markup files contain HTML templates used throughout the task.
 
-- `stimuli.js` contains a `baseStimulus` function that wraps some markup in a container that takes up 100% of the height and width of the viewport
 - `photodiode.js` contains the markup for the photodiode box and spot displayed in the bottom right corner of the screen
-- `tags.js` contains functions for wrapping [language](#config-1) in common html tags.
-  - `p('Hello World')` will return `<p>Hello World</p>`. You should always wrap your language in a tag to ensure it is displayed correctly
+- `tags.js` contains functions for wrapping [language](#config-1) in common html tags. You should always wrap your language in a tag to ensure it is displayed correctly.
+  - For example: `p('Hello World')` will return `<p>Hello World</p>`.
 
 :::tip
 The `tag` function inside `tags.js` can be used to wrap language in any html tag you need.
 :::
 
-#### utils.js
-
-`utils.js` contains utility functions that can be used across a variety of trials. Be sure to look for functions you might be able to use in your task!
-
-### timelines/
-
-A timeline is a collection of trials that JsPsych displays in the given order. Timelines can contain timelines themselves; you may want to break this nesting into multiple files in this folder.
-
-- `main.js` contains the JsPsych options and root timeline which `App.jsx` uses to run the experiment.
-- `honeycombBlock.js` contains the timeline for the Honeycomb block - the "meat" the example reaction-time task. It uses the task settings from [config.json](#config-1).
-- `honeycombTimeline.js` contains the timeline for the entire Honeycomb task. This includes the block timeline from `honeycombBlock.js`, as well as individual trials such as the welcome screen, full screen trial, and instructions.
-- `preamble.js` contains a base timeline for showing the name and welcome screen of an experiment, as well as automatically entering fullscreen mode. It adds the photodiode instructions to the timeline if Honeycomb is using the photodiode.
-
-### trials/
-
-A trial is the base unit of a JsPsych experiment. Each trial should be its own file within this folder - the files in [src/timelines/](#timelines) will combine these trials into the full experiment.
-
-- `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `honeycombBlock.js` and `honeycombTimeline.js`.
-- `adjustVolume.js` prompts the user to adjust the volume on their computer.
-- `camera.js` contains trials for beginning and ending a camera recording.
-- `fullscreen.js` contains trials for entering and exiting fullscreen mode.
-- `holdUpMarker.js` prompts the user to connect their event marker and hold it up to the camera.
-- `quizTrial.js` contains trials for a quiz/survey.
-- `startCode.js` emits a start code to a photodiode spot and audible beep
-
-### index.js
-
-`index.js` is the entry point for React in our application. Note that the id 'root' corresponds with a tag in `public/index.html`:
-
-```html
-<div id="root"></div>
-```
-
 ## Other Folders/Files
 
 - `.nvmrc` determines which version of node that Honeycomb is designed to be run on
-- `.github/workflows/` contains .yaml files used to build Honeycomb on a pull request (`build.yaml`) and create task executables either in a single instance (`package.yaml`) or for a full release (`release.yaml`)
+- `.github/workflows/` contains .yaml files used for [CI/CD](ci_cd) with GitHub Actions
 - `package.json` contains metadata about your project, a list of the dependencies needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
 - `cli.mjs` is the script used to download and delete data stored in Firestore.
 - `version.js` is the script used to keep track of which version of the task a given experiment is using
+  :::caution
+  `cli.mjs` and `version.js` are automated scripts and should not be edited.
+  :::
 
 :::danger
-`package-lock.json` is written to when running `npm install` and should never be manually edited.
+`package-lock.json` is written to when running `npm install` and should never be edited.
 :::
 
 ### Firebase Files
@@ -175,11 +211,10 @@ A trial is the base unit of a JsPsych experiment. Each trial should be its own f
 - `.firebaserc` contains the name of the project Firebase should connect to. Be sure to update the default project to the one you created!
 - `firebase.json` contains the Firebase settings for Honeycomb.
 - `firestore.indexes.json` contains the Firestore index settings for Honeycomb.
+  :::caution
+  `firebase.json`, `firestore.indexes.json` are default configs and shouldn't need to be edited.
+  :::
 - `firestore.rules` contains the Firestore rules for creating/editing data.
-
-:::caution
-`firebase.json`, `firestore.indexes.json`, and `firestore.rules` shouldn't need to be manually edited.
-:::
 
 ### Git Files
 
@@ -191,9 +226,9 @@ Any secrets and/or tokens must be added to `.gitignore` or they will be visible 
 
 ### Eslint Files
 
-- `.eslintrc.js` contains the Eslint settings for Honeycomb. We recommend it's left alone but can be adjusted for personal settings.
+- `.eslintrc.js` contains the Eslint settings for Honeycomb. We recommend it's left alone but can be adjusted for personal preference.
 - `.eslintignore` lists the folders and files that eslint shouldn't touch, similar to `.gitignore`.
 
 ### Prettier Files
 
-`.prettierrc.js` contains the Prettier settings for Honeycomb. We recommend it's left alone but can be adjusted for personal settings.
+`.prettierrc.js` contains the Prettier settings for Honeycomb. We recommend it's left alone but can be adjusted for personal preference.
