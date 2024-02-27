@@ -23,7 +23,7 @@ Please have your PI contact [support@ccv.brown.edu](mailto:support@ccv.brown.edu
 
 First we'll configure [Firebase Hosting](https://firebase.google.com/docs/hosting) and [Cloud Firestore](https://firebase.google.com/docs/firestore) on your project.
 
-1. Log in to Firebase with your Google account on the [Firebase console](https://console.firebase.google.com/).
+1. Log in to Firebase with your Google account on the [Firebase console](https://console.firebase.google.com/)
 2. Navigate to your project from the console
 3. Register a new web app to your project ([Register your app](https://firebase.google.com/docs/web/setup#register-app))
 
@@ -34,7 +34,7 @@ First we'll configure [Firebase Hosting](https://firebase.google.com/docs/hostin
 4. Add Firestore Database to your project ([Create a Cloud Firestore database](https://firebase.google.com/docs/firestore/quickstart#create))
 
    :::note
-   Chose `production mode` for the starting mode and the default "Cloud Firestore Location"
+   Choose `production mode` for the starting mode and the default "Cloud Firestore Location"
    :::
 
 The Firebase project is now fully set up! Now we'll connect your task to that project from your computer.
@@ -51,7 +51,7 @@ npm install -g firebase-tools
 firebase login
 ```
 
-_A "command not found" error usually indicates `firebase-tools` has not been installed correctly_
+_A `command not found` error usually indicates firebase-tools has not been installed correctly_
 
 ### Connecting Your Firebase Project
 
@@ -67,7 +67,7 @@ _A "command not found" error usually indicates `firebase-tools` has not been ins
 
 2. Copy the web app credentials from the Firebase console to the corresponding variables in `.env.firebase`
 
-   1. Return to your project on the [Firebase console](https://console.firebase.google.com/).
+   1. Return to your project on the [Firebase console](https://console.firebase.google.com/)
    2. Navigate to your project setting
 
       <img
@@ -110,7 +110,7 @@ Your task is now connected to an initialized Firebase project!
 This step must be followed **exactly**. See [Security Rules](#security-rules) for more information.
 :::
 
-1. Navigate to your Firestore Database in the [console](https://console.firebase.google.com/).
+1. Navigate to your Firestore Database in the [Firebase console](https://console.firebase.google.com/)
 2. Click "Start collection"
 3. Enter `registered_studies` for the collection id and click "next"
 4. Enter the id of your study for the document id
@@ -126,7 +126,7 @@ This step must be followed **exactly**. See [Security Rules](#security-rules) fo
 </div>
 <br />
 
-The study should like this when you're finished:
+The study should look like this when you're finished:
 
 <img
   src={firestoreExampleStudy}
@@ -149,7 +149,7 @@ npm run dev:firebase
 npm run firebase:emulators:start
 ```
 
-Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore. It may be viewed at [http://localhost:4000/firestore](http://localhost:4000/firestore).
+Honeycomb is now running in the browser and connected to data on an emulated instance of Firestore. It may be viewed on [localhost:4000](http://localhost:4000/firestore).
 
 :::info
 Honeycomb populates the Firestore emulators with the study `s1` and participant `p1`.
@@ -157,7 +157,7 @@ Honeycomb populates the Firestore emulators with the study `s1` and participant 
 
 ## Deploying on Firebase
 
-Firebase deployments are handled automatically following [Continuous Integration Continuous Development (CI/CD)](ci_cd) practices using GitHub Actions. Here we will connect create custom actions that are connected to the task's Firebase project.
+Firebase deployments are handled automatically following [Continuous Integration Continuous Development (CI/CD)](ci_cd) practices using GitHub Actions. Here we will create custom actions that are connected to the task's Firebase project.
 
 Execute the following command to begin initializing Firebase hosting via GitHub actions. Be sure to follow the instructions below as the prompts appear.
 
@@ -165,8 +165,8 @@ Execute the following command to begin initializing Firebase hosting via GitHub 
 firebase init hosting:github
 ```
 
-1. The window should log you in automatically. If not, follow the prompts to log in with the same account you used in the console.
-2. `<username>/<repository name>` refers to the name of your repository in Github. Be sure it's typed correctly!
+1. The window should log you in automatically; if not, follow the prompts to log in with the same account you used in the console
+2. `<username>/<repository name>` refers to the name of your repository in Github - be sure it's typed correctly!
 3. Enter `y` for the prompt "Set up the workflow to run a build script before every deploy?"
 4. Enter `npm install && npm run build:firebase` for the prompt "What script should be run before every deploy?"
 5. Enter `y` to overwrite the current workflow file
@@ -189,7 +189,7 @@ Honeycomb ships with a CLI script for managing data in Firebase. A local service
 
 Service accounts are accounts that are not attached to a human user. They authorize access to a Firebase project without someone physically logging in online. We use a service account to give the download script access to the Firestore database automatically.
 
-1. Return to the project settings your project on the [Firebase console](https://console.firebase.google.com/).
+1. Return to the project settings your project on the [Firebase console](https://console.firebase.google.com/)
    <img
      src={firebaseConsoleSettings}
      alt="Firebase project settings"
@@ -197,7 +197,7 @@ Service accounts are accounts that are not attached to a human user. They author
 2. Click on the "Service accounts" tab
 3. Near the bottom, click "Generate new Private key" and "Generate Key"
 
-4. Rename the key `firebase-service-account.json` and move it to the root directory of your task. Be sure the file looks grayed out and is not picked up by git!
+4. Rename the key `firebase-service-account.json` and move it to the root directory of your task - be sure the file looks grayed out and is not picked up by git!
 
 :::danger
 A service account has total administrative access to ts Firebase project. The file and keys inside should never be shared and **never committed to GitHub.**

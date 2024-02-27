@@ -5,11 +5,11 @@ title: PsiTurk
 description: Guide for the different deploying a task to PsiTurk
 ---
 
-While honeycomb is optimized for use on a [local application](local_application), we added functionality for usage with [PsiTurk](https://psiturk.org/). The application will detect if it's being used in a Turk environment and will save the data to the default PsiTurk SQLite database.
+While Honeycomb is optimized for use on a [local application](local_application), we added functionality for usage with [PsiTurk](https://psiturk.org/). The application will detect if it's being used in a Turk environment and will save the data to the default PsiTurk SQLite database.
 
 ### Prebuilt version
 
-When GitHub Actions is run, a PsiTurk build will be created automatically, and can be downloaded from its artifacts. The workflows responsible for building the PsiTurk application are `.github/workflows/package.yml` and `.github/workflows/release.yml`. The first one has to be triggered manually, the latter is triggered when you tag a release.
+When a GitHub Action is run, a PsiTurk build will be created automatically, and can be downloaded from its artifacts. The workflows responsible for building the PsiTurk application are `.github/workflows/package.yml` and `.github/workflows/release.yml`. The first one has to be triggered manually, the latter is triggered when you tag a release.
 
 If this is all you need, the build instructions below can be skipped!
 
