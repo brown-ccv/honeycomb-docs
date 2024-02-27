@@ -35,7 +35,7 @@ To edit files for the current version, update the files under the `docs` directo
 1. To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
 
     ```console
-    yarn run docusaurus docs:version <version number>
+    npm run docusaurus docs:version <version number>
     ```
 
 2. Update `versions.json` to include the new version (make sure "current" is first in the array)
