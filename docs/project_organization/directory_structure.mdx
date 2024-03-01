@@ -19,7 +19,7 @@ Assets that pertain to your specific task should be added to the [public/assets/
 
 The [build scripts](npm_scripts#npm-build) automatically create a `build` folder at the root of the repository and update it on subsequent builds.
 
-:::danger
+:::caution
 `build/` should be left alone! It is in Honeycomb's `.gitignore` and should never be added to git.
 :::
 
@@ -27,7 +27,7 @@ The [build scripts](npm_scripts#npm-build) automatically create a `build` folder
 
 This folder contains starter data for the Firebase Emulators to use while developing locally. The [Firebase Scripts](npm_scripts#firebase) detail how to use this data.
 
-:::danger
+:::caution
 `emulator_data/` is written to when running `npm run firebase:emulators:save` and should never be edited.
 :::
 
@@ -37,7 +37,7 @@ This folder contains different files used to pass environment variables (setting
 
 ## node_modules/
 
-:::danger
+:::caution
 `node_modules/` is written to when running `npm install` and should never be edited. It is in Honeycomb's `.gitignore` and should never be added to git.
 :::
 
@@ -55,8 +55,12 @@ The `public` directory contains files that are used as assets in the built app.
 
 - `index.html` is the entry point of the website
   - Changing `<title>Honeycomb</title>` will update the name you can see in the browser tab!
-- `favicon.ico` is the small icon you can see in the browser tab
+- `favicon.ico` is the small (16x16px) icon you can see in the browser tab
 - `manifest.json` contains metadata about the web app
+
+:::caution
+`manifest.json` involves project metadata and does not need to be edited.
+:::
 
 ### assets/
 
@@ -77,7 +81,7 @@ This folder involves a Honeycomb deployment, the files do not need to be edited.
 
 The `public/lib/` directory contains the files PsiTurk needs to run. Note that `index.html` references these files inside the `<script>` tags.
 
-:::danger
+:::caution
 This folder involves dependencies for a Honeycomb deployment, the files should not be edited.
 :::
 
@@ -89,7 +93,7 @@ This folder contains the source code for the Honeycomb application.
   ```html
   <div id="root"></div>
   ```
-  :::danger
+  :::caution
   `index.js` runs Honeycomb itself and should not be edited.
   :::
 
@@ -122,8 +126,10 @@ This folder involves Honeycomb deployments, the files do not need to be edited.
 
 Each file in the config directory contains settings for a different part of the task.
 
-- `language.json` contains the language used in your task. This file allows for easy internationalization of the task (e.g. english and spanish) and mturk-specific language. Common phrases can be written once and re-used throughout the task.
-- `main.js` contains the global settings (e.g. whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate files.
+- `language.json` contains the language used in your task. This file allows for easy internationalization of the task (e.g. English and Spanish) and mturk-specific language. Common phrases can be written once and re-used throughout the task.
+
+- `main.js` contains the global settings (e.g., whether Honeycomb is running online or in the clinic) passed from env variables and logic for loading the appropriate files.
+
 - `settings.json` contains the settings for your task. Usage of the config file allows for easy updating of task settings. Common settings can be written once and re-used throughout the task.
 - `trigger.js` contains equipment-related settings for a trigger box. The `eventCodes` are especially important for marking the types of given trials.
 
@@ -167,11 +173,12 @@ A [trial](https://www.jspsych.org/7.3/overview/timeline/#a-single-trial) is the 
 - `holdUpMarker.js` prompts the user to connect their event marker and hold it up to the camera.
 - `honeycombTrials.js` contains the individual trials used in the Honeycomb task. These trials are imported into `experiment/procedures/honeycombProcedure.js` and `experiment/honeycomb.js`.
   :::tip
-  These trials are for an example experiment! Be sure to write trials pertaining to your task in their own file(s).
+  These trials are for the example experiment! Be sure to write trials pertaining to your task in their own file(s).
   :::
 - `introduction.js` displays a message to the user welcoming them to the experiment. They must click on a button to continue.
 - `name.js` displays the name of the task to the user.
-- `startCode.js` emits a start code to a photodiode spot and audible beep
+- `startCode.js` emits a start code to a photodiode spot and audible beep.
+
 - `survey.js` contains trials pertaining to a survey/quiz for the user to complete.
 
 ### lib/
@@ -194,16 +201,17 @@ The `tag` function inside `tags.js` can be used to wrap language in any html tag
 
 ## Other Folders/Files
 
-- `.nvmrc` determines which version of node that Honeycomb is designed to be run on
-- `.github/workflows/` contains .yaml files used for [CI/CD](ci_cd) with GitHub Actions
+- `.nvmrc` determines which version of node that Honeycomb is designed to be run on.
+
+- `.github/workflows/` contains .yaml files used for [CI/CD](ci_cd) with GitHub Actions.
+
 - `package.json` contains metadata about your project, a list of the dependencies needed for the project, and scripts to run tasks related to your task. The [Quick Start](quick_start#4-change-name-and-description) lists which metadata should be changed.
 - `cli.mjs` is the script used to download and delete data stored in Firestore.
-- `version.js` is the script used to keep track of which version of the task a given experiment is using
-  :::caution
-  `cli.mjs` and `version.js` are automated scripts and should not be edited.
-  :::
+- `version.js` is the script used to keep track of which version of the task a given experiment is using.
 
-:::danger
+:::caution
+`cli.mjs` and `version.js` are automated scripts and should not be edited.
+
 `package-lock.json` is written to when running `npm install` and should never be edited.
 :::
 
@@ -212,16 +220,17 @@ The `tag` function inside `tags.js` can be used to wrap language in any html tag
 - `.firebaserc` contains the name of the project Firebase should connect to. Be sure to update the default project to the one you created!
 - `firebase.json` contains the Firebase settings for Honeycomb.
 - `firestore.indexes.json` contains the Firestore index settings for Honeycomb.
-  :::caution
-  `firebase.json`, `firestore.indexes.json` are default configs and shouldn't need to be edited.
-  :::
 - `firestore.rules` contains the Firestore rules for creating/editing data.
+
+:::caution
+`firebase.json` and `firestore.indexes.json` are default configs and shouldn't need to be edited.
+:::
 
 ### Git Files
 
 - `.gitignore` lists the folders and files that should be excluded from Git.
 
-:::danger
+:::caution
 Any secrets and/or tokens must be added to `.gitignore` or they will be visible to anyone with access to the repository!
 :::
 
