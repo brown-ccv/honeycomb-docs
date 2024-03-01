@@ -30,12 +30,16 @@ module.exports = {
       type: "category",
       label: "External Tools",
       collapsed: false,
-      items: ["event_triggers"],
+      items: ["external_tools/event_triggers", "external_tools/prolific"],
     },
     {
       type: "category",
       label: "Further Reading",
-      items: ["further_reading/version_control", "further_reading/javascript"],
+      items: [
+        "further_reading/github_discussions",
+        "further_reading/version_control",
+        "further_reading/javascript",
+      ],
       description: "Guides pointing to additional resources for further learning",
     },
     "troubleshooting",
