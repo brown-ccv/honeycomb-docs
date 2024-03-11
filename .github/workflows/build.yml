@@ -1,21 +1,21 @@
-name: Test Build
+name: 🧪 Test Build
+on: pull_request
 
-on:
-  pull_request:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # TODO: Upgrade to v4
-      # TODO: Upgrade node version for the app?
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version-file: .nvmrc
           cache: npm
 
       - name: 📥 Install Dependencies
