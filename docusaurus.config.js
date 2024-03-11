@@ -94,6 +94,19 @@ module.exports = {
     },
     prism: {
       additionalLanguages: ["powershell", "firestore-security-rules"],
+      magicComments: [
+        // Default highlight class
+        {
+          className: "theme-code-block-highlighted-line",
+          line: "highlight-next-line",
+          block: { start: "highlight-start", end: "highlight-end" },
+        },
+        {
+          className: "code-block-delete-line",
+          line: "highlight-delete-next-line",
+          block: { start: "highlight-delete-start", end: "highlight-delete-end" },
+        },
+      ],
     },
     tableOfContents: {
       minHeadingLevel: 2,
