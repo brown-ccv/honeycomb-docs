@@ -7,9 +7,19 @@ jobs:
   gh-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - name: Add key to allow access to repository
+      # TODO: Upgrade to v4
+      # TODO: Upgrade node version for the app?
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      # TODO: There's gotta be a cleaner way to do this?
+      - name: 🗝️ Add key to allow access to repository
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
@@ -22,18 +32,14 @@ jobs:
           HostName github.com
           IdentityFile ~/.ssh/id_rsa
           EOT
-      - name: Release to GitHub Pages
+
+      # Configure git, install, and deploy
+      - name: 🚀 Release to GitHub Pages
         env:
           USE_SSH: true
           GIT_USER: git
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
           npm ci
-          else
-          npm i
-          fi
           npx docusaurus deploy
