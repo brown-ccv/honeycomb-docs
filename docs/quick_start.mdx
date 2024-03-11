@@ -221,80 +221,32 @@ npm install -g electron firebase-tools dotenv-cli
 
 ## Run the Task
 
-```shell title="Run the task in development mode"
+Running the task in development mode causes it to hot-reload whenever changes are made to the app. This is how you'll run the project while building your task.
+
+```shell title="Run the task in dev mode"
 npm run dev
 ```
 
-Running the task in development mode causes allows for hot-reloading whenever changes are made to the app. This is how you'll run the project while creating your task!
-
-:::tip
-The dev script runs Honeycomb on Electron without any environment variables. Check out the [NPM Scripts](npm_scripts#dev) page for more information on the available development environments.
-:::
+This script launches an Electron window with the task and inspector open.
 
 ## Edit the Task
 
-Now that the project is up and running we can make our first changes to the code!
-
-### Edit the Project Metadata
-
-First we'll edit the `package.json` file so the project reflects your information.
+Now that the task is up and running we can make our first changes to the code! We'll edit the `package.json` file to reflect your information.
 
 1. Create a new branch
 
    ```shell
-   git checkout -b edit-package-json
+   git checkout -b <branch-name>
    ```
 
 2. Open `package.json` and edit it to reflect your app:
-
-   1. `name` is your task's name, generally this is the name of our repository
-   2. `description` should be rewritten to better match your task
-   3. `author` is your lab (or PIs) name, email, and website
-   4. `honeycombVersion` is the number currently in the `version` field
-   5. `version` should be reset to 1.0.0
-   6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
-
 3. Save your changes and commit them to git:
 
    ```shell
-   git commit -m "edit package.json with my task's information"
+   git commit -m "Commit message goes here!"
    ```
 
 4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
-
-### Start Your Task
-
-Now we can start building our task! The `src` directory contains the main code for your task. The `src` directory contains the following files:
-[More info about the folder structure]
-
-1. Return to the main branch
-
-   ```shell
-   git checkout main
-   ```
-
-1. Create a new branch
-
-   ```shell
-   git checkout -b edit-package-json
-   ```
-
-1. Open `package.json` and edit it to reflect your app:
-
-   1. `name` is your task's name, generally this is the name of our repository
-   2. `description` should be rewritten to better match your task
-   3. `author` is your lab (or PIs) name, email, and website
-   4. `honeycombVersion` is the number currently in the `version` field
-   5. `version` should be reset to 1.0.0
-   6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
-
-1. Save your changes and commit them to git:
-
-   ```shell
-   git commit -m "edit package.json with my task's information"
-   ```
-
-1. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
 
 ## Next Steps
 
