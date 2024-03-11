@@ -321,19 +321,26 @@ Now that the project is up and running we can make our first changes to the code
    export function buildTaskNameTimeline(jsPsych) {}
    ```
 
-7. Run a format to make sure the code is formatted correctly
-
-   ```shell
-   npm run format
-   ```
-
-8. Save your changes and commit them to git:
+7. Save your changes and commit them to git:
 
    ```shell
    git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
    ```
 
-9. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+8. UPDATE EXPERIMENT/indexedDB.JS WITH THE NEW FILES
+9. Run a format to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+10. Save your changes and commit them to git:
+
+    ```shell
+    git commit -a -m "fix: Use new task's file"
+    ```
+
+11. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
 
 ### 3) Add some trials to the task
 
