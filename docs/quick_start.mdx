@@ -235,9 +235,7 @@ The dev script runs Honeycomb on Electron without any environment variables. Che
 
 Now that the project is up and running we can make our first changes to the code!
 
-### Edit the Project Metadata
-
-First we'll edit the `package.json` file so the project reflects your information.
+### 1) Edit the Project Metadata
 
 1. Create a new branch
 
@@ -246,33 +244,6 @@ First we'll edit the `package.json` file so the project reflects your informatio
    ```
 
 2. Open `package.json` and edit it to reflect your app:
-   @@ -251,11 +257,45 @@ Now that the task is up and running we can make our first changes to the code! W
-3. Save your changes and commit them to git:
-
-   ```shell
-   git commit -m "edit package.json with my task's information"
-   ```
-
-4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
-
-### Start Your Task
-
-Now we can start building our task! The `src` directory contains the main code for your task. The `src` directory contains the following files:
-[More info about the folder structure]
-
-1. Return to the main branch
-
-   ```shell
-   git checkout main
-   ```
-
-1. Create a new branch
-
-   ```shell
-   git checkout -b edit-package-json
-   ```
-
-1. Open `package.json` and edit it to reflect your app:
 
    1. `name` is your task's name, generally this is the name of our repository
    2. `description` should be rewritten to better match your task
@@ -281,13 +252,205 @@ Now we can start building our task! The `src` directory contains the main code f
    5. `version` should be reset to 1.0.0
    6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
 
-1. Save your changes and commit them to git:
+3. Save your changes and commit them to git:
 
    ```shell
-   git commit -m "edit package.json with my task's information"
+   git commit -a -m "edit package.json with my task's information"
    ```
 
-1. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
+4. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 2) Add a file for the task
+
+1. Bring your branch up to date with the `main` branch
+   ```shell
+   git checkout main
+   ```
+   ```shell
+   git pull
+   ```
+2. Create a new branch (replace `task-name` with the name of your task)
+
+   ```shell
+   git checkout -b add-<task-name>-file
+   ```
+
+3. Add a new file inside `src/experiment/` with the same name as your task
+4. Save your changes and commit them to git:
+
+   ```shell
+   git add .
+   ```
+
+   ```shell
+   git commit -a -m "feat: adds file for the <task name> task"
+   ```
+
+5. Add a `taskNameOptions` object to the new file (replace `taskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * Experiment-wide settings for jsPsych: https://www.jspsych.org/7.3/overview/experiment-options/
+    * Note that Honeycomb combines these with other options required for Honeycomb to operate correctly
+    */
+   export const taskNameOptions = {
+     // Called when every trial finishes
+     on_trial_finish: function (data) {
+       console.log(`Trial ${data.internal_node_id} just finished:`, data);
+     },
+     // Called when the experiment finishes
+     on_finish: function (data) {
+       console.log("The experiment has finished:", data);
+       // Reload the page for another run-through of the experiment
+       window.location.reload();
+     },
+   };
+   ```
+
+6. Add a `buildTaskNameFunction` to the new file (replace `TaskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * This timeline builds the example reaction time task from the jsPsych tutorial.
+    * Take a look at how the code here compares to the jsPsych documentation!
+    * See the jsPsych documentation for more: https://www.jspsych.org/7.3/tutorials/rt-task/
+    *
+    * @param {Object} jsPsych The jsPsych instance being used to run the task
+    * @returns {Object} A jsPsych timeline object
+    */
+   export function buildTaskNameTimeline(jsPsych) {}
+   ```
+
+7. Run a format to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+8. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
+   ```
+
+9. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 3) Add some trials to the task
+
+1. Bring your branch up to date with the `main` branch
+   ```shell
+   git checkout main
+   ```
+   ```shell
+   git pull
+   ```
+2. Create a new branch
+
+   ```shell
+   git checkout -b add-start-procedure
+   ```
+
+3. Add the start procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     const timeline = [startProcedure];
+     return timeline;
+   }
+
+   // ...
+   ```
+
+4. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds startProcedure to the task"
+   ```
+
+5. Edit the text for the task's name
+   ```json title="src/config/language.json"
+   {
+     "name": "taskName"
+     // ...
+   }
+   ```
+   :::tip
+   The text for the introduction trial is in `src/config/language.json` under the `trials` and `introduction` key.
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        "introduction": "Welcome to the experiment. Press any key to begin."
+        // ...
+      },
+      // ...
+    }
+   ```
+   :::
+6. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: Updates the language for the startProcedure of the task"
+   ```
+
+7. Add the end procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+   import { buildEndProcedure } from "./procedures/endProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     // Builds the trials that make up the end procedure
+     const endProcedure = buildEndProcedure(jsPsych);
+
+     const timeline = [startProcedure, endProcedure];
+     return timeline;
+   }
+   // ...
+   ```
+
+   :::tip
+   The text for the conclusion trial is in `src/config/language.json` under the `trials` and `conclusion` key.
+
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        // ...
+        "conclusion": "Welcome to the experiment. Press any key to begin."
+      },
+    }
+   ```
+
+   :::
+
+8. Run a format to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+9. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds endProcedure to the task"
+   ```
+
+10. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
 
 ## Next Steps
 
@@ -295,4 +458,4 @@ The [Firebase](firebase) page explains how to set up your task with Firebase.
 
 To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
 
-The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
+The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they useimport { timeLog } from "console";import { json } from "body-parser";import { json } from "body-parser";
