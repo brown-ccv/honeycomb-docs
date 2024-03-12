@@ -231,6 +231,10 @@ Running the task in development mode causes allows for hot-reloading whenever ch
 The dev script runs Honeycomb on Electron without any environment variables. Check out the [NPM Scripts](npm_scripts#dev) page for more information on the available development environments.
 :::
 
+:::note
+Honeycomb ships with a modified version of the "simple reaction time task" from the [jsPsych tutorial](https://www.jspsych.org/7.3/tutorials/rt-task/). In the next section we'll create a new task and tell Honeycomb to run it!
+:::
+
 ## Edit the Task
 
 Now that the project is up and running we can make our first changes to the code!
@@ -249,8 +253,25 @@ Now that the project is up and running we can make our first changes to the code
    2. `description` should be rewritten to better match your task
    3. `author` is your lab (or PIs) name, email, and website
    4. `honeycombVersion` is the number currently in the `version` field
-   5. `version` should be reset to 1.0.0
+   5. `version` should then be reset to 1.0.0
    6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
+
+   ```json title="package.json"
+   {
+      "name": "my-task",
+      "description": "A task for the Honeycomb platform",
+      "author": {
+        "name": "Your Lab",
+        "email": "example@domain.com",
+        "url": "https://lab-web-page.com"
+      },
+      "honeycombVersion": "3.3.0", // Match what was in version!
+      // highlight-delete-next-line
+      "version": "3.3.0",
+      "version": "1.0.0",
+      "repository": "https://github.com/my-username/my-repository"
+   },
+   ```
 
 3. Save your changes and commit them to git:
 
@@ -489,4 +510,4 @@ The [Firebase](firebase) page explains how to set up your task with Firebase.
 
 To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
 
-The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they useimport { timeLog } from "console";import { json } from "body-parser";import { json } from "body-parser";
+The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they useimport { timeLog } from "console";import { json } from "body-parser";import { json } from "body-parser";import { url } from "../docusaurus.config";
