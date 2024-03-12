@@ -327,7 +327,31 @@ Now that the project is up and running we can make our first changes to the code
    git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
    ```
 
-8. UPDATE EXPERIMENT/indexedDB.JS WITH THE NEW FILES
+8. Edit `src/experiment/index.js` to use the new file
+
+   ```js title="src/experiment/index.js"
+   // highlight-delete-next-line
+   import { buildHoneycombTimeline, honeycombOptions } from "./honeycomb";
+   import { buildTaskNameTimeline, taskNameOptions } from "./taskName";
+
+   // ...
+
+   // highlight-delete-next-line
+   export const jsPsychOptions = honeycombOptions;
+   export const jsPsychOptions = taskNameOptions;
+
+   // ...
+
+   export function buildTimeline(jsPsych, studyID, participantID) {
+     console.log(`Building timeline for participant ${participantID} on study ${studyID}`);
+
+     // highlight-delete-next-line
+     const timeline = buildHoneycombTimeline(jsPsych);
+     const timeline = buildTaskNameTimeline(jsPsych);
+     return timeline;
+   }
+   ```
+
 9. Run a format to make sure the code is formatted correctly
 
    ```shell
