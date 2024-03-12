@@ -58,11 +58,6 @@ module.exports = {
           position: "right",
           dropdownActiveClassDisabled: true,
         },
-        {
-          href: "https://github.com/brown-ccv/honeycomb",
-          label: "GitHub",
-          position: "right",
-        },
       ],
     },
     footer: {
@@ -74,7 +69,14 @@ module.exports = {
         },
         {
           title: "Community",
-          items: [{ label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" }, { label: "Beehive", href: "https://beehive.ccv.brown.edu/" }],
+          items: [
+            { label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" },
+            {
+              label: "Discussions Board",
+              href: "https://github.com/brown-ccv/honeycomb/discussions",
+            },
+            { label: "Beehive", href: "https://beehive.ccv.brown.edu/" },
+          ],
         },
         {
           title: "Related Publications",
