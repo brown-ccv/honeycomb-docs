@@ -228,17 +228,17 @@ service cloud.firestore {
 
 Lines 3 and 4 indicate that Honeycomb attempts to connect to a document at `/databases/{database}/documents/participant_responses/{studyID}/participants/{participantID}` where `studyID` is a given study and `participantID` is a given participant within that study.
 
-Line 5 indicates how Honeycomb can interact with that document. Note that Honeycomb cannot update or delete data! You must manually make these changes from the Firestore console.
+Line 5 indicates how Honeycomb can interact with that document. Note that Honeycomb cannot update or delete data! You must use the [CLI script](#using-the-cli-script) to delete data.
 
 Lines 6 through 10 defines our rule for creating a document for a given participant at `participant_responses/{studyID}/participants/{participantID}`. Honeycomb ships with two possible rules:
 
-1. Line 8 specifies `true` which allows any combination of `studyID` and `participantID` to be created in Firebase. This is necessary for Honeycomb to create new documents for new participants.
+1. Line 8 specifies `true` which allows any combination of `studyID` and `participantID` to be created in Firebase.
 
    :::info
    This is the default rule Honeycomb ships with. It is recommended to leave this rule as is and handle the registration of studies in another tool such as [Prolific](prolific).
    :::
 
-2. Line 10 only allows a `participantID` to be created if the value is in an array called `registered_participants` inside of a document at `registered_studies/{studyID}`. This allows for the pre-registration of each study and participant - the [next section](#registering-studies) explains how to register studies.
+2. Line 10 only allows a `participantID` to be created if the value is in an array called `registered_participants` inside of a document at `registered_studies/{studyID}`. This ensures pre-registration of every study and participant - the [next section](#registering-studies) explains how to register studies.
 
 :::caution
 Firestore rules must define every match pattern in your project. Attempting to connect anywhere other than `/participant_responses/{studyID}/participants/{participantID}` will be automatically denied even if you add other collections to your database. This is why `firestore.rules` contains additional nested rules in lines 12 - 20. These should be left alone.
