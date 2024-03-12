@@ -19,6 +19,10 @@ Deployment specifications are abstracted as parameters that are easy to configur
 
 jsPsych 7 tasks can be converted to the Honeycomb structure to take advantage of the flexible deployment and automated GitHub Actions workflow that Honeycomb provides.
 
+### Community Driven
+
+Honeycomb additionally provides a Behavioral Task Hub at our [Beehive](https://beehive.ccv.brown.edu/) website. These tasks are built in Honeycomb and are ready to be deployed.
+
 ### Cite this work
 
 If you use Honeycomb in your work, please cite
