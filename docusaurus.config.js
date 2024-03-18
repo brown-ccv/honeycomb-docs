@@ -97,7 +97,9 @@ module.exports = {
           line: "highlight-next-line",
           block: { start: "highlight-start", end: "highlight-end" },
         },
+        // red highlight class
         {
+
           className: "code-block-delete-line",
           line: "highlight-delete-next-line",
           block: { start: "highlight-delete-start", end: "highlight-delete-end" },
