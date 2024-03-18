@@ -241,7 +241,8 @@ Lines 6 through 10 defines our rule for creating a document for a given particip
 2. Line 10 only allows a `participantID` to be created if the value is in an array called `registered_participants` inside of a document at `registered_studies/{studyID}`. This ensures pre-registration of every study and participant - the [next section](#registering-studies) explains how to register studies.
 
 :::caution
-Firestore rules must define every match pattern in your project. Attempting to connect anywhere other than `/participant_responses/{studyID}/participants/{participantID}` will be automatically denied even if you add other collections to your database. This is why `firestore.rules` contains additional nested rules in lines 12 - 20. These should be left alone.
+Firestore rules define every valid path for data in your project. Attempting to connect anywhere besides the paths in your Firestore rules will be automatically denied, even if you have manually saved data elsewhere. This is why `firestore.rules` contains the nested rules in lines 12 - 20. These should be left alone.
+
 :::
 
 #### Registering Studies
