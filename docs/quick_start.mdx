@@ -221,22 +221,30 @@ npm install -g electron firebase-tools dotenv-cli
 
 ## Run the Task
 
-Running the task in development mode causes it to hot-reload whenever changes are made to the app. This is how you'll run the project while building your task.
-
-```shell title="Run the task in dev mode"
+```shell title="Run the task in development mode"
 npm run dev
 ```
 
-This script launches an Electron window with the task and inspector open.
+Running the task in development mode enables "hot reloading": changes to the code will immediately be reflected in the app without needing to restart the server. This is how you'll run the project while creating your task!
+
+:::tip
+The dev script runs Honeycomb on Electron without any environment variables. Check out the [NPM Scripts](npm_scripts#dev) page for more information on the available development environments.
+:::
+
+:::note
+Honeycomb ships with a modified version of the "simple reaction time task" from the [jsPsych tutorial](https://www.jspsych.org/7.3/tutorials/rt-task/). In the next section we'll create a new task and tell Honeycomb to run it!
+:::
 
 ## Edit the Task
 
-Now that the task is up and running we can make our first changes to the code! We'll edit the `package.json` file to reflect your information.
+Now that the project is up and running we can make our first changes to the code!
 
-1. Create a new branch
+### 1) Edit the Project Metadata
+
+1. Create a new branch in a separate terminal
 
    ```shell
-   git checkout -b <branch-name>
+   git checkout -b edit-package-json
    ```
 
 2. Open `package.json` and edit it to reflect your app:
@@ -245,16 +253,256 @@ Now that the task is up and running we can make our first changes to the code! W
    2. `description` should be rewritten to better match your task
    3. `author` is your lab (or PIs) name, email, and website
    4. `honeycombVersion` is the number currently in the `version` field
-   5. `version` should be reset to 1.0.0
+   5. `version` should then be reset to 1.0.0
    6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
+
+   ```json title="package.json"
+   {
+      "name": "my-task",
+      "description": "A task for the Honeycomb platform",
+      "author": {
+        "name": "Your Lab",
+        "email": "example@domain.com",
+        "url": "https://lab-web-page.com"
+      },
+      "honeycombVersion": "3.3.0", // Match what was in version!
+      // highlight-delete-next-line
+      "version": "3.3.0",
+      "version": "1.0.0",
+      "repository": "https://github.com/my-username/my-repository"
+   },
+   ```
 
 3. Save your changes and commit them to git:
 
    ```shell
-   git commit -m "Commit message goes here!"
+   git commit -a -m "edit package.json with my task's information"
    ```
 
-4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
+4. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 2) Add a file for the task
+
+1. Bring your branch up to date with the `main` branch
+   ```shell
+   git checkout main
+   ```
+   ```shell
+   git pull
+   ```
+2. Create a new branch (replace `task-name` with the name of your task)
+
+   ```shell
+   git checkout -b add-<task-name>-file
+   ```
+
+3. Add a new file inside `src/experiment/` with the same name as your task
+4. Save your changes and commit them to git:
+
+   ```shell
+   git add .
+   ```
+
+   ```shell
+   git commit -a -m "feat: adds file for the <task name> task"
+   ```
+
+5. Add a `taskNameOptions` object to the new file (replace `taskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * Experiment-wide settings for jsPsych: https://www.jspsych.org/7.3/overview/experiment-options/
+    * Note that Honeycomb combines these with other options required for Honeycomb to operate correctly
+    */
+   export const taskNameOptions = {
+     // Called when every trial finishes
+     on_trial_finish: function (data) {
+       console.log(`Trial ${data.internal_node_id} just finished:`, data);
+     },
+     // Called when the experiment finishes
+     on_finish: function (data) {
+       console.log("The experiment has finished:", data);
+       // Reload the page for another run-through of the experiment
+       window.location.reload();
+     },
+   };
+   ```
+
+6. Add a `buildTaskNameFunction` to the new file (replace `TaskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * This timeline builds the example reaction time task from the jsPsych tutorial.
+    * Take a look at how the code here compares to the jsPsych documentation!
+    * See the jsPsych documentation for more: https://www.jspsych.org/7.3/tutorials/rt-task/
+    *
+    * @param {Object} jsPsych The jsPsych instance being used to run the task
+    * @returns {Object} A jsPsych timeline object
+    */
+   export function buildTaskNameTimeline(jsPsych) {}
+   ```
+
+7. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
+   ```
+
+8. Edit `src/experiment/index.js` to use the new file
+
+   ```js title="src/experiment/index.js"
+   // highlight-delete-next-line
+   import { buildHoneycombTimeline, honeycombOptions } from "./honeycomb";
+   import { buildTaskNameTimeline, taskNameOptions } from "./taskName";
+
+   // ...
+
+   // highlight-delete-next-line
+   export const jsPsychOptions = honeycombOptions;
+   export const jsPsychOptions = taskNameOptions;
+
+   // ...
+
+   export function buildTimeline(jsPsych, studyID, participantID) {
+     console.log(`Building timeline for participant ${participantID} on study ${studyID}`);
+
+     // highlight-delete-next-line
+     const timeline = buildHoneycombTimeline(jsPsych);
+     const timeline = buildTaskNameTimeline(jsPsych);
+     return timeline;
+   }
+   ```
+
+9. Run the format script to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+10. Save your changes and commit them to git:
+
+    ```shell
+    git commit -a -m "fix: Use new task's file"
+    ```
+
+11. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 3) Add some trials to the task
+
+1. Bring your branch up to date with the `main` branch
+   ```shell
+   git checkout main
+   ```
+   ```shell
+   git pull
+   ```
+2. Create a new branch
+
+   ```shell
+   git checkout -b add-start-procedure
+   ```
+
+3. Add the start procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     const timeline = [startProcedure];
+     return timeline;
+   }
+
+   // ...
+   ```
+
+4. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds startProcedure to the task"
+   ```
+
+5. Edit the text for the task's name
+   ```json title="src/config/language.json"
+   {
+     "name": "taskName"
+     // ...
+   }
+   ```
+   :::tip
+   The text for the introduction trial is in `src/config/language.json` under the `trials` and `introduction` key.
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        "introduction": "Welcome to the experiment. Press any key to begin."
+        // ...
+      },
+      // ...
+    }
+   ```
+   :::
+6. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: Updates the language for the startProcedure of the task"
+   ```
+
+7. Add the end procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+   import { buildEndProcedure } from "./procedures/endProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     // Builds the trials that make up the end procedure
+     const endProcedure = buildEndProcedure(jsPsych);
+
+     const timeline = [startProcedure, endProcedure];
+     return timeline;
+   }
+   // ...
+   ```
+
+   :::tip
+   The text for the conclusion trial is in `src/config/language.json` under the `trials` and `conclusion` key.
+
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        // ...
+        "conclusion": "Welcome to the experiment. Press any key to begin."
+      },
+    }
+   ```
+
+   :::
+
+8. Run a format to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+9. Save your changes and commit them to git:
+
+   ```shell
+   git commit -a -m "feat: adds endProcedure to the task"
+   ```
+
+10. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
 
 ## Next Steps
 
