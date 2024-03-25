@@ -24,7 +24,7 @@ The Honeycomb repository is a template and serves as the starting point for all 
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
-4. Ensure the repositories workflow permissions are set to "Read and write permissions"
+4. Ensure the repository's workflow permissions are set to "Read and write permissions"
 
    _`Settings -> Actions -> General -> Workflow permissions`_
 
@@ -122,7 +122,7 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
 1.  Paste the following command in a macOS Terminal and follow the prompts to install Homebrew.
 
     ```shell
-    /bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 2.  Paste the following command and follow the prompts to install the listed programs:
@@ -141,12 +141,12 @@ The most commonly used package manager on macOS is [Homebrew](https://brew.sh).
 </Tabs>
 
 :::note
-If you are running into issues after installing the packages please restart your terminal and/or reboot your computer. This should resolve most issues.
+If you are running into issues after installing the packages, please restart your terminal and/or reboot your computer. This should resolve most issues.
 :::
 
 ### Setting Up Node
 
-NVM (Node Version Manager) is a tool for installing and using multiple versions on node on your computer. It must first be installed:
+NVM (Node Version Manager) is a tool for installing and using multiple versions on Node on your computer. It must first be installed:
 
 1.  Install NVM
 
@@ -176,7 +176,7 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
       </TabItem>
     </Tabs>
 
-2.  Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+2.  Copy the version number listed in `.nvmrc`.
 
     <img
       src={nvmrc}
@@ -186,13 +186,13 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
 3.  Install that version.
 
     ```shell
-    nvm install [version]
+    nvm install <VERSION>
     ```
 
-4.  Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+4.  Use the needed version.
 
     ```shell
-    nvm use
+    nvm use <VERSION>
     ```
 
 5.  Set the current version as your default
@@ -201,75 +201,54 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
     nvm alias default node
     ```
 
-:::note
-You can skip step 4 if you've already set a default node version in a different project.
-:::
+    :::note
+    You can skip this step if you've already set a default node version in a different project.
+    :::
 
 ## Install Dependencies
 
-There are many node packages used by Honeycomb that also need to be installed. Node (installed in the previous step) comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
+There are many Node packages used by Honeycomb that also need to be installed. Node comes with its own package manager to install, update, and maintain these dependencies throughout the development lifecycle.
 
 ```shell title="Install Honeycomb's dependencies"
 npm install
 ```
 
-Certain dependencies are best installed globally within node. These tools will be available from the command line anywhere on your system.
+Certain Node dependencies are best installed globally. These tools will be available from the command line anywhere on your system.
 
 ```shell title="Install Honeycomb's global dependencies"
-npm install -g electron firebase-tools dotenv-cli
+npm install -g electron firebase-tools dotenv-cli electron lint-staged
 ```
 
-## Run the Task in Development Mode
+## Run the Task
 
-Running the task in development mode causes it to hot-reload whenever changes are made to the app. This is how you'll run the project while building your task.
-
-```shell title="Run the task in dev mode"
+```shell title="Run the task in development mode"
 npm run dev
 ```
 
-This script launches an electron window with the task and inspector open.
+Running the task in development mode enables "hot reloading": changes to the code will immediately be reflected in the app without needing to restart the server.
 
-You can quit the task in the middle of development if needed:
+:::tip
+The dev script runs Honeycomb on Electron without any environment variables. Check out the [NPM Scripts](npm_scripts#dev) page for more information on the available development environments.
+:::
 
-<Tabs
-  groupId="os"
-  queryString
-  defaultValue="mac"
->
-  <TabItem
-    value="win"
-    label="Windows"
-  >
-    <kbd>Control</kbd> + W
-  </TabItem>
-  <TabItem
-    value="mac"
-    label="macOS"
-  >
-    <kbd>⌘</kbd> + Q
-  </TabItem>
-  <TabItem
-    value="linux"
-    label="Linux"
-  >
-    <kbd>Control</kbd> + W
-  </TabItem>
-</Tabs>
-
-### Saving data
-
-Data is saved throughout the task, even when running in development mode. The location of the task is logged at the beginning of the task wherever you ran `npm run dev`.
-
-Note how the data is organized by study and participant. Every run through of the task will save the data somewhere within this folder!
+:::note
+Honeycomb ships with a modified version of the "simple reaction time task" from the [jsPsych tutorial](https://www.jspsych.org/7.3/tutorials/rt-task/). In the next section we'll create a new task and tell Honeycomb to run it!
+:::
 
 ## Edit the Task
 
-Now that the task is up and running we can make our first changes to the code! We'll edit the `package.json` file to reflect your information.
+Now that the project is up and running we can make our first changes to the code!
 
-1. Create a new branch
+:::info
+The quick start guide details a [command line](version_control#git-commands) workflow for version control. If you are unfamiliar with Git, we recommend reading the linked page before proceeding.
+:::
 
-   ```shell
-   git checkout -b <branch-name>
+### 1) Edit the Project Metadata
+
+1. Create a new branch in a separate terminal
+
+   ```shell title="Create the branch edit-package-json"
+   git checkout -b edit-package-json
    ```
 
 2. Open `package.json` and edit it to reflect your app:
@@ -278,23 +257,265 @@ Now that the task is up and running we can make our first changes to the code! W
    2. `description` should be rewritten to better match your task
    3. `author` is your lab (or PIs) name, email, and website
    4. `honeycombVersion` is the number currently in the `version` field
-   5. `version` should be reset to 1.0.0
+   5. `version` should then be reset to 1.0.0
    6. `repository` is the link the GitHub repository you created [earlier](#2-start-your-new-task-from-our-template-repository).
+
+   ```json title="package.json"
+   {
+      "name": "my-task",
+      "description": "A custom task for the Honeycomb platform",
+      "author": {
+        "name": "My Lab",
+        "email": "example@domain.com",
+        "url": "https://lab-web-page.com"
+      },
+      "honeycombVersion": "3.3.0", // Match what was in version!
+      // highlight-delete-next-line
+      "version": "3.3.0",
+      "version": "1.0.0",
+      "repository": "https://github.com/my-username/my-repository"
+   },
+   ```
 
 3. Save your changes and commit them to git:
 
-   ```shell
-   git commit -m "Commit message goes here!"
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "edit package.json with my task's information"
    ```
 
-4. Create a [pull request](version_control#create-a-pull-request) to bring your changes into the `main` branch
+4. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 2) Add a file for the task
+
+1. Bring your branch up to date with the `main` branch
+
+   ```shell title="Switch to the main branch"
+   git checkout main
+   ```
+
+   ```shell title="Bring changes from GitHub into your local repository"
+   git pull
+   ```
+
+2. Create a new branch (replace `task-name` with the name of your task)
+
+   ```shell title="Check out a new branch"
+   git checkout -b add-<task-name>-file
+   ```
+
+3. Add a new file inside `src/experiment/` with the same name as your task
+4. Save your changes and commit them to git:
+
+   ```shell title="Add the new file to Git"
+   git add .
+   ```
+
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "feat: adds file for the <task name> task"
+   ```
+
+5. Add a `taskNameOptions` object to the new file (replace `taskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * Experiment-wide settings for jsPsych: https://www.jspsych.org/7.3/overview/experiment-options/
+    * Note that Honeycomb combines these with other options required for Honeycomb to operate correctly
+    */
+   export const taskNameOptions = {
+     // Called when every trial finishes
+     on_trial_finish: function (data) {
+       console.log(`Trial ${data.internal_node_id} just finished:`, data);
+     },
+     // Called when the experiment finishes
+     on_finish: function (data) {
+       console.log("The experiment has finished:", data);
+       // Reload the page for another run-through of the experiment
+       window.location.reload();
+     },
+   };
+   ```
+
+6. Add a `buildTaskNameFunction` to the new file (replace `TaskName` with the name of your task)
+
+   ```javascript title="taskName.js"
+   /**
+    * This timeline builds the example reaction time task from the jsPsych tutorial.
+    * Take a look at how the code here compares to the jsPsych documentation!
+    * See the jsPsych documentation for more: https://www.jspsych.org/7.3/tutorials/rt-task/
+    *
+    * @param {Object} jsPsych The jsPsych instance being used to run the task
+    * @returns {Object} A jsPsych timeline object
+    */
+   export function buildTaskNameTimeline(jsPsych) {}
+   ```
+
+7. Save your changes and commit them to git:
+
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
+   ```
+
+8. Edit `src/experiment/index.js` to use the new file
+
+   ```js title="src/experiment/index.js"
+   // highlight-delete-next-line
+   import { buildHoneycombTimeline, honeycombOptions } from "./honeycomb";
+   import { buildTaskNameTimeline, taskNameOptions } from "./taskName";
+
+   // ...
+
+   // highlight-delete-next-line
+   export const jsPsychOptions = honeycombOptions;
+   export const jsPsychOptions = taskNameOptions;
+
+   // ...
+
+   export function buildTimeline(jsPsych, studyID, participantID) {
+     console.log(`Building timeline for participant ${participantID} on study ${studyID}`);
+
+     // highlight-delete-next-line
+     const timeline = buildHoneycombTimeline(jsPsych);
+     const timeline = buildTaskNameTimeline(jsPsych);
+     return timeline;
+   }
+   ```
+
+9. Run the format script to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+10. Save your changes and commit them to git:
+
+    ```shell title="Commit all changed files with a custom message"
+    git commit -a -m "fix: Use new task's file"
+    ```
+
+11. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
+
+### 3) Add some trials to the task
+
+1. Bring your branch up to date with the `main` branch
+
+   ```shell title="Switch to the main branch"
+   git checkout main
+   ```
+
+   ```shell title="Bring changes from GitHub into your local repository"
+   git pull
+   ```
+
+2. Create a new branch
+
+   ```shell title="Bring changes from GitHub into your local repository"
+   git checkout -b add-start-procedure
+   ```
+
+3. Add the start procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     const timeline = [startProcedure];
+     return timeline;
+   }
+
+   // ...
+   ```
+
+4. Save your changes and commit them to git:
+
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "feat: adds startProcedure to the task"
+   ```
+
+5. Edit the text for the task's name
+   ```json title="src/config/language.json"
+   {
+     "name": "taskName"
+     // ...
+   }
+   ```
+   :::tip
+   The text for the introduction trial is in `src/config/language.json` under the `trials` and `introduction` key.
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        "introduction": "Welcome to the experiment. Press any key to begin."
+        // ...
+      },
+      // ...
+    }
+   ```
+   :::
+6. Save your changes and commit them to git:
+
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "feat: Updates the language for the startProcedure of the task"
+   ```
+
+7. Add the end procedure to the `buildTaskNameTimeline` function in the file you created earlier
+
+   ```javascript title="taskName.js"
+   import { buildStartProcedure } from "./procedures/startProcedure";
+   import { buildEndProcedure } from "./procedures/endProcedure";
+
+   // ...
+
+   export function buildTaskNameTimeline(jsPsych) {
+     // Build the trials that make up the start procedure
+     const startProcedure = buildStartProcedure(jsPsych);
+
+     // Builds the trials that make up the end procedure
+     const endProcedure = buildEndProcedure(jsPsych);
+
+     const timeline = [startProcedure, endProcedure];
+     return timeline;
+   }
+   // ...
+   ```
+
+   :::tip
+   The text for the conclusion trial is in `src/config/language.json` under the `trials` and `conclusion` key.
+
+   ```json title="src/config/language.json"
+    {
+      "name": "taskName"
+      // ...
+      "trials": {
+        // ...
+        "conclusion": "Welcome to the experiment. Press any key to begin."
+      },
+    }
+   ```
+
+   :::
+
+8. Run a format to make sure the code is formatted correctly
+
+   ```shell
+   npm run format
+   ```
+
+9. Save your changes and commit them to git:
+
+   ```shell title="Commit all changed files with a custom message"
+   git commit -a -m "feat: adds endProcedure to the task"
+   ```
+
+10. Create and merge a [pull request](version_control#create-a-pull-request) to merge your changes into the `main` branch. Make sure the builds complete successfully before merging!
 
 ## Next Steps
 
-Honeycomb tasks can be configured to run as a web app in Firebase, or as desktop application via electron. The desktop application can receive port signals from EEG, cameras, foot pedals, and more.
-
-The [Firebase](firebase) page explains how to set up your task with Firebase.
-
-To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
-
-The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
+- The [Firebase](firebase) page explains how to set up your task with Firebase.
+- The [Environment Variables](environment_variables) page explains how to configure your task for deployment to multiple scenarios.
+- The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.

@@ -5,13 +5,13 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 ## Installation
 
 ```console
-yarn install
+npm run install
 ```
 
 ## Local Development
 
 ```console
-yarn start
+npm run start
 ```
 
 This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,7 +19,7 @@ This command starts a local development server and open up a browser window. Mos
 ## Build
 
 ```console
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -35,7 +35,7 @@ To edit files for the current version, update the files under the `docs` directo
 1. To add a new version, make sure that the new version content is finalized in the `docs` directory, then run:
 
     ```console
-    yarn run docusaurus docs:version <version number>
+    npm run docusaurus docs:version <version number>
     ```
 
 2. Update `versions.json` to include the new version (make sure "current" is first in the array)

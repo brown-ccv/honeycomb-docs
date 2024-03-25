@@ -24,7 +24,7 @@ Honeycomb includes workflows to build and create installers for Windows, Mac and
 Event code triggers and photodiode spots can only be used on local applications! They will not appear when Honeycomb is deployed on the web.
 :::
 
-- `pull_request.yaml`: Every time a Pull Request (PR) is created the software is built and tests are run for all platforms with `home` and `clinic` settings. This workflow does not upload desktop installers.
+- `pull_request.yaml`: Every time an Pull Request (PR) is opened the software is built and tests are run for all platforms with `home` and `clinic` settings. This workflow does not upload desktop installers.
 - `release.yml`: Every time a release is created, edited, or published installers for the Honeycomb app are created and uploaded to the release. This also builds a PsiTurk version and deploys the app to GitHub pages.
 - `workflow-package.yaml`: Create installers for any/all platforms for the `home` and/or `clinic` setting on demand. The installers/executables are uploaded as artifacts and are available for download from the GitHub Actions tab. This also builds a PsiTurk version when linux or all operating systems are selected.
 
@@ -32,7 +32,7 @@ Event code triggers and photodiode spots can only be used on local applications!
   On-demand workflows are triggered manually from the GitHub Actions tab. Each GitHub organization/individual has a quota on storage in private repositories. Uploading artifacts counts against your quota. You may consider configuring your workflows to only upload what you need. You can learn more about GitHub's storage limits in their [official documentation](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions).
   :::
 
-- `workflow-delete-artifacts.yaml`: On-demand workflow for deleting artifacts form your GitHub repository. This can be useful when the `package.yaml` workflow is run multiple times and you want to delete the artifacts from previous runs.
+- `workflow-delete-artifacts.yaml`: On demand workflow for deleting artifacts form your GitHub repository. This can be useful when the `package.yaml` workflow is run multiple times and you want to delete the artifacts from previous runs.
 
 ### Firebase
 
@@ -43,5 +43,5 @@ Event code triggers and photodiode spots can only be used on local applications!
   :::
 
 :::note
-These workflows may be safely deleted if you are not planning to ever use Firebase.
+If you are not planning on ever using Firebase these workflows may be safely deleted.
 :::

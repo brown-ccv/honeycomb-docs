@@ -24,13 +24,14 @@ module.exports = {
 
           /**
            * Here we give a specific label to the current doc version. Note the old versions:
-           *    '3.1.x': { label: '3.0.0', path: '3.0.0' },
+           *    '3.2.x': { label: "3.2.x", path: "3.2.x" }
+           *    '3.1.x': { label: '3.1.x', path: '3.1.x' },
            *    '3.0.0': { label: '3.0.0', path: '3.0.0' },
            *    '2.x': { label: '2.x', path: '2.x' },
            *    '1.1.0': { label: '1.1.0', path: '1.1.0' },
            */
           lastVersion: "current",
-          versions: { current: { label: "3.2.x", path: "" } },
+          versions: { current: { label: "3.3.x", path: "" } },
         },
         blog: false, // Disable Docusaurus blog feature
       },
@@ -64,10 +65,6 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
-          items: [{ label: "Introduction", to: "docs/" }],
-        },
-        {
           title: "Community",
           items: [
             { label: "GitHub", href: "https://github.com/brown-ccv/honeycomb" },
@@ -79,7 +76,7 @@ module.exports = {
           ],
         },
         {
-          title: "Related Publications",
+          title: "Publications",
           items: [
             {
               label:
@@ -93,6 +90,21 @@ module.exports = {
     },
     prism: {
       additionalLanguages: ["powershell", "firestore-security-rules"],
+      magicComments: [
+        // Default highlight class
+        {
+          className: "theme-code-block-highlighted-line",
+          line: "highlight-next-line",
+          block: { start: "highlight-start", end: "highlight-end" },
+        },
+        // red highlight class
+        {
+
+          className: "code-block-delete-line",
+          line: "highlight-delete-next-line",
+          block: { start: "highlight-delete-start", end: "highlight-delete-end" },
+        },
+      ],
     },
     tableOfContents: {
       minHeadingLevel: 2,
