@@ -176,7 +176,7 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
       </TabItem>
     </Tabs>
 
-2.  Copy the version number listed in `.nvmrc`. _The version may be different than the screenshot below._
+2.  Copy the version number listed in `.nvmrc`.
 
     <img
       src={nvmrc}
@@ -186,13 +186,13 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
 3.  Install that version.
 
     ```shell
-    nvm install [version]
+    nvm install <VERSION>
     ```
 
-4.  Use the needed version. This will automatically check the version listed in the `.nvmrc` file.
+4.  Use the needed version.
 
     ```shell
-    nvm use
+    nvm use <VERSION>
     ```
 
 5.  Set the current version as your default
@@ -213,10 +213,10 @@ There are many Node packages used by Honeycomb that also need to be installed. N
 npm install
 ```
 
-Certain dependencies are best installed globally with Node. These tools will be available from the command line anywhere on your system.
+Certain Node dependencies are best installed globally. These tools will be available from the command line anywhere on your system.
 
 ```shell title="Install Honeycomb's global dependencies"
-npm install -g electron firebase-tools dotenv-cli
+npm install -g electron firebase-tools dotenv-cli electron lint-staged
 ```
 
 ## Run the Task
@@ -225,7 +225,7 @@ npm install -g electron firebase-tools dotenv-cli
 npm run dev
 ```
 
-Running the task in development mode enables "hot reloading": changes to the code will immediately be reflected in the app without needing to restart the server. This is how you'll run the project while creating your task!
+Running the task in development mode enables "hot reloading": changes to the code will immediately be reflected in the app without needing to restart the server.
 
 :::tip
 The dev script runs Honeycomb on Electron without any environment variables. Check out the [NPM Scripts](npm_scripts#dev) page for more information on the available development environments.
@@ -239,11 +239,15 @@ Honeycomb ships with a modified version of the "simple reaction time task" from 
 
 Now that the project is up and running we can make our first changes to the code!
 
+:::info
+The quick start guide details a [command line](version_control#git-commands) workflow for version control. If you are unfamiliar with Git, we recommend reading the linked page before proceeding.
+:::
+
 ### 1) Edit the Project Metadata
 
 1. Create a new branch in a separate terminal
 
-   ```shell
+   ```shell title="Create the branch edit-package-json"
    git checkout -b edit-package-json
    ```
 
@@ -259,9 +263,9 @@ Now that the project is up and running we can make our first changes to the code
    ```json title="package.json"
    {
       "name": "my-task",
-      "description": "A task for the Honeycomb platform",
+      "description": "A custom task for the Honeycomb platform",
       "author": {
-        "name": "Your Lab",
+        "name": "My Lab",
         "email": "example@domain.com",
         "url": "https://lab-web-page.com"
       },
@@ -275,7 +279,7 @@ Now that the project is up and running we can make our first changes to the code
 
 3. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "edit package.json with my task's information"
    ```
 
@@ -284,26 +288,29 @@ Now that the project is up and running we can make our first changes to the code
 ### 2) Add a file for the task
 
 1. Bring your branch up to date with the `main` branch
-   ```shell
+
+   ```shell title="Switch to the main branch"
    git checkout main
    ```
-   ```shell
+
+   ```shell title="Bring changes from GitHub into your local repository"
    git pull
    ```
+
 2. Create a new branch (replace `task-name` with the name of your task)
 
-   ```shell
+   ```shell title="Check out a new branch"
    git checkout -b add-<task-name>-file
    ```
 
 3. Add a new file inside `src/experiment/` with the same name as your task
 4. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Add the new file to Git"
    git add .
    ```
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "feat: adds file for the <task name> task"
    ```
 
@@ -344,7 +351,7 @@ Now that the project is up and running we can make our first changes to the code
 
 7. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "feat: adds taskNameOptions and buildTaskNameTimeline to taskName.js"
    ```
 
@@ -381,7 +388,7 @@ Now that the project is up and running we can make our first changes to the code
 
 10. Save your changes and commit them to git:
 
-    ```shell
+    ```shell title="Commit all changed files with a custom message"
     git commit -a -m "fix: Use new task's file"
     ```
 
@@ -390,15 +397,18 @@ Now that the project is up and running we can make our first changes to the code
 ### 3) Add some trials to the task
 
 1. Bring your branch up to date with the `main` branch
-   ```shell
+
+   ```shell title="Switch to the main branch"
    git checkout main
    ```
-   ```shell
+
+   ```shell title="Bring changes from GitHub into your local repository"
    git pull
    ```
+
 2. Create a new branch
 
-   ```shell
+   ```shell title="Bring changes from GitHub into your local repository"
    git checkout -b add-start-procedure
    ```
 
@@ -422,7 +432,7 @@ Now that the project is up and running we can make our first changes to the code
 
 4. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "feat: adds startProcedure to the task"
    ```
 
@@ -449,7 +459,7 @@ Now that the project is up and running we can make our first changes to the code
    :::
 6. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "feat: Updates the language for the startProcedure of the task"
    ```
 
@@ -498,7 +508,7 @@ Now that the project is up and running we can make our first changes to the code
 
 9. Save your changes and commit them to git:
 
-   ```shell
+   ```shell title="Commit all changed files with a custom message"
    git commit -a -m "feat: adds endProcedure to the task"
    ```
 
@@ -506,8 +516,6 @@ Now that the project is up and running we can make our first changes to the code
 
 ## Next Steps
 
-The [Firebase](firebase) page explains how to set up your task with Firebase.
-
-To learn more about how to configure your task for these different scenarios, see [Environment Variables](environment_variables).
-
-The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
+- The [Firebase](firebase) page explains how to set up your task with Firebase.
+- The [Environment Variables](environment_variables) page explains how to configure your task for deployment to multiple scenarios.
+- The [NPM Scripts](npm_scripts) page lists every script you can run and which environment they use.
