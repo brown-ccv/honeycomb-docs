@@ -25,32 +25,6 @@ Pull requests are useful before you merge your branch with the main branch. You 
 
 ![git pr info](/assets/further_reading/add_reviewers.png)
 
-## Stay up-to-date with Honeycomb template repo
-
-Honeycomb is an active project, and will be updated with new features over time. To bring changes from the Honeycomb template repository to your task:
-
-1. Add Honeycomb as an additional remote as follows:
-
-   ```shell
-   git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
-   ```
-
-2. Fetch the changes made to Honeycomb
-
-   ```shell
-   git fetch --all
-   ```
-
-3. Merge the current Honeycomb repo
-
-   ```shell
-   git merge honeycomb/main --allow-unrelated histories
-   ```
-
-:::caution
-There will almost certainly be many "merge conflicts" when merging in changes from the template repository. It is tedious, but extremely import, to not accidentally overwrite your task when resolving these conflicts.
-:::
-
 ## Best Practices
 
 ### Git Branches
@@ -101,12 +75,38 @@ git commit -m "My feature is ready"
 git push origin feature_name
 ```
 
-### Alternative options
+## GUI Based Source Control
 
-#### VS Code
+### VS Code
 
 Most IDEs have some built-in tools for working with Git, and VS Code is no exception. Check out [this overview](https://code.visualstudio.com/docs/sourcecontrol/overview) of source control in VS Code!
 
-#### GitHub Desktop
+### GitHub Desktop
 
 [GitHub Desktop](https://desktop.github.com/) is a GUI application for working with Git. It is one of the programs installed as a prerequisite of Honeycomb. Check out [this overview](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop) of source control in GitHub Desktop!
+
+## Stay up-to-date with Honeycomb template repo
+
+Honeycomb is an active project, and will be updated with new features over time. To bring changes from the Honeycomb template repository to your task:
+
+1. Add Honeycomb as an additional remote as follows:
+
+   ```shell
+   git remote add honeycomb https://github.com/brown-ccv/honeycomb.git
+   ```
+
+2. Fetch the changes made to Honeycomb
+
+   ```shell
+   git fetch --all
+   ```
+
+3. Merge the current Honeycomb repo
+
+   ```shell
+   git merge honeycomb/main --allow-unrelated histories
+   ```
+
+:::caution
+There will almost certainly be many "merge conflicts" when merging in changes from the template repository. It is tedious, but extremely import, to not accidentally overwrite your task when resolving these conflicts.
+:::
