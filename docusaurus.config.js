@@ -6,7 +6,7 @@ module.exports = {
   baseUrl: "/honeycomb-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/hexagon-regular.svg",
+  favicon: "img/bee.svg",
   organizationName: "brown-ccv",
   markdown: { mermaid: true },
   themes: ["@docusaurus/theme-mermaid"],
@@ -51,7 +51,7 @@ module.exports = {
       title: "Honeycomb",
       logo: {
         alt: "Honeycomb Logo",
-        src: "img/hexagon-regular.svg",
+        src: "img/bee.svg",
       },
       items: [
         {
@@ -99,7 +99,6 @@ module.exports = {
         },
         // red highlight class
         {
-
           className: "code-block-delete-line",
           line: "highlight-delete-next-line",
           block: { start: "highlight-delete-start", end: "highlight-delete-end" },
