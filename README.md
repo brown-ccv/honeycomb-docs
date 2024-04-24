@@ -32,7 +32,7 @@ Deployment happens in GitHub Actions to GitHub Pages
 
 To edit files for the current version, update the files under the `docs` directory. To edit the files in a previous version, edit the files from `versioned_docs/<you version>`.
 
-1. To add a new version, make sure that the old version content is finalized in the `docs` directory, then run:
+1. To add a new version, make sure that the OLD version content is finalized in the `docs` directory, then run:
 
     ```console
     npm run docusaurus docs:version <old version number>
