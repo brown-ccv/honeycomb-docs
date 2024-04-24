@@ -5,7 +5,10 @@ title: Version Control
 description: "Version control basics with Git and GitHub"
 ---
 
-{/* TODO: Use path imports */}
+import gitBasics from "../assets/further_reading/git_basics.png";
+import gitBranch from "../assets/further_reading/git_branch.png";
+import createPR from "../assets/further_reading/create_pull_request.png";
+import addReviewers from "../assets/further_reading/add_reviewers.png";
 
 ## Git Overview
 
@@ -13,19 +16,30 @@ Git is a version control system that enables you to track changes to files. With
 
 Nearly all operations that are performed by Git are in your local computing environment, with the exception of a few used to synchronize with the GitHub remote host. Some of the most common git operations are depicted below.
 
-![Git basics](../assets/further_reading/git_basics.png)
+<img
+  src={gitBasics}
+  alt="Git basics"
+/>
 
 If you would like to make any changes to current repository, it is always good to start with creating a feature branch, where you can save all the changes.
 
-![Example branch](../assets/further_reading/git_branch.png)
+<img
+  src={gitBranch}
+  alt="Example branches diagram"
+/>
 
 ## Create a Pull Request
 
 Pull requests are useful before you merge your branch with the main branch. You can request a review from your colleagues and check for any conflicts with the main branch. After you pushed all the changes to your branch, you can go to the original GitHub repository and click on the pull request.
 
-![git pr](../assets/further_reading/create_pull_request.png)
-
-![git pr info](../assets/further_reading/add_reviewers.png)
+<img
+  src={createPR}
+  alt="Create a pull request"
+/>
+<img
+  src={addReviewers}
+  alt="Add reviewers to a pull request"
+/>
 
 ## Best Practices
 
