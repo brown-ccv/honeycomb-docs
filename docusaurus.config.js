@@ -31,7 +31,7 @@ module.exports = {
            *    '1.1.0': { label: '1.1.0', path: '1.1.0' },
            */
           lastVersion: "current",
-          versions: { current: { label: "3.3.x", path: "" } },
+          versions: { current: { label: "3.4.x", path: "" } },
         },
         blog: false, // Disable Docusaurus blog feature
       },
