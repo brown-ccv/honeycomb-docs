@@ -5,12 +5,16 @@ title: Quick Start
 description: Quick start guide for Honeycomb
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
-import cloneCodeButton from "/assets/clone-code-button.webp";
-import nvmrc from "/assets/nvmrc.png";
-import workflowPermissions from "/assets/workflow-permissions.png";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+
+import cloneCodeButton from "./assets/clone-code-button.webp";
+import nvmrc from "./assets/nvmrc.png";
+import template0 from "./assets/template_0.png";
+import template1 from "./assets/template_1.png";
+import workflowPermissions from "./assets/workflow-permissions.png";
+import powershellAdmin from "./assets/powershell_admin.png";
 
 ## Creating Your Task Repository
 
@@ -18,12 +22,23 @@ The Honeycomb repository is a template and serves as the starting point for all 
 
 1. Go to the [Honeycomb repository](https://github.com/brown-ccv/honeycomb)
 2. Click on `Use this template` and select `Create a new repository`.
-   ![Use this template](/assets/template_0.png)
+
+   <img
+     src={template0}
+     alt="Use this template"
+   />
+
 3. Enter the owner, name, and description of your repository and click on `Create repository from template`.
-   ![Create repository](/assets/template_1.png)
+
+   <img
+     src={template1}
+     alt="Create the repository"
+   />
+
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
    :::
+
 4. Ensure the repository's workflow permissions are set to "Read and write permissions"
 
    _`Settings -> Actions -> General -> Workflow permissions`_
@@ -100,7 +115,10 @@ See [Prerequisites](prerequisites) for more information about these programs.
 
 1. Run Powershell as an admin from the start menu
 
-   ![Powershell admin launcher](/assets/powershell_admin.png)
+   <img
+     src={powershellAdmin}
+     alt="Powershell admin launcher"
+   />
 
 2. Navigate to the root directory of your cloned repository
 3. Paste the following command and follow the prompts to install the listed programs:
