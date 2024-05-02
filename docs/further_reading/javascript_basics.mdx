@@ -12,3 +12,129 @@ The Mozilla Developer Network [Web Docs](https://developer.mozilla.org/en-US/) i
 ## Interactive Tutorials
 
 [Learn JavaScript](https://learnjavascript.online) is an excellent platform for beginning to learn the JavaScript programming language. It is full of interactive tutorials and small projects.
+
+## A note on `const`, `let`, and `var`
+
+JavaScript has a few different ways to declare variables. Unlike other typed languages (Java, C, etc), variables are not declared with an explicit type. Instead, you'll use one of three keywords: `const`, `let`, or `var`. In JavaScript, each of the keywords are *valid*, but do slightly different things.
+
+```js
+const someNumber = 10;
+let exampleString = "test";
+var testArray = [];
+```
+`const` is the most general purpose keyword for declaring variables. It declares a variable, and sets it as immutable (hence, "const" as "constant"). As a result, once a variable is declared as `const`, you won't be able to update it.
+
+```js
+const counter = 1;
+// This will fail with the following error:
+//   Uncaught TypeError: Assignment to constant variable.
+counter += 1;
+```
+
+Similarly, attempting to redeclare a variable with the same identifier in the same scope will also fail (more on scope in a little bit).
+
+```js
+const foo = 1;
+// This will fail with the following error:
+//   Uncaught SyntaxError: Identifier 'foo' has already been declared
+const foo = 2;
+```
+
+The immutability of a `const` variable is limited only to reassignment (eg, `counter = newNumber`). If you have an object or an array, you'll still be able to modify fields on that object or add elements to the array. 
+
+```js
+const foo = { bar: 1 };
+// This will work
+foo.bar += 1;
+// This will not
+foo = { bar: 2 };
+```
+
+**In JavaScript, it's considered best practice to use `const` as the default keyword.** If you need your variable to specifically be mutable, then you can use a different keyword.
+
+By contrast, `let` is used to initialized variables that *can* change.
+
+```js
+let counter = 1;
+// This will work
+counter += 1;
+```
+
+Similar to `const`, variables declared with `let` cannot be redeclared either.
+
+```js
+let counter = 1;
+// This will fail with the following error:
+//   Uncaught SyntaxError: Identifier 'counter' has already been declared
+let counter = 2;
+```
+
+While it might seem like a good idea to default to using `let` whenever you're declaring a variable, your code will probably have fewer errors if you're purposeful about what variables you make mutable, and which you don't. And often times, there are more idiomatic ways to perform some action in JavaScript than by declaring a mutable variable. For example, these are both ways to sum a list:
+
+```js
+// Using let
+let accumulator = 0;
+for (const value of arrayOfNumbers) {
+    accumulator += value;
+}
+const averageWithLet = accumulator / arrayOfNumbers.length;
+// Using Reduce
+const averageWithReduce = arrayOfNumbers.reduce((accumulator, value) => accumulator + value, 0) / arrayOfNumbers.length;
+```
+
+Lastly, `var` is the traditional keyword to declare variables in JavaScript. But, certain niche behaviors of `var` means that it's best not to use unless you specifically want to leverage these behaviors. 
+
+`var` works very similarly to `let` in that the declared variable can be mutated in some way.
+
+```js
+var foo = 1;
+// This works
+foo = 2;
+```
+
+But additionally, you can redeclare a variable with `var`, resetting the prior value:
+
+```js
+var foo = 1;
+// ...
+var foo = 2;
+console.log(foo); // Prints "2", not "1", with no errors.
+```
+
+Additionally, where `const` and `let` are block scoped, `var` is globally scoped or function scoped. Here, "scoped" refers to where a declared variable is accessible from. For example, if you declare a variable inside a function, you shouldn't expect it to be accessible outside that function. 
+
+```js
+const foo = 1;
+function bar() {
+    // `foo` is *accessible* from inside the function `bar`
+    console.log(foo);
+}
+```
+
+```js
+function bar() {
+    const foo = 1;
+}
+// `foo` is *inaccessible* from outside the function `bar`
+console.log(foo);
+```
+
+The reason that `foo` is or isn't accessible in certain contexts are defined by the variable's scoping rules. `const` and `let` are block scoped, where a "block" is any code contained within a set of curly braces (like a function, loop, or `if` statement). Block can also be nested (like functions that contain loops, or nested `if` statements). When a variable is block scoped, it's then available in its current block *or* any nested child block. 
+
+By contrast, `var`s are "hoisted" to the top most function or global scope. So even if you declare it in a way that would normally limit it to being scoped down to a certain section of code, it will unexpectedly move around and be accessible in multiple places. Combine this with the strange re-declaration behavior described above and you'll run into some truly strange bugs. For example:
+
+```js
+var foo = 1;
+/* Somewhere else in your top level code base... */
+if (doSomeComputation() > 500) {
+    var foo = 2;
+}
+// Unclear what will be printed.
+console.log(foo);
+```
+
+This may seem rather contrived, but in a world of bundlers and linked files, it's easier than you'd expect to run into errors. As such, it's generally not recommended to ever use `var` when you're declaring a variable unless you're doing so with those quirks in mind.
+
+### tl:dr;
+
+When it comes to `const`, `let`, and `var`, you should really never use `var` if you can avoid it. Default to using `const`, and then only if you need your variable specifically to be mutable, use `let`.
