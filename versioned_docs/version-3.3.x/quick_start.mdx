@@ -10,6 +10,7 @@ import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 
 import cloneCodeButton from "./assets/clone-code-button.webp";
+import nvmrc from "./assets/nvmrc.png";
 import template0 from "./assets/template_0.png";
 import template1 from "./assets/template_1.png";
 import workflowPermissions from "./assets/workflow-permissions.png";
@@ -126,6 +127,8 @@ See [Prerequisites](prerequisites) for more information about these programs.
    ./winget.ps1
    ```
 
+4. The "Visual Studio Installer" will open a GUI during installation. Make sure "Desktop Development with C++" is checked before continuing.
+
 </TabItem>
 <TabItem
   value='mac'
@@ -192,6 +195,12 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
     </Tabs>
 
 2.  Copy the version number listed in `.nvmrc`.
+
+    <img
+      src={nvmrc}
+      alt=".nvmrc file"
+    />
+
 3.  Install that version.
 
     ```shell

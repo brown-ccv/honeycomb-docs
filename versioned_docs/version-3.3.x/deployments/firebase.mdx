@@ -5,6 +5,7 @@ title: Firebase
 description: Guide for connecting Honeycomb to a Firebase project
 ---
 
+import firebaseActions from "../assets/firebase/firebase-actions.png";
 import firebaseConsoleSettings from "../assets/firebase/firebase-console-settings.png";
 import firebaseWebCredentials from "../assets/firebase/firebase-web-credentials.png";
 import firestoreCreateStudy from "../assets/firebase/firestore-create-study.png";
@@ -83,12 +84,12 @@ _A `command not found` error usually indicates firebase-tools has not been insta
 
       ```shell title="env/.env.firebase"
       REACT_APP_FIREBASE="true"
-      REACT_APP_API_KEY=
-      REACT_APP_AUTH_DOMAIN=
-      REACT_APP_PROJECT_ID=
-      REACT_APP_STORAGE_BUCKET=
-      REACT_APP_MESSAGING_SENDER_ID=
-      REACT_APP_APP_ID=
+      REACT_APP_apiKey=
+      REACT_APP_authDomain=
+      REACT_APP_projectId=
+      REACT_APP_storageBucket=
+      REACT_APP_messagingSenderId=
+      REACT_APP_appId=
       ```
 
       _Additional variables may be present in the console, they do not need to be copied._
@@ -132,16 +133,18 @@ firebase init hosting:github
 1. The window should log you in automatically; if not, follow the prompts to log in with the same account you used in the console
 2. `<username>/<repository name>` refers to the name of your repository in Github - be sure it's typed correctly!
 3. Enter `y` for the prompt "Set up the workflow to run a build script before every deploy?"
-4. Enter `npm ci && npm run build:firebase` for the prompt "What script should be run before every deploy?"
+4. Enter `npm install && npm run build:firebase` for the prompt "What script should be run before every deploy?"
 5. Enter `y` to overwrite the current workflow file
 6. Enter `y` for the prompt "Set up automatic deployment to your site's live channel when a PR is merged?"
 7. Enter `main` for the prompt "What is the name of the GitHub branch associated with your site's live channel?"
 8. Enter `y` to overwrite the current workflow file
 
-:::info
-Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml` inside the `.github/workflows/` directory. Please ensure the "run" step is `npm ci && npm run build:firebase` in both files!
-:::
+Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml` inside the `.github/workflows/` directory. Ensure the correct run script is present in both files.
 
+<img
+  src={firebaseActions}
+  alt="Github actions created by firebase"
+/>
 
 ## Managing Data
 
