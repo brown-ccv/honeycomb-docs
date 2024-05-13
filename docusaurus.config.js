@@ -11,6 +11,7 @@ module.exports = {
   markdown: { mermaid: true },
   themes: ["@docusaurus/theme-mermaid"],
   projectName: "honeycomb-docs",
+  plugins: [require.resolve("docusaurus-lunr-search")],
   presets: [
     [
       "@docusaurus/preset-classic",
