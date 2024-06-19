@@ -1,50 +1,51 @@
-import React from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import React from "react";
+import clsx from "clsx";
+import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import TableOfContents from "@site/table_of_content.mdx";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 const features = [
   {
-    title: 'Modular and Configurable',
-    imageUrl: 'img/undraw_Content_creator_re_pt5b.svg',
+    title: "Modular and Configurable",
+    imageUrl: "img/undraw_Content_creator_re_pt5b.svg",
     description: (
       <>
-        Honeycomb was designed to be modular, composable, easily configured to deploy to Linux, Mac,
-
-        Windows, Browsers, PsiTurk, and more
-
+        Honeycomb was designed to be modular, composable, easily configured to
+        deploy to Linux, Mac, Windows, Browsers, PsiTurk, and more
       </>
     ),
   },
   {
-    title: 'Packed with automation',
-    imageUrl: 'img/undraw_User_flow_re_bvfx.svg',
+    title: "Packed with automation",
+    imageUrl: "img/undraw_User_flow_re_bvfx.svg",
     description: (
-      <>Honeycomb includes GitHub Actions that build the executables/deployments for you.</>
+      <>
+        Honeycomb includes GitHub Actions that build the executables/deployments
+        for you.
+      </>
     ),
   },
   {
-    title: 'Based on trusted and mature libraries',
-    imageUrl: 'img/undraw_Code_review_re_woeb.svg',
-    description: <>Honeycomb relies on mature libraries such as JSPsych, React and Electron</>,
+    title: "Based on trusted and mature libraries",
+    imageUrl: "img/undraw_Code_review_re_woeb.svg",
+    description: (
+      <>
+        Honeycomb relies on mature libraries such as JSPsych, React and Electron
+      </>
+    ),
   },
 ];
 
 function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={clsx('col col--4', styles.feature)}>
+    <div className={clsx("col col--4", styles.feature)}>
       {imgUrl && (
-        <div className='text--center'>
-          <img
-            className={styles.featureImage}
-            src={imgUrl}
-            alt={title}
-          />
+        <div className="text--center">
+          <img className={styles.featureImage} src={imgUrl} alt={title} />
         </div>
       )}
       <h3>{title}</h3>
@@ -59,35 +60,25 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description='Description will go into a meta tag in <head />'
+      description="Description will go into a meta tag in <head />"
     >
-      <header className={clsx('hero', styles.heroBanner)}>
-        <div className='container'>
-          <h1 className='hero__title'>{siteConfig.title}</h1>
-          <p className='hero__subtitle'>{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted
-              )}
-              to={useBaseUrl('/docs')}
-            >
-              Read the Docs
-            </Link>
-          </div>
+      <header className={clsx("hero", styles.heroBanner)}>
+        <div className="container">
+          <h1 className="hero__title">{siteConfig.title}</h1>
+          <p className="hero__subtitle">{siteConfig.tagline}</p>
+        </div>
+        <div className={styles.TOC}>
+          <TableOfContents />
         </div>
       </header>
+
       <main>
         {features && features.length > 0 && (
           <section className={styles.features}>
-            <div className='container'>
-              <div className='row'>
+            <div className="container">
+              <div className="row">
                 {features.map((props, idx) => (
-                  <Feature
-                    key={idx}
-                    {...props}
-                  />
+                  <Feature key={idx} {...props} />
                 ))}
               </div>
             </div>

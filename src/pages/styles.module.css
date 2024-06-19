@@ -10,6 +10,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 966px) {
@@ -34,4 +36,37 @@
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+/**
+* For table of content items 
+*/
+.TOC {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  margin: 1.5vh 0;
+  padding: 0;
+}
+
+.TOC > ul {
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TOC > ul > li {
+  margin-bottom: 1.5vh;
+  font-size: large;
+}
+
+.TOC > ul > li > ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: smaller;
 }
