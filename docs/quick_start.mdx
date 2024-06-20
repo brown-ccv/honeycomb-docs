@@ -22,17 +22,11 @@ The Honeycomb repository is a template and serves as the starting point for all 
 1. Go to the [Honeycomb repository](https://github.com/brown-ccv/honeycomb)
 2. Click on `Use this template` and select `Create a new repository`.
 
-   <img
-     src={template0}
-     alt="Use this template"
-   />
+   <img src={template0} alt="Use this template" />
 
 3. Enter the owner, name, and description of your repository and click on `Create repository from template`.
 
-   <img
-     src={template1}
-     alt="Create the repository"
-   />
+   <img src={template1} alt="Create the repository" />
 
    :::note
    We recommend creating a public repository and leaving `Include all branches` unchecked
@@ -42,10 +36,7 @@ The Honeycomb repository is a template and serves as the starting point for all 
 
    _`Settings -> Actions -> General -> Workflow permissions`_
 
-   <img
-     src={workflowPermissions}
-     alt="GitHub workflow permissions settings"
-   />
+   <img src={workflowPermissions} alt="GitHub workflow permissions settings" />
 
 _Additional details about template repositories can be found on the [Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)._
 
@@ -56,10 +47,7 @@ With the repository now setup it can be cloned onto your computer.
 1.  Navigate to the repository on [GitHub](https://github.com).
 2.  Click the `Code` button and copy the URL
 
-    <img
-      src={cloneCodeButton}
-      alt="GitHub clone repo button"
-    />
+    <img src={cloneCodeButton} alt="GitHub clone repo button" />
 
 3.  Open a terminal and navigate to where you want the cloned directory
 
@@ -120,10 +108,7 @@ See [Prerequisites](prerequisites) for more information about these programs.
 
 1. Run Powershell as an admin from the start menu
 
-   <img
-     src={powershellAdmin}
-     alt="Powershell admin launcher"
-   />
+   <img src={powershellAdmin} alt="Powershell admin launcher" />
 
 2. Navigate to the root directory of your cloned repository
 3. Paste the following command and follow the prompts to install the listed programs:
@@ -171,28 +156,22 @@ NVM (Node Version Manager) is a tool for installing and using multiple versions 
 
 1.  Install NVM
 
-    <Tabs
-      groupId="os"
-      queryString
-      defaultValue="mac"
-    >
-      <TabItem
-        value="win"
-        label="Windows"
-      >
+    <Tabs groupId="os" queryString defaultValue="mac">
+      <TabItem value="win" label="Windows">
         <em>
           The previous step installs{" "}
-          <a href="https://github.com/coreybutler/nvm-windows">NVM for Windows</a> via the winget
-          package manager. Note that this is a different tool than NVM with slight differences
-          needed for compatibility with Windows.
+          <a href="https://github.com/coreybutler/nvm-windows">
+            NVM for Windows
+          </a>{" "}
+          via the winget package manager. Note that this is a different tool
+          than NVM with slight differences needed for compatibility with
+          Windows.
         </em>
       </TabItem>
-      <TabItem
-        value="mac"
-        label="macOS"
-      >
+      <TabItem value="mac" label="macOS">
         <CodeBlock language="sh">
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+          curl -o-
+          https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
         </CodeBlock>
       </TabItem>
     </Tabs>
@@ -231,7 +210,7 @@ npm install
 Certain Node dependencies are best installed globally. These tools will be available from the command line anywhere on your system.
 
 ```shell title="Install Honeycomb's global dependencies"
-npm install -g electron firebase-tools dotenv-cli electron lint-staged
+npm install -g electron firebase-tools dotenv-cli lint-staged
 ```
 
 ## Run the Task
@@ -386,7 +365,9 @@ The quick start guide details a [command line](version_control#git-commands) wor
    // ...
 
    export function buildTimeline(jsPsych, studyID, participantID) {
-     console.log(`Building timeline for participant ${participantID} on study ${studyID}`);
+     console.log(
+       `Building timeline for participant ${participantID} on study ${studyID}`
+     );
 
      // highlight-delete-next-line
      const timeline = buildHoneycombTimeline(jsPsych);
