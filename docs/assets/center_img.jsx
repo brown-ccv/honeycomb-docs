@@ -6,7 +6,7 @@ import React from "react";
  * @param {*} props :
  *  src: image source
  *  alt: image alternative text
- *  imgStyle: object, any image styles (props can be passed in as: `imgStyle={{ maxHeight: "600px", border: "solid" }}`)
+ *  imgStyle: object, any image styles
  * @returns a component for uniformally centering images in the doc
  */
 
