@@ -21,3 +21,6 @@
 # Misc
 .DS_Store
 .vscode
+
+# Firebase
+./firebase
