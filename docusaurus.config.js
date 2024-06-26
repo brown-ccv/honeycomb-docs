@@ -3,7 +3,7 @@ module.exports = {
   tagline:
     "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use.",
   url: "https://brown-ccv.github.io",
-  baseUrl: "/honeycomb-docs/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/bee.svg",
@@ -103,7 +103,10 @@ module.exports = {
         {
           className: "code-block-delete-line",
           line: "highlight-delete-next-line",
-          block: { start: "highlight-delete-start", end: "highlight-delete-end" },
+          block: {
+            start: "highlight-delete-start",
+            end: "highlight-delete-end",
+          },
         },
       ],
     },

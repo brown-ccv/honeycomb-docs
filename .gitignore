@@ -7,6 +7,8 @@
 # Generated files
 .docusaurus
 .cache-loader
+.cache
+.firebase
 
 # ENV
 .env.local
@@ -21,3 +23,6 @@
 # Misc
 .DS_Store
 .vscode
+
+# Firebase
+./firebase
