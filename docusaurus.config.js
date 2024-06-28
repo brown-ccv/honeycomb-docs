@@ -2,7 +2,7 @@ module.exports = {
   title: "Honeycomb",
   tagline:
     "A template for reproducible psychophysiological tasks for clinic, laboratory, and home use.",
-  url: "https://brown-ccv.github.io",
+  url: "https://honeycomb.ccv.brown.edu",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -19,8 +19,6 @@ module.exports = {
         theme: { customCss: require.resolve("./src/css/custom.css") },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          //   TODO: Invalid link? This should just be deleted?
-          editUrl: "https://github.com/brown-ccv/honeycomb-docs/edit/main/",
           showLastUpdateTime: true,
 
           /**
