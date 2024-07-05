@@ -1,5 +1,5 @@
 {
-  "version-2.x/someSidebar": [
+  "someSidebar": [
     {
       "collapsed": true,
       "type": "category",
@@ -7,11 +7,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-2.x/intro"
+          "id": "intro"
         },
         {
           "type": "doc",
-          "id": "version-2.x/folders"
+          "id": "folders"
         }
       ]
     },
@@ -22,39 +22,39 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-2.x/quick_start"
+          "id": "quick_start"
         },
         {
           "type": "doc",
-          "id": "version-2.x/version_control"
+          "id": "version_control"
         },
         {
           "type": "doc",
-          "id": "version-2.x/firebase"
+          "id": "firebase"
         },
         {
           "type": "doc",
-          "id": "version-2.x/ci"
+          "id": "ci"
         },
         {
           "type": "doc",
-          "id": "version-2.x/configuration"
+          "id": "configuration"
         },
         {
           "type": "doc",
-          "id": "version-2.x/event_triggers"
+          "id": "event_triggers"
         },
         {
           "type": "doc",
-          "id": "version-2.x/online_integration"
+          "id": "online_integration"
         },
         {
           "type": "doc",
-          "id": "version-2.x/troubleshooting"
+          "id": "troubleshooting"
         },
         {
           "type": "doc",
-          "id": "version-2.x/npm_scripts"
+          "id": "npm_scripts"
         }
       ]
     }
