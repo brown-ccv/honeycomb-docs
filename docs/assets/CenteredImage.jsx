@@ -9,8 +9,7 @@ import React from "react";
  *  imgStyle: object, any image styles (props can be passed in as: `imgStyle={{ maxHeight: "600px", border: "solid" }}`)
  * @returns a component for uniformally centering images in the doc
  */
-
-export default function CenterImg(props) {
+export default function CenteredImage(props) {
   let imgStyleString;
   if (props.imgStyle != undefined && Object.keys(props.imgStyle).length === 0) {
     imgStyleString = {};
