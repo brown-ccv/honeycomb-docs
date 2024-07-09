@@ -6,23 +6,13 @@ import React from "react";
  * @param {*} props :
  *  src: image source
  *  alt: image alternative text
- *  imgStyle: object, any image styles (props can be passed in as: `imgStyle={{ maxHeight: "600px", border: "solid" }}`)
+ *  delegated: any other props (i.e. style for the image)
  * @returns a component for uniformally centering images in the doc
  */
 export default function CenteredImage({ src, alt, ...delegated }) {
-  let imgStyleString;
-  if (
-    delegated.imgStyle != undefined &&
-    Object.keys(delegated.imgStyle).length === 0
-  ) {
-    imgStyleString = {};
-  } else {
-    imgStyleString = delegated.imgStyle;
-  }
-
   return (
     <div style={{ textAlign: "center" }}>
-      <img src={src} alt={alt} style={imgStyleString} />
+      <img src={src} alt={alt} {...delegated} />
     </div>
   );
 }
