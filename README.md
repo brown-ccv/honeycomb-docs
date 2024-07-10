@@ -26,7 +26,7 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-Deployment happens in GitHub Actions to GitHub Pages
+Deployment happens through Firebase Hosting. Take a look at the github workflows
 
 ## Versioning
 
