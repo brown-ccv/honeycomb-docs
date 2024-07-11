@@ -18,7 +18,7 @@ In addition, Honeycomb relies on Electron to package the cross-platform desktop 
 
 ### Brew
 
-All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.md/#installing-prerequisites-with-homebrew-for-macos) for more information.
+All of the required dependencies for honeycomb on MacOS can be installed via the brewfile. See the [quick start](quick_start.md#installing-prerequisites-with-homebrew-for-macos) for more information.
 
 ### Manual Installation (MacOS)
 
@@ -59,7 +59,7 @@ Running `choco install chocolatey.config` is the equivalent of calling `choco in
 
 ### Python on Windows (pyenv)
 
-Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing python on your system, which is a rule for most things in software development (this is what [npm](quick_start.md/#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using python again.** We promise the extra setup today will pay great dividends in the future!
+Installing and managing Python on Windows is a notoriously difficult task even for advanced developers. It is best practice to have exactly 1 tool for managing python on your system, which is a rule for most things in software development (this is what [npm](quick_start.md#3-install-npm-packages) does for node packages). **We highly recommend uninstalling Python and using pyenv even if you never anticipate using python again.** We promise the extra setup today will pay great dividends in the future!
 
 First and foremost, turn off both Python App Installers in the "App Execution Aliases" settings. **Please complete this step even if you already have a Python manager**
 
