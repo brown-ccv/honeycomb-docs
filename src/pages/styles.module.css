@@ -48,7 +48,7 @@
   justify-self: center;
   margin: 1.5vh 0;
   padding: 0;
-  
+
   > ul {
     display: inline-block;
     text-align: center;
@@ -70,4 +70,3 @@
     }
   }
 }
-
