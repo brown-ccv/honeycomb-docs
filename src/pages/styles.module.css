@@ -49,26 +49,25 @@
   margin: 1.5vh 0;
   padding: 0;
   
-  ul {
+  > ul {
     display: inline-block;
     text-align: center;
     list-style: none;
     padding: 0;
     margin: 0;
+
+    > li {
+      margin-bottom: 1.5vh;
+      font-size: large;
+
+      > ul {
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: smaller;
+      }
+    }
   }
-  
-  /* ... The other nesting */
 }
 
-.TOC > ul > li {
-  margin-bottom: 1.5vh;
-  font-size: large;
-}
-
-.TOC > ul > li > ul {
-  text-align: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: smaller;
-}
