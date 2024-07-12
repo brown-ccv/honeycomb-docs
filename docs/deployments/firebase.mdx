@@ -9,6 +9,7 @@ import firebaseConsoleSettings from "../assets/firebase/firebase-console-setting
 import firebaseWebCredentials from "../assets/firebase/firebase-web-credentials.png";
 import firestoreCreateStudy from "../assets/firebase/firestore-create-study.png";
 import firestoreExampleStudy from "../assets/firebase/firestore-example-study.png";
+import CenteredImage from "@site/components/CenteredImage";
 
 Honeycomb comes with methods and configurations to deploy tasks with [Firebase](https://firebase.google.com/). These tools make it possible to reach a wider audience by hosting your task online.
 
@@ -67,14 +68,14 @@ _A `command not found` error usually indicates firebase-tools has not been insta
    1. Return to your project on the [Firebase console](https://console.firebase.google.com/)
    2. Navigate to your project setting
 
-      <img
+      <CenteredImage
         src={firebaseConsoleSettings}
         alt="Firebase project settings"
       />
 
    3. Scroll down and copy the auto-generated values from the Firebase console to the corresponding variables in the `.env.firebase` file in the `env` folder of your Honeycomb task repo
 
-      <img
+      <CenteredImage
         src={firebaseWebCredentials}
         alt="Firebase web credentials"
       />
@@ -142,7 +143,6 @@ firebase init hosting:github
 Firebase will update the files `firebase-hosting-pull-request.yml` and `firebase-hosting-merge.yml` inside the `.github/workflows/` directory. Please ensure the "run" step is `npm ci && npm run build:firebase` in both files!
 :::
 
-
 ## Managing Data
 
 Honeycomb ships with a CLI script for managing data in Firebase. A local service account must be created in order to use it.
@@ -152,7 +152,7 @@ Honeycomb ships with a CLI script for managing data in Firebase. A local service
 Service accounts are accounts that are not attached to a human user. They authorize access to a Firebase project without someone physically logging in online. We use a service account to give the download script access to the Firestore database automatically.
 
 1. Return to the project settings your project on the [Firebase console](https://console.firebase.google.com/)
-   <img
+   <CenteredImage
      src={firebaseConsoleSettings}
      alt="Firebase project settings"
    />
@@ -253,20 +253,14 @@ Firestore rules define every valid path for data in your project. Attempting to 
 5. Click "Add Field".
 6. Enter `registered_participants` as the field name, and set the type "array"
 7. Add the id of each study participant to the array as type "string"
-
-   <div style={{ textAlign: "center" }}>
-     <img
-       src={firestoreCreateStudy}
-       alt="Create a study"
-       style={{ maxHeight: "600px" }}
-     />
-   </div>
+   <CenteredImage
+     src={firestoreCreateStudy}
+     alt="Create a study"
+     style={{ maxHeight: "600px" }}
+   />
 
 The study should look like this when you're finished:
 
-<img
-  src={firestoreExampleStudy}
-  alt="Example study"
-/>
+<CenteredImage src={firestoreExampleStudy} alt="Example study" />
 
 **Additional studies are created as documents inside the `registered_studies` collection**

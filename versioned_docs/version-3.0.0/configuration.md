@@ -5,7 +5,7 @@ title: Configuration
 
 ## Environment Variables
 
-Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the environment variables used by the app and indicate their properties via badges and text. Optional variables are labeled with the ![optional](https://img.shields.io/badge/-optional-yellow) badge and mandatory variables are labeled with the ![default <default-value>](https://img.shields.io/badge/default-<defaultvalue>-yellow) badge with their default value specified. The ![buildtime](https://img.shields.io/badge/-buildtime-blue) badge indicates the variable is used during the build/compilation phase (`npm build`) while the ![runtime](https://img.shields.io/badge/-runtime-purple) badge indicates the variable is used during the executable run (`npm run dev`).
+Honeycomb uses environment variables during **build** and **run** time to control the different configurations. Below we list the environment variables used by the app and indicate their properties via badges and text. Optional variables are labeled with the ![optional](https://img.shields.io/badge/-optional-yellow) badge and mandatory variables are labeled with the ![default `<default-value>`](https://img.shields.io/badge/default-<defaultvalue>-yellow) badge with their default value specified. The ![buildtime](https://img.shields.io/badge/-buildtime-blue) badge indicates the variable is used during the build/compilation phase (`npm build`) while the ![runtime](https://img.shields.io/badge/-runtime-purple) badge indicates the variable is used during the executable run (`npm run dev`).
 
 ### Dev Mode Only
 
@@ -13,8 +13,8 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 
 ### Desktop Only
 
-- `EVENT_MARKER_PRODUCT_ID`![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The product ID of the event marker (e.g. `0487`).  If not set, it will use the `productID` set in `public/config/trigger.js` if available, or attempt to connect using the com name.
-- `EVENT_MARKER_COM_NAME` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The com name of the event marker (e.g. `COM3`). If not set, it will use the `comName` set in `public/config/trigger.js`.  If the `productID` is set (not an empty string), this field will be ignored.
+- `EVENT_MARKER_PRODUCT_ID`![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The product ID of the event marker (e.g. `0487`). If not set, it will use the `productID` set in `public/config/trigger.js` if available, or attempt to connect using the com name.
+- `EVENT_MARKER_COM_NAME` ![string](https://img.shields.io/badge/-string-grey)![optional](https://img.shields.io/badge/-optional-yellow)![runtime](https://img.shields.io/badge/-runtime-purple): The com name of the event marker (e.g. `COM3`). If not set, it will use the `comName` set in `public/config/trigger.js`. If the `productID` is set (not an empty string), this field will be ignored.
 - `REACT_APP_VIDEO`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the participant is being video recorded. This can be used when the task is running as a desktop app (electron).
 - `REACT_APP_USE_EEG`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the event marker/EEG is available. This can be used when the task is running as a desktop app (electron).
 - `REACT_APP_USE_PHOTODIODE`![boolean](https://img.shields.io/badge/-boolean-lightgrey)![default false](https://img.shields.io/badge/default-false-yellow)![buildtime](https://img.shields.io/badge/-buildtime-blue): whether the photodiode is in use. This can be used when the task is running as a desktop app (electron).
@@ -31,7 +31,7 @@ Honeycomb uses environment variables during **build** and **run** time to contro
 
 - ![build time](https://img.shields.io/badge/-buildtime-blue): Build-time environment variable are configured before the application is built and cannot be changed at run-time. They are configured via `.env` files before building. Instead of using a single `.env` file, we prefer to defined separate files under the `env/` directory, and use a package called `dotenv-cli` before building`.
 
-The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a  script to `package.json` with the following format:
+The `dotenv-cli` comes with the `dotenv` command that can be used to properly load the needed variables. This command does not run directly from the command line (terminal). Instead, to set build-time environment variables, we need to add a script to `package.json` with the following format:
 
 ```json
 "[build|dev]:<script name>": "dotenv -e env/<your env file> npm run [build|dev]"
@@ -39,22 +39,22 @@ The `dotenv-cli` comes with the `dotenv` command that can be used to properly lo
 
 Honeycomb includes so scripts for common scenarios. For instance, you can run:
 
-``` console
+```console
 npm run dev:home
 ```
 
-``` console
+```console
 npm run dev:home:video
 ```
 
-``` console
+```console
 npm run dev:clinic
 ```
 
-``` console
+```console
 npm run dev:clinic:video
 ```
 
-``` console
+```console
 npm run dev:firebase
 ```
