@@ -1,0 +1,62 @@
+/**
+* For table of content items 
+*/
+/* .TOC {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  margin: 1.5vh 0;
+  padding: 0;
+
+  ul {
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 1.5vh;
+      font-size: large;
+
+      ul {
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: smaller;
+      }
+    }
+  }
+} */
+
+.TOC {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  margin: 1.5vh 0;
+  padding: 0;
+}
+
+.TOC > ul {
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TOC > ul > li {
+  margin-bottom: 1.5vh;
+  font-size: large;
+}
+
+.TOC > ul > li > ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: smaller;
+}

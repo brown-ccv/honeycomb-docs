@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import TableOfContents from "@site/table_of_content.mdx";
+import TableOfContents from "../../components/TableOfContents.jsx";
 
 import styles from "./styles.module.css";
 
@@ -67,9 +67,8 @@ function Home() {
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
         </div>
-        <div className={styles.TOC}>
-          <TableOfContents />
-        </div>
+
+        <TableOfContents />
       </header>
 
       <main>
