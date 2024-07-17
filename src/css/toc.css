@@ -1,36 +1,6 @@
 /**
-* For table of content items 
+* For table of contents items 
 */
-.TOC {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  margin: 1.5vh 0;
-  padding: 0;
-
-  > ul {
-    display: inline-block;
-    text-align: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    > li {
-      margin-bottom: 1.5vh;
-      font-size: large;
-
-      > ul {
-        text-align: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: smaller;
-      }
-    }
-  }
-}
-/* 
 .TOC {
   display: flex;
   flex-direction: column;
@@ -59,4 +29,4 @@
   padding: 0;
   margin: 0;
   font-size: smaller;
-} */
+}
