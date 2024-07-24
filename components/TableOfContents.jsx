@@ -81,7 +81,7 @@ export default function TableOfContents() {
           </ul>
         </li>
         <li>
-          <a href="../docs/troubleshooting">Trouble Shooting</a>
+          <a href="../docs/troubleshooting">Troubleshooting</a>
         </li>
       </ul>
     </div>
