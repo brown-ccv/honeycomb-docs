@@ -1,0 +1,48 @@
+/**
+* For table of contents items 
+*/
+.TOC-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.TOC-content {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-self: center;
+  margin: 1.5vh 0;
+  gap: 5.5vw;
+  padding: 0;
+}
+
+.TOC-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  margin: 1.5vh 0;
+  padding: 0;
+}
+
+.TOC-col > ul {
+  display: inline-block;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TOC-col > ul > li {
+  margin-bottom: 1.5vh;
+  font-size: large;
+}
+
+.TOC-col > ul > li > ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: smaller;
+}
