@@ -1,0 +1,16 @@
+---
+id: jspsych
+slug: /jspsych
+title: JSPsych
+description: "Understanding concepts in JSPsych"
+---
+
+## Assembling Trials: Functions vs. Objects
+
+When working with Honeycomb to create experiments, users often have questions regarding the distinction between trials exported directly as Trial objects and those encapsulated within functions that output Trial objects.
+
+In the `honeycombTrials.js` file, you'll find that some trials are exported as objects while others are enclosed within functions. During experiment execution, certain downstream trials may require access to data collected in previous trials.
+
+Trials relying on the global `jsPsych` object to store timeline data or retrieve aggregated results from prior trials need to dynamically ingest this information during the experiment. Consequently, the `buildTrial` functions serve the purpose of assembling trials with data from the jsPsych object collected during the experiment.
+
+For further information about the `jsPsych` global object, refer to the [jsPsych documentation](https://www.jspsych.org/7.3/reference/jspsych/).
