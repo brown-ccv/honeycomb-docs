@@ -6,7 +6,7 @@ title: Quick Start
 To start a new task locally, in development mode follow these steps:
 
 
-### 1. Start your new task from our template repository
+## 1. Start your new task from our template repository
 
 The simplest way to get started is creating a new repository using Honeycomb as a template.
 
@@ -24,16 +24,16 @@ You can now move into the directory that was just created
 cd your-new-task-name
 ```
 
-### 2. Change name and description
+## 2. Change name and description
 
 Update the `package.json` fields to reflect your app name and description, e.g. `name`, `author`, `repository`
 
-### 3. Install the dependencies. 
+## 3. Install the dependencies. 
 
 **Electron Dependencies**
 Honeycomb relies on Electron to package the cross-platform desktop applications. Before starting, you will need to install Electron's pre-requisites below. You can find the full instructions on the [electron documentation](https://www.electronjs.org/docs/development/build-instructions-gn) for your specific OS.
 
-#### Windows
+### Windows
 
 - Visual Studio:
 Install the latest version of [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the Desktop Development for C++ Workflow. 
@@ -45,9 +45,13 @@ Install [Node.js](https://nodejs.org/en/download/)
 - Git bash (Git 2.20.0 or later with support for "--show-current"):
 Install [git bash](https://git-scm.com/downloads)
 
-##### Note: restart computer after all installs are complete
+:::warning
 
-#### MacOS
+Restart computer after all installs are complete
+
+:::
+
+### MacOS
 - Command Line Tools: Type in the terminal
 ```
 xcode-select --install
