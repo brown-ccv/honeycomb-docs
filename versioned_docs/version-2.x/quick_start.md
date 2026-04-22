@@ -49,6 +49,8 @@ Install [git bash](https://git-scm.com/downloads)
 
 Restart computer after all installs are complete
 
+:::
+
 ### MacOS
 - Command Line Tools: Type in the terminal
 ```

@@ -22,3 +22,5 @@ Install git bash: https://git-scm.com/downloads
 :::warning
 
 Restart computer after all installs are complete
+
+:::
