@@ -44,7 +44,9 @@ Note: Packaging for windows on a non-windows machine requires `mono` and `wine` 
 
 ## `npm run eject`
 
-> :warning: Note: this is a one-way operation. Once you `eject`, you can’t go back!
+:::warning
+
+Note: this is a one-way operation. Once you `eject`, you can’t go back!
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 

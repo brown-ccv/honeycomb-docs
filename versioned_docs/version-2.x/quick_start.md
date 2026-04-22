@@ -45,7 +45,9 @@ Install [Node.js](https://nodejs.org/en/download/)
 - Git bash (Git 2.20.0 or later with support for "--show-current"):
 Install [git bash](https://git-scm.com/downloads)
 
-> :warning: restart computer after all installs are complete
+:::warning
+
+Restart computer after all installs are complete
 
 ### MacOS
 - Command Line Tools: Type in the terminal

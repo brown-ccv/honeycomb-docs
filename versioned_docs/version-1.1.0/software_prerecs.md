@@ -19,4 +19,6 @@ Install Node.js: https://nodejs.org/en/download/
 ### Git bash
 Install git bash: https://git-scm.com/downloads
 
-> :warning: Note: restart computer after all installs are complete
+:::warning
+
+Restart computer after all installs are complete
