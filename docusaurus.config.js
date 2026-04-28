@@ -74,7 +74,6 @@ module.exports = {
               label: "Discussions Board",
               href: "https://github.com/brown-ccv/honeycomb/discussions",
             },
-            { label: "Beehive", href: "https://beehive.ccv.brown.edu/" },
           ],
         },
         {
